@@ -1,0 +1,38 @@
+.icon {
+	font-style: normal;
+}
+
+.icon::before {
+	font-size: inherit;
+	color: inherit;
+}
+
+.icon--artstation::before {
+	font: var(--fa-font-brands);
+	content: '\f77a';
+}
+
+.icon--instagram::before {
+	font: var(--fa-font-brands);
+	content: '\f16d';
+}
+
+.icon--tumblr::before {
+	font: var(--fa-font-brands);
+	content: '\f173';
+}
+
+.icon--patreon::before {
+	font: var(--fa-font-brands);
+	content: '\f3d9';
+}
+
+.icon--shop::before {
+	font: var(--fa-font-solid);
+	content: '\f290';
+}
+
+.icon--email::before {
+	font: var(--fa-font-solid);
+	content: '\40';
+}

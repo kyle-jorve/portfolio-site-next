@@ -1,0 +1,90 @@
+.loader {
+	position: fixed;
+	inset: 0;
+	z-index: 1000;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	background: var(--light-color);
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: forwards;
+}
+
+.loader__track,
+.loader__bar {
+	display: block;
+}
+
+.loader__track {
+	position: relative;
+	width: 100%;
+	max-width: 300px;
+	height: var(--border-width);
+	border-radius: var(--border-width);
+	overflow: hidden;
+	opacity: 0;
+	transition: opacity var(--transition);
+	transition-delay: 1s;
+}
+
+.loader__bar {
+	position: absolute;
+	inset: 0;
+	background: var(--dark-color);
+	animation: growAndShrink 2s ease-in-out 0s normal infinite;
+}
+
+/*----- active/inactive loader -----*/
+
+.loader--slide-in {
+	pointer-events: none;
+	animation-name: slideIn;
+}
+
+.loader--slide-in .loader__track {
+	opacity: 1;
+}
+
+.loader--slide-out {
+	pointer-events: none;
+	animation-name: slideOut;
+}
+
+/*----- animations -----*/
+
+@keyframes growAndShrink {
+	from {
+		transform: translateX(-100%);
+	}
+	to {
+		transform: translateX(100%);
+	}
+}
+
+@keyframes slideIn {
+	from {
+		transform: scaleY(0);
+		transform-origin: center top;
+	}
+	to {
+		transform: none;
+		transform-origin: center top;
+	}
+}
+
+@keyframes slideOut {
+	from {
+		transform: none;
+		transform-origin: center bottom;
+	}
+	to {
+		transform: scaleY(0);
+		transform-origin: center bottom;
+	}
+}
+
+@media (min-width: 64em) {
+	.loader {
+		display: flex;
+	}
+}

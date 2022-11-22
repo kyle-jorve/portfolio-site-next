@@ -1,0 +1,40 @@
+.header {
+	position: fixed;
+	inset: 0 0 auto 0;
+	z-index: 100;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1rem;
+	padding: 0.5rem 1rem;
+	pointer-events: none;
+}
+
+.header :is(a, button, [onclick]) {
+	pointer-events: all;
+}
+
+.header__logo-cont {
+	display: block;
+	flex-shrink: 0;
+	background: none;
+	text-decoration: none;
+}
+
+.header__logo {
+	width: var(--logo-width);
+}
+
+@media (min-width: 64em) {
+	.header {
+		padding: 1rem 2rem;
+		transition: opacity var(--transition);
+		transition-delay: calc(var(--transition-dur) * 4);
+	}
+
+	.header--home.header--hidden {
+		opacity: 0;
+		pointer-events: none;
+		transition-delay: 0s;
+	}
+}

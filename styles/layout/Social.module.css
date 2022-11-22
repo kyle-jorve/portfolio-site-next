@@ -1,0 +1,72 @@
+.social {
+	--icon-bg: var(--light-color);
+	--icon-color: var(--accent-color);
+	--icon-hover-bg: var(--accent);
+	--icon-hover-color: var(--light-color);
+	--icon-width: 35px;
+}
+
+.social,
+.social__row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+}
+
+.social--header {
+	display: grid;
+	gap: 1rem;
+	padding: 2rem 0;
+}
+
+.social__row--standard {
+	--icon-bg: transparent;
+	--icon-color: var(--light-color);
+	--icon-hover-bg: var(--light-color);
+	--icon-hover-color: var(--accent-color);
+}
+
+.social__item {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	width: var(--icon-width);
+	height: var(--icon-width);
+	border-radius: 50%;
+	background-color: var(--icon-bg);
+	font-size: 17.6px;
+	color: var(--icon-color);
+	text-decoration: none;
+	transition: background-color var(--transition), color var(--transition);
+}
+
+.social--header .social__item {
+	border: var(--border-width) solid var(--light-color);
+}
+
+.social__item svg {
+	width: 17.6px;
+	fill: var(--icon-color);
+	transition: fill var(--transition);
+}
+
+@media (hover: hover) {
+	.social__item:hover {
+		--icon-color: var(--icon-hover-color);
+
+		background-color: var(--icon-hover-bg);
+	}
+}
+
+@media (min-width: 40em) {
+	.social {
+		--icon-width: 44px;
+	}
+
+	.social__item {
+		font-size: 22px;
+	}
+}
