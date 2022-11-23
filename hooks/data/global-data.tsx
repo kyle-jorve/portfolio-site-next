@@ -12,7 +12,7 @@ export type SocialIconsType = {
     commerce: SocialIconType[];
 };
 
-function useGlobalData() {
+export default function useGlobalData() {
     return {
         get email() {
             return "kyle@kylejorve.com";
@@ -98,5 +98,3 @@ function useGlobalData() {
         },
     };
 }
-
-export default useGlobalData;

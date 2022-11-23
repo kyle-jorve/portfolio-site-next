@@ -12,7 +12,7 @@ type SocialIconProps = {
 } & SocialIconType &
     React.PropsWithChildren;
 
-function SocialIcon(props: SocialIconProps) {
+export default function SocialIcon(props: SocialIconProps) {
     const iconClass = props.name;
     const classes = [props.className, styles["social__item"], !props.icon && `icon icon--${iconClass}`].filter(
         (c) => c,
@@ -33,5 +33,3 @@ function SocialIcon(props: SocialIconProps) {
         </a>
     );
 }
-
-export default SocialIcon;

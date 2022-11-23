@@ -1,79 +1,71 @@
-/*=============================*/
-/*=====----- GENERAL -----=====*/
-/*=============================*/
-
-:root {
-	--nav-button-width: 70px;
-}
-
 /*================================*/
 /*=====----- NAV BUTTON -----=====*/
 /*================================*/
 
 .nav__button {
-	position: relative;
-	z-index: 2;
-	transform: translateY(-8px);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: var(--nav-button-width);
-	height: var(--nav-button-width);
-	flex-shrink: 0;
-	border-radius: 50%;
-	background-color: var(--accent-color);
-	box-shadow: var(--soft-shadow);
-	cursor: pointer;
-	transition: background-color var(--transition);
+    position: relative;
+    z-index: 2;
+    transform: translateY(-8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--nav-button-width);
+    height: var(--nav-button-width);
+    flex-shrink: 0;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    box-shadow: var(--soft-shadow);
+    cursor: pointer;
+    transition: background-color var(--transition);
 }
 
 .nav__button-blocks {
-	display: grid;
-	grid-template: auto / repeat(3, 5px);
-	justify-content: space-between;
-	align-content: space-between;
-	width: 42%;
-	height: 42%;
+    display: grid;
+    grid-template: auto / repeat(3, 5px);
+    justify-content: space-between;
+    align-content: space-between;
+    width: 42%;
+    height: 42%;
 }
 
 .nav__button-block {
-	display: block;
-	width: 5px;
-	height: 5px;
-	border-radius: 50%;
-	background-color: var(--light-color);
-	transition: background-color var(--transition);
+    display: block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: var(--light-color);
+    transition: background-color var(--transition);
 }
 
 .nav__button-block--disapparate {
-	opacity: 1;
-	transition: opacity var(--transition), background-color var(--transition);
+    opacity: 1;
+    transition: opacity var(--transition), background-color var(--transition);
 }
 
 /*----- active nav button -----*/
 
 .nav__button--active {
-	background-color: var(--light-color);
+    background-color: var(--light-color);
 }
 
 .nav__button--active:focus {
-	outline-color: var(--light-color);
+    outline-color: var(--light-color);
 }
 
 .nav__button--active .nav__button-block {
-	background-color: var(--accent-color);
+    background-color: var(--accent-color);
 }
 
 .nav__button--active .nav__button-block--disapparate {
-	opacity: 0;
+    opacity: 0;
 }
 
 /*----- media queries -----*/
 
 @media (min-width: 40em) {
-	.nav__button {
-		transform: none;
-	}
+    .nav__button {
+        transform: none;
+    }
 }
 
 /*=====================================*/
@@ -81,134 +73,134 @@
 /*=====================================*/
 
 .nav {
-	position: fixed;
-	inset: 0;
-	z-index: 98;
-	max-height: 100vh;
-	overflow-x: hidden;
-	overflow-y: auto;
-	overscroll-behavior: contain;
-	padding: 6rem 1rem 2rem;
-	background: linear-gradient(to bottom, var(--red), var(--violet));
-	color: var(--light-color);
-	opacity: 0;
-	pointer-events: none;
-	transition: opacity var(--transition);
+    position: fixed;
+    inset: 0;
+    z-index: 98;
+    max-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 6rem 1rem 2rem;
+    background: linear-gradient(to bottom, var(--red), var(--violet));
+    color: var(--light-color);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition);
 }
 
 .nav__inner {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 1rem;
-	margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
 }
 
 .nav__a {
-	position: relative;
-	display: block;
-	padding: 0.5rem 1rem;
-	font-size: var(--text-lg);
-	font-weight: var(--font-weight-extrabold);
-	text-transform: uppercase;
-	text-decoration: none;
-	text-align: center;
-	letter-spacing: 0.3em;
-	line-height: 1.35;
-	color: #fabbbe;
-	transition: color var(--transition);
+    position: relative;
+    display: block;
+    padding: 0.5rem 1rem;
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-extrabold);
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: 0.3em;
+    line-height: 1.35;
+    color: #fabbbe;
+    transition: color var(--transition);
 }
 
 .nav__a::after {
-	position: absolute;
-	left: 50%;
-	bottom: -2px;
-	transform: translate(-50%, 8px);
-	display: block;
-	width: 5px;
-	height: 5px;
-	border-radius: 50%;
-	background: var(--light-color);
-	content: '';
-	opacity: 0;
-	transition: transform var(--transition), opacity var(--transition);
+    position: absolute;
+    left: 50%;
+    bottom: -2px;
+    transform: translate(-50%, 8px);
+    display: block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--light-color);
+    content: "";
+    opacity: 0;
+    transition: transform var(--transition), opacity var(--transition);
 }
 
 .nav__a--current {
-	opacity: 1;
-	pointer-events: none;
-	color: inherit;
+    opacity: 1;
+    pointer-events: none;
+    color: inherit;
 }
 
 .nav__a--current::after {
-	transform: translateX(-50%);
-	opacity: 1;
+    transform: translateX(-50%);
+    opacity: 1;
 }
 
 /*----- active nav -----*/
 
 .nav--active {
-	opacity: 1;
-	pointer-events: all;
+    opacity: 1;
+    pointer-events: all;
 }
 
 /*----- media queries -----*/
 
 @media (hover: hover) {
-	.nav__a:hover {
-		background: none;
-		color: inherit;
-	}
+    .nav__a:hover {
+        background: none;
+        color: inherit;
+    }
 
-	.nav__a:hover::after {
-		transform: translateX(-50%);
-		opacity: 1;
-	}
+    .nav__a:hover::after {
+        transform: translateX(-50%);
+        opacity: 1;
+    }
 }
 
 @media (min-width: 40em) {
-	.nav {
-		padding-top: 8em;
-	}
+    .nav {
+        padding-top: 8em;
+    }
 }
 
 @media (min-width: 64em) {
-	.nav {
-		padding: 8em 2em 2em;
-	}
+    .nav {
+        padding: 8em 2em 2em;
+    }
 
-	.nav__a {
-		transform: translateY(2rem);
-		opacity: 0;
-		pointer-events: none;
-		transition: opacity var(--transition), transform var(--transition), color var(--transition);
-	}
+    .nav__a {
+        transform: translateY(2rem);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity var(--transition), transform var(--transition), color var(--transition);
+    }
 
-	.nav .social__item--nav {
-		transform: translateX(2rem);
-		opacity: 0;
-		pointer-events: none;
-		transition: transform var(--transition), opacity var(--transition),
-			background-color var(--transition), color var(--transition);
-	}
+    .nav .social__item--nav {
+        transform: translateX(2rem);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform var(--transition), opacity var(--transition), background-color var(--transition),
+            color var(--transition);
+    }
 
-	/*----- nav revealed -----*/
+    /*----- nav revealed -----*/
 
-	:where(.nav--active, .nav--revealed) .nav__a {
-		transform: none;
-		opacity: 1;
-		pointer-events: all;
-	}
+    :where(.nav--active, .nav--revealed) .nav__a {
+        transform: none;
+        opacity: 1;
+        pointer-events: all;
+    }
 
-	:where(.nav--active, .nav--revealed) .nav__a--current {
-		pointer-events: none;
-	}
+    :where(.nav--active, .nav--revealed) .nav__a--current {
+        pointer-events: none;
+    }
 
-	.nav:where(.nav--active, .nav--revealed) .social__item--nav {
-		transform: none;
-		opacity: 1;
-		pointer-events: all;
-	}
+    .nav:where(.nav--active, .nav--revealed) .social__item--nav {
+        transform: none;
+        opacity: 1;
+        pointer-events: all;
+    }
 }
 
 /*=======================================*/
@@ -216,108 +208,108 @@
 /*=======================================*/
 
 .mobile-nav {
-	position: fixed;
-	inset: auto 0 0 0;
-	z-index: 99;
-	display: grid;
-	grid-template: auto / repeat(3, minmax(0, 1fr)) var(--nav-button-width);
-	gap: 1rem;
-	padding: 0 0.5rem 0.5rem 1rem;
-	color: var(--light-color);
-	transition: background-color var(--transition), box-shadow var(--transition);
+    position: fixed;
+    inset: auto 0 0 0;
+    z-index: 99;
+    display: grid;
+    grid-template: auto / repeat(3, minmax(0, 1fr)) var(--nav-button-width);
+    gap: 1rem;
+    padding: 0 0.5rem 0.5rem 1rem;
+    color: var(--light-color);
+    transition: background-color var(--transition), box-shadow var(--transition);
 }
 
 .mobile-nav::before {
-	position: absolute;
-	inset: 0 1rem 0.5rem;
-	z-index: 1;
-	background-color: var(--red-dark);
-	box-shadow: 0 -6px 12px rgba(19, 21, 22, 0.25);
-	border-radius: var(--border-radius);
-	content: '';
-	opacity: 1;
-	pointer-events: none;
-	transition: opacity var(--transition);
+    position: absolute;
+    inset: 0 1rem 0.5rem;
+    z-index: 1;
+    background-color: var(--red-dark);
+    box-shadow: 0 -6px 12px rgba(19, 21, 22, 0.25);
+    border-radius: var(--border-radius);
+    content: "";
+    opacity: 1;
+    pointer-events: none;
+    transition: opacity var(--transition);
 }
 
 .mobile-nav__item {
-	position: relative;
-	z-index: 2;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	gap: 0.35rem;
-	flex: 1 0 auto;
-	padding: 0.5rem 0 0.25rem;
-	text-align: center;
-	transition: opacity var(--transition);
-	color: inherit;
-	text-decoration: none;
-	opacity: 1;
-	transition: opacity var(--transition);
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.35rem;
+    flex: 1 0 auto;
+    padding: 0.5rem 0 0.25rem;
+    text-align: center;
+    transition: opacity var(--transition);
+    color: inherit;
+    text-decoration: none;
+    opacity: 1;
+    transition: opacity var(--transition);
 }
 
 .mobile-nav__item::before,
 .mobile-nav__item::after {
-	display: block;
+    display: block;
 }
 
 .mobile-nav__item::before {
-	font: var(--fa-font-solid);
-	font-size: 28px;
+    font: var(--fa-font-solid);
+    font-size: 28px;
 }
 
 .mobile-nav__item--gallery::before {
-	content: '\f009';
+    content: "\f009";
 }
 
 .mobile-nav__item--cv::before {
-	content: '\f508';
+    content: "\f508";
 }
 
 .mobile-nav__item--shop::before {
-	content: '\f290';
+    content: "\f290";
 }
 
 .mobile-nav__item::after {
-	position: absolute;
-	inset: 0 1rem auto 1rem;
-	height: 0.35rem;
-	border-radius: 0 0 0.35rem 0.35rem;
-	background: var(--light-color);
-	content: '';
-	opacity: 0;
-	pointer-events: none;
-	transition: opacity var(--transition);
+    position: absolute;
+    inset: 0 1rem auto 1rem;
+    height: 0.35rem;
+    border-radius: 0 0 0.35rem 0.35rem;
+    background: var(--light-color);
+    content: "";
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition);
 }
 
 .mobile-nav__item.nav__a--current::after {
-	transform: none;
-	opacity: 1;
+    transform: none;
+    opacity: 1;
 }
 
 .mobile-nav__label {
-	display: block;
-	font-weight: var(--font-weight-extrabold);
-	font-size: 7px;
-	text-transform: uppercase;
-	letter-spacing: 0.3em;
-	line-height: 1.35;
+    display: block;
+    font-weight: var(--font-weight-extrabold);
+    font-size: 7px;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    line-height: 1.35;
 }
 
 /*----- active nav -----*/
 
 .mobile-nav--hide {
-	background-color: transparent;
-	box-shadow: none;
+    background-color: transparent;
+    box-shadow: none;
 }
 
 .mobile-nav--hide .mobile-nav__item {
-	opacity: 0;
-	pointer-events: none;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .mobile-nav--hide::before {
-	opacity: 0;
+    opacity: 0;
 }

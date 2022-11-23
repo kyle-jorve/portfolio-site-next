@@ -1,12 +1,10 @@
 import { useContext } from "react";
-// import { Link, useNavigate } from 'react-router-dom';
 import Link from "next/link";
 import { useRouter } from "next/router";
 import SiteContext from "../../../context/global";
 import styles from "../../../styles/layout/Header.module.css";
 
-function Logo() {
-    // const navigate = useNavigate();
+export default function Logo() {
     const router = useRouter();
     const siteContext = useContext(SiteContext);
 
@@ -17,7 +15,7 @@ function Logo() {
             siteContext.toggleLoader();
 
             setTimeout(() => {
-                // navigate("/");
+                router.push("/");
 
                 siteContext.closeNav();
 
@@ -39,5 +37,3 @@ function Logo() {
         </Link>
     );
 }
-
-export default Logo;

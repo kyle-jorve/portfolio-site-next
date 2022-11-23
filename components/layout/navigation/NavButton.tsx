@@ -2,7 +2,7 @@ import { useContext } from "react";
 import SiteContext from "../../../context/global";
 import styles from "../../../styles/layout/Nav.module.css";
 
-function NavButton() {
+export default function NavButton() {
     const siteContext = useContext(SiteContext);
     const classes = [styles["nav__button"], siteContext.navOpen && styles["nav__button--active"]].filter((c) => c);
 
@@ -31,5 +31,3 @@ function NavButton() {
         </button>
     );
 }
-
-export default NavButton;

@@ -9,7 +9,7 @@ type MediaShowcaseProps = {
     item: GalleryItemType;
 };
 
-function MediaShowcase(props: MediaShowcaseProps) {
+export default function MediaShowcase(props: MediaShowcaseProps) {
     const context = useContext(SiteContext);
     const item = props.item;
     const slidesLength = item.detailKeys?.length;
@@ -106,5 +106,3 @@ function MediaShowcase(props: MediaShowcaseProps) {
         </div>
     );
 }
-
-export default MediaShowcase;

@@ -1,4 +1,4 @@
-function GumroadIcon() {
+export default function GumroadIcon() {
     return (
         <svg version="1.1" x="0px" y="0px" viewBox="0 0 17.4 17.2">
             <path
@@ -8,5 +8,3 @@ function GumroadIcon() {
         </svg>
     );
 }
-
-export default GumroadIcon;

@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import CustomLink from "../layout/CustomLink";
 import SiteContext from "../../context/global";
-import styles from "../../styles/components/CV.module.css";
 import { HomeBioType } from "../../hooks/data/home-data";
+import styles from "../../styles/components/CV.module.css";
 
 type HomeBioProps = {
     url: string;
@@ -10,7 +10,7 @@ type HomeBioProps = {
     content: JSX.Element;
 } & HomeBioType;
 
-function HomeBio(props: HomeBioProps) {
+export default function HomeBio(props: HomeBioProps) {
     const siteContext = useContext(SiteContext);
     const squareImg = props.img.square;
     const imgConfig = {
@@ -77,5 +77,3 @@ function HomeBio(props: HomeBioProps) {
         </section>
     );
 }
-
-export default HomeBio;

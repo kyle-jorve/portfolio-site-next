@@ -11,7 +11,7 @@ type ShowcaseSlideProps = {
     onLoad?: Function;
 };
 
-function ShowcaseSlide(props: ShowcaseSlideProps) {
+export default function ShowcaseSlide(props: ShowcaseSlideProps) {
     const slideClasses = [
         styles["showcase__slide"],
         props.index === props.activeIndex
@@ -44,5 +44,3 @@ function ShowcaseSlide(props: ShowcaseSlideProps) {
         </div>
     );
 }
-
-export default ShowcaseSlide;

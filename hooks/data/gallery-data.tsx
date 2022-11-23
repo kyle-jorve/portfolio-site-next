@@ -22,7 +22,7 @@ export type GalleryItemType = {
     detailKeys?: DetailKeyType[];
 };
 
-function useGalleryData() {
+export default function useGalleryData() {
     return {
         get title() {
             return "Gallery";
@@ -1125,5 +1125,3 @@ function useGalleryData() {
         },
     };
 }
-
-export default useGalleryData;

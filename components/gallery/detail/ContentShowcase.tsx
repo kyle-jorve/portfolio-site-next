@@ -6,7 +6,7 @@ type ContentShowcaseProps = {
     item: GalleryItemType;
 } & React.PropsWithChildren;
 
-function ContentShowcase(props: ContentShowcaseProps) {
+export default function ContentShowcase(props: ContentShowcaseProps) {
     return (
         <div className={styles["showcase__content-cont"]}>
             <div className={`${styles["showcase__content"]} wrapper wrapper--content`}>
@@ -45,5 +45,3 @@ function ContentShowcase(props: ContentShowcaseProps) {
         </div>
     );
 }
-
-export default ContentShowcase;

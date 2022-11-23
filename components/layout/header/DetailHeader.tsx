@@ -3,7 +3,7 @@ import SiteContext from "../../../context/global";
 import Logo from "./Logo";
 import styles from "../../../styles/layout/Header.module.css";
 
-function DetailHeader() {
+export default function DetailHeader() {
     const siteContext = useContext(SiteContext);
 
     return (
@@ -18,5 +18,3 @@ function DetailHeader() {
         </header>
     );
 }
-
-export default DetailHeader;

@@ -35,7 +35,7 @@ function truncateTitle(title: string) {
     return truncTitle;
 }
 
-function Neighbor(props: NeighborProps) {
+export default function Neighbor(props: NeighborProps) {
     const context = useContext(SiteContext);
     const thumb = useThumbnailConfig({
         isDetail: true,
@@ -87,5 +87,3 @@ function Neighbor(props: NeighborProps) {
         </article>
     );
 }
-
-export default Neighbor;

@@ -1,6 +1,6 @@
 import styles from "../../../styles/layout/Footer.module.css";
 
-function Copyright() {
+export default function Copyright() {
     return (
         <section className={styles["footer__copyright"]}>
             <div className="wrapper wrapper--content">
@@ -13,5 +13,3 @@ function Copyright() {
         </section>
     );
 }
-
-export default Copyright;

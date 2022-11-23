@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-// import { useLocation } from "react-router-dom";
 import { useRouter } from "next/router";
 import SiteContext from "../../../context/global";
 import useGlobalData from "../../../hooks/data/global-data";
@@ -19,7 +18,7 @@ let timeout: {
     gallery: null,
 };
 
-function MainNavigation() {
+export default function MainNavigation() {
     const globalData = useGlobalData();
     const galleryData = useGalleryData();
     const [socialIconsAnimationDone, setSocialIconsAnimationDone] = useState(false);
@@ -27,8 +26,7 @@ function MainNavigation() {
     const navItems = globalData.nav;
     const recentWork = galleryData.items.slice(0, globalData.recentWorkLimit);
     const router = useRouter();
-    // const location = useLocation();
-    const page = globalData.nav.find((p) => p.url === location.pathname);
+    const page = globalData.nav.find((p) => p.url === router.pathname);
     const siteContext = useContext(SiteContext);
     const totalDelay = {
         icons:
@@ -168,5 +166,3 @@ function MainNavigation() {
         </nav>
     );
 }
-
-export default MainNavigation;

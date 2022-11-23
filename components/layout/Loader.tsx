@@ -2,7 +2,7 @@ import { useContext } from "react";
 import SiteContext from "../../context/global";
 import styles from "../../styles/layout/Loader.module.css";
 
-function Loader() {
+export default function Loader() {
     const siteContext = useContext(SiteContext);
     const classes = [
         styles.loader,
@@ -27,5 +27,3 @@ function Loader() {
         </div>
     );
 }
-
-export default Loader;

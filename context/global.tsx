@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useRouter } from "next/router";
-// import { useNavigate, useMatch } from "react-router-dom";
 import useGlobalData from "../hooks/data/global-data";
 
 type SiteContextType = {
@@ -28,9 +27,8 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
     const navButtonRef = useRef<HTMLButtonElement>();
     const globalData = useGlobalData();
     const router = useRouter();
-    // const navigate = useNavigate();
     const pages = globalData.nav;
-    // const detailPageMatch = !!useMatch("/gallery/:itemID");
+    const detailPageMatch = router.query.itemID !== undefined;
 
     //----- global site context -----//
     const [visited, setVisited] = useState(false);
@@ -141,7 +139,7 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
 
         setTimeout(() => {
             if (!fromPage) {
-                navigate("/");
+                router.push("/");
 
                 return;
             }
@@ -150,7 +148,7 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
 
             if (!page) return;
 
-            navigate(page.url);
+            router.push(page.url);
         }, timeout);
     }
 

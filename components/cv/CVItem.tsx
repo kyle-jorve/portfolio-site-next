@@ -7,7 +7,7 @@ type CVItemProps = {
     showHR: boolean;
 };
 
-function CVItem(props: CVItemProps) {
+export default function CVItem(props: CVItemProps) {
     return (
         <Fragment>
             <div>
@@ -19,5 +19,3 @@ function CVItem(props: CVItemProps) {
         </Fragment>
     );
 }
-
-export default CVItem;

@@ -6,7 +6,7 @@ type NeighborsProps = {
     item: GalleryItemType;
 };
 
-function Neighbors(props: NeighborsProps) {
+export default function Neighbors(props: NeighborsProps) {
     const galleryData = useGalleryData();
     const itemIndex = galleryData.items.findIndex((item) => item.name === props.item.name);
     const neighbors: {
@@ -36,5 +36,3 @@ function Neighbors(props: NeighborsProps) {
         </div>
     );
 }
-
-export default Neighbors;

@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import SiteContext from "../../context/global";
 
@@ -11,13 +12,13 @@ type CustomLinkProps = {
     };
 } & React.PropsWithChildren;
 
-function CustomLink(props: CustomLinkProps) {
+export default function CustomLink(props: CustomLinkProps) {
     const onClick = props.onClick || (() => {});
-    // const navigate = useNavigate();
+    const router = useRouter();
     const siteContext = useContext(SiteContext);
 
     function linkClickHandler(event: React.MouseEvent) {
-        // const isDetailRoute = matchPath("/gallery/:itemID", props.to);
+        const isDetailRoute = props.to.includes("/gallery/") && props.to.length > 9;
 
         if (!siteContext.desktop) {
             onClick(event);
@@ -31,11 +32,11 @@ function CustomLink(props: CustomLinkProps) {
 
         siteContext.toggleLoader();
 
-        // setTimeout(() => {
-        //     navigate(props.to);
+        setTimeout(() => {
+            router.push(props.to);
 
-        //     siteContext.toggleLoader(false, !!isDetailRoute);
-        // }, siteContext.longTransitionDuration);
+            siteContext.toggleLoader(false, !!isDetailRoute);
+        }, siteContext.longTransitionDuration);
     }
 
     return (
@@ -44,5 +45,3 @@ function CustomLink(props: CustomLinkProps) {
         </Link>
     );
 }
-
-export default CustomLink;

@@ -18,7 +18,7 @@ type GalleryItemProps = GalleryItemType & {
     };
 };
 
-function GalleryItem(props: GalleryItemProps) {
+export default function GalleryItem(props: GalleryItemProps) {
     const siteContext = useContext(SiteContext);
     const mediaConfig = useThumbnailConfig({
         isNew: props.isNew,
@@ -79,5 +79,3 @@ function GalleryItem(props: GalleryItemProps) {
         </article>
     );
 }
-
-export default GalleryItem;

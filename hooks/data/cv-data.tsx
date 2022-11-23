@@ -19,7 +19,7 @@ export type ResumeType = {
     }[];
 };
 
-function useCVData() {
+export default function useCVData() {
     return {
         get heroImg(): HeroImgType {
             return {
@@ -388,5 +388,3 @@ function useCVData() {
         },
     };
 }
-
-export default useCVData;

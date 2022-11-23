@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-// import { NavLink, useNavigate } from 'react-router-dom';
 import Link from "next/link";
 import { useRouter } from "next/router";
 import SiteContext from "../../../context/global";
@@ -23,9 +22,9 @@ type NavItemProps = {
 
 let timeout: ReturnType<typeof setTimeout>;
 
-function NavItem(props: NavItemProps) {
-    // const navigate = useNavigate();
+export default function NavItem(props: NavItemProps) {
     const router = useRouter();
+    const isCurrent = props.url === router.pathname;
     const [navItemsAnimationDone, setNavItemsAnimationDone] = useState(false);
     const siteContext = useContext(SiteContext);
     const onClick = props.onClick || (() => {});
@@ -49,7 +48,7 @@ function NavItem(props: NavItemProps) {
         siteContext.toggleLoader();
 
         setTimeout(() => {
-            // navigate(props.url);
+            router.push(props.url);
 
             onClick(event);
 
@@ -89,13 +88,7 @@ function NavItem(props: NavItemProps) {
         <Link
             onClick={navLinkClickHandler}
             href={props.url}
-            // className={(navData) => {
-            //     if (navData.isActive) {
-            //         classes.push(styles["nav__a--current"]);
-            //     }
-
-            //     return classes.join(" ");
-            // }}
+            className={isCurrent ? [...classes, styles["nav__a--current"]].join(" ") : classes.join(" ")}
             style={{
                 transitionDelay:
                     props.isMainNav && !navItemsAnimationDone && siteContext.desktop
@@ -108,5 +101,3 @@ function NavItem(props: NavItemProps) {
         </Link>
     );
 }
-
-export default NavItem;

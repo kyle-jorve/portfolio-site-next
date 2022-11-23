@@ -8,7 +8,7 @@ type ResumeProps = {
     resume: ResumeType;
 };
 
-function Resume(props: ResumeProps) {
+export default function Resume(props: ResumeProps) {
     const siteContext = useContext(SiteContext);
     const resume = props.resume.docUrl;
 
@@ -44,5 +44,3 @@ function Resume(props: ResumeProps) {
         </section>
     );
 }
-
-export default Resume;

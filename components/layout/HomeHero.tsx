@@ -1,13 +1,12 @@
 import { useContext } from "react";
 import SiteContext from "../../context/global";
-import logo from "../../assets/icons-logos/logo-circle.svg";
 import styles from "../../styles/layout/Hero.module.css";
 
 type HomeHeroProps = {
     imageKey: string;
 };
 
-function HomeHero(props: HomeHeroProps) {
+export default function HomeHero(props: HomeHeroProps) {
     const siteContext = useContext(SiteContext);
     const bgConfig = {
         sources: [
@@ -47,7 +46,13 @@ function HomeHero(props: HomeHeroProps) {
 
     return (
         <section className={classes.join(" ")}>
-            <img className={styles["hero__logo"]} src={logo} alt="" loading="eager" aria-hidden="true" />
+            <img
+                className={styles["hero__logo"]}
+                src="/icons-logos/logo-circle.svg"
+                alt=""
+                loading="eager"
+                aria-hidden="true"
+            />
 
             <h1 className={styles["hero__title"]}>
                 <span className={styles["hero__title-1"]}>Kyle Jorve</span>
@@ -100,5 +105,3 @@ function HomeHero(props: HomeHeroProps) {
         </section>
     );
 }
-
-export default HomeHero;

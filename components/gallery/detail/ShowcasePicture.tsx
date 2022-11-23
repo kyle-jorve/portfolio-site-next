@@ -8,7 +8,7 @@ type ShowcasePictureProps = {
     onLoad?: Function;
 };
 
-function ShowcasePicture(props: ShowcasePictureProps) {
+export default function ShowcasePicture(props: ShowcasePictureProps) {
     const config = useDetailImageConfig(props.path ? props.path : false);
     const imgSrc = config ? config.mobile.url : undefined;
 
@@ -42,5 +42,3 @@ function ShowcasePicture(props: ShowcasePictureProps) {
         </picture>
     );
 }
-
-export default ShowcasePicture;

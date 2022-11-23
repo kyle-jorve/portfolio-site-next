@@ -9,7 +9,7 @@ type FooterIconsProps = {
     socialIcons: SocialIconsType;
 };
 
-function FooterIcons(props: FooterIconsProps) {
+export default function FooterIcons(props: FooterIconsProps) {
     const siteContext = useContext(SiteContext);
     const iconsLength = props.socialIcons.standard.length + props.socialIcons.commerce.length;
     let ratio = [1, 1];
@@ -63,5 +63,3 @@ function FooterIcons(props: FooterIconsProps) {
         </section>
     );
 }
-
-export default FooterIcons;

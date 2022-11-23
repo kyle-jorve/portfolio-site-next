@@ -16,15 +16,14 @@ const ioOptions = {
 };
 let io: IntersectionObserver;
 
-function FeaturedWork(props: FeaturedWorkProps) {
+export default function FeaturedWork(props: FeaturedWorkProps) {
     const siteContext = useContext(SiteContext);
     const sectionRef = useRef<HTMLElement>(null!);
     const globalData = useGlobalData();
-    // const location = useLocation();
     const router = useRouter();
     const [intersected, setIntersected] = useState(false);
     const [animationDone, setAnimationDone] = useState(false);
-    const page = globalData.nav.find((p) => p.url === location.pathname);
+    const page = globalData.nav.find((p) => p.url === router.pathname);
     const id = "featured-work";
     const totalDelay = (props.featuredItems.length - 1) * siteContext.transitionDelay + siteContext.transitionDuration;
 
@@ -99,5 +98,3 @@ function FeaturedWork(props: FeaturedWorkProps) {
         </section>
     );
 }
-
-export default FeaturedWork;

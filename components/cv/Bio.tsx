@@ -6,7 +6,7 @@ type BioProps = {
     bio: BioType;
 };
 
-function Bio(props: BioProps) {
+export default function Bio(props: BioProps) {
     return (
         <div className={styles.bio}>
             <div className={styles["bio__hero"]} aria-hidden="true">
@@ -40,5 +40,3 @@ function Bio(props: BioProps) {
         </div>
     );
 }
-
-export default Bio;
