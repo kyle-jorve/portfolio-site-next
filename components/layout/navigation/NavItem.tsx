@@ -28,11 +28,12 @@ export default function NavItem(props: NavItemProps) {
     const [navItemsAnimationDone, setNavItemsAnimationDone] = useState(false);
     const siteContext = useContext(SiteContext);
     const onClick = props.onClick || (() => {});
-    const url = new URL(
-        props.url.includes("http") ? props.url : `${window.location.protocol}//${window.location.host}${props.url}`,
-    );
-    const curHost = window.location.host;
-    const externalLink = curHost !== url.host;
+    console.log(router);
+    // const url = new URL(
+    //     props.url.includes("http") ? props.url : `${window.location.protocol}//${window.location.host}${props.url}`,
+    // );
+    // const curHost = window.location.host;
+    // const externalLink = curHost !== url.host;
     const totalDelay = props.totalDelay;
     let classes = [!props.isMobile && styles["nav__a"], props.className].filter((c) => c);
 
@@ -70,7 +71,8 @@ export default function NavItem(props: NavItemProps) {
         };
     }, [siteContext.navOpen, totalDelay]);
 
-    return externalLink ? (
+    return (
+        /*externalLink ? (
         <a
             href={props.url}
             target="_blank"
@@ -84,7 +86,7 @@ export default function NavItem(props: NavItemProps) {
         >
             {props.children}
         </a>
-    ) : (
+    ) : (*/
         <Link
             onClick={navLinkClickHandler}
             href={props.url}
