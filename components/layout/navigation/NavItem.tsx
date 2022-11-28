@@ -26,16 +26,12 @@ export default function NavItem(props: NavItemProps) {
     const router = useRouter();
     const isCurrent = props.url === router.pathname;
     const [navItemsAnimationDone, setNavItemsAnimationDone] = useState(false);
+    const [externalLink, setExternalLink] = useState(false);
+    const [style, setStyle] = useState({});
     const siteContext = useContext(SiteContext);
     const onClick = props.onClick || (() => {});
-    console.log(router);
-    // const url = new URL(
-    //     props.url.includes("http") ? props.url : `${window.location.protocol}//${window.location.host}${props.url}`,
-    // );
-    // const curHost = window.location.host;
-    // const externalLink = curHost !== url.host;
     const totalDelay = props.totalDelay;
-    let classes = [!props.isMobile && styles["nav__a"], props.className].filter((c) => c);
+    const classes = [!props.isMobile && styles["nav__a"], props.className].filter((c) => c);
 
     function navLinkClickHandler(event: React.MouseEvent) {
         if (!siteContext.desktop) {
@@ -58,6 +54,24 @@ export default function NavItem(props: NavItemProps) {
     }
 
     useEffect(() => {
+        setStyle({
+            transitionDelay:
+                props.isMainNav && !navItemsAnimationDone && siteContext.desktop
+                    ? `${props.index * siteContext.transitionDelay}ms`
+                    : "",
+        });
+    }, [navItemsAnimationDone, siteContext.desktop, siteContext.transitionDelay, props.index, props.isMainNav]);
+
+    useEffect(() => {
+        const url = new URL(
+            props.url.includes("http") ? props.url : `${window.location.protocol}//${window.location.host}${props.url}`,
+        );
+        const curHost = window.location.host;
+
+        setExternalLink(curHost !== url.host);
+    }, [externalLink, props.url]);
+
+    useEffect(() => {
         if (siteContext.navOpen) {
             timeout = setTimeout(() => {
                 setNavItemsAnimationDone(true);
@@ -71,32 +85,23 @@ export default function NavItem(props: NavItemProps) {
         };
     }, [siteContext.navOpen, totalDelay]);
 
-    return (
-        /*externalLink ? (
+    return externalLink ? (
         <a
             href={props.url}
             target="_blank"
             rel="noopener noreferrer"
             className={classes.join(" ")}
-            style={{
-                transitionDelay:
-                    props.isMainNav && !navItemsAnimationDone && siteContext.desktop ? `${props.index * 100}ms` : "",
-            }}
+            style={style}
             {...props.attributes}
         >
             {props.children}
         </a>
-    ) : (*/
+    ) : (
         <Link
             onClick={navLinkClickHandler}
             href={props.url}
             className={isCurrent ? [...classes, styles["nav__a--current"]].join(" ") : classes.join(" ")}
-            style={{
-                transitionDelay:
-                    props.isMainNav && !navItemsAnimationDone && siteContext.desktop
-                        ? `${props.index * siteContext.transitionDelay}ms`
-                        : "",
-            }}
+            style={style}
             {...props.attributes}
         >
             {props.children}

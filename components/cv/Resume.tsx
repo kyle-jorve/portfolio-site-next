@@ -1,6 +1,9 @@
 import { useContext } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import SiteContext from "../../context/global";
 import CVItem from "./CVItem";
+
 import { ResumeType } from "../../hooks/data/cv-data";
 import styles from "../../styles/components/CV.module.css";
 
@@ -25,6 +28,7 @@ export default function Resume(props: ResumeProps) {
                             download
                             tabIndex={siteContext.navOpen ? -1 : undefined}
                         >
+                            <FontAwesomeIcon icon={faDownload} />
                             Download
                         </a>
                     </div>

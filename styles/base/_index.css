@@ -1,8 +1,7 @@
 @layer reset, theme, icons, typography, buttons, layout;
 
-@import url("./normalize.css") layer(reset);
-@import url("./theme.css") layer(theme);
-@import url("./icons.css") layer(icons);
-@import url("./typography.css") layer(typography);
-@import url("./buttons.css") layer(buttons);
-@import url("./layout.css") layer(layout);
+@import url("./normalize.css") /*layer(reset)*/;
+@import url("./theme.css") /*layer(theme)*/;
+@import url("./typography.css") /*layer(typography)*/;
+@import url("./buttons.css") /*layer(buttons)*/;
+@import url("./layout.css") /*layer(layout)*/;

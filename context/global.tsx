@@ -33,7 +33,7 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
     //----- global site context -----//
     const [visited, setVisited] = useState(false);
     const [mobile, setMobile] = useState(true);
-    const [desktop, setDesktop] = useState(true);
+    const [desktop, setDesktop] = useState(false);
     const [navOpen, setNavOpen] = useState(false);
     const [navRevealed, setNavRevealed] = useState(false);
     const [fromPage, setFromPage] = useState(null);

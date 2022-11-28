@@ -1,4 +1,6 @@
 import { Fragment } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
 import CustomLink from "../../components/layout/CustomLink";
 
 export type DetailKeyType = {
@@ -34,10 +36,13 @@ export default function useGalleryData() {
                     title: "Kyra Luckleav Portrait",
                     content: (
                         <blockquote className="blockquote">
+                            <span className="blockquote__icon" aria-hidden="true">
+                                <FontAwesomeIcon icon={faQuoteLeft} />
+                            </span>
                             <p>
-                                You have much to lose in your involvement with me,
-                                <CustomLink to="/gallery/pendrake">Pendrake</CustomLink>. And we would be willfully
-                                ignorant to pretend otherwise.
+                                You have much to lose in your involvement with me,{" "}
+                                <CustomLink to="/gallery/pendrake">Pendrake</CustomLink>. We would be willfully ignorant
+                                to pretend otherwise.
                             </p>
                         </blockquote>
                     ),
@@ -90,8 +95,8 @@ export default function useGalleryData() {
                     title: "Kyra Luckleav",
                     content: (
                         <p>
-                            Kyra Luckleav is a kitchen servant in Auerstel Castle and also happens to be
-                            <CustomLink to="/gallery/pendrake">Pendrake&apos;s</CustomLink> love interest.
+                            Kyra Luckleav is a kitchen servant in Auerstel Castle and also happens to be{" "}
+                            <CustomLink to="/gallery/pendrake">Pendrake&apos;s</CustomLink> love interest.{" "}
                             <CustomLink to="/gallery/andel">Duke Andel Sommer</CustomLink>, Pendrake&apos;s father,
                             expressly forbids their love and instead campaigns for Pendrake to marry someone equal to
                             his station. Because of this, Pendrake occasionally goes to great and dangerous lengths to
@@ -152,6 +157,9 @@ export default function useGalleryData() {
                     title: "Toval Argensente Portrait",
                     content: (
                         <blockquote className="blockquote">
+                            <span className="blockquote__icon" aria-hidden="true">
+                                <FontAwesomeIcon icon={faQuoteLeft} />
+                            </span>
                             <p>
                                 Patience is the wise warrior&apos;s strongest virtue. It will guard you from wounds as
                                 surely as armor. It will give you insight that others are less keen to seek out. Now,
@@ -281,14 +289,16 @@ export default function useGalleryData() {
                     title: "Andel Sommer Portrait",
                     content: (
                         <blockquote className="blockquote">
+                            <span className="blockquote__icon" aria-hidden="true">
+                                <FontAwesomeIcon icon={faQuoteLeft} />
+                            </span>
                             <p>
                                 Do you know what we&apos;ve lost, Pendrake? Warend Joring is the duke of Torencald. The
                                 trade agreements I meant to draft between our duchies would have enriched the Sommers
                                 for generations and made both us and the Jorings two of the most powerful families in
                                 Dayle. I&apos;ve spent years building to this point, and in a single evening you&apos;ve
-                                managed to dash it all away. And for what, Pendrake? For a gods-damned scullion? Do you
-                                know how long the damage you&apos;ve done will take to repair? Generations, Pendrake.
-                                Your children and your children&apos;s children will be dead and buried long before
+                                managed to dash it all away. And for what, Pendrake? For a gods-damned scullion? Your
+                                children and your children&apos;s children will be dead and buried long before
                                 we&apos;ve heard the last echoes of this scandal.
                             </p>
                         </blockquote>
@@ -343,8 +353,8 @@ export default function useGalleryData() {
                     content: (
                         <Fragment>
                             <p>
-                                <strong>Andel Sommer</strong> is the duke of Tersing and father to
-                                <CustomLink to="/gallery/pendrake">Pendrake</CustomLink> and
+                                <strong>Andel Sommer</strong> is the duke of Tersing and father to{" "}
+                                <CustomLink to="/gallery/pendrake">Pendrake</CustomLink> and{" "}
                                 <CustomLink to="/gallery/talis">Talis</CustomLink>. He wants nothing more than to ensure
                                 a bright future for his duchy&mdash;even if doing so requires extreme methods.
                             </p>
@@ -407,6 +417,9 @@ export default function useGalleryData() {
                     title: "Pendrake Sommer Portrait",
                     content: (
                         <blockquote className="blockquote">
+                            <span className="blockquote__icon" aria-hidden="true">
+                                <FontAwesomeIcon icon={faQuoteLeft} />
+                            </span>
                             <p>
                                 If Pendrake Sommer were half the man his father is, well, perhaps Tersing would be in a
                                 better spot. As it is, I hate to think what will come of our duchy when that boy finally
@@ -468,7 +481,7 @@ export default function useGalleryData() {
                         <Fragment>
                             <p>
                                 <strong>Pendrake Sommer</strong> is the main protagonist of the in-progress fantasy
-                                novel, <i>The Ashes of Hope</i>, and twin brother to
+                                novel, <i>The Ashes of Hope</i>, and twin brother to{" "}
                                 <CustomLink to="/gallery/talis">Talis Sommer</CustomLink>.
                             </p>
                             <p>
@@ -531,10 +544,13 @@ export default function useGalleryData() {
                     title: "Talis Sommer Portrait",
                     content: (
                         <blockquote className="blockquote">
+                            <span className="blockquote__icon" aria-hidden="true">
+                                <FontAwesomeIcon icon={faQuoteLeft} />
+                            </span>
                             <p>
-                                The lady of Tersing? I wouldn&apos;t call her a lady so much as a force of nature never
-                                to be trifled with. Every man who crosses blades with her lives to regret it—that is, if
-                                they live through the encounter at all.
+                                The lady of Tersing? I wouldn&apos;t call her a lady so much as a force of nature. Every
+                                man who crosses blades with her lives to regret it&mdash;that is, if they live through
+                                the encounter at all.
                             </p>
                             <cite className="cite">
                                 <small>&mdash;Howle of the Auerstel Castle guard</small>
@@ -591,7 +607,7 @@ export default function useGalleryData() {
                     content: (
                         <Fragment>
                             <p>
-                                <strong>Talis Sommer</strong> is the twin sister of the
+                                <strong>Talis Sommer</strong> is the twin sister of the{" "}
                                 <CustomLink to="/gallery/pendrake">main protagonist</CustomLink> in the story I&apos;m
                                 currently writing, <i>The Ashes of Hope</i>. She is the lady of the Tersing duchy,
                                 daughter of the duke and sister to the heir of the dukedom.
@@ -657,15 +673,15 @@ export default function useGalleryData() {
                     title: "Cargha Bezamik Portrait",
                     content: (
                         <blockquote className="blockquote">
+                            <span className="blockquote__icon" aria-hidden="true">
+                                <FontAwesomeIcon icon={faQuoteLeft} />
+                            </span>
                             <p>
                                 I was only a thief back then, part of a guild of them, living on a little Sylranian
                                 island called <i>Dorokilson</i>. In Daylish you might call it the Island of Holes. It
                                 was an apt name, for whoever came through there, if they&apos;d anything worth losing,
                                 we made sure it was lost&mdash;eaten by the Island.
                             </p>
-                            <cite className="cite">
-                                <small>&mdash;Cargha Bezamik</small>
-                            </cite>
                         </blockquote>
                     ),
                     orientation: "center",
@@ -763,6 +779,9 @@ export default function useGalleryData() {
                     content: (
                         <Fragment>
                             <blockquote className="blockquote">
+                                <span className="blockquote__icon" aria-hidden="true">
+                                    <FontAwesomeIcon icon={faQuoteLeft} />
+                                </span>
                                 <p>
                                     Have you met the boy? I&apos;d sooner take my chances outside the Ark than match
                                     blades with him. Crow&apos;s his name, killing&apos;s his profession. And be damned
@@ -773,12 +792,12 @@ export default function useGalleryData() {
                                 </p>
                             </blockquote>
                             <p>
-                                Yet another iteration of my original character,
+                                Yet another iteration of my original character,{" "}
                                 <CustomLink to="/gallery/crows">Crow</CustomLink>.
                             </p>
                             <p>
                                 Crow is a professional assassin and the protagonist of an in-progress science fiction
-                                story called
+                                story called{" "}
                                 <strong>
                                     <i>Post-Autumn</i>
                                 </strong>
@@ -833,6 +852,9 @@ export default function useGalleryData() {
                     title: "Pendrake's Chamber",
                     content: (
                         <blockquote className="blockquote">
+                            <span className="blockquote__icon" aria-hidden="true">
+                                <FontAwesomeIcon icon={faQuoteLeft} />
+                            </span>
                             <p>
                                 I was seventeen, by all means still a boy, yet I was possessed of the sort of steel-hard
                                 conviction only youth can muster that I was as good as a man grown. I was entirely given
@@ -886,6 +908,9 @@ export default function useGalleryData() {
                     content: (
                         <Fragment>
                             <blockquote className="blockquote">
+                                <span className="blockquote__icon" aria-hidden="true">
+                                    <FontAwesomeIcon icon={faQuoteLeft} />
+                                </span>
                                 <p>
                                     I wouldn&apos;t call him a kind man, but he&apos;s loyal. As soon slug you in the
                                     face as laugh at your jesting. All depends on which side of him you lie on. I
@@ -901,12 +926,12 @@ export default function useGalleryData() {
                                 and sometimes, when he feels like it, a downright villain.
                             </p>
                             <p>
-                                He plays a critical role in the
+                                He plays a critical role in the{" "}
                                 <strong>
                                     <i>Ignoble Blood</i>
-                                </strong>
+                                </strong>{" "}
                                 series, which is a fantasy story in progress. In it, Berned apprehends a woman named Sol
-                                Ferro and charges her with the crime of murdering
+                                Ferro and charges her with the crime of murdering{" "}
                                 <CustomLink to="/gallery/becoming-runa">Luna</CustomLink>, a series protagonist, who at
                                 this point in the story has gone strangely missing without a trace.
                             </p>
@@ -964,6 +989,9 @@ export default function useGalleryData() {
                     content: (
                         <Fragment>
                             <blockquote className="blockquote">
+                                <span className="blockquote__icon" aria-hidden="true">
+                                    <FontAwesomeIcon icon={faQuoteLeft} />
+                                </span>
                                 <p>
                                     Fennory is gone, Bethany. Call him dead, and leave it at that. Mourn him as if
                                     you&apos;d seen his body and known the stillness of it. There will be no peace for
@@ -974,10 +1002,10 @@ export default function useGalleryData() {
                                 </p>
                             </blockquote>
                             <p>
-                                The character depicted here is a protagonist of the
+                                The character depicted here is a protagonist of the{" "}
                                 <strong>
                                     <i>Ignoble Blood</i>
-                                </strong>
+                                </strong>{" "}
                                 series, which is a work of fantasy in progress. Fennory is his real name, but by this
                                 point in the story he goes by the alias of Luna, as he is hiding from a powerful enemy.
                             </p>
@@ -1022,6 +1050,9 @@ export default function useGalleryData() {
                     content: (
                         <Fragment>
                             <blockquote className="blockquote">
+                                <span className="blockquote__icon" aria-hidden="true">
+                                    <FontAwesomeIcon icon={faQuoteLeft} />
+                                </span>
                                 <p>
                                     The Ravens still exist, if you can believe it. Though they take a different form
                                     today. Different stories tell it different ways, but I prefer to believe they linger
@@ -1033,7 +1064,7 @@ export default function useGalleryData() {
                             </blockquote>
                             <p>
                                 <CustomLink to="/gallery/crow">Crow</CustomLink> is a professional assassin and the
-                                protagonist of an in-progress science fiction story called
+                                protagonist of an in-progress science fiction story called{" "}
                                 <strong>
                                     <i>Post-Autumn</i>
                                 </strong>
@@ -1099,8 +1130,7 @@ export default function useGalleryData() {
                             <p>
                                 <strong>
                                     Part of a duology. Its companion, <em>The Future Doesn&apos;t Scare Me</em>, can be
-                                    found
-                                    <CustomLink to="/gallery/kingdom-hearts-1">here</CustomLink>.
+                                    found <CustomLink to="/gallery/kingdom-hearts-1">here</CustomLink>.
                                 </strong>
                             </p>
                             <p>

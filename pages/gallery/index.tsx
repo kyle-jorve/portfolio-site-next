@@ -1,11 +1,10 @@
 import { useEffect, useCallback, useState, useContext } from "react";
-// import { useLocation } from "react-router-dom";
 import { useRouter } from "next/router";
 import useGlobalData from "../../hooks/data/global-data";
 import useGalleryData from "../../hooks/data/gallery-data";
 import SiteContext from "../../context/global";
-import styles from "../components/gallery/Gallery.module.css";
 import GalleryItem from "../../components/gallery/GalleryItem";
+import styles from "../../styles/components/Gallery.module.css";
 
 export default function Gallery() {
     const siteContext = useContext(SiteContext);
@@ -13,10 +12,9 @@ export default function Gallery() {
     const [animationDone, setAnimationDone] = useState(false);
     const globalData = useGlobalData();
     const galleryData = useGalleryData();
-    // const location = useLocation();
     const router = useRouter();
     const commerceLinks = globalData.socialIcons.commerce;
-    // const page = globalData.nav.find((p) => p.url === location.pathname);
+    const page = globalData.nav.find((p) => p.url === router.pathname);
     const totalDelay =
         (galleryData.items.length - 1 + (commerceLinks.length - 1)) * siteContext.transitionDelay +
         siteContext.transitionDuration;
@@ -49,7 +47,7 @@ export default function Gallery() {
                             title={item.title}
                             thumbnailKey={item.thumbnailKey}
                             orientation={item.orientation}
-                            // fromPage={page ? page.pageID : null}
+                            fromPage={page ? page.pageID : null}
                             fromSection={null}
                             style={{
                                 transitionDelay: !animationDone ? `${index * siteContext.transitionDelay}ms` : "",

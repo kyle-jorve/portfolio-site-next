@@ -27,6 +27,7 @@ const MobileNavigation = React.forwardRef<HTMLElement>((props, ref) => {
                             tabIndex: siteContext.navOpen ? -1 : undefined,
                         }}
                     >
+                        {item.icon}
                         <span className={styles["mobile-nav__label"]}>{item.pageName}</span>
                     </NavItem>
                 );

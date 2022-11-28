@@ -1,4 +1,6 @@
 import { useContext } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight, faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import SiteContext from "../../../context/global";
 import CustomLink from "../../layout/CustomLink";
 import useThumbnailConfig from "../../../hooks/thumbnail-config";
@@ -75,7 +77,13 @@ export default function Neighbor(props: NeighborProps) {
                     <button
                         className={`${styles["neighbor__arrow"]} ${styles[`neighbor__arrow--${props.direction}`]}`}
                         aria-hidden="true"
-                    ></button>
+                    >
+                        {props.direction === "prev" ? (
+                            <FontAwesomeIcon icon={faChevronLeft} />
+                        ) : (
+                            <FontAwesomeIcon icon={faChevronRight} />
+                        )}
+                    </button>
 
                     <div className={styles["neighbor__content"]}>
                         <h2 className={styles["neighbor__title"]}>{props.direction}</h2>
