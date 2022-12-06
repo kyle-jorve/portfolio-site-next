@@ -1,132 +1,129 @@
-html,
-body {
-	padding: 0;
-	margin: 0;
-}
+@layer layout {
+    html,
+    body {
+        padding: 0;
+        margin: 0;
+    }
 
-body {
-	width: 100%;
-	background: var(--body-bg);
-	overflow-x: hidden;
-}
+    body {
+        width: 100%;
+        background: var(--body-bg);
+        overflow-x: hidden;
+    }
 
-*,
-*::before,
-*::after {
-	box-sizing: border-box;
-}
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
 
-img,
-svg,
-iframe,
-video {
-	display: block;
-}
+    img,
+    svg,
+    iframe,
+    video {
+        display: block;
+    }
 
-img,
-svg {
-	max-width: 100%;
-}
+    img,
+    svg {
+        max-width: 100%;
+    }
 
-[onclick] {
-	cursor: pointer;
-}
+    [onclick] {
+        cursor: pointer;
+    }
 
-.section {
-	position: relative;
-	padding: var(--section-padding);
-}
+    .section {
+        position: relative;
+        padding: var(--section-padding);
+    }
 
-.wrapper {
-	width: 100%;
-	margin: 0 auto;
-}
+    .wrapper {
+        width: 100%;
+        margin: 0 auto;
+    }
 
-.wrapper--narrow {
-	max-width: 50ch;
-}
+    .wrapper--narrow {
+        max-width: var(--width-narrow);
+    }
 
-.wrapper--content {
-	max-width: 64ch;
-}
+    .wrapper--content {
+        max-width: var(--width-content);
+    }
 
-.wrapper--section {
-	max-width: 1200px;
-}
+    .wrapper--section {
+        max-width: var(--width-section);
+    }
 
-.wrapper--wide {
-	max-width: 1600px;
-}
+    .wrapper--wide {
+        max-width: var(--width-wide);
+    }
 
-hr {
-	margin: 2rem auto;
-	width: 75%;
-	max-width: 700px;
-	height: var(--border-width);
-	border: none;
-	background: var(--gray-cool);
-}
+    hr {
+        margin: 2rem auto;
+        width: 75%;
+        max-width: 700px;
+        height: var(--border-width);
+        border: none;
+        background: var(--gray-cool);
+    }
 
-.flex-line {
-	display: flex;
-	align-items: center;
-	gap: 0.5rem;
-}
+    .flex-line {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
 
-.flex-line::before,
-.flex-line::after {
-	display: block;
-	flex: 1 0 auto;
-	height: var(--border-width);
-	background: var(--light-color);
-	content: '';
-}
+    .flex-line::before,
+    .flex-line::after {
+        display: block;
+        flex: 1 0 auto;
+        height: var(--border-width);
+        background: var(--light-color);
+        content: "";
+    }
 
-.logo-icon {
-	position: absolute;
-	left: 50%;
-	bottom: 0;
-	z-index: 3;
-	transform: translate(-50%, 50%);
-	display: block;
-	width: 60px;
-	height: 60px;
-	pointer-events: none;
-}
+    .logo-icon {
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        z-index: 3;
+        transform: translate(-50%, 50%);
+        display: block;
+        width: 60px;
+        height: 60px;
+        pointer-events: none;
+    }
 
-/*----- lazy-loaded images -----*/
+    /*----- lazy-loaded images -----*/
 
-.img--lazy {
-	background-color: var(--gray-cool);
-	background-position: 130% 0;
-	background-size: 200% 100%;
-	background-repeat: no-repeat;
-	background-image: linear-gradient(
-		to right,
-		var(--gray-cool) 45%,
-		var(--white-cool),
-		var(--gray-cool) 65%
-	);
-	animation: img-loading 1200ms infinite ease-in-out;
-}
+    .img--lazy {
+        background-color: var(--gray-cool);
+        background-position: 130% 0;
+        background-size: 200% 100%;
+        background-repeat: no-repeat;
+        background-image: linear-gradient(to right, var(--gray-cool) 45%, var(--white-cool), var(--gray-cool) 65%);
+        animation: img-loading 1200ms infinite ease-in-out;
+    }
 
-.img--lazy.loaded {
-	background: none;
-	animation: none;
-}
+    .img--lazy.loaded {
+        background: none;
+        animation: none;
+    }
 
-/*----- animations -----*/
+    /*----- animations -----*/
 
-@keyframes img-loading {
-	to {
-		background-position: -30% 0;
-	}
-}
+    @keyframes img-loading {
+        to {
+            background-position: -30% 0;
+        }
+    }
 
-/*----- media queries -----*/
+    /*----- media queries -----*/
 
-@media (min-width: 64em) {
-	.flex-line {
-		gap: 1rem;
-	}
+    @media (min-width: 64em) {
+        .flex-line {
+            gap: 1rem;
+        }
+    }
 }

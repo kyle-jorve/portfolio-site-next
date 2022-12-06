@@ -16,6 +16,7 @@ export default function Layout(props: React.PropsWithChildren) {
     const siteContext = useContext(SiteContext);
     const router = useRouter();
     const isDetailPage = router.query.itemID !== undefined;
+    const isAdminPage = router.pathname.includes("/admin");
 
     useEffect(() => {
         const body = document.querySelector("body") as HTMLBodyElement;
@@ -40,12 +41,12 @@ export default function Layout(props: React.PropsWithChildren) {
     return (
         <Fragment>
             <DefaultHead />
-            {isDetailPage ? <DetailHeader /> : <Header />}
-            <MainNavigation />
-            <Loader />
-            <main aria-hidden={siteContext.navOpen}>{props.children}</main>
+            {isAdminPage ? "" : isDetailPage ? <DetailHeader /> : <Header />}
+            {!isAdminPage && <MainNavigation />}
+            {!isAdminPage && <Loader />}
+            <main aria-hidden={isAdminPage ? false : siteContext.navOpen}>{props.children}</main>
             <Footer />
-            {!isDetailPage && siteContext.mobile && <MobileNavigation ref={navRef} />}
+            {!isAdminPage && !isDetailPage && siteContext.mobile && <MobileNavigation ref={navRef} />}
         </Fragment>
     );
 }
