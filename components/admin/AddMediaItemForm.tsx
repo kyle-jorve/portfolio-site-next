@@ -9,43 +9,85 @@ export default function AddMediaItemForm() {
     const imageRef = useRef() as React.MutableRefObject<HTMLInputElement>;
 
     useEffect(() => {
-        fetch("/api/gallery")
+        fetch("/api/gallery-data")
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
+                // console.log(data);
             });
     }, []);
 
     function formSubmitHandler(event: React.FormEvent) {
-        const data = {
+        const data: {
+            name: string;
+            title: string;
+            orientation: string;
+        } = {
             name: nameRef.current.value,
             title: titleRef.current.value,
             orientation: orientationRef.current.value,
-            image: imageRef.current.value,
         };
-        const valid = !!data.name.length && !!data.title.length && !!data.orientation.length && !!data.image.length;
+        const valid =
+            !!data.name.length && !!data.title.length && !!data.orientation.length && !!imageRef.current.value.length;
+        let filesLoaded = 0;
+        let files: File[];
+        let mediaBody: {
+            name: string;
+            files: any[];
+        };
 
         event.preventDefault();
-
-        console.log(data);
-        console.log(data.image.split("\\")[data.image.split("\\").length - 1]);
 
         if (!valid) {
             alert("Form invalid. Please complete all the input fields.");
             return;
         }
 
-        fetch("/api/gallery", {
-            method: "POST",
-            body: JSON.stringify(data),
-            headers: {
-                "Content-Type": "application/json",
-            },
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                console.log(data);
+        if (imageRef.current.files?.length) {
+            files = Array.from(imageRef.current.files);
+            mediaBody = {
+                name: data.name,
+                files: [],
+            };
+
+            Promise.all(
+                files.map((file) => {
+                    return new Promise((resolve, reject) => {
+                        const reader = new FileReader();
+
+                        reader.readAsDataURL(file);
+
+                        reader.addEventListener("load", () => {
+                            mediaBody.files.push({
+                                fileName: file.name,
+                                type: file.type,
+                                base64: reader.result?.toString().split("base64,")[1],
+                            });
+
+                            resolve(true);
+                        });
+                    });
+                }),
+            ).then(() => {
+                fetch("/api/gallery-media", {
+                    method: "POST",
+                    body: JSON.stringify(mediaBody),
+                })
+                    .then((res) => res.json())
+                    .then((data) => console.log(data));
             });
+        }
+
+        // fetch("/api/gallery-data", {
+        //     method: "POST",
+        //     body: JSON.stringify(data),
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //     },
+        // })
+        //     .then((res) => res.json())
+        //     .then((data) => {
+        //         console.log(data);
+        //     });
     }
 
     return (
@@ -68,7 +110,7 @@ export default function AddMediaItemForm() {
             </div>
             <div className="field">
                 <label htmlFor="upload">Image</label>
-                <input type="file" id="upload" ref={imageRef} />
+                <input type="file" id="upload" accept=".jpg,.jpeg,.png" multiple ref={imageRef} />
             </div>
 
             <div className="field field--submit">

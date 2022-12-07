@@ -9,6 +9,7 @@ import styles from "../../../styles/layout/Footer.module.css";
 export default function Footer() {
     const siteContext = useContext(SiteContext);
     const router = useRouter();
+    const isAdminPage = router.pathname.includes("/admin");
     const isCVPage = router.pathname === "/cv";
     const globalData = useGlobalData();
     const socialIcons = {
@@ -21,7 +22,7 @@ export default function Footer() {
             className={`${styles.footer}${!!isCVPage ? ` ${styles["footer--light"]}` : ""}`}
             aria-hidden={siteContext.navOpen}
         >
-            <FooterIcons socialIcons={socialIcons} />
+            {!isAdminPage && <FooterIcons socialIcons={socialIcons} />}
 
             <Copyright />
         </footer>
