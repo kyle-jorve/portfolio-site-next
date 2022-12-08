@@ -1,5 +1,7 @@
+import { useEffect, useState } from "react";
 import fs from "fs";
 import path from "path";
+import Jimp from "jimp";
 import useGalleryData from "../../hooks/data/gallery-data";
 import AdminGalleryItem from "../../components/admin/AdminGalleryItem";
 import AddMediaItemForm from "../../components/admin/AddMediaItemForm";
@@ -10,15 +12,33 @@ type AdminProps = {
         dir: string;
         files: string[];
     }[];
+    image: string;
 };
 
 export default function Admin(props: AdminProps) {
+    // const [base64Image, setBase64Image] = useState("");
     // const galleryData = useGalleryData();
+
+    console.log(props);
+
+    // useEffect(() => {
+    //     Jimp.read(`/gallery/${props.dirs[0].dir}/${props.dirs[0].files[props.dirs[0].files.length - 1]}`).then(
+    //         async (image) => {
+    //             const clone = image.clone();
+    //             const newImage = clone.resize(300, Jimp.AUTO).quality(70);
+    //             const base64 = await newImage.getBase64Async(newImage.getMIME());
+
+    //             setBase64Image(base64);
+    //         },
+    //     );
+    // }, []);
 
     return (
         <section className="section">
             <div className="wrapper wrapper--wide">
                 <h1 className="underline">Media Gallery</h1>
+
+                {/* {!!base64Image.length && <img src={base64Image} alt="" />} */}
 
                 {/* <AddMediaItemForm /> */}
 
@@ -67,9 +87,20 @@ export async function getStaticProps() {
         };
     });
 
+    // const image = await Jimp.read(`${parentDir}\\${dirs[0].dir}\\${dirs[0].files[dirs[0].files.length - 1]}`).then(
+    //     async (image) => {
+    //         const clone = image.clone();
+    //         const newImage = clone.resize(800, Jimp.AUTO).quality(70);
+    //         const base64 = await newImage.getBase64Async(newImage.getMIME());
+
+    //         return base64;
+    //     },
+    // );
+
     return {
         props: {
             dirs,
+            // image: image,
         },
     };
 }
