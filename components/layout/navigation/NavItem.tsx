@@ -48,8 +48,6 @@ export default function NavItem(props: NavItemProps) {
             router.push(props.url);
 
             onClick(event);
-
-            siteContext.toggleLoader(false);
         }, siteContext.longTransitionDuration);
     }
 

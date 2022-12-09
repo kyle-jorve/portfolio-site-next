@@ -34,8 +34,6 @@ export default function CustomLink(props: CustomLinkProps) {
 
         setTimeout(() => {
             router.push(props.to);
-
-            siteContext.toggleLoader(false, !!isDetailRoute);
         }, siteContext.longTransitionDuration);
     }
 

@@ -93,10 +93,6 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
 
         resizeEvents.forEach((ev) => window.addEventListener(ev, resizeHandler));
 
-        if ((detailPageMatch && imagesLoaded) || pageNotFound) {
-            removeLoader();
-        }
-
         return () => {
             resizeEvents.forEach((ev) => window.removeEventListener(ev, resizeHandler));
         };

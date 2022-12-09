@@ -18,8 +18,6 @@ export default function Logo() {
                 router.push("/");
 
                 siteContext.closeNav();
-
-                siteContext.toggleLoader(false);
             }, siteContext.longTransitionDuration);
         } else if (siteContext.navOpen) {
             siteContext.closeNav();

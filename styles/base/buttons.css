@@ -1,116 +1,118 @@
-button,
-.button {
-    box-shadow: none;
-    cursor: pointer;
-}
-
-/* reset */
-button {
-    appearance: none;
-    padding: 0;
-    margin: 0;
-    border: none;
-    background: none;
-    font: inherit;
-    color: var(--accent-color);
-    font-weight: var(--font-weight-semibold);
-}
-/* end reset */
-
-button:focus {
-    outline: var(--accent-color) solid 1px;
-    outline-offset: 3px;
-}
-
-button:disabled {
-    filter: grayscale(100%);
-    opacity: 0.5;
-    cursor: default;
-    pointer-events: none;
-}
-
-.button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    padding: 1.25em 3em;
-    border: none;
-    border-radius: 9999px;
-    font-family: var(--font-family);
-    font-weight: var(--font-weight-extrabold);
-    font-size: 0.675em;
-    line-height: 1.35;
-    letter-spacing: 0.3em;
-    text-decoration: none;
-    text-align: center;
-    text-transform: uppercase;
-    transition: background-color var(--transition), color var(--transition);
-}
-
-.button--small {
-    padding: 0.25em 0.5em;
-    font-size: 0.65em;
-}
-
-.button--primary {
-    background: linear-gradient(to right, var(--accent-color), var(--yellow));
-    background-size: 200% 100%;
-    background-position: 0 center;
-    color: var(--light-color);
-    transition: background-position var(--transition), color var(--transition);
-}
-
-.button--secondary {
-    background-color: transparent;
-    border: var(--border-width) solid var(--accent-color);
-    color: var(--accent-color);
-}
-
-button svg,
-.button svg,
-.close-button svg {
-    height: 1.2em;
-}
-
-.close-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    flex-shrink: 0;
-    border: none;
-    border-radius: 50%;
-    background: var(--accent-color);
-    box-shadow: var(--soft-shadow);
-    color: var(--light-color);
-    font-size: 2rem;
-    cursor: pointer;
-}
-
-@media (hover: hover) {
-    .button:hover {
-        text-decoration: none;
-    }
-
-    .button--primary:hover {
-        background-position: 100% center;
-        color: var(--dark-color);
-    }
-
-    .button--secondary:hover {
-        background-color: var(--accent-color);
-        color: var(--light-color);
-    }
-}
-
-@media (min-width: 40em) {
+@layer buttons {
+    button,
     .button {
-        font-size: var(--text-sm);
+        box-shadow: none;
+        cursor: pointer;
+    }
+
+    /* reset */
+    button {
+        appearance: none;
+        padding: 0;
+        margin: 0;
+        border: none;
+        background: none;
+        font: inherit;
+        color: var(--accent-color);
+        font-weight: var(--font-weight-semibold);
+    }
+    /* end reset */
+
+    button:focus {
+        outline: var(--accent-color) solid 1px;
+        outline-offset: 3px;
+    }
+
+    button:disabled {
+        filter: grayscale(100%);
+        opacity: 0.5;
+        cursor: default;
+        pointer-events: none;
+    }
+
+    .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        padding: 1.25em 3em;
+        border: none;
+        border-radius: 9999px;
+        font-family: var(--font-family);
+        font-weight: var(--font-weight-extrabold);
+        font-size: 0.675em;
+        line-height: 1.35;
+        letter-spacing: 0.3em;
+        text-decoration: none;
+        text-align: center;
+        text-transform: uppercase;
+        transition: background-color var(--transition), color var(--transition);
     }
 
     .button--small {
-        padding: 0.65em 1.5em;
+        padding: 0.25em 0.5em;
+        font-size: 0.65em;
+    }
+
+    .button--primary {
+        background: linear-gradient(to right, var(--accent-color), var(--yellow));
+        background-size: 200% 100%;
+        background-position: 0 center;
+        color: var(--light-color);
+        transition: background-position var(--transition), color var(--transition);
+    }
+
+    .button--secondary {
+        background-color: transparent;
+        border: var(--border-width) solid var(--accent-color);
+        color: var(--accent-color);
+    }
+
+    button svg,
+    .button svg,
+    .close-button svg {
+        height: 1.2em;
+    }
+
+    .close-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        flex-shrink: 0;
+        border: none;
+        border-radius: 50%;
+        background: var(--accent-color);
+        box-shadow: var(--soft-shadow);
+        color: var(--light-color);
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
+    @media (hover: hover) {
+        .button:hover {
+            text-decoration: none;
+        }
+
+        .button--primary:hover {
+            background-position: 100% center;
+            color: var(--dark-color);
+        }
+
+        .button--secondary:hover {
+            background-color: var(--accent-color);
+            color: var(--light-color);
+        }
+    }
+
+    @media (min-width: 40em) {
+        .button {
+            font-size: var(--text-sm);
+        }
+
+        .button--small {
+            padding: 0.65em 1.5em;
+        }
     }
 }

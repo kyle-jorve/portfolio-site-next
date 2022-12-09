@@ -28,8 +28,6 @@ export default function GalleryItem(props: GalleryItemProps) {
     const classes = [styles["gallery__item"], props.className].filter((c) => c);
 
     function galleryItemClickHandler() {
-        siteContext.toggleLoader();
-
         setTimeout(() => {
             siteContext.closeNav();
 

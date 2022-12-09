@@ -1,280 +1,282 @@
-/*============================*/
-/*=====----- GLOBAL -----=====*/
-/*============================*/
+@layer typography {
+    /*============================*/
+    /*=====----- GLOBAL -----=====*/
+    /*============================*/
 
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,800;1,300;1,400;1,600;1,800&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,800;1,300;1,400;1,600;1,800&display=swap");
 
-html {
-    font-size: var(--text-base);
-    line-height: 1.5;
-}
+    html {
+        font-size: var(--text-base);
+        line-height: 1.5;
+    }
 
-body {
-    font-family: var(--font-family);
-    font-weight: var(--font-weight-normal);
-    letter-spacing: 0.015em;
-    color: var(--light-color);
-}
-
-strong,
-b {
-    font-weight: var(--font-weight-semibold);
-}
-
-i,
-em {
-    font-style: italic;
-}
-
-small {
-    font-size: var(--text-sm);
-}
-
-.large-text {
-    font-size: var(--text-lg);
-    font-weight: var(--font-weight-semibold);
-}
-
-.underline {
-    text-align: left;
-}
-
-.underline::after {
-    display: block;
-    max-width: 150px;
-    height: var(--border-width);
-    margin-top: 0.5rem;
-    background: var(--red);
-    content: "";
-}
-
-.underline--center {
-    text-align: center;
-}
-
-.underline--center::after {
-    margin: 0.5rem auto 0;
-}
-
-.underline--right {
-    text-align: right;
-}
-
-.underline--right::after {
-    margin: 0.5rem 0 0 auto;
-}
-
-/*===========================*/
-/*=====----- LINKS -----=====*/
-/*===========================*/
-
-a {
-    background-color: transparent;
-    color: var(--accent-color);
-    text-decoration: underline;
-    font-weight: var(--font-weight-semibold);
-    transition: background-color var(--transition), color var(--transition);
-    cursor: pointer;
-}
-
-@media (hover: hover) {
-    a:hover {
-        background-color: var(--accent-color);
+    body {
+        font-family: var(--font-family);
+        font-weight: var(--font-weight-normal);
+        letter-spacing: 0.015em;
         color: var(--light-color);
     }
-}
 
-@media (min-width: 64em) {
+    strong,
+    b {
+        font-weight: var(--font-weight-semibold);
+    }
+
+    i,
+    em {
+        font-style: italic;
+    }
+
+    small {
+        font-size: var(--text-sm);
+    }
+
+    .large-text {
+        font-size: var(--text-lg);
+        font-weight: var(--font-weight-semibold);
+    }
+
+    .underline {
+        text-align: left;
+    }
+
+    .underline::after {
+        display: block;
+        max-width: 150px;
+        height: var(--border-width);
+        margin-top: 0.5rem;
+        background: var(--red);
+        content: "";
+    }
+
+    .underline--center {
+        text-align: center;
+    }
+
+    .underline--center::after {
+        margin: 0.5rem auto 0;
+    }
+
+    .underline--right {
+        text-align: right;
+    }
+
+    .underline--right::after {
+        margin: 0.5rem 0 0 auto;
+    }
+
+    /*===========================*/
+    /*=====----- LINKS -----=====*/
+    /*===========================*/
+
     a {
-        color: inherit;
-        text-decoration: underline var(--accent-color) 2px;
-        text-underline-offset: 2px;
+        background-color: transparent;
+        color: var(--accent-color);
+        text-decoration: underline;
+        font-weight: var(--font-weight-semibold);
+        transition: background-color var(--transition), color var(--transition);
+        cursor: pointer;
     }
-}
 
-/*==============================*/
-/*=====----- HEADINGS -----=====*/
-/*==============================*/
+    @media (hover: hover) {
+        a:hover {
+            background-color: var(--accent-color);
+            color: var(--light-color);
+        }
+    }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    margin-bottom: 1em;
-    font-family: var(--font-family);
-    font-weight: var(--font-weight-extrabold);
-    text-transform: uppercase;
-    letter-spacing: 0.3em;
-    line-height: 1.35;
-}
+    @media (min-width: 64em) {
+        a {
+            color: inherit;
+            text-decoration: underline var(--accent-color) 2px;
+            text-underline-offset: 2px;
+        }
+    }
 
-:is(h1, h2, h3, h4, h5, h6) :is(strong, b, a) {
-    font-weight: var(--font-weight-extrabold);
-}
+    /*==============================*/
+    /*=====----- HEADINGS -----=====*/
+    /*==============================*/
 
-h1 {
-    font-size: 1.60181rem;
-}
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-bottom: 1em;
+        font-family: var(--font-family);
+        font-weight: var(--font-weight-extrabold);
+        text-transform: uppercase;
+        letter-spacing: 0.3em;
+        line-height: 1.35;
+    }
 
-h2 {
-    font-size: 1.42383rem;
-}
+    :is(h1, h2, h3, h4, h5, h6) :is(strong, b, a) {
+        font-weight: var(--font-weight-extrabold);
+    }
 
-h3 {
-    font-size: 1.26562em;
-}
-
-h4 {
-    font-size: 1.125rem;
-}
-
-h5 {
-    font-size: 1.1rem;
-}
-
-h6 {
-    font-size: var(--text-base);
-}
-
-@media (min-width: 40em) {
     h1 {
-        font-size: 2.0736rem;
+        font-size: 1.60181rem;
     }
 
     h2 {
-        font-size: 1.728rem;
+        font-size: 1.42383rem;
     }
 
     h3 {
-        font-size: 1.44rem;
+        font-size: 1.26562em;
     }
 
     h4 {
-        font-size: 1.2rem;
-    }
-}
-
-@media (min-width: 64em) {
-    h1 {
-        font-size: 2.44141rem;
-    }
-
-    h2 {
-        font-size: 1.95312rem;
-    }
-
-    h3 {
-        font-size: 1.5625rem;
-    }
-
-    h4 {
-        font-size: 1.25rem;
-    }
-}
-
-@media (min-width: 90em) {
-    h1 {
-        font-size: 3.15733rem;
-    }
-
-    h2 {
-        font-size: 2.36859rem;
-    }
-
-    h3 {
-        font-size: 1.77689rem;
-    }
-
-    h4 {
-        font-size: 1.333rem;
+        font-size: 1.125rem;
     }
 
     h5 {
-        font-size: 1.25rem;
+        font-size: 1.1rem;
     }
 
     h6 {
-        font-size: 1.1rem;
+        font-size: var(--text-base);
     }
-}
 
-/*=======================================*/
-/*=====----- PARAGRAPHS, LISTS -----=====*/
-/*=======================================*/
+    @media (min-width: 40em) {
+        h1 {
+            font-size: 2.0736rem;
+        }
 
-p,
-ul,
-ol {
-    margin-bottom: 1em;
-}
+        h2 {
+            font-size: 1.728rem;
+        }
 
-/*==================================*/
-/*=====----- BLOCK QUOTES -----=====*/
-/*==================================*/
+        h3 {
+            font-size: 1.44rem;
+        }
 
-.blockquote {
-    position: relative;
-    padding: 2rem 0 1rem 1rem;
-    margin: 2.5rem 0 1rem;
-    border-radius: var(--border-radius) 0 0 0;
-    border: var(--border-width) solid transparent;
-    border-top-color: var(--accent-color);
-    border-left-color: var(--accent-color);
-    font-weight: var(--font-weight-semibold);
-    font-style: italic;
-}
+        h4 {
+            font-size: 1.2rem;
+        }
+    }
 
-.blockquote__icon {
-    position: absolute;
-    top: 0;
-    left: 8px;
-    transform: translateY(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 3rem;
-    height: 3rem;
-    border: var(--border-width) solid var(--accent-color);
-    border-radius: 50%;
-    background: var(--gray-cool-light);
-    font-size: 1.5rem;
-    line-height: 1;
-    color: var(--accent-color);
-}
+    @media (min-width: 64em) {
+        h1 {
+            font-size: 2.44141rem;
+        }
 
-.blockquote__icon svg {
-    height: 1em;
-    fill: currentColor;
-}
+        h2 {
+            font-size: 1.95312rem;
+        }
 
-.cite {
-    display: block;
-    margin-top: 1rem;
-    font-style: normal;
-}
+        h3 {
+            font-size: 1.5625rem;
+        }
 
-@media (min-width: 40em) {
+        h4 {
+            font-size: 1.25rem;
+        }
+    }
+
+    @media (min-width: 90em) {
+        h1 {
+            font-size: 3.15733rem;
+        }
+
+        h2 {
+            font-size: 2.36859rem;
+        }
+
+        h3 {
+            font-size: 1.77689rem;
+        }
+
+        h4 {
+            font-size: 1.333rem;
+        }
+
+        h5 {
+            font-size: 1.25rem;
+        }
+
+        h6 {
+            font-size: 1.1rem;
+        }
+    }
+
+    /*=======================================*/
+    /*=====----- PARAGRAPHS, LISTS -----=====*/
+    /*=======================================*/
+
+    p,
+    ul,
+    ol {
+        margin-bottom: 1em;
+    }
+
+    /*==================================*/
+    /*=====----- BLOCK QUOTES -----=====*/
+    /*==================================*/
+
     .blockquote {
-        margin: 0 2rem;
+        position: relative;
+        padding: 2rem 0 1rem 1rem;
+        margin: 2.5rem 0 1rem;
+        border-radius: var(--border-radius) 0 0 0;
+        border: var(--border-width) solid transparent;
+        border-top-color: var(--accent-color);
+        border-left-color: var(--accent-color);
+        font-weight: var(--font-weight-semibold);
+        font-style: italic;
     }
 
-    .blockquote::before {
-        width: 4rem;
-        height: 4rem;
+    .blockquote__icon {
+        position: absolute;
+        top: 0;
+        left: 8px;
+        transform: translateY(-50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 3rem;
+        height: 3rem;
+        border: var(--border-width) solid var(--accent-color);
+        border-radius: 50%;
+        background: var(--gray-cool-light);
+        font-size: 1.5rem;
+        line-height: 1;
+        color: var(--accent-color);
     }
-}
 
-@media (min-width: 64em) {
-    .blockquote {
-        padding: 3rem 0 2rem 2rem;
-        margin: 3rem 0 2rem 1rem;
+    .blockquote__icon svg {
+        height: 1em;
+        fill: currentColor;
     }
-}
 
-@media (min-width: 75em) {
-    .blockquote {
-        margin-left: 2rem;
+    .cite {
+        display: block;
+        margin-top: 1rem;
+        font-style: normal;
+    }
+
+    @media (min-width: 40em) {
+        .blockquote {
+            margin: 0 2rem;
+        }
+
+        .blockquote::before {
+            width: 4rem;
+            height: 4rem;
+        }
+    }
+
+    @media (min-width: 64em) {
+        .blockquote {
+            padding: 3rem 0 2rem 2rem;
+            margin: 3rem 0 2rem 1rem;
+        }
+    }
+
+    @media (min-width: 75em) {
+        .blockquote {
+            margin-left: 2rem;
+        }
     }
 }
