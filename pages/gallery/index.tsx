@@ -1,5 +1,6 @@
-import { useEffect, useCallback, useState, useContext } from "react";
+import { useEffect, useCallback, useState, useContext, Fragment } from "react";
 import { useRouter } from "next/router";
+import Head from "next/head";
 import useGlobalData from "../../hooks/data/global-data";
 import useGalleryData from "../../hooks/data/gallery-data";
 import SiteContext from "../../context/global";
@@ -34,61 +35,66 @@ export default function Gallery() {
     }, [transitionItems, siteContext.loadStatus]);
 
     return (
-        <section className={`section ${styles.gallery}`}>
-            <h1 className="underline">{galleryData.title}</h1>
+        <Fragment>
+            <Head>
+                <title key="title">Gallery | Kyle Jorve | Illustration and Design</title>
+            </Head>
+            <section className={`section ${styles.gallery}`}>
+                <h1 className="underline">{galleryData.title}</h1>
 
-            <div className={styles["gallery__grid"]}>
-                {galleryData.items.map((item, index) => {
-                    return (
-                        <GalleryItem
-                            key={index}
-                            isNew={index === 0}
-                            name={item.name}
-                            title={item.title}
-                            thumbnailKey={item.thumbnailKey}
-                            orientation={item.orientation}
-                            fromPage={page ? page.pageID : null}
-                            fromSection={null}
-                            style={{
-                                transitionDelay: !animationDone ? `${index * siteContext.transitionDelay}ms` : "",
-                            }}
-                            className={!reveal ? styles["gallery__item--animated"] : ""}
-                            attributes={{
-                                tabIndex: siteContext.navOpen ? -1 : undefined,
-                            }}
-                        />
-                    );
-                })}
+                <div className={styles["gallery__grid"]}>
+                    {galleryData.items.map((item, index) => {
+                        return (
+                            <GalleryItem
+                                key={index}
+                                isNew={index === 0}
+                                name={item.name}
+                                title={item.title}
+                                thumbnailKey={item.thumbnailKey}
+                                orientation={item.orientation}
+                                fromPage={page ? page.pageID : null}
+                                fromSection={null}
+                                style={{
+                                    transitionDelay: !animationDone ? `${index * siteContext.transitionDelay}ms` : "",
+                                }}
+                                className={!reveal ? styles["gallery__item--animated"] : ""}
+                                attributes={{
+                                    tabIndex: siteContext.navOpen ? -1 : undefined,
+                                }}
+                            />
+                        );
+                    })}
 
-                {commerceLinks.map((item, index) => {
-                    return (
-                        <article
-                            key={index}
-                            className={`${styles["gallery__item"]} ${styles["gallery__item--card"]} ${
-                                styles[`gallery__item--${item.name}`]
-                            }${!reveal ? ` ${styles["gallery__item--animated"]}` : ""}`}
-                            style={{
-                                transitionDelay: !animationDone
-                                    ? `${(index + galleryData.items.length) * siteContext.transitionDelay}ms`
-                                    : "",
-                            }}
-                            tabIndex={siteContext.navOpen ? -1 : undefined}
-                        >
-                            <a
-                                className={styles["gallery__item-link"]}
-                                href={item.url}
-                                target="_blank"
-                                rel="noreferrer"
+                    {commerceLinks.map((item, index) => {
+                        return (
+                            <article
+                                key={index}
+                                className={`${styles["gallery__item"]} ${styles["gallery__item--card"]} ${
+                                    styles[`gallery__item--${item.name}`]
+                                }${!reveal ? ` ${styles["gallery__item--animated"]}` : ""}`}
+                                style={{
+                                    transitionDelay: !animationDone
+                                        ? `${(index + galleryData.items.length) * siteContext.transitionDelay}ms`
+                                        : "",
+                                }}
+                                tabIndex={siteContext.navOpen ? -1 : undefined}
                             >
-                                <h3 className={styles["gallery__card-title"]}>
-                                    {!!item.icon && item.icon}
-                                    {item.label}
-                                </h3>
-                            </a>
-                        </article>
-                    );
-                })}
-            </div>
-        </section>
+                                <a
+                                    className={styles["gallery__item-link"]}
+                                    href={item.url}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    <h3 className={styles["gallery__card-title"]}>
+                                        {!!item.icon && item.icon}
+                                        {item.label}
+                                    </h3>
+                                </a>
+                            </article>
+                        );
+                    })}
+                </div>
+            </section>
+        </Fragment>
     );
 }

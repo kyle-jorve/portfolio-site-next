@@ -1,4 +1,5 @@
 import { Fragment, useEffect, useContext } from "react";
+import Head from "next/head";
 import SiteContext from "../context/global";
 import useCVData from "../hooks/data/cv-data";
 import Bio from "../components/cv/Bio";
@@ -22,6 +23,9 @@ export default function CV() {
 
     return (
         <Fragment>
+            <Head>
+                <title key="title">Curriculum Vitae | Kyle Jorve | Illustration and Design</title>
+            </Head>
             <Bio heroImg={cvData.heroImg} bio={cvData.bio} />
             <Resume resume={cvData.resume} />
         </Fragment>

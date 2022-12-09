@@ -1,7 +1,6 @@
 import React, { useRef, useContext, useEffect, Fragment } from "react";
 import { useRouter } from "next/router";
 import SiteContext from "../../context/global";
-import DefaultHead from "./DefaultHead";
 import DetailHeader from "./header/DetailHeader";
 import Header from "./header/Header";
 import MainNavigation from "./navigation/MainNavigation";
@@ -18,17 +17,17 @@ export default function Layout(props: React.PropsWithChildren) {
     const isDetailPage = router.query.itemID !== undefined;
 
     useEffect(() => {
-        const routerEvents: ['routeChangeComplete', 'routeChangeError'] = ['routeChangeComplete', 'routeChangeError'];
+        const routerEvents: ["routeChangeComplete", "routeChangeError"] = ["routeChangeComplete", "routeChangeError"];
 
         function removeLoader() {
             siteContext.toggleLoader(false);
         }
 
-        routerEvents.forEach(ev => router.events.on(ev, removeLoader));
-        
+        routerEvents.forEach((ev) => router.events.on(ev, removeLoader));
+
         return () => {
-            routerEvents.forEach(ev => router.events.off(ev, removeLoader));
-        }
+            routerEvents.forEach((ev) => router.events.off(ev, removeLoader));
+        };
     }, []);
 
     useEffect(() => {
@@ -55,7 +54,6 @@ export default function Layout(props: React.PropsWithChildren) {
 
     return (
         <Fragment>
-            <DefaultHead />
             {isDetailPage ? <DetailHeader /> : <Header />}
             <MainNavigation />
             <Loader />

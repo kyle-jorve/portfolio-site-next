@@ -1,4 +1,5 @@
 import Head from "next/head";
+import React from "react";
 
 export default function DefaultHead() {
     return (
@@ -12,7 +13,7 @@ export default function DefaultHead() {
             />
 
             {/* TITLE and DESCRIPTION */}
-            <title>Kyle Jorve | Illustration and Design</title>
+            <title key="title">Kyle Jorve | Illustration and Design</title>
             <link rel="canonical" href="https://kylejorve.com/" />
             <meta
                 name="description"
@@ -46,7 +47,11 @@ export default function DefaultHead() {
                 property="og:description"
                 content="Kyle Jorve is an illustrator, designer, writer, and front end developer working primarily in the genres of fantasy and science fiction."
             />
-            <meta property="og:image" content="/gallery/pendrakes-chamber/final/kyle-jorve_pendrakes-chamber-640.jpg" />
+            <meta
+                property="og:image"
+                content="/gallery/pendrakes-chamber/final/kyle-jorve_pendrakes-chamber-640.jpg"
+                key="meta-image"
+            />
         </Head>
     );
 }
