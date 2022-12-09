@@ -160,6 +160,18 @@
     pointer-events: all;
 }
 
+.slider__arrow::before {
+    font: var(--fa-font-solid);
+}
+
+.slider__arrow--prev::before {
+    content: "\f060";
+}
+
+.slider__arrow--next::before {
+    content: "\f061";
+}
+
 .slider__dots {
     position: relative;
     z-index: 3;
@@ -413,6 +425,18 @@
     background-color: transparent;
     color: inherit;
     transition: border-color var(--transition), background-color var(--transition);
+}
+
+.neighbor__arrow::before {
+    font: var(--fa-font-solid);
+}
+
+.neighbor__arrow--prev::before {
+    content: "\f104";
+}
+
+.neighbor__arrow--next::before {
+    content: "\f054";
 }
 
 .neighbor__content {

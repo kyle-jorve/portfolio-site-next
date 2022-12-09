@@ -68,6 +68,18 @@
         color: var(--accent-color);
     }
 
+    .button--download::before {
+        font: var(--fa-font-solid);
+        font-size: inherit;
+        content: "\f019";
+    }
+
+    .button--shop::before {
+        font: var(--fa-font-solid);
+        font-size: inherit;
+        content: "\f290";
+    }
+
     button svg,
     .button svg,
     .close-button svg {
@@ -88,6 +100,11 @@
         color: var(--light-color);
         font-size: 2rem;
         cursor: pointer;
+    }
+
+    .close-button::before {
+        font: var(--fa-font-solid);
+        content: "\f00d";
     }
 
     @media (hover: hover) {

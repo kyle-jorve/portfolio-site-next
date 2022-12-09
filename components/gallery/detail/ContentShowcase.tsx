@@ -1,5 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDownload, faBagShopping } from "@fortawesome/free-solid-svg-icons";
 import Neighbors from "./Neighbors";
 import { GalleryItemType } from "../../../hooks/data/gallery-data";
 import styles from "../../../styles/components/Showcase.module.css";
@@ -25,7 +23,6 @@ export default function ContentShowcase(props: ContentShowcaseProps) {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <FontAwesomeIcon icon={faBagShopping} />
                                 Purchase
                             </a>
                         )}
@@ -37,7 +34,6 @@ export default function ContentShowcase(props: ContentShowcaseProps) {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <FontAwesomeIcon icon={faDownload} />
                                 Download
                             </a>
                         )}

@@ -151,6 +151,22 @@
     color: inherit;
 }
 
+.gallery__card-title::before {
+    display: block;
+}
+
+.gallery__item--patreon .gallery__card-title::before {
+    font: var(--fa-font-brands);
+    font-size: var(--icon-size);
+    content: "\f3d9";
+}
+
+.gallery__item--shop .gallery__card-title::before {
+    font: var(--fa-font-solid);
+    font-size: var(--icon-size);
+    content: "\f290";
+}
+
 .gallery__item--card svg {
     fill: currentColor;
     flex-shrink: 0;

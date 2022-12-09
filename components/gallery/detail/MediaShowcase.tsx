@@ -1,6 +1,4 @@
 import { Fragment, useContext, useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import SiteContext from "../../../context/global";
 import ShowcaseSlide from "./ShowcaseSlide";
 import ShowcasePicture from "./ShowcasePicture";
@@ -76,17 +74,13 @@ export default function MediaShowcase(props: MediaShowcaseProps) {
                             onClick={arrowClickHandler}
                             className={`${styles["slider__arrow"]} ${styles["slider__arrow--prev"]}`}
                             data-direction="prev"
-                        >
-                            <FontAwesomeIcon icon={faArrowLeft} />
-                        </button>
+                        ></button>
 
                         <button
                             onClick={arrowClickHandler}
                             className={`${styles["slider__arrow"]} ${styles["slider__arrow--next"]}`}
                             data-direction="next"
-                        >
-                            <FontAwesomeIcon icon={faArrowRight} />
-                        </button>
+                        ></button>
                     </div>
 
                     <div className={styles["slider__dots"]}>

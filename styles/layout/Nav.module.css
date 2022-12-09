@@ -250,6 +250,28 @@
     transition: opacity var(--transition);
 }
 
+.mobile-nav__item::before,
+.mobile-nav__item::after {
+    display: block;
+}
+
+.mobile-nav__item::before {
+    font: var(--fa-font-solid);
+    font-size: 28px;
+}
+
+.mobile-nav__item--gallery::before {
+    content: "\f009";
+}
+
+.mobile-nav__item--cv::before {
+    content: "\f508";
+}
+
+.mobile-nav__item--shop::before {
+    content: "\f290";
+}
+
 .mobile-nav__item::after {
     position: absolute;
     inset: 0 1rem auto 1rem;

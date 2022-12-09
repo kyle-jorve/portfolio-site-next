@@ -1,6 +1,4 @@
 import { Fragment } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
 import CustomLink from "../../components/layout/CustomLink";
 
 export type DetailKeyType = {
@@ -36,9 +34,6 @@ export default function useGalleryData() {
                     title: "Kyra Luckleav Portrait",
                     content: (
                         <blockquote className="blockquote">
-                            <span className="blockquote__icon" aria-hidden="true">
-                                <FontAwesomeIcon icon={faQuoteLeft} />
-                            </span>
                             <p>
                                 You have much to lose in your involvement with me,{" "}
                                 <CustomLink to="/gallery/pendrake">Pendrake</CustomLink>. We would be willfully ignorant
@@ -157,9 +152,6 @@ export default function useGalleryData() {
                     title: "Toval Argensente Portrait",
                     content: (
                         <blockquote className="blockquote">
-                            <span className="blockquote__icon" aria-hidden="true">
-                                <FontAwesomeIcon icon={faQuoteLeft} />
-                            </span>
                             <p>
                                 Patience is the wise warrior&apos;s strongest virtue. It will guard you from wounds as
                                 surely as armor. It will give you insight that others are less keen to seek out. Now,
@@ -289,9 +281,6 @@ export default function useGalleryData() {
                     title: "Andel Sommer Portrait",
                     content: (
                         <blockquote className="blockquote">
-                            <span className="blockquote__icon" aria-hidden="true">
-                                <FontAwesomeIcon icon={faQuoteLeft} />
-                            </span>
                             <p>
                                 Do you know what we&apos;ve lost, Pendrake? Warend Joring is the duke of Torencald. The
                                 trade agreements I meant to draft between our duchies would have enriched the Sommers
@@ -417,9 +406,6 @@ export default function useGalleryData() {
                     title: "Pendrake Sommer Portrait",
                     content: (
                         <blockquote className="blockquote">
-                            <span className="blockquote__icon" aria-hidden="true">
-                                <FontAwesomeIcon icon={faQuoteLeft} />
-                            </span>
                             <p>
                                 If Pendrake Sommer were half the man his father is, well, perhaps Tersing would be in a
                                 better spot. As it is, I hate to think what will come of our duchy when that boy finally
@@ -544,9 +530,6 @@ export default function useGalleryData() {
                     title: "Talis Sommer Portrait",
                     content: (
                         <blockquote className="blockquote">
-                            <span className="blockquote__icon" aria-hidden="true">
-                                <FontAwesomeIcon icon={faQuoteLeft} />
-                            </span>
                             <p>
                                 The lady of Tersing? I wouldn&apos;t call her a lady so much as a force of nature. Every
                                 man who crosses blades with her lives to regret it&mdash;that is, if they live through
@@ -673,9 +656,6 @@ export default function useGalleryData() {
                     title: "Cargha Bezamik Portrait",
                     content: (
                         <blockquote className="blockquote">
-                            <span className="blockquote__icon" aria-hidden="true">
-                                <FontAwesomeIcon icon={faQuoteLeft} />
-                            </span>
                             <p>
                                 I was only a thief back then, part of a guild of them, living on a little Sylranian
                                 island called <i>Dorokilson</i>. In Daylish you might call it the Island of Holes. It
@@ -779,9 +759,6 @@ export default function useGalleryData() {
                     content: (
                         <Fragment>
                             <blockquote className="blockquote">
-                                <span className="blockquote__icon" aria-hidden="true">
-                                    <FontAwesomeIcon icon={faQuoteLeft} />
-                                </span>
                                 <p>
                                     Have you met the boy? I&apos;d sooner take my chances outside the Ark than match
                                     blades with him. Crow&apos;s his name, killing&apos;s his profession. And be damned
@@ -852,9 +829,6 @@ export default function useGalleryData() {
                     title: "Pendrake's Chamber",
                     content: (
                         <blockquote className="blockquote">
-                            <span className="blockquote__icon" aria-hidden="true">
-                                <FontAwesomeIcon icon={faQuoteLeft} />
-                            </span>
                             <p>
                                 I was seventeen, by all means still a boy, yet I was possessed of the sort of steel-hard
                                 conviction only youth can muster that I was as good as a man grown. I was entirely given
@@ -908,9 +882,6 @@ export default function useGalleryData() {
                     content: (
                         <Fragment>
                             <blockquote className="blockquote">
-                                <span className="blockquote__icon" aria-hidden="true">
-                                    <FontAwesomeIcon icon={faQuoteLeft} />
-                                </span>
                                 <p>
                                     I wouldn&apos;t call him a kind man, but he&apos;s loyal. As soon slug you in the
                                     face as laugh at your jesting. All depends on which side of him you lie on. I
@@ -989,9 +960,6 @@ export default function useGalleryData() {
                     content: (
                         <Fragment>
                             <blockquote className="blockquote">
-                                <span className="blockquote__icon" aria-hidden="true">
-                                    <FontAwesomeIcon icon={faQuoteLeft} />
-                                </span>
                                 <p>
                                     Fennory is gone, Bethany. Call him dead, and leave it at that. Mourn him as if
                                     you&apos;d seen his body and known the stillness of it. There will be no peace for
@@ -1050,9 +1018,6 @@ export default function useGalleryData() {
                     content: (
                         <Fragment>
                             <blockquote className="blockquote">
-                                <span className="blockquote__icon" aria-hidden="true">
-                                    <FontAwesomeIcon icon={faQuoteLeft} />
-                                </span>
                                 <p>
                                     The Ravens still exist, if you can believe it. Though they take a different form
                                     today. Different stories tell it different ways, but I prefer to believe they linger
