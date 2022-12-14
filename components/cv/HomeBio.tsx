@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import Image from "next/image";
 import CustomLink from "../layout/CustomLink";
 import SiteContext from "../../context/global";
 import { HomeBioType } from "../../hooks/data/home-data";
@@ -12,25 +13,20 @@ type HomeBioProps = {
 
 export default function HomeBio(props: HomeBioProps) {
     const siteContext = useContext(SiteContext);
-    const squareImg = props.img.square;
-    const imgConfig = {
-        sources: props.img.sources.map((src) => {
-            return {
-                srcset: src.url,
-                minScreenWidth: src.minScreenWidth,
-            };
-        }),
-        mobile: {
-            src: props.img.mobileSource,
-        },
-    };
 
     return (
         <section className={`section ${styles["bio-home"]}`} id="bio">
             <div className="wrapper wrapper--wide">
                 <article className={styles["bio-home__content"]}>
                     <div className={styles["bio__img-cont"]} aria-hidden="true">
-                        <img className={styles["bio__img"]} src={squareImg} alt="" loading="lazy" />
+                        <img
+                            className={styles["bio__img"]}
+                            src={props.img.squarePath}
+                            alt=""
+                            loading="lazy"
+                            width="640"
+                            height="640"
+                        />
                     </div>
 
                     <div className={styles["bio-home__box"]}>
@@ -53,24 +49,14 @@ export default function HomeBio(props: HomeBioProps) {
                     </div>
 
                     <div className={styles["bio-home__img-cont"]}>
-                        <picture>
-                            {imgConfig.sources.map((src, index) => {
-                                return (
-                                    <source
-                                        key={index}
-                                        srcSet={src.srcset}
-                                        media={`(min-width: ${src.minScreenWidth}px)`}
-                                    />
-                                );
-                            })}
-
-                            <img
-                                className={styles["bio-home__img"]}
-                                src={imgConfig.mobile.src}
-                                alt={props.img.alt}
-                                loading="lazy"
-                            />
-                        </picture>
+                        <Image
+                            className={styles["bio-home__img"]}
+                            src={props.img.path}
+                            alt={props.img.alt}
+                            width={props.img.width}
+                            height={props.img.height}
+                            sizes="(min-width: 1664px) 1100px, 100vw"
+                        />
                     </div>
                 </article>
             </div>

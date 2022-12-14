@@ -1,7 +1,7 @@
 import { Fragment, useContext, useEffect } from "react";
+import Image from "next/image";
 import SiteContext from "../../../context/global";
 import ShowcaseSlide from "./ShowcaseSlide";
-import ShowcasePicture from "./ShowcasePicture";
 import { GalleryItemType } from "../../../hooks/data/gallery-data";
 import styles from "../../../styles/components/Showcase.module.css";
 
@@ -95,7 +95,13 @@ export default function MediaShowcase(props: MediaShowcaseProps) {
             )}
 
             <div className={styles["showcase__bg"]} aria-hidden="true">
-                <ShowcasePicture path={item.detailKeys?.[0]?.path} alt="" />
+                <Image
+                    className={`img--lazy ${styles["showcase__img"]}`}
+                    src={item.detailKeys?.[0]?.path!}
+                    alt=""
+                    fill
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                />
             </div>
         </div>
     );

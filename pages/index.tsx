@@ -14,7 +14,15 @@ export default function Home() {
     const homeData = useHomeData();
     const globalData = useGlobalData();
     const galleryData = useGalleryData();
-    const featuredItems = galleryData.items.filter((item) => item.featured).slice(0, homeData.gallery.itemsLimit);
+    const featuredItems = galleryData.items
+        .filter((item) => item.featured)
+        .slice(0, homeData.gallery.itemsLimit)
+        .map((item) => {
+            return {
+                ...item,
+                index: galleryData.items.findIndex((i) => i.name === item.name),
+            };
+        });
     const siteContext = useContext(SiteContext);
     const cvData = useCVData();
 

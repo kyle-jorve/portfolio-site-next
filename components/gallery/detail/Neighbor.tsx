@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import Image from "next/image";
 import SiteContext from "../../../context/global";
 import CustomLink from "../../layout/CustomLink";
 import useThumbnailConfig from "../../../hooks/thumbnail-config";
@@ -37,11 +38,10 @@ function truncateTitle(title: string) {
 
 export default function Neighbor(props: NeighborProps) {
     const context = useContext(SiteContext);
-    const thumb = useThumbnailConfig({
+    const imageSizes = useThumbnailConfig({
         isDetail: true,
         thumbnailKey: props.item.thumbnailKey,
     });
-    const mobileImg = thumb.mobile.url;
     const neighborClasses = [styles["neighbor"], styles[`neighbor--${props.direction}`]].filter((c) => c);
 
     return (
@@ -52,23 +52,16 @@ export default function Neighbor(props: NeighborProps) {
                 onClick={context.resetSlideIndex}
             >
                 <div className={styles["neighbor__img-cont"]}>
-                    <picture>
-                        {thumb.sources.map((s, index) => {
-                            const srcset = s.url;
-
-                            return <source key={index} srcSet={srcset} media={`(min-width: ${s.minScreenWidth}px)`} />;
-                        })}
-
-                        <img
-                            className={styles["neighbor__img"]}
-                            src={mobileImg}
-                            alt={props.item.thumbnailKey.alt}
-                            style={{
-                                objectPosition: `center ${props.item.orientation}`,
-                            }}
-                            loading="lazy"
-                        />
-                    </picture>
+                    <Image
+                        className={styles["neighbor__img"]}
+                        src={props.item.thumbnailKey.path}
+                        alt={props.item.thumbnailKey.alt}
+                        fill
+                        style={{
+                            objectPosition: `center ${props.item.orientation}`,
+                        }}
+                        sizes={imageSizes}
+                    />
                 </div>
 
                 <div className={styles["neighbor__inner"]}>

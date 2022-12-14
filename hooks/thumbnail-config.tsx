@@ -8,59 +8,59 @@ type ThumbnailConfigProps = {
 };
 
 export default function useThumbnailConfig(props: ThumbnailConfigProps) {
-    return props.isNew
+    const configObj = props.isNew
         ? {
               sources: [
                   {
-                      url: `${props.thumbnailKey.path}-1024.jpg`,
-                      minScreenWidth: 640,
+                      imageWidth: "1024px",
+                      minScreenWidth: "640px",
                   },
               ],
               mobile: {
-                  url: `${props.thumbnailKey.path}-640.jpg`,
+                  imageWidth: "100vw",
               },
           }
         : props.isFeatured
         ? {
               sources: [
                   {
-                      url: `${props.thumbnailKey.path}-640.jpg`,
-                      minScreenWidth: 1440,
+                      imageWidth: "524px",
+                      minScreenWidth: "1440px",
                   },
                   {
-                      url: `${props.thumbnailKey.path}-480.jpg`,
-                      minScreenWidth: 640,
+                      imageWidth: "33vw",
+                      minScreenWidth: "640px",
                   },
               ],
               mobile: {
-                  url: `${props.thumbnailKey.path}-320.jpg`,
+                  imageWidth: "50vw",
               },
           }
         : props.isDetail
         ? {
               sources: [
                   {
-                      url: `${props.thumbnailKey.path}-480.jpg`,
-                      minScreenWidth: 640,
+                      imageWidth: "480px",
+                      minScreenWidth: "640px",
                   },
               ],
               mobile: {
-                  url: `${props.thumbnailKey.path}-640.jpg`,
+                  imageWidth: "66vw",
               },
           }
         : {
               sources: [
                   {
-                      url: `${props.thumbnailKey.path}-480.jpg`,
-                      minScreenWidth: 1024,
-                  },
-                  {
-                      url: `${props.thumbnailKey.path}-512.jpg`,
-                      minScreenWidth: 640,
+                      imageWidth: "480px",
+                      minScreenWidth: "1024px",
                   },
               ],
               mobile: {
-                  url: `${props.thumbnailKey.path}-320.jpg`,
+                  imageWidth: "50vw",
               },
           };
+
+    return `${configObj.sources.map((src) => `(min-width: ${src.minScreenWidth}) ${src.imageWidth}`).join(", ")}, ${
+        configObj.mobile.imageWidth
+    }`;
 }

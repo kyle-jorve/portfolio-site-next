@@ -5,6 +5,8 @@ export type DetailKeyType = {
     path?: string;
     alt?: string;
     source?: JSX.Element;
+    width?: number;
+    height?: number;
 };
 
 export type GalleryItemType = {
@@ -18,6 +20,8 @@ export type GalleryItemType = {
     thumbnailKey: {
         path: string;
         alt: string;
+        width?: number;
+        height?: number;
     };
     detailKeys?: DetailKeyType[];
 };
@@ -46,28 +50,28 @@ export default function useGalleryData() {
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/kyra-luckleav-portrait/",
                     downloadLink: "https://kylejorve.gumroad.com/l/vrxhc",
                     thumbnailKey: {
-                        path: "/images/gallery/kyra-portrait/final/kyle-jorve_kyra-portrait",
+                        path: "/gallery/kyra-portrait/kyle-jorve_kyra-portrait.jpg",
                         alt: "a portrait of Kyra Luckleav",
                     },
                     detailKeys: [
                         {
-                            path: "/images/gallery/kyra-portrait/final/kyle-jorve_kyra-portrait",
+                            path: "/gallery/kyra-portrait/kyle-jorve_kyra-portrait.jpg",
                             alt: "a portrait of Kyra Luckleav",
                         },
                         {
-                            path: "/images/gallery/kyra-portrait/wip-1/kyle-jorve_kyra-portrait-wip-1",
+                            path: "/gallery/kyra-portrait/kyle-jorve_kyra-portrait-wip-1.jpg",
                             alt: `a progress snapshot of Kyra Luckleav's portrait in which the line drawing is complete`,
                         },
                         {
-                            path: "/images/gallery/kyra-portrait/wip-2/kyle-jorve_kyra-portrait-wip-2",
+                            path: "/gallery/kyra-portrait/kyle-jorve_kyra-portrait-wip-2.jpg",
                             alt: `a progress snapshot of Kyra Luckleav's portrait in which the flat colors have been applied`,
                         },
                         {
-                            path: "/images/gallery/kyra-portrait/wip-3/kyle-jorve_kyra-portrait-wip-3",
+                            path: "/gallery/kyra-portrait/kyle-jorve_kyra-portrait-wip-3.jpg",
                             alt: `a progress snapshot of Kyra Luckleav's portrait in which the light and shadows have been applied and colorized`,
                         },
                         {
-                            path: "/images/gallery/kyra-portrait/wip-4/kyle-jorve_kyra-portrait-wip-4",
+                            path: "/gallery/kyra-portrait/kyle-jorve_kyra-portrait-wip-4.jpg",
                             alt: `a progress snapshot of Kyra Luckleav's portrait in which the painting is nearly finished`,
                         },
                         {
@@ -77,7 +81,6 @@ export default function useGalleryData() {
                                     height="810"
                                     src="https://www.youtube.com/embed/SNKCHXFbFPY"
                                     title="YouTube video player"
-                                    frameBorder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen
                                 ></iframe>
@@ -104,32 +107,32 @@ export default function useGalleryData() {
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/kyra-luckleav/",
                     downloadLink: "https://kylejorve.gumroad.com/l/jlwzc",
                     thumbnailKey: {
-                        path: "/images/gallery/kyra/final/kyle-jorve_kyra",
+                        path: "/gallery/kyra/kyle-jorve_kyra.jpg",
                         alt: "a vignette of Kyra Luckleav, grinning and looking out of frame",
                     },
                     detailKeys: [
                         {
-                            path: "/images/gallery/kyra/final/kyle-jorve_kyra",
+                            path: "/gallery/kyra/kyle-jorve_kyra.jpg",
                             alt: "a vignette of Kyra Luckleav, grinning and looking out of frame",
                         },
                         {
-                            path: "/images/gallery/kyra/wip-1/kyle-jorve_kyra-wip-1",
+                            path: "/gallery/kyra/kyle-jorve_kyra-wip-1.jpg",
                             alt: `a nude pose study for Kyra's vignette`,
                         },
                         {
-                            path: "/images/gallery/kyra/wip-2/kyle-jorve_kyra-wip-2",
+                            path: "/gallery/kyra/kyle-jorve_kyra-wip-2.jpg",
                             alt: `a progress snapshot of Kyra's vignette in which the line drawing is complete`,
                         },
                         {
-                            path: "/images/gallery/kyra/wip-3/kyle-jorve_kyra-wip-3",
+                            path: "/gallery/kyra/kyle-jorve_kyra-wip-3.jpg",
                             alt: `a progress snapshot of Kyra's vignette in which the flat colors have been applied`,
                         },
                         {
-                            path: "/images/gallery/kyra/wip-4/kyle-jorve_kyra-wip-4",
+                            path: "/gallery/kyra/kyle-jorve_kyra-wip-4.jpg",
                             alt: `a progress snapshot of Kyra's vignette in which the light and shadow have been applied and colorized`,
                         },
                         {
-                            path: "/images/gallery/kyra/wip-5/kyle-jorve_kyra-wip-5",
+                            path: "/gallery/kyra/kyle-jorve_kyra-wip-5.jpg",
                             alt: `a progress snapshot of Kyra's vignette in which the painting is nearly finished`,
                         },
                         {
@@ -139,7 +142,6 @@ export default function useGalleryData() {
                                     height="810"
                                     src="https://www.youtube.com/embed/ALmy-xx7u-c"
                                     title="YouTube video player"
-                                    frameBorder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen
                                 ></iframe>
@@ -166,28 +168,28 @@ export default function useGalleryData() {
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/toval-argensente-portrait/",
                     downloadLink: "https://kylejorve.gumroad.com/l/vcwgb",
                     thumbnailKey: {
-                        path: "/images/gallery/toval-portrait/final/kyle-jorve_toval-portrait",
+                        path: "/gallery/toval-portrait/kyle-jorve_toval-portrait.jpg",
                         alt: "a portrait of Toval Argensente",
                     },
                     detailKeys: [
                         {
-                            path: "/images/gallery/toval-portrait/final/kyle-jorve_toval-portrait",
+                            path: "/gallery/toval-portrait/kyle-jorve_toval-portrait.jpg",
                             alt: "a portrait of Toval Argensente",
                         },
                         {
-                            path: "/images/gallery/toval-portrait/wip-1/kyle-jorve_toval-portrait-wip-1",
+                            path: "/gallery/toval-portrait/kyle-jorve_toval-portrait-wip-1.jpg",
                             alt: `a progress snapshot of Toval Argensente's portrait in which the line drawing is complete`,
                         },
                         {
-                            path: "/images/gallery/toval-portrait/wip-2/kyle-jorve_toval-portrait-wip-2",
+                            path: "/gallery/toval-portrait/kyle-jorve_toval-portrait-wip-2.jpg",
                             alt: `a progress snapshot of Toval Argensente's portrait in which the flat colors have been applied`,
                         },
                         {
-                            path: "/images/gallery/toval-portrait/wip-3/kyle-jorve_toval-portrait-wip-3",
+                            path: "/gallery/toval-portrait/kyle-jorve_toval-portrait-wip-3.jpg",
                             alt: `a progress snapshot of Toval Argensente's portrait in which the light and shadows have been applied and colorized`,
                         },
                         {
-                            path: "/images/gallery/toval-portrait/wip-4/kyle-jorve_toval-portrait-wip-4",
+                            path: "/gallery/toval-portrait/kyle-jorve_toval-portrait-wip-4.jpg",
                             alt: `a progress snapshot of Toval Argensente's portrait in which the painting is nearly finished`,
                         },
                         {
@@ -197,7 +199,6 @@ export default function useGalleryData() {
                                     height="810"
                                     src="https://www.youtube.com/embed/hDk6yKcQYqI"
                                     title="YouTube video player"
-                                    frameBorder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen
                                 ></iframe>
@@ -233,32 +234,32 @@ export default function useGalleryData() {
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/toval-argensente/",
                     downloadLink: "https://kylejorve.gumroad.com/l/ogpkj",
                     thumbnailKey: {
-                        path: "/images/gallery/toval/final/kyle-jorve_toval",
+                        path: "/gallery/toval/kyle-jorve_toval.jpg",
                         alt: "a vignette of Toval Argensente, looking menacingly toward the viewer with a sword in her left hand pointed to the ground",
                     },
                     detailKeys: [
                         {
-                            path: "/images/gallery/toval/final/kyle-jorve_toval",
+                            path: "/gallery/toval/kyle-jorve_toval.jpg",
                             alt: "a vignette of Toval Argensente, looking menacingly toward the viewer with a sword in her left hand pointed to the ground",
                         },
                         {
-                            path: "/images/gallery/toval/wip-1/kyle-jorve_toval-wip-1",
+                            path: "/gallery/toval/kyle-jorve_toval-wip-1.jpg",
                             alt: `a nude pose study for Toval's vignette`,
                         },
                         {
-                            path: "/images/gallery/toval/wip-2/kyle-jorve_toval-wip-2",
+                            path: "/gallery/toval/kyle-jorve_toval-wip-2.jpg",
                             alt: `a progress snapshot of Toval's vignette in which the line drawing is complete`,
                         },
                         {
-                            path: "/images/gallery/toval/wip-3/kyle-jorve_toval-wip-3",
+                            path: "/gallery/toval/kyle-jorve_toval-wip-3.jpg",
                             alt: `a progress snapshot of Toval's vignette in which the flat colors have been applied`,
                         },
                         {
-                            path: "/images/gallery/toval/wip-4/kyle-jorve_toval-wip-4",
+                            path: "/gallery/toval/kyle-jorve_toval-wip-4.jpg",
                             alt: `a progress snapshot of Toval's vignette in which the light and shadows have been applied and colorized`,
                         },
                         {
-                            path: "/images/gallery/toval/wip-5/kyle-jorve_toval-wip-5",
+                            path: "/gallery/toval/kyle-jorve_toval-wip-5.jpg",
                             alt: `a progress snapshot of Toval's vignette in which the painting is nearly finished`,
                         },
                         {
@@ -268,7 +269,6 @@ export default function useGalleryData() {
                                     height="810"
                                     src="https://www.youtube.com/embed/js4NRjOnPbA"
                                     title="YouTube video player"
-                                    frameBorder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen
                                 ></iframe>
@@ -297,28 +297,28 @@ export default function useGalleryData() {
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/andel-portrait/",
                     downloadLink: "https://kylejorve.gumroad.com/l/ungde",
                     thumbnailKey: {
-                        path: "/images/gallery/andel-portrait/final/kyle-jorve_andel-portrait",
+                        path: "/gallery/andel-portrait/kyle-jorve_andel-portrait.jpg",
                         alt: "a portrait of Andel Sommer",
                     },
                     detailKeys: [
                         {
-                            path: "/images/gallery/andel-portrait/final/kyle-jorve_andel-portrait",
+                            path: "/gallery/andel-portrait/kyle-jorve_andel-portrait.jpg",
                             alt: "a portrait of Andel Sommer",
                         },
                         {
-                            path: "/images/gallery/andel-portrait/wip-1/kyle-jorve_andel-portrait-wip-1",
+                            path: "/gallery/andel-portrait/kyle-jorve_andel-portrait-wip-1.jpg",
                             alt: `a progress snapshot of Andel Sommer's portrait in which the line drawing is complete`,
                         },
                         {
-                            path: "/images/gallery/andel-portrait/wip-2/kyle-jorve_andel-portrait-wip-2",
+                            path: "/gallery/andel-portrait/kyle-jorve_andel-portrait-wip-2.jpg",
                             alt: `a progress snapshot of Andel Sommer's portrait in which the flat colors have been applied`,
                         },
                         {
-                            path: "/images/gallery/andel-portrait/wip-3/kyle-jorve_andel-portrait-wip-3",
+                            path: "/gallery/andel-portrait/kyle-jorve_andel-portrait-wip-3.jpg",
                             alt: `a progress snapshot of Andel Sommer's portrait in which the light and shadows have been applied and colorized`,
                         },
                         {
-                            path: "/images/gallery/andel-portrait/wip-4/kyle-jorve_andel-portrait-wip-4",
+                            path: "/gallery/andel-portrait/kyle-jorve_andel-portrait-wip-4.jpg",
                             alt: `a progress snapshot of Andel Sommer's portrait in which the painting is nearly finished`,
                         },
                         {
@@ -328,7 +328,6 @@ export default function useGalleryData() {
                                     height="810"
                                     src="https://www.youtube.com/embed/W6acBvEQXug"
                                     title="YouTube video player"
-                                    frameBorder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen
                                 ></iframe>
@@ -358,32 +357,32 @@ export default function useGalleryData() {
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/andel-sommer/",
                     downloadLink: "https://kylejorve.gumroad.com/l/vqdvkj",
                     thumbnailKey: {
-                        path: "/images/gallery/andel/final/kyle-jorve_andel",
+                        path: "/gallery/andel/kyle-jorve_andel.jpg",
                         alt: `a vignette of Andel Sommer, who stands wearing his duke's finery, holding a sword in one hand and a heavy tome in another`,
                     },
                     detailKeys: [
                         {
-                            path: "/images/gallery/andel/final/kyle-jorve_andel",
+                            path: "/gallery/andel/kyle-jorve_andel.jpg",
                             alt: "Andel Sommer stands proudly, a sheathed sword in one hand and a heavy tome in the other",
                         },
                         {
-                            path: "/images/gallery/andel/wip-1/kyle-jorve_andel-wip-1",
+                            path: "/gallery/andel/kyle-jorve_andel-wip-1.jpg",
                             alt: "an in-progress image of Andel in the nude pose phase of the piece",
                         },
                         {
-                            path: "/images/gallery/andel/wip-2/kyle-jorve_andel-wip-2",
+                            path: "/gallery/andel/kyle-jorve_andel-wip-2.jpg",
                             alt: "an in-progress image of Andel in which the design is fully drawn",
                         },
                         {
-                            path: "/images/gallery/andel/wip-3/kyle-jorve_andel-wip-3",
+                            path: "/gallery/andel/kyle-jorve_andel-wip-3.jpg",
                             alt: "an in-progress image of Andel in which flat colors are applied to the drawing",
                         },
                         {
-                            path: "/images/gallery/andel/wip-4/kyle-jorve_andel-wip-4",
+                            path: "/gallery/andel/kyle-jorve_andel-wip-4.jpg",
                             alt: "an in-progress image of Andel in which the shadows and light are colorized",
                         },
                         {
-                            path: "/images/gallery/andel/wip-5/kyle-jorve_andel-wip-5",
+                            path: "/gallery/andel/kyle-jorve_andel-wip-5.jpg",
                             alt: "an in-progress image of Andel in which the painting is nearly finished",
                         },
                         {
@@ -393,7 +392,6 @@ export default function useGalleryData() {
                                     height="810"
                                     src="https://www.youtube.com/embed/XEaCkUcbfUo"
                                     title="YouTube video player"
-                                    frameBorder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen
                                 ></iframe>
@@ -421,28 +419,28 @@ export default function useGalleryData() {
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/pendrake-portrait/",
                     downloadLink: "https://kylejorve.gumroad.com/l/hhgin",
                     thumbnailKey: {
-                        path: "/images/gallery/pendrake-portrait/final/kyle-jorve_pendrake-portrait",
+                        path: "/gallery/pendrake-portrait/kyle-jorve_pendrake-portrait.jpg",
                         alt: "a portrait of Pendrake Sommer",
                     },
                     detailKeys: [
                         {
-                            path: "/images/gallery/pendrake-portrait/final/kyle-jorve_pendrake-portrait",
+                            path: "/gallery/pendrake-portrait/kyle-jorve_pendrake-portrait.jpg",
                             alt: "a portrait of Pendrake Sommer",
                         },
                         {
-                            path: "/images/gallery/pendrake-portrait/wip-1/kyle-jorve_pendrake-portrait-wip-1",
+                            path: "/gallery/pendrake-portrait/kyle-jorve_pendrake-portrait-wip-1.jpg",
                             alt: `a progress snapshot of Pendrake's portrait in which the line drawing has been finished`,
                         },
                         {
-                            path: "/images/gallery/pendrake-portrait/wip-2/kyle-jorve_pendrake-portrait-wip-2",
+                            path: "/gallery/pendrake-portrait/kyle-jorve_pendrake-portrait-wip-2.jpg",
                             alt: `a progress snapshot of Pendrake's portrait in which the flat colors have been applied`,
                         },
                         {
-                            path: "/images/gallery/pendrake-portrait/wip-3/kyle-jorve_pendrake-portrait-wip-3",
+                            path: "/gallery/pendrake-portrait/kyle-jorve_pendrake-portrait-wip-3.jpg",
                             alt: `a progress snapshot of Pendrake's portrait in which the light and shadows have been applied and colorized`,
                         },
                         {
-                            path: "/images/gallery/pendrake-portrait/wip-4/kyle-jorve_pendrake-portrait-wip-4",
+                            path: "/gallery/pendrake-portrait/kyle-jorve_pendrake-portrait-wip-4.jpg",
                             alt: `a progress snapshot of Pendrake's portrait in which the painting is nearly finished`,
                         },
                         {
@@ -452,7 +450,6 @@ export default function useGalleryData() {
                                     height="810"
                                     src="https://www.youtube.com/embed/CetjOlb5zWk"
                                     title="YouTube video player"
-                                    frameBorder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen
                                 ></iframe>
@@ -482,32 +479,32 @@ export default function useGalleryData() {
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/pendrake-sommer/",
                     downloadLink: "https://kylejorve.gumroad.com/l/ndwgm",
                     thumbnailKey: {
-                        path: "/images/gallery/pendrake/final/kyle-jorve_pendrake",
+                        path: "/gallery/pendrake/kyle-jorve_pendrake.jpg",
                         alt: "a vignette of Pendrake Sommer, looking backward with a puzzled expression while gripping his saber",
                     },
                     detailKeys: [
                         {
-                            path: "/images/gallery/pendrake/final/kyle-jorve_pendrake",
+                            path: "/gallery/pendrake/kyle-jorve_pendrake.jpg",
                             alt: "a vignette of Pendrake Sommer, looking backward with a puzzled expression while gripping his saber",
                         },
                         {
-                            path: "/images/gallery/pendrake/wip-1/kyle-jorve_pendrake-wip-1",
+                            path: "/gallery/pendrake/kyle-jorve_pendrake-wip-1.jpg",
                             alt: `a nude pose study for Pendrake's vignette`,
                         },
                         {
-                            path: "/images/gallery/pendrake/wip-2/kyle-jorve_pendrake-wip-2",
+                            path: "/gallery/pendrake/kyle-jorve_pendrake-wip-2.jpg",
                             alt: `a progress snapshot of Pendrake's vignette in which the line drawing is complete`,
                         },
                         {
-                            path: "/images/gallery/pendrake/wip-3/kyle-jorve_pendrake-wip-3",
+                            path: "/gallery/pendrake/kyle-jorve_pendrake-wip-3.jpg",
                             alt: `a progress snapshot of Pendrake's vignette in which the flat colors have been applied`,
                         },
                         {
-                            path: "/images/gallery/pendrake/wip-4/kyle-jorve_pendrake-wip-4",
+                            path: "/gallery/pendrake/kyle-jorve_pendrake-wip-4.jpg",
                             alt: `a progress snapshot of Pendrake's vignette in which the light and shadows have been applied and colorized`,
                         },
                         {
-                            path: "/images/gallery/pendrake/wip-5/kyle-jorve_pendrake-wip-5",
+                            path: "/gallery/pendrake/kyle-jorve_pendrake-wip-5.jpg",
                             alt: `a progress snapshot of Pendrake's vignette in which the painting is nearly finished`,
                         },
                         {
@@ -517,7 +514,6 @@ export default function useGalleryData() {
                                     height="810"
                                     src="https://www.youtube.com/embed/id079cuwXfE"
                                     title="YouTube video player"
-                                    frameBorder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen
                                 ></iframe>
@@ -545,28 +541,28 @@ export default function useGalleryData() {
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/talis-portrait/",
                     downloadLink: "https://kylejorve.gumroad.com/l/bgvVML",
                     thumbnailKey: {
-                        path: "/images/gallery/talis-portrait/final/kyle-jorve_talis-portrait",
+                        path: "/gallery/talis-portrait/kyle-jorve_talis-portrait.jpg",
                         alt: "a portrait of Talis Sommer",
                     },
                     detailKeys: [
                         {
-                            path: "/images/gallery/talis-portrait/final/kyle-jorve_talis-portrait",
+                            path: "/gallery/talis-portrait/kyle-jorve_talis-portrait.jpg",
                             alt: "a portrait of Talis Sommer",
                         },
                         {
-                            path: "/images/gallery/talis-portrait/wip-1/kyle-jorve_talis-portrait-wip-1",
+                            path: "/gallery/talis-portrait/kyle-jorve_talis-portrait-wip-1.jpg",
                             alt: `a progress snapshot of Talis's portrait in which the line drawing is complete`,
                         },
                         {
-                            path: "/images/gallery/talis-portrait/wip-2/kyle-jorve_talis-portrait-wip-2",
+                            path: "/gallery/talis-portrait/kyle-jorve_talis-portrait-wip-2.jpg",
                             alt: `a progress snapshot of Talis's portrait in which the flat colors have been applied`,
                         },
                         {
-                            path: "/images/gallery/talis-portrait/wip-3/kyle-jorve_talis-portrait-wip-3",
+                            path: "/gallery/talis-portrait/kyle-jorve_talis-portrait-wip-3.jpg",
                             alt: `a progress snapshot of Talis's portrait in which the light and shadow have been applied and colorized`,
                         },
                         {
-                            path: "/images/gallery/talis-portrait/wip-4/kyle-jorve_talis-portrait-wip-4",
+                            path: "/gallery/talis-portrait/kyle-jorve_talis-portrait-wip-4.jpg",
                             alt: `a progress snapshot of Talis's portrait in which the painting is nearly finished`,
                         },
                         {
@@ -576,7 +572,6 @@ export default function useGalleryData() {
                                     height="810"
                                     src="https://www.youtube.com/embed/FooxBhjNG3E"
                                     title="YouTube video player"
-                                    frameBorder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen
                                 ></iframe>
@@ -612,28 +607,28 @@ export default function useGalleryData() {
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/talis-sommer/",
                     downloadLink: "https://kylejorve.gumroad.com/l/CQNFi",
                     thumbnailKey: {
-                        path: "/images/gallery/talis/final/kyle-jorve_talis",
+                        path: "/gallery/talis/kyle-jorve_talis.jpg",
                         alt: "Talis stands with an amused expression, her hand resting on the saber mounted to her belt",
                     },
                     detailKeys: [
                         {
-                            path: "/images/gallery/talis/final/kyle-jorve_talis",
+                            path: "/gallery/talis/kyle-jorve_talis.jpg",
                             alt: "Talis stands with an amused expression, her hand resting on the saber mounted to her belt",
                         },
                         {
-                            path: "/images/gallery/talis/wip-1/kyle-jorve_talis-wip-1",
+                            path: "/gallery/talis/kyle-jorve_talis-wip-1.jpg",
                             alt: `a progress snapshot of Talis's vignette in which the line drawing is complete`,
                         },
                         {
-                            path: "/images/gallery/talis/wip-2/kyle-jorve_talis-wip-2",
+                            path: "/gallery/talis/kyle-jorve_talis-wip-2.jpg",
                             alt: `a progress snapshot of Talis's vignette in which the flat colors have been applied`,
                         },
                         {
-                            path: "/images/gallery/talis/wip-3/kyle-jorve_talis-wip-3",
+                            path: "/gallery/talis/kyle-jorve_talis-wip-3.jpg",
                             alt: `a progress snapshot of Talis's vignette in which the light and shadow have been applied and colorized`,
                         },
                         {
-                            path: "/images/gallery/talis/wip-4/kyle-jorve_talis-wip-4",
+                            path: "/gallery/talis/kyle-jorve_talis-wip-4.jpg",
                             alt: `a progress snapshot of Talis's vignette in which the painting is nearly finished`,
                         },
                         {
@@ -643,7 +638,6 @@ export default function useGalleryData() {
                                     height="810"
                                     src="https://www.youtube.com/embed/M8TVkpTIlI0"
                                     title="YouTube video player"
-                                    frameBorder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen
                                 ></iframe>
@@ -669,28 +663,28 @@ export default function useGalleryData() {
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/cargha-portrait/",
                     downloadLink: "https://kylejorve.gumroad.com/l/LNffV",
                     thumbnailKey: {
-                        path: "/images/gallery/cargha-portrait/final/kyle-jorve_cargha-portrait",
+                        path: "/gallery/cargha-portrait/kyle-jorve_cargha-portrait.jpg",
                         alt: "a portrait of Cargha Bezamik which features his scarred-over left eye and the tattoo which covers it",
                     },
                     detailKeys: [
                         {
-                            path: "/images/gallery/cargha-portrait/final/kyle-jorve_cargha-portrait",
+                            path: "/gallery/cargha-portrait/kyle-jorve_cargha-portrait.jpg",
                             alt: "a portrait of Cargha Bezamik which features his scarred-over left eye and the tattoo which covers it",
                         },
                         {
-                            path: "/images/gallery/cargha-portrait/wip-1/kyle-jorve_cargha-portrait-wip-1",
+                            path: "/gallery/cargha-portrait/kyle-jorve_cargha-portrait-wip-1.jpg",
                             alt: `a progress snapshot of Cargha's portrait in which the line drawing is complete`,
                         },
                         {
-                            path: "/images/gallery/cargha-portrait/wip-2/kyle-jorve_cargha-portrait-wip-2",
+                            path: "/gallery/cargha-portrait/kyle-jorve_cargha-portrait-wip-2.jpg",
                             alt: `a progress snapshot of Cargha's portrait in which the flat colors have been applied`,
                         },
                         {
-                            path: "/images/gallery/cargha-portrait/wip-3/kyle-jorve_cargha-portrait-wip-3",
+                            path: "/gallery/cargha-portrait/kyle-jorve_cargha-portrait-wip-3.jpg",
                             alt: `a progress snapshot of Cargha's portrait in which the light and shadow have been applied and colorized`,
                         },
                         {
-                            path: "/images/gallery/cargha-portrait/wip-4/kyle-jorve_cargha-portrait-wip-4",
+                            path: "/gallery/cargha-portrait/kyle-jorve_cargha-portrait-wip-4.jpg",
                             alt: `a progress snapshot of Cargha's portrait in which the painting is nearly finished`,
                         },
                     ],
@@ -710,32 +704,32 @@ export default function useGalleryData() {
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/cargha-bezamik/",
                     downloadLink: "https://kylejorve.gumroad.com/l/olwWz",
                     thumbnailKey: {
-                        path: "/images/gallery/cargha/final/kyle-jorve_cargha",
+                        path: "/gallery/cargha/kyle-jorve_cargha.jpg",
                         alt: "Cargha stands stoically, a dagger in one hand and a khopesh in the other",
                     },
                     detailKeys: [
                         {
-                            path: "/images/gallery/cargha/final/kyle-jorve_cargha",
+                            path: "/gallery/cargha/kyle-jorve_cargha.jpg",
                             alt: "Cargha stands stoically, a dagger in one hand and a khopesh in the other",
                         },
                         {
-                            path: "/images/gallery/cargha/wip-1/kyle-jorve_cargha-wip-1",
+                            path: "/gallery/cargha/kyle-jorve_cargha-wip-1.jpg",
                             alt: `a nude pose study for Cargha's vignette`,
                         },
                         {
-                            path: "/images/gallery/cargha/wip-2/kyle-jorve_cargha-wip-2",
+                            path: "/gallery/cargha/kyle-jorve_cargha-wip-2.jpg",
                             alt: `a progress snapshot of Cargha's vignette in which the line drawing is complete`,
                         },
                         {
-                            path: "/images/gallery/cargha/wip-3/kyle-jorve_cargha-wip-3",
+                            path: "/gallery/cargha/kyle-jorve_cargha-wip-3.jpg",
                             alt: `a progress snapshot of Cargha's vignette in which the flat colors have been applied`,
                         },
                         {
-                            path: "/images/gallery/cargha/wip-4/kyle-jorve_cargha-wip-4",
+                            path: "/gallery/cargha/kyle-jorve_cargha-wip-4.jpg",
                             alt: `a progress snapshot of Cargha's vignette in which the light and shadow have been applied and colorized`,
                         },
                         {
-                            path: "/images/gallery/cargha/wip-5/kyle-jorve_cargha-wip-5",
+                            path: "/gallery/cargha/kyle-jorve_cargha-wip-5.jpg",
                             alt: `a progress snapshot of Cargha's vignette in which the painting is nearly complete`,
                         },
                         {
@@ -745,7 +739,6 @@ export default function useGalleryData() {
                                     height="810"
                                     src="https://www.youtube.com/embed/_FzmNukhxFo"
                                     title="YouTube video player"
-                                    frameBorder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen
                                 ></iframe>
@@ -793,20 +786,20 @@ export default function useGalleryData() {
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/crow/",
                     downloadLink: "https://gumroad.com/l/fTSADI",
                     thumbnailKey: {
-                        path: "/images/gallery/crow/final/kyle-jorve_crow",
+                        path: "/gallery/crow/kyle-jorve_crow.jpg",
                         alt: "Crow stands against a wall smoking an e-cigarette, his mechanical right eye glowing green",
                     },
                     detailKeys: [
                         {
-                            path: "/images/gallery/crow/final/kyle-jorve_crow",
+                            path: "/gallery/crow/kyle-jorve_crow.jpg",
                             alt: "Crow stands against a wall smoking an e-cigarette, his mechanical right eye glowing green",
                         },
                         {
-                            path: "/images/gallery/crow/detail-1/kyle-jorve_crow-detail-1",
+                            path: "/gallery/crow/kyle-jorve_crow-detail-1.jpg",
                             alt: `a detailed crop showing Crow's face`,
                         },
                         {
-                            path: "/images/gallery/crow/detail-2/kyle-jorve_crow-detail-2",
+                            path: "/gallery/crow/kyle-jorve_crow-detail-2.jpg",
                             alt: "a detail crop showing the upper portion of the illustration",
                         },
                         {
@@ -816,7 +809,6 @@ export default function useGalleryData() {
                                     height="810"
                                     src="https://www.youtube.com/embed/oRzRz7eev2c"
                                     title="YouTube video player"
-                                    frameBorder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen
                                 ></iframe>
@@ -846,32 +838,32 @@ export default function useGalleryData() {
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/pendrakes-chamber/",
                     downloadLink: "https://gumroad.com/l/mQzix",
                     thumbnailKey: {
-                        path: "/images/gallery/pendrakes-chamber/detail-1/kyle-jorve_pendrakes-chamber-detail-1",
+                        path: "/gallery/pendrakes-chamber/kyle-jorve_pendrakes-chamber-detail-1.jpg",
                         alt: "a close-up crop of Pendrake and Kyra lying in bed together",
                     },
                     detailKeys: [
                         {
-                            path: "/images/gallery/pendrakes-chamber/final/kyle-jorve_pendrakes-chamber",
+                            path: "/gallery/pendrakes-chamber/kyle-jorve_pendrakes-chamber.jpg",
                             alt: `Pendrake's bedroom in isometric perspective`,
                         },
                         {
-                            path: "/images/gallery/pendrakes-chamber/detail-1/kyle-jorve_pendrakes-chamber-detail-1",
+                            path: "/gallery/pendrakes-chamber/kyle-jorve_pendrakes-chamber-detail-1.jpg",
                             alt: "a close-up crop of Pendrake and Kyra lying in bed together",
                         },
                         {
-                            path: "/images/gallery/pendrakes-chamber/detail-2/kyle-jorve_pendrakes-chamber-detail-2",
+                            path: "/gallery/pendrakes-chamber/kyle-jorve_pendrakes-chamber-detail-2.jpg",
                             alt: `a close-up crop of the vanity in the corner of Pendrake's room`,
                         },
                         {
-                            path: "/images/gallery/pendrakes-chamber/detail-3/kyle-jorve_pendrakes-chamber-detail-3",
+                            path: "/gallery/pendrakes-chamber/kyle-jorve_pendrakes-chamber-detail-3.jpg",
                             alt: "a close-up crop of the hearth, from which a fire illuminates the entire room",
                         },
                         {
-                            path: "/images/gallery/pendrakes-chamber/detail-4/kyle-jorve_pendrakes-chamber-detail-4",
+                            path: "/gallery/pendrakes-chamber/kyle-jorve_pendrakes-chamber-detail-4.jpg",
                             alt: `a close-up crop of the storage chest at the foot of Pendrake's bed; a saber rests beside it`,
                         },
                         {
-                            path: "/images/gallery/pendrakes-chamber/detail-5/kyle-jorve_pendrakes-chamber-detail-5",
+                            path: "/gallery/pendrakes-chamber/kyle-jorve_pendrakes-chamber-detail-5.jpg",
                             alt: "Pendrake and Kyra doze together in bed; various props are scattered over the neighboring nighstand",
                         },
                     ],
@@ -913,12 +905,12 @@ export default function useGalleryData() {
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/berned/",
                     downloadLink: "https://gumroad.com/l/JKDSd",
                     thumbnailKey: {
-                        path: "/images/gallery/berned/kyle-jorve_berned",
+                        path: "/gallery/berned/kyle-jorve_berned.jpg",
                         alt: "Berned stands before the circular red door to his house",
                     },
                     detailKeys: [
                         {
-                            path: "/images/gallery/berned/kyle-jorve_berned",
+                            path: "/gallery/berned/kyle-jorve_berned.jpg",
                             alt: "Berned stands before the circular red door to his house",
                         },
                     ],
@@ -944,12 +936,12 @@ export default function useGalleryData() {
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/olfactory/",
                     downloadLink: "https://gumroad.com/l/KMcGj",
                     thumbnailKey: {
-                        path: "/images/gallery/olfactory/kyle-jorve_olfactory",
+                        path: "/gallery/olfactory/kyle-jorve_olfactory.jpg",
                         alt: "an alien breathes in the thick atmoshpere of its home planet through a mouth overgrown with filtering cilia",
                     },
                     detailKeys: [
                         {
-                            path: "/images/gallery/olfactory/kyle-jorve_olfactory",
+                            path: "/gallery/olfactory/kyle-jorve_olfactory.jpg",
                             alt: "an alien breathes in the thick atmoshpere of its home planet through a mouth overgrown with filtering cilia",
                         },
                     ],
@@ -989,12 +981,12 @@ export default function useGalleryData() {
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/becoming-runa/",
                     downloadLink: "https://gumroad.com/l/UluBo",
                     thumbnailKey: {
-                        path: "/images/gallery/becoming-runa/kyle-jorve_becoming-runa",
+                        path: "/gallery/becoming-runa/kyle-jorve_becoming-runa.jpg",
                         alt: "Luna stands naked and emaciated beneath the symbol of the Order of the Runa, crystalline growths covering his body as his extremities fade from existence",
                     },
                     detailKeys: [
                         {
-                            path: "/images/gallery/becoming-runa/kyle-jorve_becoming-runa",
+                            path: "/gallery/becoming-runa/kyle-jorve_becoming-runa.jpg",
                             alt: "Luna stands naked beneath the symbol of the Order of the Runa, crystalline growths covering his body as his extremities fade from existence",
                         },
                         {
@@ -1004,7 +996,6 @@ export default function useGalleryData() {
                                     height="810"
                                     src="https://www.youtube.com/embed/PxoZ4MjlxOY"
                                     title="YouTube video player"
-                                    frameBorder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen
                                 ></iframe>
@@ -1048,12 +1039,12 @@ export default function useGalleryData() {
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/crows/",
                     downloadLink: "https://gumroad.com/l/itBYi",
                     thumbnailKey: {
-                        path: "/images/gallery/crows/kyle-jorve_crows",
+                        path: "/gallery/crows/kyle-jorve_crows.jpg",
                         alt: "Crow stands before a cluster of dead ravens as more fall from the sky, a dead white raven at his feet",
                     },
                     detailKeys: [
                         {
-                            path: "/images/gallery/crows/kyle-jorve_crows",
+                            path: "/gallery/crows/kyle-jorve_crows.jpg",
                             alt: "Crow stands before a cluster of dead ravens as more fall from the sky, a dead white raven at his feet",
                         },
                     ],
@@ -1077,12 +1068,12 @@ export default function useGalleryData() {
                     orientation: "center",
                     featured: false,
                     thumbnailKey: {
-                        path: "/images/gallery/kingdom-hearts-1/kyle-jorve_kingdom-hearts-1",
+                        path: "/gallery/kingdom-hearts-1/kyle-jorve_kingdom-hearts-1.jpg",
                         alt: "Sora, Riku, and Kairi stand on a sandy beach on Destiny Island",
                     },
                     detailKeys: [
                         {
-                            path: "/images/gallery/kingdom-hearts-1/kyle-jorve_kingdom-hearts-1",
+                            path: "/gallery/kingdom-hearts-1/kyle-jorve_kingdom-hearts-1.jpg",
                             alt: "Sora, Riku, and Kairi stand on a sandy beach on Destiny Island",
                         },
                     ],
@@ -1106,12 +1097,12 @@ export default function useGalleryData() {
                     orientation: "center",
                     featured: false,
                     thumbnailKey: {
-                        path: "/images/gallery/kingdom-hearts-2/kyle-jorve_kingdom-hearts-2",
+                        path: "/gallery/kingdom-hearts-2/kyle-jorve_kingdom-hearts-2.jpg",
                         alt: "Riku, Namine, and Roxas stand on a dark, destroyed beach on Destiny Island; fissures crack the landscape; Mickey stands hidden in the distance; a heart-shaped moon glows overhead",
                     },
                     detailKeys: [
                         {
-                            path: "/images/gallery/kingdom-hearts-2/kyle-jorve_kingdom-hearts-2",
+                            path: "/gallery/kingdom-hearts-2/kyle-jorve_kingdom-hearts-2.jpg",
                             alt: "Riku, Namine, and Roxas stand on a dark, destroyed beach on Destiny Island; fissures crack the landscape; Mickey stands hidden in the distance; a heart-shaped moon glows overhead",
                         },
                     ],

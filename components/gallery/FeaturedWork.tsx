@@ -8,7 +8,7 @@ import { GalleryItemType } from "../../hooks/data/gallery-data";
 import styles from "../../styles/components/Gallery.module.css";
 
 type FeaturedWorkProps = {
-    featuredItems: GalleryItemType[];
+    featuredItems: (GalleryItemType & { index: number })[];
 };
 
 const ioOptions = {
@@ -64,7 +64,8 @@ export default function FeaturedWork(props: FeaturedWorkProps) {
                         return (
                             <GalleryItem
                                 key={index}
-                                isNew={index === 0}
+                                isNew={item.index === 0}
+                                isFeatured={true}
                                 name={item.name}
                                 title={item.title}
                                 thumbnailKey={item.thumbnailKey}

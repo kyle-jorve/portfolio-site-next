@@ -1,5 +1,6 @@
-import { useCallback } from "react";
-import ShowcasePicture from "./ShowcasePicture";
+import React, { useCallback } from "react";
+import Image from "next/image";
+import useDetailImageConfig from "../../../hooks/detail-image-config";
 import { DetailKeyType } from "../../../hooks/data/gallery-data";
 import styles from "../../../styles/components/Showcase.module.css";
 
@@ -12,6 +13,7 @@ type ShowcaseSlideProps = {
 };
 
 export default function ShowcaseSlide(props: ShowcaseSlideProps) {
+    const imageSizes = useDetailImageConfig(props.item.path || false);
     const slideClasses = [
         styles["showcase__slide"],
         props.index === props.activeIndex
@@ -22,9 +24,16 @@ export default function ShowcaseSlide(props: ShowcaseSlideProps) {
         !!props.item.source && styles["showcase__slide--video"],
     ].filter((c) => c);
 
-    const imageLoadHandler = useCallback(() => {
-        if (props.onLoad) props.onLoad();
-    }, [props.onLoad]);
+    const imageLoadHandler = useCallback(
+        (event: React.SyntheticEvent) => {
+            const target = event.currentTarget as HTMLImageElement;
+
+            target?.classList.add("loaded");
+
+            if (props.onLoad) props.onLoad();
+        },
+        [props.onLoad],
+    );
 
     return (
         <div
@@ -38,7 +47,15 @@ export default function ShowcaseSlide(props: ShowcaseSlideProps) {
                 {!!props.item.source ? (
                     props.item.source
                 ) : (
-                    <ShowcasePicture path={props.item.path!} alt={props.item.alt!} onLoad={imageLoadHandler} />
+                    <Image
+                        src={props.item.path!}
+                        alt={props.item.alt || ""}
+                        className={`img--lazy ${styles["showcase__img"]}`}
+                        onLoad={imageLoadHandler}
+                        loading="eager"
+                        sizes={imageSizes}
+                        fill
+                    />
                 )}
             </div>
         </div>
