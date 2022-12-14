@@ -23,7 +23,7 @@ export default function useCVData() {
     return {
         get heroImg(): HeroImgType {
             return {
-                url: "/images/portrait/portrait-square-640.jpg",
+                url: "/images/portrait/portrait-square.jpg",
                 alt: "A photograph of Kyle Jorve smiling at the camera, a blurred scene of lush plant life behind him",
             };
         },

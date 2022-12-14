@@ -5,7 +5,7 @@ export default function DefaultHead() {
     return (
         <Head>
             {/* VIEWPORT */}
-            <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+            <meta httpEquiv="content-type" content="text/html; charset=utf-8" />
             <meta
                 id="viewport"
                 name="viewport"

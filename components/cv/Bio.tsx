@@ -21,6 +21,8 @@ export default function Bio(props: BioProps) {
                             src={props.heroImg.url}
                             alt={props.heroImg.alt}
                             loading="eager"
+                            width="400"
+                            height="400"
                         />
                     </div>
 

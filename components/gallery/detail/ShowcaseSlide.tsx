@@ -53,8 +53,10 @@ export default function ShowcaseSlide(props: ShowcaseSlideProps) {
                         className={`img--lazy ${styles["showcase__img"]}`}
                         onLoad={imageLoadHandler}
                         loading="eager"
+                        priority
                         sizes={imageSizes}
-                        fill
+                        width={props.item.width}
+                        height={props.item.height}
                     />
                 )}
             </div>

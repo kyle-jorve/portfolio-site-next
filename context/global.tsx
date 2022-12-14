@@ -12,14 +12,37 @@ const transitionDelay = 100;
 const resizeEvents = ["resize", "orientationchange"];
 const breakpoints = [640, 1024];
 const SiteContext = React.createContext<SiteContextType>({
-    mobile: true,
-    navOpen: false,
-    fromPage: "home",
-    fromSection: "featured-work",
+    activeSlideIndex: 0,
+    breakpoints,
+    desktop: false,
+    fromPage: null,
+    fromSection: null,
     loadStatus: "idle",
-    detailPage: {
-        activeSlideIndex: 0,
-    },
+    longTransitionDuration,
+    mobile: true,
+    navButtonRef: null,
+    navOpen: false,
+    navRevealed: false,
+    pageNotFound: false,
+    toSection: null,
+    transitionDelay,
+    transitionDuration,
+    visited: false,
+
+    closeNav: () => {},
+    goToNextSlide: () => {},
+    goToPrevSlide: () => {},
+    goToSlide: () => {},
+    navToggleHandler: () => {},
+    removeLoader: () => {},
+    resetSlideIndex: () => {},
+    returnToOriginPage: () => {},
+    setFromPage: () => {},
+    setFromSection: () => {},
+    setPageNotFound: () => {},
+    setToSection: () => {},
+    setVisited: () => {},
+    toggleLoader: () => {},
 });
 
 export function SiteContextProvider(props: React.PropsWithChildren) {
@@ -66,15 +89,6 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
             setMobile(true);
         }
     }, []);
-
-    function toggleLoader(on: boolean = true) {
-        if (on) {
-            setLoadStatus("in");
-        } else {
-            removeLoader();
-        }
-    }
-
     useEffect(() => {
         resizeHandler();
 
@@ -84,6 +98,14 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
             resizeEvents.forEach((ev) => window.removeEventListener(ev, resizeHandler));
         };
     }, [resizeHandler, removeLoader, detailPageMatch, pageNotFound]);
+
+    function toggleLoader(on: boolean = true) {
+        if (on) {
+            setLoadStatus("in");
+        } else {
+            removeLoader();
+        }
+    }
 
     function navToggleHandler() {
         navButtonRef.current!.blur();

@@ -12,7 +12,7 @@ export default function useHomeData() {
     return {
         get intro() {
             return {
-                heroImageKey: "/images/home-hero/home-hero",
+                heroImagePath: "/images/home-hero/home-hero.jpg",
             };
         },
         get gallery() {

@@ -1,32 +1,14 @@
 import { useContext } from "react";
+import Image from "next/image";
 import SiteContext from "../../context/global";
 import styles from "../../styles/layout/Hero.module.css";
 
 type HomeHeroProps = {
-    imageKey: string;
+    imagePath: string;
 };
 
 export default function HomeHero(props: HomeHeroProps) {
     const siteContext = useContext(SiteContext);
-    const bgConfig = {
-        sources: [
-            {
-                srcset: `${props.imageKey}-1920.jpg`,
-                minScreenWidth: 1440,
-            },
-            {
-                srcset: `${props.imageKey}-1440.jpg`,
-                minScreenWidth: 1024,
-            },
-            {
-                srcset: `${props.imageKey}-1024.jpg`,
-                minScreenWidth: 640,
-            },
-        ],
-        mobile: {
-            src: `${props.imageKey}-640.jpg`,
-        },
-    };
     const classes = [
         "section",
         styles.hero,
@@ -72,35 +54,26 @@ export default function HomeHero(props: HomeHeroProps) {
 
             <div className={styles["hero__bg"]} aria-hidden="true">
                 <div className={styles["hero__img-frame"]}>
-                    <picture>
-                        {bgConfig.sources.map((src, index) => {
-                            return (
-                                <source
-                                    key={index}
-                                    srcSet={src.srcset}
-                                    media={`(min-width: ${src.minScreenWidth}px)`}
-                                />
-                            );
-                        })}
-
-                        <img className={styles["hero__bg-img"]} src={bgConfig.mobile.src} alt="" loading="eager" />
-                    </picture>
+                    <Image
+                        className={styles["hero__bg-img"]}
+                        src={props.imagePath}
+                        alt=""
+                        fill
+                        loading="eager"
+                        priority
+                        sizes="(min-width: 1920px) 1920px, 100vw"
+                    />
                 </div>
 
-                <picture>
-                    {bgConfig.sources.map((src, index) => {
-                        return (
-                            <source key={index} srcSet={src.srcset} media={`(min-width: ${src.minScreenWidth}px)`} />
-                        );
-                    })}
-
-                    <img
-                        className={`${styles["hero__bg-img"]} ${styles["hero__bg-img--blur"]}`}
-                        src={bgConfig.mobile.src}
-                        alt=""
-                        loading="eager"
-                    />
-                </picture>
+                <Image
+                    className={`${styles["hero__bg-img"]} ${styles["hero__bg-img--blur"]}`}
+                    src={props.imagePath}
+                    alt=""
+                    loading="eager"
+                    priority
+                    fill
+                    sizes="100vw"
+                />
             </div>
         </section>
     );

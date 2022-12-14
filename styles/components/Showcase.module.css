@@ -23,10 +23,6 @@
 .showcase__media {
     position: relative;
     z-index: 2;
-    display: flex;
-    flex-direction: column;
-    height: 80vh;
-    min-height: 600px;
     padding: 6rem 1rem 2rem;
     overflow: hidden;
 }
@@ -68,6 +64,8 @@
 
 @media (min-width: 64em) and (min-height: 50em) {
     .showcase__media {
+        display: flex;
+        flex-direction: column;
         justify-content: center;
         height: 100vh;
         padding: 0;
@@ -81,7 +79,6 @@
 .showcase__slider {
     position: relative;
     z-index: 2;
-    flex-grow: 1;
 }
 
 .showcase__slide {
@@ -91,7 +88,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
     opacity: 0;
     transition: opacity var(--transition);
     pointer-events: none;
@@ -109,18 +105,15 @@
 
 .showcase__img-cont {
     position: relative;
-    width: 100%;
-    height: 100%;
     border-radius: var(--border-radius);
     box-shadow: var(--soft-shadow);
     overflow: hidden;
 }
 
 .showcase__img {
-    width: 100%;
+    width: auto;
     height: auto;
     pointer-events: none;
-    object-fit: contain;
 }
 
 /*----- videos -----*/
@@ -139,6 +132,7 @@
     width: 100%;
     height: auto;
     aspect-ratio: 16 / 9;
+    border: none;
 }
 
 /*----- slider navigation -----*/
@@ -222,6 +216,7 @@
 
     .showcase__img {
         max-height: calc(100vh - 11rem);
+        object-fit: cover;
     }
 
     .slider__dots {

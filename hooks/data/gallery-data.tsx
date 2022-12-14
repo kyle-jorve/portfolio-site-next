@@ -20,8 +20,6 @@ export type GalleryItemType = {
     thumbnailKey: {
         path: string;
         alt: string;
-        width?: number;
-        height?: number;
     };
     detailKeys?: DetailKeyType[];
 };
@@ -57,22 +55,32 @@ export default function useGalleryData() {
                         {
                             path: "/gallery/kyra-portrait/kyle-jorve_kyra-portrait.jpg",
                             alt: "a portrait of Kyra Luckleav",
+                            width: 1920,
+                            height: 2485,
                         },
                         {
                             path: "/gallery/kyra-portrait/kyle-jorve_kyra-portrait-wip-1.jpg",
                             alt: `a progress snapshot of Kyra Luckleav's portrait in which the line drawing is complete`,
+                            width: 1920,
+                            height: 2485,
                         },
                         {
                             path: "/gallery/kyra-portrait/kyle-jorve_kyra-portrait-wip-2.jpg",
                             alt: `a progress snapshot of Kyra Luckleav's portrait in which the flat colors have been applied`,
+                            width: 1920,
+                            height: 2485,
                         },
                         {
                             path: "/gallery/kyra-portrait/kyle-jorve_kyra-portrait-wip-3.jpg",
                             alt: `a progress snapshot of Kyra Luckleav's portrait in which the light and shadows have been applied and colorized`,
+                            width: 1920,
+                            height: 2485,
                         },
                         {
                             path: "/gallery/kyra-portrait/kyle-jorve_kyra-portrait-wip-4.jpg",
                             alt: `a progress snapshot of Kyra Luckleav's portrait in which the painting is nearly finished`,
+                            width: 1920,
+                            height: 2485,
                         },
                         {
                             source: (
@@ -114,26 +122,38 @@ export default function useGalleryData() {
                         {
                             path: "/gallery/kyra/kyle-jorve_kyra.jpg",
                             alt: "a vignette of Kyra Luckleav, grinning and looking out of frame",
+                            width: 1920,
+                            height: 3162,
                         },
                         {
                             path: "/gallery/kyra/kyle-jorve_kyra-wip-1.jpg",
                             alt: `a nude pose study for Kyra's vignette`,
+                            width: 1920,
+                            height: 2485,
                         },
                         {
                             path: "/gallery/kyra/kyle-jorve_kyra-wip-2.jpg",
                             alt: `a progress snapshot of Kyra's vignette in which the line drawing is complete`,
+                            width: 1920,
+                            height: 2485,
                         },
                         {
                             path: "/gallery/kyra/kyle-jorve_kyra-wip-3.jpg",
                             alt: `a progress snapshot of Kyra's vignette in which the flat colors have been applied`,
+                            width: 1920,
+                            height: 2485,
                         },
                         {
                             path: "/gallery/kyra/kyle-jorve_kyra-wip-4.jpg",
                             alt: `a progress snapshot of Kyra's vignette in which the light and shadow have been applied and colorized`,
+                            width: 1920,
+                            height: 3162,
                         },
                         {
                             path: "/gallery/kyra/kyle-jorve_kyra-wip-5.jpg",
                             alt: `a progress snapshot of Kyra's vignette in which the painting is nearly finished`,
+                            width: 1920,
+                            height: 3162,
                         },
                         {
                             source: (
@@ -175,22 +195,32 @@ export default function useGalleryData() {
                         {
                             path: "/gallery/toval-portrait/kyle-jorve_toval-portrait.jpg",
                             alt: "a portrait of Toval Argensente",
+                            width: 1920,
+                            height: 2485,
                         },
                         {
                             path: "/gallery/toval-portrait/kyle-jorve_toval-portrait-wip-1.jpg",
                             alt: `a progress snapshot of Toval Argensente's portrait in which the line drawing is complete`,
+                            width: 1920,
+                            height: 2485,
                         },
                         {
                             path: "/gallery/toval-portrait/kyle-jorve_toval-portrait-wip-2.jpg",
                             alt: `a progress snapshot of Toval Argensente's portrait in which the flat colors have been applied`,
+                            width: 1920,
+                            height: 2485,
                         },
                         {
                             path: "/gallery/toval-portrait/kyle-jorve_toval-portrait-wip-3.jpg",
                             alt: `a progress snapshot of Toval Argensente's portrait in which the light and shadows have been applied and colorized`,
+                            width: 1920,
+                            height: 2485,
                         },
                         {
                             path: "/gallery/toval-portrait/kyle-jorve_toval-portrait-wip-4.jpg",
                             alt: `a progress snapshot of Toval Argensente's portrait in which the painting is nearly finished`,
+                            width: 1920,
+                            height: 2485,
                         },
                         {
                             source: (
@@ -241,26 +271,38 @@ export default function useGalleryData() {
                         {
                             path: "/gallery/toval/kyle-jorve_toval.jpg",
                             alt: "a vignette of Toval Argensente, looking menacingly toward the viewer with a sword in her left hand pointed to the ground",
+                            width: 1920,
+                            height: 2592,
                         },
                         {
                             path: "/gallery/toval/kyle-jorve_toval-wip-1.jpg",
                             alt: `a nude pose study for Toval's vignette`,
+                            width: 1920,
+                            height: 2485,
                         },
                         {
                             path: "/gallery/toval/kyle-jorve_toval-wip-2.jpg",
                             alt: `a progress snapshot of Toval's vignette in which the line drawing is complete`,
+                            width: 1920,
+                            height: 2485,
                         },
                         {
                             path: "/gallery/toval/kyle-jorve_toval-wip-3.jpg",
                             alt: `a progress snapshot of Toval's vignette in which the flat colors have been applied`,
+                            width: 1920,
+                            height: 2485,
                         },
                         {
                             path: "/gallery/toval/kyle-jorve_toval-wip-4.jpg",
                             alt: `a progress snapshot of Toval's vignette in which the light and shadows have been applied and colorized`,
+                            width: 1920,
+                            height: 2592,
                         },
                         {
                             path: "/gallery/toval/kyle-jorve_toval-wip-5.jpg",
                             alt: `a progress snapshot of Toval's vignette in which the painting is nearly finished`,
+                            width: 1920,
+                            height: 2592,
                         },
                         {
                             source: (
@@ -304,22 +346,32 @@ export default function useGalleryData() {
                         {
                             path: "/gallery/andel-portrait/kyle-jorve_andel-portrait.jpg",
                             alt: "a portrait of Andel Sommer",
+                            width: 1920,
+                            height: 2485,
                         },
                         {
                             path: "/gallery/andel-portrait/kyle-jorve_andel-portrait-wip-1.jpg",
                             alt: `a progress snapshot of Andel Sommer's portrait in which the line drawing is complete`,
+                            width: 1920,
+                            height: 2485,
                         },
                         {
                             path: "/gallery/andel-portrait/kyle-jorve_andel-portrait-wip-2.jpg",
                             alt: `a progress snapshot of Andel Sommer's portrait in which the flat colors have been applied`,
+                            width: 1920,
+                            height: 2485,
                         },
                         {
                             path: "/gallery/andel-portrait/kyle-jorve_andel-portrait-wip-3.jpg",
                             alt: `a progress snapshot of Andel Sommer's portrait in which the light and shadows have been applied and colorized`,
+                            width: 1920,
+                            height: 2485,
                         },
                         {
                             path: "/gallery/andel-portrait/kyle-jorve_andel-portrait-wip-4.jpg",
                             alt: `a progress snapshot of Andel Sommer's portrait in which the painting is nearly finished`,
+                            width: 1920,
+                            height: 2485,
                         },
                         {
                             source: (
@@ -364,26 +416,38 @@ export default function useGalleryData() {
                         {
                             path: "/gallery/andel/kyle-jorve_andel.jpg",
                             alt: "Andel Sommer stands proudly, a sheathed sword in one hand and a heavy tome in the other",
+                            width: 1920,
+                            height: 2987,
                         },
                         {
                             path: "/gallery/andel/kyle-jorve_andel-wip-1.jpg",
                             alt: "an in-progress image of Andel in the nude pose phase of the piece",
+                            width: 1920,
+                            height: 2485,
                         },
                         {
                             path: "/gallery/andel/kyle-jorve_andel-wip-2.jpg",
                             alt: "an in-progress image of Andel in which the design is fully drawn",
+                            width: 1920,
+                            height: 2485,
                         },
                         {
                             path: "/gallery/andel/kyle-jorve_andel-wip-3.jpg",
                             alt: "an in-progress image of Andel in which flat colors are applied to the drawing",
+                            width: 1920,
+                            height: 2485,
                         },
                         {
                             path: "/gallery/andel/kyle-jorve_andel-wip-4.jpg",
                             alt: "an in-progress image of Andel in which the shadows and light are colorized",
+                            width: 1920,
+                            height: 2936,
                         },
                         {
                             path: "/gallery/andel/kyle-jorve_andel-wip-5.jpg",
                             alt: "an in-progress image of Andel in which the painting is nearly finished",
+                            width: 1920,
+                            height: 2987,
                         },
                         {
                             source: (
@@ -426,22 +490,32 @@ export default function useGalleryData() {
                         {
                             path: "/gallery/pendrake-portrait/kyle-jorve_pendrake-portrait.jpg",
                             alt: "a portrait of Pendrake Sommer",
+                            width: 1920,
+                            height: 2486,
                         },
                         {
                             path: "/gallery/pendrake-portrait/kyle-jorve_pendrake-portrait-wip-1.jpg",
                             alt: `a progress snapshot of Pendrake's portrait in which the line drawing has been finished`,
+                            width: 1920,
+                            height: 2486,
                         },
                         {
                             path: "/gallery/pendrake-portrait/kyle-jorve_pendrake-portrait-wip-2.jpg",
                             alt: `a progress snapshot of Pendrake's portrait in which the flat colors have been applied`,
+                            width: 1920,
+                            height: 2486,
                         },
                         {
                             path: "/gallery/pendrake-portrait/kyle-jorve_pendrake-portrait-wip-3.jpg",
                             alt: `a progress snapshot of Pendrake's portrait in which the light and shadows have been applied and colorized`,
+                            width: 1920,
+                            height: 2486,
                         },
                         {
                             path: "/gallery/pendrake-portrait/kyle-jorve_pendrake-portrait-wip-4.jpg",
                             alt: `a progress snapshot of Pendrake's portrait in which the painting is nearly finished`,
+                            width: 1920,
+                            height: 2486,
                         },
                         {
                             source: (
@@ -486,26 +560,38 @@ export default function useGalleryData() {
                         {
                             path: "/gallery/pendrake/kyle-jorve_pendrake.jpg",
                             alt: "a vignette of Pendrake Sommer, looking backward with a puzzled expression while gripping his saber",
+                            width: 1920,
+                            height: 3316,
                         },
                         {
                             path: "/gallery/pendrake/kyle-jorve_pendrake-wip-1.jpg",
                             alt: `a nude pose study for Pendrake's vignette`,
+                            width: 1920,
+                            height: 2561,
                         },
                         {
                             path: "/gallery/pendrake/kyle-jorve_pendrake-wip-2.jpg",
                             alt: `a progress snapshot of Pendrake's vignette in which the line drawing is complete`,
+                            width: 1920,
+                            height: 2561,
                         },
                         {
                             path: "/gallery/pendrake/kyle-jorve_pendrake-wip-3.jpg",
                             alt: `a progress snapshot of Pendrake's vignette in which the flat colors have been applied`,
+                            width: 1920,
+                            height: 2561,
                         },
                         {
                             path: "/gallery/pendrake/kyle-jorve_pendrake-wip-4.jpg",
                             alt: `a progress snapshot of Pendrake's vignette in which the light and shadows have been applied and colorized`,
+                            width: 1920,
+                            height: 3316,
                         },
                         {
                             path: "/gallery/pendrake/kyle-jorve_pendrake-wip-5.jpg",
                             alt: `a progress snapshot of Pendrake's vignette in which the painting is nearly finished`,
+                            width: 1920,
+                            height: 3316,
                         },
                         {
                             source: (
@@ -548,22 +634,32 @@ export default function useGalleryData() {
                         {
                             path: "/gallery/talis-portrait/kyle-jorve_talis-portrait.jpg",
                             alt: "a portrait of Talis Sommer",
+                            width: 1920,
+                            height: 2561,
                         },
                         {
                             path: "/gallery/talis-portrait/kyle-jorve_talis-portrait-wip-1.jpg",
                             alt: `a progress snapshot of Talis's portrait in which the line drawing is complete`,
+                            width: 1920,
+                            height: 2561,
                         },
                         {
                             path: "/gallery/talis-portrait/kyle-jorve_talis-portrait-wip-2.jpg",
                             alt: `a progress snapshot of Talis's portrait in which the flat colors have been applied`,
+                            width: 1920,
+                            height: 2561,
                         },
                         {
                             path: "/gallery/talis-portrait/kyle-jorve_talis-portrait-wip-3.jpg",
                             alt: `a progress snapshot of Talis's portrait in which the light and shadow have been applied and colorized`,
+                            width: 1920,
+                            height: 2561,
                         },
                         {
                             path: "/gallery/talis-portrait/kyle-jorve_talis-portrait-wip-4.jpg",
                             alt: `a progress snapshot of Talis's portrait in which the painting is nearly finished`,
+                            width: 1920,
+                            height: 2561,
                         },
                         {
                             source: (
@@ -614,22 +710,32 @@ export default function useGalleryData() {
                         {
                             path: "/gallery/talis/kyle-jorve_talis.jpg",
                             alt: "Talis stands with an amused expression, her hand resting on the saber mounted to her belt",
+                            width: 1920,
+                            height: 3040,
                         },
                         {
                             path: "/gallery/talis/kyle-jorve_talis-wip-1.jpg",
                             alt: `a progress snapshot of Talis's vignette in which the line drawing is complete`,
+                            width: 1920,
+                            height: 3040,
                         },
                         {
                             path: "/gallery/talis/kyle-jorve_talis-wip-2.jpg",
                             alt: `a progress snapshot of Talis's vignette in which the flat colors have been applied`,
+                            width: 1920,
+                            height: 3040,
                         },
                         {
                             path: "/gallery/talis/kyle-jorve_talis-wip-3.jpg",
                             alt: `a progress snapshot of Talis's vignette in which the light and shadow have been applied and colorized`,
+                            width: 1920,
+                            height: 3040,
                         },
                         {
                             path: "/gallery/talis/kyle-jorve_talis-wip-4.jpg",
                             alt: `a progress snapshot of Talis's vignette in which the painting is nearly finished`,
+                            width: 1920,
+                            height: 3040,
                         },
                         {
                             source: (
@@ -670,22 +776,32 @@ export default function useGalleryData() {
                         {
                             path: "/gallery/cargha-portrait/kyle-jorve_cargha-portrait.jpg",
                             alt: "a portrait of Cargha Bezamik which features his scarred-over left eye and the tattoo which covers it",
+                            width: 1920,
+                            height: 2545,
                         },
                         {
                             path: "/gallery/cargha-portrait/kyle-jorve_cargha-portrait-wip-1.jpg",
                             alt: `a progress snapshot of Cargha's portrait in which the line drawing is complete`,
+                            width: 1920,
+                            height: 2545,
                         },
                         {
                             path: "/gallery/cargha-portrait/kyle-jorve_cargha-portrait-wip-2.jpg",
                             alt: `a progress snapshot of Cargha's portrait in which the flat colors have been applied`,
+                            width: 1920,
+                            height: 2545,
                         },
                         {
                             path: "/gallery/cargha-portrait/kyle-jorve_cargha-portrait-wip-3.jpg",
                             alt: `a progress snapshot of Cargha's portrait in which the light and shadow have been applied and colorized`,
+                            width: 1920,
+                            height: 2545,
                         },
                         {
                             path: "/gallery/cargha-portrait/kyle-jorve_cargha-portrait-wip-4.jpg",
                             alt: `a progress snapshot of Cargha's portrait in which the painting is nearly finished`,
+                            width: 1920,
+                            height: 2545,
                         },
                     ],
                 },
@@ -711,26 +827,38 @@ export default function useGalleryData() {
                         {
                             path: "/gallery/cargha/kyle-jorve_cargha.jpg",
                             alt: "Cargha stands stoically, a dagger in one hand and a khopesh in the other",
+                            width: 1920,
+                            height: 3200,
                         },
                         {
                             path: "/gallery/cargha/kyle-jorve_cargha-wip-1.jpg",
                             alt: `a nude pose study for Cargha's vignette`,
+                            width: 1920,
+                            height: 3200,
                         },
                         {
                             path: "/gallery/cargha/kyle-jorve_cargha-wip-2.jpg",
                             alt: `a progress snapshot of Cargha's vignette in which the line drawing is complete`,
+                            width: 1920,
+                            height: 3200,
                         },
                         {
                             path: "/gallery/cargha/kyle-jorve_cargha-wip-3.jpg",
                             alt: `a progress snapshot of Cargha's vignette in which the flat colors have been applied`,
+                            width: 1920,
+                            height: 3200,
                         },
                         {
                             path: "/gallery/cargha/kyle-jorve_cargha-wip-4.jpg",
                             alt: `a progress snapshot of Cargha's vignette in which the light and shadow have been applied and colorized`,
+                            width: 1920,
+                            height: 3200,
                         },
                         {
                             path: "/gallery/cargha/kyle-jorve_cargha-wip-5.jpg",
                             alt: `a progress snapshot of Cargha's vignette in which the painting is nearly complete`,
+                            width: 1920,
+                            height: 3200,
                         },
                         {
                             source: (
@@ -793,14 +921,20 @@ export default function useGalleryData() {
                         {
                             path: "/gallery/crow/kyle-jorve_crow.jpg",
                             alt: "Crow stands against a wall smoking an e-cigarette, his mechanical right eye glowing green",
+                            width: 1920,
+                            height: 2560,
                         },
                         {
                             path: "/gallery/crow/kyle-jorve_crow-detail-1.jpg",
                             alt: `a detailed crop showing Crow's face`,
+                            width: 1920,
+                            height: 1920,
                         },
                         {
                             path: "/gallery/crow/kyle-jorve_crow-detail-2.jpg",
                             alt: "a detail crop showing the upper portion of the illustration",
+                            width: 1920,
+                            height: 1921,
                         },
                         {
                             source: (
@@ -845,26 +979,38 @@ export default function useGalleryData() {
                         {
                             path: "/gallery/pendrakes-chamber/kyle-jorve_pendrakes-chamber.jpg",
                             alt: `Pendrake's bedroom in isometric perspective`,
+                            width: 1920,
+                            height: 2095,
                         },
                         {
                             path: "/gallery/pendrakes-chamber/kyle-jorve_pendrakes-chamber-detail-1.jpg",
                             alt: "a close-up crop of Pendrake and Kyra lying in bed together",
+                            width: 1920,
+                            height: 1920,
                         },
                         {
                             path: "/gallery/pendrakes-chamber/kyle-jorve_pendrakes-chamber-detail-2.jpg",
                             alt: `a close-up crop of the vanity in the corner of Pendrake's room`,
+                            width: 1920,
+                            height: 1920,
                         },
                         {
                             path: "/gallery/pendrakes-chamber/kyle-jorve_pendrakes-chamber-detail-3.jpg",
                             alt: "a close-up crop of the hearth, from which a fire illuminates the entire room",
+                            width: 1920,
+                            height: 1920,
                         },
                         {
                             path: "/gallery/pendrakes-chamber/kyle-jorve_pendrakes-chamber-detail-4.jpg",
                             alt: `a close-up crop of the storage chest at the foot of Pendrake's bed; a saber rests beside it`,
+                            width: 1920,
+                            height: 1920,
                         },
                         {
                             path: "/gallery/pendrakes-chamber/kyle-jorve_pendrakes-chamber-detail-5.jpg",
                             alt: "Pendrake and Kyra doze together in bed; various props are scattered over the neighboring nighstand",
+                            width: 1920,
+                            height: 1920,
                         },
                     ],
                 },
@@ -912,6 +1058,8 @@ export default function useGalleryData() {
                         {
                             path: "/gallery/berned/kyle-jorve_berned.jpg",
                             alt: "Berned stands before the circular red door to his house",
+                            width: 1920,
+                            height: 2560,
                         },
                     ],
                 },
@@ -943,6 +1091,8 @@ export default function useGalleryData() {
                         {
                             path: "/gallery/olfactory/kyle-jorve_olfactory.jpg",
                             alt: "an alien breathes in the thick atmoshpere of its home planet through a mouth overgrown with filtering cilia",
+                            width: 1920,
+                            height: 2688,
                         },
                     ],
                 },
@@ -988,6 +1138,8 @@ export default function useGalleryData() {
                         {
                             path: "/gallery/becoming-runa/kyle-jorve_becoming-runa.jpg",
                             alt: "Luna stands naked beneath the symbol of the Order of the Runa, crystalline growths covering his body as his extremities fade from existence",
+                            width: 1920,
+                            height: 3757,
                         },
                         {
                             source: (
@@ -1046,6 +1198,8 @@ export default function useGalleryData() {
                         {
                             path: "/gallery/crows/kyle-jorve_crows.jpg",
                             alt: "Crow stands before a cluster of dead ravens as more fall from the sky, a dead white raven at his feet",
+                            width: 1920,
+                            height: 3142,
                         },
                     ],
                 },
@@ -1075,6 +1229,8 @@ export default function useGalleryData() {
                         {
                             path: "/gallery/kingdom-hearts-1/kyle-jorve_kingdom-hearts-1.jpg",
                             alt: "Sora, Riku, and Kairi stand on a sandy beach on Destiny Island",
+                            width: 1920,
+                            height: 2745,
                         },
                     ],
                 },
@@ -1104,6 +1260,8 @@ export default function useGalleryData() {
                         {
                             path: "/gallery/kingdom-hearts-2/kyle-jorve_kingdom-hearts-2.jpg",
                             alt: "Riku, Namine, and Roxas stand on a dark, destroyed beach on Destiny Island; fissures crack the landscape; Mickey stands hidden in the distance; a heart-shaped moon glows overhead",
+                            width: 1920,
+                            height: 2745,
                         },
                     ],
                 },

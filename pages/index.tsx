@@ -44,7 +44,7 @@ export default function Home() {
 
     return (
         <Fragment>
-            <HomeHero imageKey={homeData.intro.heroImageKey} />
+            <HomeHero imagePath={homeData.intro.heroImagePath} />
 
             <FeaturedWork featuredItems={featuredItems} />
 
