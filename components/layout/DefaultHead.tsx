@@ -54,7 +54,7 @@ export default function DefaultHead() {
             />
             <meta
                 property="og:image"
-                content="https://kylejorve.com/images/gallery/pendrakes-chamber/final/kyle-jorve_pendrakes-chamber-640.jpg"
+                content="https://kylejorve.com/images/gallery/pendrakes-chamber/kyle-jorve_pendrakes-chamber.jpg"
                 key="meta-image"
             />
         </Head>
