@@ -11,6 +11,10 @@
         overflow-x: hidden;
     }
 
+    body.light {
+        background: var(--body-bg-light);
+    }
+
     *,
     *::before,
     *::after {

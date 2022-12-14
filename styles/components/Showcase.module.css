@@ -332,7 +332,7 @@
     transition: transform var(--transition);
 }
 
-.neighbor--prev {
+.neighbor--previous {
     transform-origin: right bottom;
     grid-area: prev;
 }
@@ -377,15 +377,15 @@
 }
 
 .neighbor__img-cont::after {
-    inset: -0.5rem 0.5rem 0.5rem -0.5rem;
-    transform: none;
+    inset: 0;
+    transform: translate(-0.5rem, -0.5rem);
     z-index: 3;
     border: var(--light-red-border);
-    transition: transform var(--transition);
+    transition: opacity var(--transition), transform var(--transition);
 }
 
 .neighbor--next .neighbor__img-cont::after {
-    inset: 0.5rem -0.5rem -0.5rem 0.5rem;
+    transform: translate(0.5rem, 0.5rem);
 }
 
 .neighbor__img {
@@ -431,7 +431,7 @@
     font: var(--fa-font-solid);
 }
 
-.neighbor__arrow--prev::before {
+.neighbor__arrow--previous::before {
     content: "\f104";
 }
 
@@ -474,11 +474,8 @@
     }
 
     .neighbor:hover .neighbor__img-cont::after {
-        transform: translate(-0.25rem, -0.25rem);
-    }
-
-    .neighbor--next:hover .neighbor__img-cont::after {
-        transform: translate(0.25rem, 0.25rem);
+        transform: none;
+        opacity: 0;
     }
 }
 
@@ -494,7 +491,7 @@
         max-width: none;
     }
 
-    .neighbor--prev {
+    .neighbor--previous {
         margin: 0 -0.75rem 0 0;
     }
 
@@ -531,7 +528,7 @@
         max-width: none;
     }
 
-    .neighbor--prev {
+    .neighbor--previous {
         margin: 0 -0.75rem 0 0;
     }
 

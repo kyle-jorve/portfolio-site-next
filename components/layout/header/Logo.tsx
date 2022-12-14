@@ -28,7 +28,7 @@ export default function Logo() {
         <Link className={styles["header__logo-cont"]} href="/" onClick={logoClickHandler} aria-label="go to home page">
             <img
                 className={styles["header__logo"]}
-                src="/icons-logos/logo-circle.svg"
+                src="/images/icons-logos/logo-circle.svg"
                 alt="The Art of Kyle Jorve logo"
                 loading="eager"
             />

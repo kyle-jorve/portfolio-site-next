@@ -11,10 +11,10 @@ export default function Neighbors(props: NeighborsProps) {
     const itemIndex = galleryData.items.findIndex((item) => item.name === props.item.name);
     const neighbors: {
         next: (GalleryItemType & { isDetail?: boolean }) | null;
-        prev: (GalleryItemType & { isDetail?: boolean }) | null;
+        previous: (GalleryItemType & { isDetail?: boolean }) | null;
     } = {
         next: galleryData.items[itemIndex + 1],
-        prev: galleryData.items[itemIndex - 1],
+        previous: galleryData.items[itemIndex - 1],
     };
     let key: keyof typeof neighbors;
 

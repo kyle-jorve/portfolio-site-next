@@ -13,8 +13,6 @@ export default function GalleryDetail() {
     const itemID = router.query.itemID;
     const galleryItem = galleryData.items.find((item) => item.name === itemID);
 
-    console.log(galleryItem);
-
     if (!galleryItem) {
         return <Custom404 />;
     }
@@ -23,7 +21,11 @@ export default function GalleryDetail() {
         <Fragment>
             <Head>
                 <title key="title">{galleryItem.title} by Kyle Jorve | Illustration and Design</title>
-                <meta property="og:image" content={`${galleryItem.thumbnailKey.path}-640.jpg`} key="meta-image" />
+                <meta
+                    property="og:image"
+                    content={`https://kylejorve.com${galleryItem.thumbnailKey.path}-640.jpg`}
+                    key="meta-image"
+                />
             </Head>
             <section className={styles.showcase}>
                 <MediaShowcase item={galleryItem} />

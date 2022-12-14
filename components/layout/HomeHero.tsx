@@ -48,7 +48,7 @@ export default function HomeHero(props: HomeHeroProps) {
         <section className={classes.join(" ")}>
             <img
                 className={styles["hero__logo"]}
-                src="/icons-logos/logo-circle.svg"
+                src="/images/icons-logos/logo-circle.svg"
                 alt=""
                 loading="eager"
                 aria-hidden="true"

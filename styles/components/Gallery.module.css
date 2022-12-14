@@ -115,16 +115,43 @@
     transition: transform var(--transition);
 }
 
-/*----- card (commerce items) -----*/
+/*----- cards (commerce items) -----*/
 
 .gallery__item--card {
     --icon-size: 1.25rem;
 
-    background-color: rgba(255, 255, 255, 0.08);
+    background-image: linear-gradient(45deg, rgba(232, 52, 119, 0.25) 0, rgba(255, 255, 255, 0.08) 75%);
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: 200% 200%;
     color: var(--red);
     text-align: center;
+    overflow: visible;
     transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition),
-        background-color var(--transition), color var(--transition);
+        background-position var(--transition), color var(--transition);
+}
+
+.gallery__item--card::before,
+.gallery__item--card::after {
+    position: absolute;
+    inset: 0;
+    display: block;
+    content: "";
+    pointer-events: none;
+    transition: transform var(--transition), opacity var(--transition);
+    border-radius: var(--border-radius);
+}
+
+.gallery__item--card::before {
+    transform: translate(-0.15rem, -0.15rem);
+    z-index: 4;
+    border: var(--light-red-border);
+}
+
+.gallery__item--card::after {
+    transform: translate(0.15rem, 0.15rem);
+    z-index: 3;
+    border: var(--light-border);
 }
 
 .gallery__item--card .gallery__item-link {
@@ -201,8 +228,17 @@
     }
 
     .gallery__item--card:hover {
-        background-color: var(--red);
+        background-position: right top;
         color: var(--white);
+    }
+
+    .gallery__item--card:hover::before,
+    .gallery__item--card:hover::after {
+        transform: none;
+    }
+
+    .gallery__item--card:hover::after {
+        opacity: 0;
     }
 
     .gallery__item:hover .gallery__item-link::before {
@@ -236,6 +272,14 @@
 
     .gallery__item--card {
         --icon-size: 1.75rem;
+    }
+
+    .gallery__item--card::before {
+        transform: translate(-0.35rem, -0.35rem);
+    }
+
+    .gallery__item--card::after {
+        transform: translate(0.35rem, 0.35rem);
     }
 
     .gallery__card-title {

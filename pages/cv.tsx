@@ -10,6 +10,12 @@ export default function CV() {
     const cvData = useCVData();
 
     useEffect(() => {
+        document.querySelector("body")?.classList.add("light");
+
+        return () => document.querySelector("body")?.classList.remove("light");
+    });
+
+    useEffect(() => {
         if (siteContext.toSection) {
             const section = document.querySelector(`#${siteContext.toSection}`);
 

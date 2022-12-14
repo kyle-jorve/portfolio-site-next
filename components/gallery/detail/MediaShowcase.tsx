@@ -16,17 +16,11 @@ export default function MediaShowcase(props: MediaShowcaseProps) {
     const imagesLength = item.detailKeys?.filter((key) => !key.source).length;
     let imagesLoaded = 0;
 
-    useEffect(() => {
-        return () => {
-            context.setImagesLoaded(false);
-        };
-    });
-
     function imageLoadHandler() {
         imagesLoaded++;
 
         if (imagesLoaded === imagesLength) {
-            context.setImagesLoaded(true);
+            context.toggleLoader(false);
         }
     }
 

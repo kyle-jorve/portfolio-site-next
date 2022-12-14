@@ -20,6 +20,8 @@ export default function Layout(props: React.PropsWithChildren) {
         const routerEvents: ["routeChangeComplete", "routeChangeError"] = ["routeChangeComplete", "routeChangeError"];
 
         function removeLoader() {
+            if (isDetailPage) return;
+
             siteContext.toggleLoader(false);
         }
 
@@ -28,7 +30,7 @@ export default function Layout(props: React.PropsWithChildren) {
         return () => {
             routerEvents.forEach((ev) => router.events.off(ev, removeLoader));
         };
-    }, []);
+    }, [isDetailPage]);
 
     useEffect(() => {
         if (!siteContext.visited) siteContext.toggleLoader(false);

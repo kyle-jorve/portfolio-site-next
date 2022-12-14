@@ -19,7 +19,6 @@ const SiteContext = React.createContext<SiteContextType>({
     loadStatus: "idle",
     detailPage: {
         activeSlideIndex: 0,
-        imagesLoaded: false,
     },
 });
 
@@ -44,7 +43,6 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
 
     //----- gallery detail page context -----//
     const [activeSlideIndex, setActiveSlideIndex] = useState(0);
-    const [imagesLoaded, setImagesLoaded] = useState(false);
 
     //----- global utilities -----//
 
@@ -69,24 +67,13 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
         }
     }, []);
 
-    const toggleLoader = useCallback(
-        (on: boolean = true, destinationIsDetailPage: boolean = false, isDetailPage: boolean = detailPageMatch) => {
-            const mustRemoveLoader =
-                ((isDetailPage || destinationIsDetailPage) && imagesLoaded && !pageNotFound) ||
-                (!isDetailPage && !destinationIsDetailPage) ||
-                pageNotFound;
-
-            if (on) {
-                setLoadStatus("in");
-                return;
-            }
-
-            if (mustRemoveLoader) {
-                removeLoader();
-            }
-        },
-        [imagesLoaded, pageNotFound, detailPageMatch, removeLoader],
-    );
+    function toggleLoader(on: boolean = true) {
+        if (on) {
+            setLoadStatus("in");
+        } else {
+            removeLoader();
+        }
+    }
 
     useEffect(() => {
         resizeHandler();
@@ -96,7 +83,7 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
         return () => {
             resizeEvents.forEach((ev) => window.removeEventListener(ev, resizeHandler));
         };
-    }, [resizeHandler, removeLoader, detailPageMatch, imagesLoaded, pageNotFound]);
+    }, [resizeHandler, removeLoader, detailPageMatch, pageNotFound]);
 
     function navToggleHandler() {
         navButtonRef.current!.blur();
@@ -188,7 +175,6 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
                 desktop,
                 fromPage,
                 fromSection,
-                imagesLoaded,
                 loadStatus,
                 longTransitionDuration,
                 mobile,
@@ -211,7 +197,6 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
                 returnToOriginPage,
                 setFromPage,
                 setFromSection,
-                setImagesLoaded,
                 setPageNotFound,
                 setToSection,
                 setVisited,

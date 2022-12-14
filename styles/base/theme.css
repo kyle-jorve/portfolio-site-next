@@ -33,6 +33,7 @@
         --gray-color: #979b9d;
 
         --body-bg: var(--dark-color);
+        --body-bg-light: var(--gray-cool-light);
 
         /* layout widths */
         --width-narrow: 50ch;

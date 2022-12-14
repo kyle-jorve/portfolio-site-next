@@ -32,7 +32,7 @@ export default function Bio(props: BioProps) {
 
             <img
                 className="logo-icon"
-                src="/icons-logos/logo-circle-icon.svg"
+                src="/images/icons-logos/logo-circle-icon.svg"
                 alt=""
                 aria-hidden="true"
                 loading="lazy"
