@@ -1,4 +1,5 @@
-import React, { useCallback } from "react";
+import React, { useContext } from "react";
+import SiteContext from "../../../context/global";
 import Image from "next/image";
 import useDetailImageConfig from "../../../hooks/detail-image-config";
 import { DetailKeyType } from "../../../hooks/data/gallery-data";
@@ -13,6 +14,7 @@ type ShowcaseSlideProps = {
 };
 
 export default function ShowcaseSlide(props: ShowcaseSlideProps) {
+    const context = useContext(SiteContext);
     const imageSizes = useDetailImageConfig(props.item.path || false);
     const slideClasses = [
         styles["showcase__slide"],
@@ -24,16 +26,13 @@ export default function ShowcaseSlide(props: ShowcaseSlideProps) {
         !!props.item.source && styles["showcase__slide--video"],
     ].filter((c) => c);
 
-    const imageLoadHandler = useCallback(
-        (event: React.SyntheticEvent) => {
-            const target = event.currentTarget as HTMLImageElement;
+    function imageLoadHandler(event: React.SyntheticEvent) {
+        const target = event.currentTarget as HTMLImageElement;
 
-            target?.classList.add("loaded");
+        target?.classList.add("loaded");
 
-            if (props.onLoad) props.onLoad();
-        },
-        [props.onLoad],
-    );
+        if (props.index === 0) context.toggleLoader(false);
+    }
 
     return (
         <div
@@ -48,12 +47,12 @@ export default function ShowcaseSlide(props: ShowcaseSlideProps) {
                     props.item.source
                 ) : (
                     <Image
-                        src={props.item.path!}
+                        src={`https://kylejorve.com${props.item.path!}`}
                         alt={props.item.alt || ""}
                         className={`img--lazy ${styles["showcase__img"]}`}
                         onLoad={imageLoadHandler}
-                        loading="eager"
-                        priority
+                        loading={props.index === 0 ? "eager" : "lazy"}
+                        priority={props.index === 0}
                         sizes={imageSizes}
                         width={props.item.width}
                         height={props.item.height}
