@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "portfolio-site-5c87e"
-  }
+    "default": "portfolio-site-5c87e",
+    "next-test": "test-portfolio-site-next"
+  },
+  "targets": {},
+  "etags": {}
 }
