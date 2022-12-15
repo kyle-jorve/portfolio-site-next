@@ -58,7 +58,7 @@ export default function GalleryItem(props: GalleryItemProps) {
             >
                 <Image
                     className={`img--lazy ${styles["gallery__img"]}`}
-                    src={props.thumbnailKey.path}
+                    src={`https://kylejorve.com${props.thumbnailKey.path}`}
                     alt={props.thumbnailKey.alt}
                     fill
                     onLoad={(event) => event.currentTarget.classList.add("loaded")}

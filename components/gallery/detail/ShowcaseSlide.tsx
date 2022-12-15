@@ -47,7 +47,7 @@ export default function ShowcaseSlide(props: ShowcaseSlideProps) {
                     props.item.source
                 ) : (
                     <Image
-                        src={`https://clinquant-starburst-76ea0e.netlify.app${props.item.path!}`}
+                        src={`https://kylejorve.com${props.item.path!}`}
                         alt={props.item.alt || ""}
                         className={`img--lazy ${styles["showcase__img"]}`}
                         onLoad={imageLoadHandler}

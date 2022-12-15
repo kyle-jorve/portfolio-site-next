@@ -13,16 +13,6 @@ export default function MediaShowcase(props: MediaShowcaseProps) {
     const context = useContext(SiteContext);
     const item = props.item;
     const slidesLength = item.detailKeys?.length;
-    const imagesLength = item.detailKeys?.filter((key) => !key.source).length;
-    let imagesLoaded = 0;
-
-    function imageLoadHandler() {
-        imagesLoaded++;
-
-        if (imagesLoaded === imagesLength) {
-            context.toggleLoader(false);
-        }
-    }
 
     function dotClickHandler(event: React.MouseEvent) {
         const target = event.currentTarget as HTMLButtonElement;
@@ -55,7 +45,6 @@ export default function MediaShowcase(props: MediaShowcaseProps) {
                             activeIndex={context.activeSlideIndex}
                             zIndex={zIndex || undefined}
                             item={key}
-                            onLoad={imageLoadHandler}
                         />
                     );
                 })}
@@ -96,8 +85,8 @@ export default function MediaShowcase(props: MediaShowcaseProps) {
 
             <div className={styles["showcase__bg"]} aria-hidden="true">
                 <Image
-                    className={`img--lazy ${styles["showcase__img"]}`}
-                    src={item.detailKeys?.[0]?.path!}
+                    className={`${styles["showcase__img"]}`}
+                    src={`https://kylejorve.com${item.detailKeys?.[0]?.path!}`}
                     alt=""
                     fill
                     sizes="(min-width: 1024px) 50vw, 100vw"
