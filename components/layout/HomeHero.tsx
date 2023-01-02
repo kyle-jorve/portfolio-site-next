@@ -56,7 +56,7 @@ export default function HomeHero(props: HomeHeroProps) {
                 <div className={styles["hero__img-frame"]}>
                     <Image
                         className={styles["hero__bg-img"]}
-                        src={`https://kylejorve.com${props.imagePath}`}
+                        src={props.imagePath}
                         alt=""
                         fill
                         loading="eager"
@@ -67,7 +67,7 @@ export default function HomeHero(props: HomeHeroProps) {
 
                 <Image
                     className={`${styles["hero__bg-img"]} ${styles["hero__bg-img--blur"]}`}
-                    src={`https://kylejorve.com${props.imagePath}`}
+                    src={props.imagePath}
                     alt=""
                     loading="eager"
                     priority

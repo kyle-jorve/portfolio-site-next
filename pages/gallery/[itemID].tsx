@@ -23,7 +23,7 @@ export default function GalleryDetail() {
                 <title key="title">{galleryItem.title} by Kyle Jorve | Illustration and Design</title>
                 <meta
                     property="og:image"
-                    content={`https://kylejorve.com${galleryItem.thumbnailKey.path}`}
+                    content={galleryItem.thumbnailKey.path}
                     key="meta-image"
                 />
             </Head>

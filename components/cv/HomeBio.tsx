@@ -51,7 +51,7 @@ export default function HomeBio(props: HomeBioProps) {
                     <div className={styles["bio-home__img-cont"]}>
                         <Image
                             className={styles["bio-home__img"]}
-                            src={`https://kylejorve.com${props.img.path}`}
+                            src={props.img.path}
                             alt={props.img.alt}
                             width={props.img.width}
                             height={props.img.height}

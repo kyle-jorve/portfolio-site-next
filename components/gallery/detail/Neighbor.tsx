@@ -54,7 +54,7 @@ export default function Neighbor(props: NeighborProps) {
                 <div className={styles["neighbor__img-cont"]}>
                     <Image
                         className={styles["neighbor__img"]}
-                        src={`https://kylejorve.com${props.item.thumbnailKey.path}`}
+                        src={props.item.thumbnailKey.path}
                         alt={props.item.thumbnailKey.alt}
                         fill
                         style={{

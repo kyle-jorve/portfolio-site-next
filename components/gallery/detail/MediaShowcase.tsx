@@ -86,7 +86,7 @@ export default function MediaShowcase(props: MediaShowcaseProps) {
             <div className={styles["showcase__bg"]} aria-hidden="true">
                 <Image
                     className={`${styles["showcase__img"]}`}
-                    src={`https://kylejorve.com${item.detailKeys?.[0]?.path!}`}
+                    src={item.detailKeys?.[0]?.path!}
                     alt=""
                     fill
                     sizes="(min-width: 1024px) 50vw, 100vw"
