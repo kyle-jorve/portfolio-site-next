@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import { useContext, forwardRef } from "react";
 import SiteContext from "../../../context/global";
 import useGlobalData from "../../../hooks/data/global-data";
 import NavItem from "./NavItem";
 import NavButton from "./NavButton";
 import styles from "../../../styles/layout/Nav.module.css";
 
-const MobileNavigation = React.forwardRef<HTMLElement>((props, ref) => {
+const MobileNavigation = forwardRef<HTMLElement>((props, ref) => {
     const globalData = useGlobalData();
     const navItems = globalData.nav.filter((item) => item.showInMobileNav);
     const siteContext = useContext(SiteContext);

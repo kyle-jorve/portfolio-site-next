@@ -23,7 +23,7 @@ export default function ContentShowcase(props: ContentShowcaseProps) {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                Purchase
+                                Buy Print
                             </a>
                         )}
 
@@ -34,7 +34,7 @@ export default function ContentShowcase(props: ContentShowcaseProps) {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                Download
+                                Buy Digital
                             </a>
                         )}
                     </div>

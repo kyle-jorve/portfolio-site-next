@@ -41,7 +41,7 @@
         font-family: var(--font-family);
         font-weight: var(--font-weight-extrabold);
         font-size: 0.675em;
-        line-height: 1.35;
+        line-height: 1;
         letter-spacing: 0.3em;
         text-decoration: none;
         text-align: center;
@@ -51,7 +51,16 @@
 
     .button--small {
         padding: 0.25em 0.5em;
+        gap: 0.5rem;
         font-size: 0.65em;
+        letter-spacing: 0.2em;
+    }
+
+    .button--mid {
+        padding: 0.75em 1.25em;
+        gap: 0.5rem;
+        font-size: var(--text-sm);
+        letter-spacing: 0.2em;
     }
 
     .button--primary {
@@ -68,15 +77,16 @@
         color: var(--accent-color);
     }
 
-    .button--download::before {
+    :where(.button--download, .button--shop)::before {
         font: var(--fa-font-solid);
         font-size: inherit;
+    }
+
+    .button--download::before {
         content: "\f019";
     }
 
     .button--shop::before {
-        font: var(--fa-font-solid);
-        font-size: inherit;
         content: "\f290";
     }
 
@@ -130,6 +140,10 @@
 
         .button--small {
             padding: 0.65em 1.5em;
+        }
+
+        .button--mid {
+            padding: 0.85em 1.5em;
         }
     }
 }

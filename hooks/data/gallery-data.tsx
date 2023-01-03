@@ -42,16 +42,16 @@ export const characterCategories = [
         label: "Cargha Bezamik",
     },
     {
-        name: "crow",
-        label: "Crow",
-    },
-    {
         name: "berned",
         label: "Berned Blackhorn",
     },
     {
         name: "fennory",
         label: "Fennory Caelden",
+    },
+    {
+        name: "crow",
+        label: "Crow",
     },
     {
         name: "sora",
@@ -73,6 +73,11 @@ export const characterCategories = [
         name: "roxas",
         label: "Roxas",
     },
+] as const;
+
+export const categoryNames = [
+    ...projectCategories.map((cat) => cat.name),
+    ...characterCategories.map((cat) => cat.name),
 ] as const;
 
 export type DetailKeyType = {
@@ -998,7 +1003,7 @@ export default function useGalleryData() {
                     ),
                     orientation: "top",
                     featured: true,
-                    categories: [projectCategories[1], characterCategories[6]],
+                    categories: [projectCategories[1], characterCategories[8]],
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/crow/",
                     downloadLink: "https://gumroad.com/l/fTSADI",
                     thumbnailKey: {
@@ -1137,7 +1142,7 @@ export default function useGalleryData() {
                     ),
                     orientation: "center",
                     featured: false,
-                    categories: [projectCategories[0], characterCategories[7]],
+                    categories: [projectCategories[0], characterCategories[6]],
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/berned/",
                     downloadLink: "https://gumroad.com/l/JKDSd",
                     thumbnailKey: {
@@ -1218,7 +1223,7 @@ export default function useGalleryData() {
                     ),
                     orientation: "center",
                     featured: true,
-                    categories: [projectCategories[0], characterCategories[8]],
+                    categories: [projectCategories[0], characterCategories[7]],
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/becoming-runa/",
                     downloadLink: "https://gumroad.com/l/UluBo",
                     thumbnailKey: {
@@ -1279,7 +1284,7 @@ export default function useGalleryData() {
                     ),
                     orientation: "top",
                     featured: false,
-                    categories: [projectCategories[1], characterCategories[6]],
+                    categories: [projectCategories[1], characterCategories[8]],
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/crows/",
                     downloadLink: "https://gumroad.com/l/itBYi",
                     thumbnailKey: {

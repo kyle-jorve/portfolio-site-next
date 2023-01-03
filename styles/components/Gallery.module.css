@@ -8,28 +8,7 @@
 
 /*----- filters -----*/
 
-.gallery__filters-row {
-    display: flex;
-    align-items: baseline;
-    gap: 1rem;
-}
-
-.gallery__filters-row::before {
-    transform: translateY(0.25rem);
-    display: block;
-    font: var(--fa-font-solid);
-    font-size: var(--text-lg);
-    content: "\f1de";
-    line-height: 1;
-}
-
-.gallery__filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.gallery__filter {
+.gallery__filter-button {
     display: flex;
     align-items: center;
     gap: 0.35rem;
@@ -37,29 +16,24 @@
     border: var(--border-width) solid var(--accent-color);
     border-radius: 999px;
     background-color: transparent;
-    font-size: 0.75rem;
+    font-size: var(--text-sm);
     font-weight: var(--font-weight-semibold);
     line-height: 1;
     text-align: left;
     color: var(--accent-color);
-    transition: background-color var(--transition), border-color var(--transition), color var(--transition);
+    transition: background-color var(--transition), color var(--transition);
 }
 
-.gallery__filter::before {
-    transform: none;
+.gallery__filter-button::before {
     display: block;
     font: var(--fa-font-solid);
-    content: "\f055";
-    transition: transform var(--transition);
+    line-height: 1;
+    content: "\f1de";
 }
 
-.gallery__filter--active {
+.gallery__filter-button--active {
     background-color: var(--accent-color);
     color: var(--dark-color);
-}
-
-.gallery__filter--active::before {
-    transform: rotate(45deg);
 }
 
 /*----- grid -----*/
@@ -73,7 +47,7 @@
     transition: opacity var(--transition);
 }
 
-.gallery__grid--hide {
+.gallery--hide .gallery__grid {
     opacity: 0;
     pointer-events: none;
 }
@@ -286,9 +260,9 @@
 /*----- media queries -----*/
 
 @media (hover: hover) {
-    .gallery__filter:not(.gallery__filter--active):hover {
-        border-color: var(--light-color);
-        color: var(--light-color);
+    .gallery__filter-button:hover {
+        background-color: var(--accent-color);
+        color: var(--dark-color);
     }
 
     .gallery__item:hover {
@@ -361,14 +335,10 @@
 @media (min-width: 64em) {
     /*-- filters --*/
 
-    .gallery__filter {
+    .gallery__filter-button {
         gap: 0.5rem;
         padding: 0.5rem 0.6rem;
-        font-size: 0.9rem;
-    }
-
-    .gallery__filter::before {
-        font-size: 1.1rem;
+        font-size: var(--text-base);
     }
 
     /*-- grid --*/

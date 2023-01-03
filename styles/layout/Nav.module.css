@@ -62,6 +62,16 @@
 
 /*----- media queries -----*/
 
+@media (hover: hover) {
+    .nav__button:not(.nav__button--active):hover {
+        background-color: var(--red-light);
+    }
+
+    .nav__button:not(.nav__button--active):hover .nav__button-block {
+        background-color: var(--dark-color);
+    }
+}
+
 @media (min-width: 40em) {
     .nav__button {
         transform: none;
