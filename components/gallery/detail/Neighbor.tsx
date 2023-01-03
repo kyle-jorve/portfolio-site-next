@@ -40,7 +40,6 @@ export default function Neighbor(props: NeighborProps) {
     const context = useContext(SiteContext);
     const imageSizes = useThumbnailConfig({
         isDetail: true,
-        thumbnailKey: props.item.thumbnailKey,
     });
     const neighborClasses = [styles["neighbor"], styles[`neighbor--${props.direction}`]].filter((c) => c);
 

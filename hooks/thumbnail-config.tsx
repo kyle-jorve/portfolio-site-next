@@ -2,9 +2,6 @@ type ThumbnailConfigProps = {
     isNew?: boolean;
     isFeatured?: boolean;
     isDetail?: boolean;
-    thumbnailKey: {
-        path: string;
-    };
 };
 
 export default function useThumbnailConfig(props: ThumbnailConfigProps) {

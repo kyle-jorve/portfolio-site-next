@@ -5,7 +5,6 @@ import CustomLink from "../layout/CustomLink";
 import useThumbnailConfig from "../../hooks/thumbnail-config";
 import styles from "../../styles/components/Gallery.module.css";
 import { GalleryItemType } from "../../hooks/data/gallery-data";
-import { RESPONSE_LIMIT_DEFAULT } from "next/dist/server/api-utils";
 
 type GalleryItemProps = GalleryItemType & {
     className: string;
@@ -26,9 +25,10 @@ export default function GalleryItem(props: GalleryItemProps) {
     const imageSizes = useThumbnailConfig({
         isNew: (!props.isFeatured && props.isNew) || false,
         isFeatured: props.isFeatured || false,
-        thumbnailKey: props.thumbnailKey,
     });
-    const classes = [styles["gallery__item"], props.className].filter((c) => c);
+    const classes = [styles["gallery__item"], props.isNew && styles["gallery__item--new"], props.className].filter(
+        (c) => c,
+    );
 
     function galleryItemClickHandler() {
         setTimeout(() => {

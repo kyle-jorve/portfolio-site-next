@@ -6,11 +6,76 @@
     padding-top: 6rem;
 }
 
+/*----- filters -----*/
+
+.gallery__filters-row {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+}
+
+.gallery__filters-row::before {
+    transform: translateY(0.25rem);
+    display: block;
+    font: var(--fa-font-solid);
+    font-size: var(--text-lg);
+    content: "\f1de";
+    line-height: 1;
+}
+
+.gallery__filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.gallery__filter {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.5rem;
+    border: var(--border-width) solid var(--accent-color);
+    border-radius: 999px;
+    background-color: transparent;
+    font-size: 0.75rem;
+    font-weight: var(--font-weight-semibold);
+    line-height: 1;
+    text-align: left;
+    color: var(--accent-color);
+    transition: background-color var(--transition), border-color var(--transition), color var(--transition);
+}
+
+.gallery__filter::before {
+    transform: none;
+    display: block;
+    font: var(--fa-font-solid);
+    content: "\f055";
+    transition: transform var(--transition);
+}
+
+.gallery__filter--active {
+    background-color: var(--accent-color);
+    color: var(--dark-color);
+}
+
+.gallery__filter--active::before {
+    transform: rotate(45deg);
+}
+
+/*----- grid -----*/
+
 .gallery__grid {
     display: grid;
     grid-template: auto / repeat(2, minmax(0, 1fr));
     grid-auto-flow: dense;
     gap: 8px;
+    opacity: 1;
+    transition: opacity var(--transition);
+}
+
+.gallery__grid--hide {
+    opacity: 0;
+    pointer-events: none;
 }
 
 .gallery__item {
@@ -27,7 +92,7 @@
     transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
 }
 
-.gallery__item:first-child {
+.gallery__item--new {
     grid-column: span 2;
     grid-row: span 2;
 }
@@ -221,6 +286,11 @@
 /*----- media queries -----*/
 
 @media (hover: hover) {
+    .gallery__filter:not(.gallery__filter--active):hover {
+        border-color: var(--light-color);
+        color: var(--light-color);
+    }
+
     .gallery__item:hover {
         z-index: 2;
         transform: scale(1.02);
@@ -289,6 +359,20 @@
 }
 
 @media (min-width: 64em) {
+    /*-- filters --*/
+
+    .gallery__filter {
+        gap: 0.5rem;
+        padding: 0.5rem 0.6rem;
+        font-size: 0.9rem;
+    }
+
+    .gallery__filter::before {
+        font-size: 1.1rem;
+    }
+
+    /*-- grid --*/
+
     .gallery__grid {
         grid-template: auto / repeat(auto-fill, minmax(300px, 1fr));
     }

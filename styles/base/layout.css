@@ -100,6 +100,19 @@
         pointer-events: none;
     }
 
+    .title-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .title-row :where(h1, h2, h3, h4, h5, h6) {
+        margin: 0;
+    }
+
     /*----- lazy-loaded images -----*/
 
     .img--lazy {
@@ -129,6 +142,10 @@
     @media (min-width: 64em) {
         .flex-line {
             gap: 1rem;
+        }
+
+        .title-row {
+            margin-bottom: 2.5rem;
         }
     }
 }

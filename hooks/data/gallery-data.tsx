@@ -1,6 +1,80 @@
 import { Fragment } from "react";
 import CustomLink from "../../components/layout/CustomLink";
 
+export const projectCategories = [
+    {
+        name: "ignoble-blood",
+        label: "Ignoble Blood",
+    },
+    {
+        name: "post-autumn",
+        label: "Post-Autumn",
+    },
+    {
+        name: "fan-art",
+        label: "Fan Art",
+    },
+] as const;
+
+export const characterCategories = [
+    {
+        name: "kyra",
+        label: "Kyra Luckleav",
+    },
+    {
+        name: "toval",
+        label: "Toval Argensente",
+    },
+    {
+        name: "andel",
+        label: "Andel Sommer",
+    },
+    {
+        name: "pendrake",
+        label: "Pendrake Sommer",
+    },
+    {
+        name: "talis",
+        label: "Talis Sommer",
+    },
+    {
+        name: "cargha",
+        label: "Cargha Bezamik",
+    },
+    {
+        name: "crow",
+        label: "Crow",
+    },
+    {
+        name: "berned",
+        label: "Berned Blackhorn",
+    },
+    {
+        name: "fennory",
+        label: "Fennory Caelden",
+    },
+    {
+        name: "sora",
+        label: "Sora",
+    },
+    {
+        name: "riku",
+        label: "Riku",
+    },
+    {
+        name: "kairi",
+        label: "Kairi",
+    },
+    {
+        name: "namine",
+        label: "Namine",
+    },
+    {
+        name: "roxas",
+        label: "Roxas",
+    },
+] as const;
+
 export type DetailKeyType = {
     path?: string;
     alt?: string;
@@ -15,6 +89,7 @@ export type GalleryItemType = {
     content?: JSX.Element;
     orientation: string;
     featured?: boolean;
+    categories?: (typeof projectCategories[number] | typeof characterCategories[number])[];
     purchaseLink?: string;
     downloadLink?: string;
     thumbnailKey: {
@@ -45,6 +120,7 @@ export default function useGalleryData() {
                     ),
                     orientation: "center",
                     featured: true,
+                    categories: [projectCategories[0], characterCategories[0]],
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/kyra-luckleav-portrait/",
                     downloadLink: "https://kylejorve.gumroad.com/l/vrxhc",
                     thumbnailKey: {
@@ -112,6 +188,7 @@ export default function useGalleryData() {
                     ),
                     orientation: "top",
                     featured: true,
+                    categories: [projectCategories[0], characterCategories[0]],
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/kyra-luckleav/",
                     downloadLink: "https://kylejorve.gumroad.com/l/jlwzc",
                     thumbnailKey: {
@@ -185,6 +262,7 @@ export default function useGalleryData() {
                     ),
                     orientation: "center",
                     featured: true,
+                    categories: [projectCategories[0], characterCategories[1]],
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/toval-argensente-portrait/",
                     downloadLink: "https://kylejorve.gumroad.com/l/vcwgb",
                     thumbnailKey: {
@@ -261,6 +339,7 @@ export default function useGalleryData() {
                     ),
                     orientation: "top",
                     featured: true,
+                    categories: [projectCategories[0], characterCategories[1]],
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/toval-argensente/",
                     downloadLink: "https://kylejorve.gumroad.com/l/ogpkj",
                     thumbnailKey: {
@@ -336,6 +415,7 @@ export default function useGalleryData() {
                     ),
                     orientation: "center",
                     featured: true,
+                    categories: [projectCategories[0], characterCategories[2]],
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/andel-portrait/",
                     downloadLink: "https://kylejorve.gumroad.com/l/ungde",
                     thumbnailKey: {
@@ -406,6 +486,7 @@ export default function useGalleryData() {
                     ),
                     orientation: "top",
                     featured: true,
+                    categories: [projectCategories[0], characterCategories[2]],
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/andel-sommer/",
                     downloadLink: "https://kylejorve.gumroad.com/l/vqdvkj",
                     thumbnailKey: {
@@ -480,6 +561,7 @@ export default function useGalleryData() {
                     ),
                     orientation: "center",
                     featured: false,
+                    categories: [projectCategories[0], characterCategories[3]],
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/pendrake-portrait/",
                     downloadLink: "https://kylejorve.gumroad.com/l/hhgin",
                     thumbnailKey: {
@@ -550,6 +632,7 @@ export default function useGalleryData() {
                     ),
                     orientation: "top",
                     featured: true,
+                    categories: [projectCategories[0], characterCategories[3]],
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/pendrake-sommer/",
                     downloadLink: "https://kylejorve.gumroad.com/l/ndwgm",
                     thumbnailKey: {
@@ -624,6 +707,7 @@ export default function useGalleryData() {
                     ),
                     orientation: "center",
                     featured: true,
+                    categories: [projectCategories[0], characterCategories[4]],
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/talis-portrait/",
                     downloadLink: "https://kylejorve.gumroad.com/l/bgvVML",
                     thumbnailKey: {
@@ -700,6 +784,7 @@ export default function useGalleryData() {
                     ),
                     orientation: "top",
                     featured: true,
+                    categories: [projectCategories[0], characterCategories[4]],
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/talis-sommer/",
                     downloadLink: "https://kylejorve.gumroad.com/l/CQNFi",
                     thumbnailKey: {
@@ -766,6 +851,7 @@ export default function useGalleryData() {
                     ),
                     orientation: "center",
                     featured: true,
+                    categories: [projectCategories[0], characterCategories[5]],
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/cargha-portrait/",
                     downloadLink: "https://kylejorve.gumroad.com/l/LNffV",
                     thumbnailKey: {
@@ -817,6 +903,7 @@ export default function useGalleryData() {
                     ),
                     orientation: "top",
                     featured: true,
+                    categories: [projectCategories[0], characterCategories[5]],
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/cargha-bezamik/",
                     downloadLink: "https://kylejorve.gumroad.com/l/olwWz",
                     thumbnailKey: {
@@ -911,6 +998,7 @@ export default function useGalleryData() {
                     ),
                     orientation: "top",
                     featured: true,
+                    categories: [projectCategories[1], characterCategories[6]],
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/crow/",
                     downloadLink: "https://gumroad.com/l/fTSADI",
                     thumbnailKey: {
@@ -969,6 +1057,7 @@ export default function useGalleryData() {
                     ),
                     orientation: "center",
                     featured: true,
+                    categories: [projectCategories[0], characterCategories[0], characterCategories[3]],
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/pendrakes-chamber/",
                     downloadLink: "https://gumroad.com/l/mQzix",
                     thumbnailKey: {
@@ -1048,6 +1137,7 @@ export default function useGalleryData() {
                     ),
                     orientation: "center",
                     featured: false,
+                    categories: [projectCategories[0], characterCategories[7]],
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/berned/",
                     downloadLink: "https://gumroad.com/l/JKDSd",
                     thumbnailKey: {
@@ -1128,6 +1218,7 @@ export default function useGalleryData() {
                     ),
                     orientation: "center",
                     featured: true,
+                    categories: [projectCategories[0], characterCategories[8]],
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/becoming-runa/",
                     downloadLink: "https://gumroad.com/l/UluBo",
                     thumbnailKey: {
@@ -1188,6 +1279,7 @@ export default function useGalleryData() {
                     ),
                     orientation: "top",
                     featured: false,
+                    categories: [projectCategories[1], characterCategories[6]],
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/crows/",
                     downloadLink: "https://gumroad.com/l/itBYi",
                     thumbnailKey: {
@@ -1221,6 +1313,12 @@ export default function useGalleryData() {
                     ),
                     orientation: "center",
                     featured: false,
+                    categories: [
+                        projectCategories[2],
+                        characterCategories[9],
+                        characterCategories[10],
+                        characterCategories[11],
+                    ],
                     thumbnailKey: {
                         path: "/images/gallery/kingdom-hearts-1/kyle-jorve_kingdom-hearts-1.jpg",
                         alt: "Sora, Riku, and Kairi stand on a sandy beach on Destiny Island",
@@ -1252,6 +1350,12 @@ export default function useGalleryData() {
                     ),
                     orientation: "center",
                     featured: false,
+                    categories: [
+                        projectCategories[2],
+                        characterCategories[10],
+                        characterCategories[12],
+                        characterCategories[13],
+                    ],
                     thumbnailKey: {
                         path: "/images/gallery/kingdom-hearts-2/kyle-jorve_kingdom-hearts-2.jpg",
                         alt: "Riku, Namine, and Roxas stand on a dark, destroyed beach on Destiny Island; fissures crack the landscape; Mickey stands hidden in the distance; a heart-shaped moon glows overhead",

@@ -275,6 +275,15 @@
     color: var(--red);
 }
 
+.showcase__cats {
+    margin-bottom: 1rem;
+    font-size: var(--text-sm);
+}
+
+.showcase__cats-label {
+    font-weight: var(--font-weight-extrabold);
+}
+
 .showcase__buttons {
     display: flex;
     flex-wrap: wrap;
