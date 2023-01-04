@@ -1,62 +1,86 @@
-import React, { useState, useContext, useRef, Fragment } from "react";
+import React, { useState, useContext, useRef, useEffect, Fragment } from "react";
 import Head from "next/head";
 import { categoryNames, GalleryItemType } from "../../hooks/data/gallery-data";
 import useGlobalData from "../../hooks/data/global-data";
 import useGalleryData from "../../hooks/data/gallery-data";
 import SiteContext from "../../context/global";
-import FilterModal from "../../components/gallery/FilterModal";
+import GalleryFilters from "../../components/gallery/GalleryFilters";
 import GalleryGrid from "../../components/gallery/GalleryGrid";
 import styles from "../../styles/components/Gallery.module.css";
+import filterStyles from "../../styles/components/Filters.module.css";
+
+let timeout: ReturnType<typeof setTimeout>;
 
 export default function GalleryPage() {
     const globalData = useGlobalData();
     const galleryData = useGalleryData();
     const siteContext = useContext(SiteContext);
     const galleryGrid = useRef() as React.MutableRefObject<HTMLElement>;
-    const [modalActive, setModalActive] = useState(false);
-    const [filter, setFilter] = useState<typeof categoryNames>([]);
+    const [filtersShown, setFiltersShown] = useState(false);
+    const [filters, setFilters] = useState<typeof categoryNames>([]);
     const [galleryItems, setGalleryItems] = useState(galleryData.items);
     const commerceLinks = globalData.socialIcons.commerce;
+
+    useEffect(() => {
+        function closeFilters(event: MouseEvent) {
+            const target = event.target as HTMLElement;
+            const targetIsFilters =
+                target.classList.contains(filterStyles["filters__button"]) ||
+                target.classList.contains(filterStyles["filters__tooltip"]) ||
+                !!target.closest(`.${filterStyles["filters__button"]}`) ||
+                !!target.closest(`.${filterStyles["filters__tooltip"]}`);
+
+            if (filtersShown && !targetIsFilters) setFiltersShown(false);
+        }
+
+        document.addEventListener("click", closeFilters);
+
+        return () => {
+            document.removeEventListener("click", closeFilters);
+        };
+    }, [filtersShown]);
 
     function toggleFilter(event: React.MouseEvent) {
         const target = event.target as HTMLButtonElement;
         const category = target.dataset.cat as typeof categoryNames[number];
+        let filteredItems: GalleryItemType[];
 
-        setFilter((prev) => {
-            let newFilter = prev.slice();
+        setFilters((prev) => {
+            let newFilters = prev.slice();
 
             if (prev.some((f) => f === category)) {
-                newFilter.splice(
-                    newFilter.findIndex((f) => f === category),
+                newFilters.splice(
+                    newFilters.findIndex((f) => f === category),
                     1,
                 );
             } else {
-                newFilter.push(category);
+                newFilters.push(category);
             }
 
-            return newFilter;
+            filteredItems = newFilters.length
+                ? galleryData.items.filter((item) =>
+                      item.categories?.some((cat) => newFilters.some((f) => f === cat.name)),
+                  )
+                : galleryData.items;
+
+            resetGallery(filteredItems);
+
+            return newFilters;
         });
     }
 
     function clearFilters() {
-        setFilter([]);
+        setFilters([]);
         resetGallery(galleryData.items);
-        setModalActive(false);
-    }
-
-    function applyFilters() {
-        const filteredItems = filter.length
-            ? galleryData.items.filter((item) => item.categories?.some((cat) => filter.some((f) => f === cat.name)))
-            : galleryData.items;
-
-        resetGallery(filteredItems);
-        setModalActive(false);
+        setFiltersShown(false);
     }
 
     function resetGallery(filteredItems: GalleryItemType[]) {
         galleryGrid.current.classList.add(styles["gallery--hide"]);
 
-        setTimeout(() => {
+        if (timeout) clearTimeout(timeout);
+
+        timeout = setTimeout(() => {
             setGalleryItems(filteredItems);
 
             galleryGrid.current.classList.remove(styles["gallery--hide"]);
@@ -69,30 +93,17 @@ export default function GalleryPage() {
                 <title key="title">Gallery | Kyle Jorve | Illustration and Design</title>
             </Head>
 
-            <FilterModal
-                active={modalActive}
-                filters={filter}
-                onFilterClick={toggleFilter}
-                onClearFilters={clearFilters}
-                onApplyFilters={applyFilters}
-                onClose={() => setModalActive(false)}
-            />
-
             <section className={`section ${styles.gallery}`} ref={galleryGrid}>
                 <div className="title-row">
                     <h1 className="underline">{galleryData.title}</h1>
 
-                    <button
-                        className={`${styles["gallery__filter-button"]}${
-                            modalActive ? ` ${styles["gallery__filter-button--active"]}` : ""
-                        }`}
-                        aria-label="Filter gallery"
-                        aria-controls="filter-modal"
-                        aria-expanded={modalActive}
-                        onClick={() => setModalActive(true)}
-                    >
-                        Filters
-                    </button>
+                    <GalleryFilters
+                        active={filtersShown}
+                        filters={filters}
+                        onFilterClick={toggleFilter}
+                        onClearFilters={clearFilters}
+                        onToggleFilters={() => setFiltersShown((prev) => !prev)}
+                    />
                 </div>
 
                 <GalleryGrid items={galleryItems} commerceLinks={commerceLinks} />

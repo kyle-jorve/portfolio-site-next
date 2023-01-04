@@ -1,0 +1,235 @@
+/*----- general -----*/
+
+.filters {
+    position: relative;
+    z-index: 10;
+}
+
+/*----- top buttons -----*/
+
+.filters__button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.5rem;
+    border: var(--border-width) solid var(--accent-color);
+    border-radius: 999px;
+    background-color: transparent;
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1;
+    text-align: left;
+    color: var(--accent-color);
+    transition: background-color var(--transition), color var(--transition);
+}
+
+.filters__button::before {
+    display: block;
+    font: var(--fa-font-solid);
+    content: "\f1de";
+}
+
+.filters__button--active {
+    background-color: var(--accent-color);
+    color: var(--dark-color);
+}
+
+.filters__button--clear {
+    display: none;
+    transition: background-color var(--transition), color var(--transition), opacity var(--transition);
+}
+
+.filters__button--clear::before {
+    content: "\f057";
+}
+
+/*----- tooltip -----*/
+
+.filters__tooltip {
+    position: absolute;
+    inset: auto 0 -1rem auto;
+    transform: translateY(100%) scale(0.95);
+    transform-origin: right top;
+    width: calc(100vw - 2rem);
+    max-width: var(--width-narrow);
+    padding: 1rem;
+    background: var(--light-color);
+    box-shadow: var(--soft-shadow);
+    border-radius: var(--border-radius);
+    color: var(--dark-color);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform var(--transition), opacity var(--transition);
+}
+
+.filters__tooltip::before {
+    position: absolute;
+    inset: 0 1rem auto auto;
+    transform: translateY(-50%) rotate(45deg);
+    display: block;
+    width: 1rem;
+    aspect-ratio: 1;
+    border-radius: 4px 0 0 0;
+    background: var(--light-color);
+    content: "";
+}
+
+.filters__close {
+    position: absolute;
+    width: 30px;
+    font-size: 1.2rem;
+}
+
+.filters__block {
+    padding-bottom: 1rem;
+}
+
+.filters__block + .filters__block {
+    padding-top: 1rem;
+    border-top: var(--gray-border);
+}
+
+.filters__title {
+    margin-bottom: 0.65em;
+    font-size: var(--text-lg);
+}
+
+.filters__grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+.filters__buttons-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+/*----- filters -----*/
+
+.filters__filter {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35em 0.5em;
+    border: var(--border-width) solid var(--accent-color);
+    border-radius: 999px;
+    background-color: transparent;
+    font-size: 0.75rem;
+    font-weight: var(--font-weight-semibold);
+    line-height: 1;
+    text-align: left;
+    color: var(--accent-color);
+    transition: background-color var(--transition), border-color var(--transition), color var(--transition);
+}
+
+.filters__filter-icon {
+    position: relative;
+    transform: none;
+    display: block;
+    width: 1.4em;
+    aspect-ratio: 1;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    transition: transform var(--transition), background-color var(--transition);
+}
+
+.filters__filter-icon::before,
+.filters__filter-icon::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    background-color: var(--light-color);
+    border-radius: 2px;
+    content: "";
+    transition: background-color var(--transition);
+}
+
+.filters__filter-icon::before {
+    width: 60%;
+    height: var(--border-width);
+}
+
+.filters__filter-icon::after {
+    width: var(--border-width);
+    height: 60%;
+}
+
+.filters__filter--active {
+    background-color: var(--accent-color);
+    color: var(--light-color);
+}
+
+.filters__filter--active .filters__filter-icon {
+    transform: rotate(45deg);
+    background-color: var(--light-color);
+}
+
+.filters__filter--active .filters__filter-icon::before,
+.filters__filter--active .filters__filter-icon::after {
+    background-color: var(--accent-color);
+}
+
+/*----- active filter tooltip -----*/
+
+.filters--active .filters__tooltip {
+    transform: translateY(100%);
+    opacity: 1;
+    pointer-events: all;
+}
+
+/*----- media queries -----*/
+
+@media (hover: hover) {
+    .filters__button:hover {
+        background-color: var(--accent-color);
+        color: var(--light-color);
+    }
+
+    .filters__filter:not(.filters__filter--active):hover {
+        border-color: var(--dark-color);
+        color: var(--dark-color);
+    }
+
+    .filters__filter:not(.filters__filter--active):hover .filters__filter-icon {
+        background-color: var(--dark-color);
+    }
+}
+
+@media (min-width: 40em) {
+    .filters__button--clear {
+        display: inline-flex;
+    }
+}
+
+@media (min-width: 64em) {
+    .filters__button {
+        gap: 0.5rem;
+        padding: 0.5rem 0.6rem;
+        font-size: var(--text-base);
+    }
+
+    .filters__tooltip {
+        padding: 2rem;
+    }
+
+    .filters__block {
+        padding-bottom: 1.5rem;
+    }
+
+    .filters__block + .filters__block {
+        padding-top: 1.5rem;
+    }
+
+    .filters__filter {
+        gap: 0.5rem;
+        font-size: 0.8rem;
+    }
+}

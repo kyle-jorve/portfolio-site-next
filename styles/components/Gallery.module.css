@@ -6,9 +6,13 @@
     padding-top: 6rem;
 }
 
+.gallery :global .title-row {
+    flex-wrap: nowrap;
+}
+
 /*----- filters -----*/
 
-.gallery__filter-button {
+/* .gallery__filter-button {
     display: flex;
     align-items: center;
     gap: 0.35rem;
@@ -34,7 +38,7 @@
 .gallery__filter-button--active {
     background-color: var(--accent-color);
     color: var(--dark-color);
-}
+} */
 
 /*----- grid -----*/
 
