@@ -419,7 +419,6 @@ export default function useGalleryData() {
                         </blockquote>
                     ),
                     orientation: "center",
-                    featured: true,
                     categories: [projectCategories[0], characterCategories[2]],
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/andel-portrait/",
                     downloadLink: "https://kylejorve.gumroad.com/l/ungde",
@@ -565,7 +564,6 @@ export default function useGalleryData() {
                         </blockquote>
                     ),
                     orientation: "center",
-                    featured: false,
                     categories: [projectCategories[0], characterCategories[3]],
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/pendrake-portrait/",
                     downloadLink: "https://kylejorve.gumroad.com/l/hhgin",
@@ -711,7 +709,6 @@ export default function useGalleryData() {
                         </blockquote>
                     ),
                     orientation: "center",
-                    featured: true,
                     categories: [projectCategories[0], characterCategories[4]],
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/talis-portrait/",
                     downloadLink: "https://kylejorve.gumroad.com/l/bgvVML",
@@ -1141,7 +1138,6 @@ export default function useGalleryData() {
                         </Fragment>
                     ),
                     orientation: "center",
-                    featured: false,
                     categories: [projectCategories[0], characterCategories[6]],
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/berned/",
                     downloadLink: "https://gumroad.com/l/JKDSd",
@@ -1175,7 +1171,6 @@ export default function useGalleryData() {
                         </Fragment>
                     ),
                     orientation: "center",
-                    featured: false,
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/olfactory/",
                     downloadLink: "https://gumroad.com/l/KMcGj",
                     thumbnailKey: {
@@ -1283,7 +1278,6 @@ export default function useGalleryData() {
                         </Fragment>
                     ),
                     orientation: "top",
-                    featured: false,
                     categories: [projectCategories[1], characterCategories[8]],
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/crows/",
                     downloadLink: "https://gumroad.com/l/itBYi",
@@ -1317,7 +1311,6 @@ export default function useGalleryData() {
                         </Fragment>
                     ),
                     orientation: "center",
-                    featured: false,
                     categories: [
                         projectCategories[2],
                         characterCategories[9],
@@ -1354,7 +1347,6 @@ export default function useGalleryData() {
                         </Fragment>
                     ),
                     orientation: "center",
-                    featured: false,
                     categories: [
                         projectCategories[2],
                         characterCategories[10],

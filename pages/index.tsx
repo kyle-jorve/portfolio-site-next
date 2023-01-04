@@ -6,11 +6,15 @@ import HomeBio from "../components/cv/HomeBio";
 import useGlobalData from "../hooks/data/global-data";
 import useHomeData from "../hooks/data/home-data";
 import useCVData from "../hooks/data/cv-data";
-import useGalleryData from "../hooks/data/gallery-data";
+import useGalleryData, { GalleryItemType } from "../hooks/data/gallery-data";
 
 let timeout: ReturnType<typeof setTimeout>;
 
-export default function Home() {
+type HomeProps = {
+    featuredItems: GalleryItemType[];
+};
+
+export default function Home(props: HomeProps) {
     const homeData = useHomeData();
     const globalData = useGlobalData();
     const galleryData = useGalleryData();
@@ -57,3 +61,16 @@ export default function Home() {
         </Fragment>
     );
 }
+
+// export async function getStaticProps(context) {
+//     const galleryData = useGalleryData();
+//     const featuredItems = galleryData.items
+//         .filter((item) => item.featured)
+//         .slice(0, homeData.gallery.itemsLimit)
+//         .map((item) => {
+//             return {
+//                 ...item,
+//                 index: galleryData.items.findIndex((i) => i.name === item.name),
+//             };
+//         });
+// }
