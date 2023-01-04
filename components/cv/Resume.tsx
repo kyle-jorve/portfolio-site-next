@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import SiteContext from "../../context/global";
 import CVItem from "./CVItem";
-import { ResumeType } from "../../hooks/data/cv-data";
+import { ResumeType } from "../../data/cv-data";
 import styles from "../../styles/components/CV.module.css";
 
 type ResumeProps = {

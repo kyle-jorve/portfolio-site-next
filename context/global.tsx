@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useRouter } from "next/router";
-import useGlobalData from "../hooks/data/global-data";
+import getGlobalData from "../data/global-data";
 
 type SiteContextType = {
     [prop: string]: any;
@@ -47,7 +47,7 @@ const SiteContext = React.createContext<SiteContextType>({
 
 export function SiteContextProvider(props: React.PropsWithChildren) {
     const navButtonRef = useRef<HTMLButtonElement>();
-    const globalData = useGlobalData();
+    const globalData = getGlobalData();
     const router = useRouter();
     const pages = globalData.nav;
     const detailPageMatch = router.query.itemID !== undefined;

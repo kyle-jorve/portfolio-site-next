@@ -2,7 +2,7 @@ import { useContext } from "react";
 import Image from "next/image";
 import CustomLink from "../layout/CustomLink";
 import SiteContext from "../../context/global";
-import { HomeBioType } from "../../hooks/data/home-data";
+import { HomeBioType } from "../../data/home-data";
 import styles from "../../styles/components/CV.module.css";
 
 type HomeBioProps = {

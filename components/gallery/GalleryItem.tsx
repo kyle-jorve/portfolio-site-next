@@ -4,7 +4,7 @@ import SiteContext from "../../context/global";
 import CustomLink from "../layout/CustomLink";
 import useThumbnailConfig from "../../hooks/thumbnail-config";
 import styles from "../../styles/components/Gallery.module.css";
-import { GalleryItemType } from "../../hooks/data/gallery-data";
+import { GalleryItemType } from "../../data/gallery-data";
 
 type GalleryItemProps = GalleryItemType & {
     className: string;

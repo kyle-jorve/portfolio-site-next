@@ -83,7 +83,7 @@
         pointer-events: none;
     }
 
-    :where(.button--download, .button--shop)::before {
+    :where(.button--download, .button--shop, .button--shuffle)::before {
         font: var(--fa-font-solid);
         font-size: inherit;
     }
@@ -94,6 +94,10 @@
 
     .button--shop::before {
         content: "\f290";
+    }
+
+    .button--shuffle::before {
+        content: "\f074";
     }
 
     button svg,

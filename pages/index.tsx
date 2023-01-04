@@ -3,32 +3,24 @@ import SiteContext from "../context/global";
 import FeaturedWork from "../components/gallery/FeaturedWork";
 import HomeHero from "../components/layout/HomeHero";
 import HomeBio from "../components/cv/HomeBio";
-import useGlobalData from "../hooks/data/global-data";
-import useHomeData from "../hooks/data/home-data";
-import useCVData from "../hooks/data/cv-data";
-import useGalleryData, { GalleryItemType } from "../hooks/data/gallery-data";
+import getGlobalData from "../data/global-data";
+import getHomeData from "../data/home-data";
+import getCvData from "../data/cv-data";
+import getGalleryData from "../data/gallery-data";
+import { FeaturedItemType } from "../components/gallery/FeaturedWork";
 
 let timeout: ReturnType<typeof setTimeout>;
 
 type HomeProps = {
-    featuredItems: GalleryItemType[];
+    featuredItems: FeaturedItemType[];
+    featuredItemsShuffled: FeaturedItemType[];
 };
 
 export default function Home(props: HomeProps) {
-    const homeData = useHomeData();
-    const globalData = useGlobalData();
-    const galleryData = useGalleryData();
-    const featuredItems = galleryData.items
-        .filter((item) => item.featured)
-        .slice(0, homeData.gallery.itemsLimit)
-        .map((item) => {
-            return {
-                ...item,
-                index: galleryData.items.findIndex((i) => i.name === item.name),
-            };
-        });
+    const homeData = getHomeData();
+    const globalData = getGlobalData();
     const siteContext = useContext(SiteContext);
-    const cvData = useCVData();
+    const cvData = getCvData();
 
     useEffect(() => {
         if (timeout) clearTimeout(timeout);
@@ -50,7 +42,12 @@ export default function Home(props: HomeProps) {
         <Fragment>
             <HomeHero imagePath={homeData.intro.heroImagePath} />
 
-            <FeaturedWork featuredItems={featuredItems} />
+            <FeaturedWork
+                featuredItems={props.featuredItems}
+                featuredItemsShuffled={props.featuredItemsShuffled}
+                globalData={globalData}
+                homeData={homeData}
+            />
 
             <HomeBio
                 img={homeData.bio.img}
@@ -62,15 +59,28 @@ export default function Home(props: HomeProps) {
     );
 }
 
-// export async function getStaticProps(context) {
-//     const galleryData = useGalleryData();
-//     const featuredItems = galleryData.items
-//         .filter((item) => item.featured)
-//         .slice(0, homeData.gallery.itemsLimit)
-//         .map((item) => {
-//             return {
-//                 ...item,
-//                 index: galleryData.items.findIndex((i) => i.name === item.name),
-//             };
-//         });
-// }
+export async function getStaticProps() {
+    const homeData = getHomeData();
+    const galleryData = getGalleryData();
+    const featuredItems = galleryData.items
+        .filter((item) => item.featured)
+        .map((item, index) => {
+            return {
+                name: item.name,
+                title: item.title,
+                thumbnailKey: item.thumbnailKey,
+                orientation: item.orientation,
+                isNew: index === 0,
+            };
+        });
+    const featuredItemsShuffled = featuredItems
+        .sort((a, b) => 0.5 - Math.random())
+        .slice(0, homeData.gallery.itemsLimit);
+
+    return {
+        props: {
+            featuredItems,
+            featuredItemsShuffled,
+        },
+    };
+}

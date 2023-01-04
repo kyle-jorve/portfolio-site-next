@@ -1,4 +1,4 @@
-import { BioType, HeroImgType } from "../../hooks/data/cv-data";
+import { BioType, HeroImgType } from "../../data/cv-data";
 import styles from "../../styles/components/CV.module.css";
 
 type BioProps = {

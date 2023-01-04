@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import CustomLink from "../../components/layout/CustomLink";
+import CustomLink from "../components/layout/CustomLink";
 
 export const projectCategories = [
     {
@@ -88,6 +88,11 @@ export type DetailKeyType = {
     height?: number;
 };
 
+export type ThumbnailKeyType = {
+    path: string;
+    alt: string;
+};
+
 export type GalleryItemType = {
     name: string;
     title: string;
@@ -97,14 +102,11 @@ export type GalleryItemType = {
     categories?: (typeof projectCategories[number] | typeof characterCategories[number])[];
     purchaseLink?: string;
     downloadLink?: string;
-    thumbnailKey: {
-        path: string;
-        alt: string;
-    };
+    thumbnailKey: ThumbnailKeyType;
     detailKeys?: DetailKeyType[];
 };
 
-export default function useGalleryData() {
+export default function getGalleryData() {
     return {
         get title() {
             return "Gallery";
@@ -1138,6 +1140,7 @@ export default function useGalleryData() {
                         </Fragment>
                     ),
                     orientation: "center",
+                    featured: true,
                     categories: [projectCategories[0], characterCategories[6]],
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/berned/",
                     downloadLink: "https://gumroad.com/l/JKDSd",
@@ -1171,6 +1174,7 @@ export default function useGalleryData() {
                         </Fragment>
                     ),
                     orientation: "center",
+                    featured: true,
                     purchaseLink: "https://www.inprnt.com/gallery/kylejorve/olfactory/",
                     downloadLink: "https://gumroad.com/l/KMcGj",
                     thumbnailKey: {

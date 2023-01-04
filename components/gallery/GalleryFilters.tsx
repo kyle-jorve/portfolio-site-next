@@ -1,4 +1,4 @@
-import { projectCategories, characterCategories, categoryNames } from "../../hooks/data/gallery-data";
+import { projectCategories, characterCategories, categoryNames } from "../../data/gallery-data";
 import styles from "../../styles/components/Filters.module.css";
 
 type FilterModalProps = {

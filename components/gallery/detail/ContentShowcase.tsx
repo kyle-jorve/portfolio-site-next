@@ -1,5 +1,5 @@
 import Neighbors from "./Neighbors";
-import { GalleryItemType } from "../../../hooks/data/gallery-data";
+import { GalleryItemType } from "../../../data/gallery-data";
 import styles from "../../../styles/components/Showcase.module.css";
 
 type ContentShowcaseProps = {

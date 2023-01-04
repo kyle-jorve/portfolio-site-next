@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import styles from "../../styles/components/CV.module.css";
+import styles from "../styles/components/CV.module.css";
 
 export type HeroImgType = {
     url: string;
@@ -19,7 +19,7 @@ export type ResumeType = {
     }[];
 };
 
-export default function useCVData() {
+export default function getCvData() {
     return {
         get heroImg(): HeroImgType {
             return {

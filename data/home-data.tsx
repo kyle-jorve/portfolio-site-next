@@ -8,7 +8,7 @@ export type HomeBioType = {
     };
 };
 
-export default function useHomeData() {
+export default function getHomeData() {
     return {
         get intro() {
             return {

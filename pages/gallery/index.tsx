@@ -1,8 +1,8 @@
 import React, { useState, useContext, useRef, useEffect, Fragment } from "react";
 import Head from "next/head";
-import { categoryNames, GalleryItemType } from "../../hooks/data/gallery-data";
-import useGlobalData from "../../hooks/data/global-data";
-import useGalleryData from "../../hooks/data/gallery-data";
+import { categoryNames, GalleryItemType } from "../../data/gallery-data";
+import getGlobalData from "../../data/global-data";
+import getGalleryData from "../../data/gallery-data";
 import SiteContext from "../../context/global";
 import GalleryFilters from "../../components/gallery/GalleryFilters";
 import GalleryGrid from "../../components/gallery/GalleryGrid";
@@ -12,10 +12,11 @@ import filterStyles from "../../styles/components/Filters.module.css";
 let timeout: ReturnType<typeof setTimeout>;
 
 export default function GalleryPage() {
-    const globalData = useGlobalData();
-    const galleryData = useGalleryData();
+    const globalData = getGlobalData();
+    const galleryData = getGalleryData();
+    ``;
     const siteContext = useContext(SiteContext);
-    const galleryGrid = useRef() as React.MutableRefObject<HTMLElement>;
+    const galleryGridRef = useRef() as React.MutableRefObject<HTMLElement>;
     const [filtersShown, setFiltersShown] = useState(false);
     const [filters, setFilters] = useState<typeof categoryNames>([]);
     const [galleryItems, setGalleryItems] = useState(galleryData.items);
@@ -76,14 +77,14 @@ export default function GalleryPage() {
     }
 
     function resetGallery(filteredItems: GalleryItemType[]) {
-        galleryGrid.current.classList.add(styles["gallery--hide"]);
+        galleryGridRef.current.classList.add(styles["gallery--hide"]);
 
         if (timeout) clearTimeout(timeout);
 
         timeout = setTimeout(() => {
             setGalleryItems(filteredItems);
 
-            galleryGrid.current.classList.remove(styles["gallery--hide"]);
+            galleryGridRef.current.classList.remove(styles["gallery--hide"]);
         }, siteContext.transitionDuration);
     }
 
@@ -93,7 +94,7 @@ export default function GalleryPage() {
                 <title key="title">Gallery | Kyle Jorve | Illustration and Design</title>
             </Head>
 
-            <section className={`section ${styles.gallery}`} ref={galleryGrid}>
+            <section className={`section ${styles.gallery}`} ref={galleryGridRef}>
                 <div className="title-row">
                     <h1 className="underline">{galleryData.title}</h1>
 

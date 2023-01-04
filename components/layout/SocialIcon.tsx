@@ -1,4 +1,4 @@
-import { SocialIconType } from "../../hooks/data/global-data";
+import { SocialIconType } from "../../data/global-data";
 import styles from "../../styles/layout/Social.module.css";
 
 type SocialIconProps = {

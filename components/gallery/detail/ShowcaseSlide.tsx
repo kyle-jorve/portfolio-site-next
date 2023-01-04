@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import SiteContext from "../../../context/global";
 import Image from "next/image";
 import useDetailImageConfig from "../../../hooks/detail-image-config";
-import { DetailKeyType } from "../../../hooks/data/gallery-data";
+import { DetailKeyType } from "../../../data/gallery-data";
 import styles from "../../../styles/components/Showcase.module.css";
 
 type ShowcaseSlideProps = {

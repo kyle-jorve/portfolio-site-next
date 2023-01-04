@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { useRouter } from "next/router";
-import useGlobalData from "../../../hooks/data/global-data";
+import getGlobalData from "../../../data/global-data";
 import SiteContext from "../../../context/global";
 import FooterIcons from "./FooterIcons";
 import Copyright from "./Copyright";
@@ -10,7 +10,7 @@ export default function Footer() {
     const siteContext = useContext(SiteContext);
     const router = useRouter();
     const isCVPage = router.pathname === "/cv";
-    const globalData = useGlobalData();
+    const globalData = getGlobalData();
     const socialIcons = {
         standard: globalData.socialIcons.standard,
         commerce: globalData.socialIcons.commerce,

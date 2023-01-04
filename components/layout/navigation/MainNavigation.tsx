@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import SiteContext from "../../../context/global";
-import useGlobalData from "../../../hooks/data/global-data";
-import useGalleryData from "../../../hooks/data/gallery-data";
+import getGlobalData from "../../../data/global-data";
+import getGalleryData from "../../../data/gallery-data";
 import NavItem from "./NavItem";
 import SocialIcon from "../SocialIcon";
 import GalleryItem from "../../gallery/GalleryItem";
@@ -19,8 +19,8 @@ let timeout: {
 };
 
 export default function MainNavigation() {
-    const globalData = useGlobalData();
-    const galleryData = useGalleryData();
+    const globalData = getGlobalData();
+    const galleryData = getGalleryData();
     const [socialIconsAnimationDone, setSocialIconsAnimationDone] = useState(false);
     const [galleryAnimationDone, setGalleryAnimationDone] = useState(false);
     const navItems = globalData.nav;

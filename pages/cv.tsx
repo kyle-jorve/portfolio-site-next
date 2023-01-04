@@ -1,13 +1,13 @@
 import { Fragment, useEffect, useContext } from "react";
 import Head from "next/head";
 import SiteContext from "../context/global";
-import useCVData from "../hooks/data/cv-data";
+import getCvData from "../data/cv-data";
 import Bio from "../components/cv/Bio";
 import Resume from "../components/cv/Resume";
 
 export default function CV() {
     const siteContext = useContext(SiteContext);
-    const cvData = useCVData();
+    const cvData = getCvData();
 
     useEffect(() => {
         document.querySelector("body")?.classList.add("light");

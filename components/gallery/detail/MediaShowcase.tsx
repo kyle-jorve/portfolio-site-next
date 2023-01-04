@@ -2,7 +2,7 @@ import { Fragment, useContext } from "react";
 import Image from "next/image";
 import SiteContext from "../../../context/global";
 import ShowcaseSlide from "./ShowcaseSlide";
-import { GalleryItemType } from "../../../hooks/data/gallery-data";
+import { GalleryItemType } from "../../../data/gallery-data";
 import styles from "../../../styles/components/Showcase.module.css";
 
 type MediaShowcaseProps = {

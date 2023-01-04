@@ -1,8 +1,8 @@
 import { useState, useContext, useCallback, useEffect } from "react";
 import { useRouter } from "next/router";
 import SiteContext from "../../context/global";
-import useGlobalData, { SocialIconType } from "../../hooks/data/global-data";
-import useGalleryData, { GalleryItemType } from "../../hooks/data/gallery-data";
+import getGlobalData, { SocialIconType } from "../../data/global-data";
+import getGalleryData, { GalleryItemType } from "../../data/gallery-data";
 import GalleryItem from "./GalleryItem";
 import styles from "../../styles/components/Gallery.module.css";
 
@@ -13,8 +13,8 @@ type GalleryGridProps = {
 
 export default function GalleryGrid(props: GalleryGridProps) {
     const siteContext = useContext(SiteContext);
-    const globalData = useGlobalData();
-    const galleryData = useGalleryData();
+    const globalData = getGlobalData();
+    const galleryData = getGalleryData();
     const router = useRouter();
     const [reveal, setReveal] = useState(false);
     const [animationDone, setAnimationDone] = useState(false);
@@ -38,7 +38,7 @@ export default function GalleryGrid(props: GalleryGridProps) {
     }, [transitionItems, siteContext.loadStatus]);
 
     return (
-        <div className={styles["gallery__grid"]}>
+        <div className={`${styles["gallery__grid"]} ${styles["gallery__grid--page"]}`}>
             {props.items.map((item, index) => {
                 const isNew = item.name === galleryData.items[0].name;
 

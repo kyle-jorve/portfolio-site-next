@@ -1,5 +1,5 @@
 import Neighbor from "./Neighbor";
-import useGalleryData, { GalleryItemType } from "../../../hooks/data/gallery-data";
+import getGalleryData, { GalleryItemType } from "../../../data/gallery-data";
 import styles from "../../../styles/components/Showcase.module.css";
 
 type NeighborsProps = {
@@ -7,7 +7,7 @@ type NeighborsProps = {
 };
 
 export default function Neighbors(props: NeighborsProps) {
-    const galleryData = useGalleryData();
+    const galleryData = getGalleryData();
     const itemIndex = galleryData.items.findIndex((item) => item.name === props.item.name);
     const neighbors: {
         next: (GalleryItemType & { isDetail?: boolean }) | null;

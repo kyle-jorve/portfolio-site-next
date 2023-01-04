@@ -1,4 +1,4 @@
-import GumroadIcon from "../../components/icons/Gumroad";
+import GumroadIcon from "../components/icons/Gumroad";
 
 export type SocialIconType = {
     name: string;
@@ -12,7 +12,7 @@ export type SocialIconsType = {
     commerce: SocialIconType[];
 };
 
-export default function useGlobalData() {
+export default function getGlobalData() {
     return {
         get email() {
             return "kyle@kylejorve.com";

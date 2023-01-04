@@ -10,36 +10,6 @@
     flex-wrap: nowrap;
 }
 
-/*----- filters -----*/
-
-/* .gallery__filter-button {
-    display: flex;
-    align-items: center;
-    gap: 0.35rem;
-    padding: 0.35rem 0.5rem;
-    border: var(--border-width) solid var(--accent-color);
-    border-radius: 999px;
-    background-color: transparent;
-    font-size: var(--text-sm);
-    font-weight: var(--font-weight-semibold);
-    line-height: 1;
-    text-align: left;
-    color: var(--accent-color);
-    transition: background-color var(--transition), color var(--transition);
-}
-
-.gallery__filter-button::before {
-    display: block;
-    font: var(--fa-font-solid);
-    line-height: 1;
-    content: "\f1de";
-}
-
-.gallery__filter-button--active {
-    background-color: var(--accent-color);
-    color: var(--dark-color);
-} */
-
 /*----- grid -----*/
 
 .gallery__grid {
@@ -51,7 +21,8 @@
     transition: opacity var(--transition);
 }
 
-.gallery--hide .gallery__grid {
+.gallery--hide .gallery__grid,
+.gallery__grid--hide {
     opacity: 0;
     pointer-events: none;
 }
@@ -70,7 +41,7 @@
     transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
 }
 
-.gallery__item--new {
+.gallery__grid--page .gallery__item--new {
     grid-column: span 2;
     grid-row: span 2;
 }
@@ -264,11 +235,6 @@
 /*----- media queries -----*/
 
 @media (hover: hover) {
-    .gallery__filter-button:hover {
-        background-color: var(--accent-color);
-        color: var(--dark-color);
-    }
-
     .gallery__item:hover {
         z-index: 2;
         transform: scale(1.02);
@@ -337,14 +303,6 @@
 }
 
 @media (min-width: 64em) {
-    /*-- filters --*/
-
-    .gallery__filter-button {
-        gap: 0.5rem;
-        padding: 0.5rem 0.6rem;
-        font-size: var(--text-base);
-    }
-
     /*-- grid --*/
 
     .gallery__grid {

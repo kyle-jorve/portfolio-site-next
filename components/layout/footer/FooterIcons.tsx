@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import SocialIcon from "../SocialIcon";
 import SiteContext from "../../../context/global";
-import { SocialIconsType } from "../../../hooks/data/global-data";
+import { SocialIconsType } from "../../../data/global-data";
 import styles from "../../../styles/layout/Footer.module.css";
 import socialStyles from "../../../styles/layout/Social.module.css";
 
