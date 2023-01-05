@@ -15,9 +15,6 @@ type NavItemProps = {
     attributes?: {
         tabIndex: number | undefined;
     };
-    style?: {
-        [prop: string]: string;
-    };
 } & React.PropsWithChildren;
 
 let timeout: ReturnType<typeof setTimeout>;
@@ -26,12 +23,12 @@ export default function NavItem(props: NavItemProps) {
     const router = useRouter();
     const isCurrent = props.url === router.pathname;
     const [navItemsAnimationDone, setNavItemsAnimationDone] = useState(false);
-    const [externalLink, setExternalLink] = useState(false);
     const [style, setStyle] = useState({});
     const siteContext = useContext(SiteContext);
     const onClick = props.onClick || (() => {});
     const totalDelay = props.totalDelay;
-    const classes = [!props.isMobile && styles["nav__a"], props.className].filter((c) => c);
+    const externalLink = props.url.includes("http");
+    const classes = [!props.isMobile && styles["nav__item"], props.className].filter((c) => c);
 
     function navLinkClickHandler(event: React.MouseEvent) {
         if (!siteContext.desktop) {
@@ -59,15 +56,6 @@ export default function NavItem(props: NavItemProps) {
                     : "",
         });
     }, [navItemsAnimationDone, siteContext.desktop, siteContext.transitionDelay, props.index, props.isMainNav]);
-
-    useEffect(() => {
-        const url = new URL(
-            props.url.includes("http") ? props.url : `${window.location.protocol}//${window.location.host}${props.url}`,
-        );
-        const curHost = window.location.host;
-
-        setExternalLink(curHost !== url.host);
-    }, [externalLink, props.url]);
 
     useEffect(() => {
         if (siteContext.navOpen) {
@@ -98,7 +86,7 @@ export default function NavItem(props: NavItemProps) {
         <Link
             onClick={navLinkClickHandler}
             href={props.url}
-            className={isCurrent ? [...classes, styles["nav__a--current"]].join(" ") : classes.join(" ")}
+            className={isCurrent ? [...classes, styles["nav__item--current"]].join(" ") : classes.join(" ")}
             style={style}
             {...props.attributes}
         >

@@ -57,12 +57,29 @@ export default function MobileNavParentItem(props: ParentNavItemProps) {
 
             <div className={styles["mobile-nav__children"]} aria-hidden={!expanded} id={props.id}>
                 {props.navItems.map((item) => {
-                    return (
+                    const externalLink = item.url.includes("http");
+                    const classes = [styles["mobile-nav__child"], styles[`mobile-nav__child--${item.pageID}`]];
+                    const tabIndex = siteContext.navOpen || !expanded ? -1 : undefined;
+
+                    return externalLink ? (
+                        <a
+                            key={item.pageID}
+                            href={item.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={classes.join(" ")}
+                            tabIndex={tabIndex}
+                            onClick={() => setExpanded(false)}
+                        >
+                            {item.pageName}
+                        </a>
+                    ) : (
                         <Link
                             key={item.pageID}
                             href={item.url}
-                            className={`${styles["mobile-nav__child"]} ${styles[`mobile-nav__child--${item.pageID}`]}`}
-                            tabIndex={siteContext.navOpen || !expanded ? -1 : undefined}
+                            className={classes.join(" ")}
+                            tabIndex={tabIndex}
+                            onClick={() => setExpanded(false)}
                         >
                             {item.pageName}
                         </Link>

@@ -31,7 +31,7 @@
 
 .filters__button--active {
     background-color: var(--accent-color);
-    color: var(--dark-color);
+    color: var(--white);
 }
 
 .filters__button--clear {
@@ -53,8 +53,10 @@
     width: calc(100vw - 2rem);
     max-width: var(--width-narrow);
     padding: 1rem;
-    background: var(--light-color);
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(60px);
     box-shadow: var(--soft-shadow);
+    outline: var(--white) solid var(--border-width);
     border-radius: var(--border-radius);
     color: var(--dark-color);
     opacity: 0;
@@ -70,7 +72,9 @@
     width: 1rem;
     aspect-ratio: 1;
     border-radius: 4px 0 0 0;
-    background: var(--light-color);
+    border: 0.5rem solid transparent;
+    border-top-color: var(--white);
+    border-left-color: var(--white);
     content: "";
 }
 
@@ -123,7 +127,7 @@
     font-weight: var(--font-weight-semibold);
     line-height: 1;
     text-align: left;
-    color: var(--accent-color);
+    color: var(--dark-color);
     transition: background-color var(--transition), border-color var(--transition), color var(--transition);
 }
 
@@ -164,12 +168,12 @@
 
 .filters__filter--active {
     background-color: var(--accent-color);
-    color: var(--light-color);
+    color: var(--white);
 }
 
 .filters__filter--active .filters__filter-icon {
     transform: rotate(45deg);
-    background-color: var(--light-color);
+    background-color: var(--white);
 }
 
 .filters__filter--active .filters__filter-icon::before,
@@ -190,12 +194,11 @@
 @media (hover: hover) {
     .filters__button:hover {
         background-color: var(--accent-color);
-        color: var(--light-color);
+        color: var(--white);
     }
 
     .filters__filter:not(.filters__filter--active):hover {
         border-color: var(--dark-color);
-        color: var(--dark-color);
     }
 
     .filters__filter:not(.filters__filter--active):hover .filters__filter-icon {

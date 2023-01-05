@@ -68,14 +68,27 @@ export default function MainNavigation() {
             <section className={styles["nav__inner"]}>
                 {navItems.map((item, index) => {
                     if (item.children) {
-                        return;
+                        return (
+                            <MainNavParentItem
+                                onClick={siteContext.closeNav}
+                                key={item.id}
+                                label={item.label}
+                                id={item.id}
+                                totalDelay={totalDelay.navItems}
+                                index={index}
+                                navItems={item.children}
+                                attributes={{
+                                    tabIndex: siteContext.navOpen ? undefined : -1,
+                                }}
+                            />
+                        );
                     }
 
                     return (
                         <NavItem
+                            key={item.pageID}
                             isMainNav={true}
                             totalDelay={totalDelay.navItems}
-                            key={index}
                             index={index}
                             url={item.url!}
                             onClick={siteContext.closeNav}

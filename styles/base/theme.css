@@ -18,7 +18,7 @@
 
         --white-cool: #f2f3f4;
         --gray-cool-light: #e4e6e8;
-        --gray-cool: #c1c7c9;
+        --gray-cool: #b4babc;
         --black-cool: #131516;
         --yellow: #f4ce56;
         --red: #ff5652;
@@ -53,6 +53,7 @@
         --large-border-width: 16px;
         --border-radius: 8px;
 
+        --white-border: var(--border-width) solid var(--light-color);
         --light-border: var(--border-width) solid rgba(255, 255, 255, 0.2);
         --gray-border: var(--border-width) solid var(--gray-cool);
         --light-red-border: var(--border-width) solid rgba(255, 86, 82, 0.5);
