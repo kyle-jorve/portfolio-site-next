@@ -78,7 +78,7 @@ export const characterCategories = [
 export const categoryNames = [
     ...projectCategories.map((cat) => cat.name),
     ...characterCategories.map((cat) => cat.name),
-] as const;
+];
 
 export type DetailKeyType = {
     path?: string;

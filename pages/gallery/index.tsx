@@ -14,7 +14,6 @@ let timeout: ReturnType<typeof setTimeout>;
 export default function GalleryPage() {
     const globalData = getGlobalData();
     const galleryData = getGalleryData();
-    ``;
     const siteContext = useContext(SiteContext);
     const galleryGridRef = useRef() as React.MutableRefObject<HTMLElement>;
     const [filtersShown, setFiltersShown] = useState(false);
@@ -42,12 +41,13 @@ export default function GalleryPage() {
     }, [filtersShown]);
 
     function toggleFilter(event: React.MouseEvent) {
-        const target = event.target as HTMLButtonElement;
+        const target = event.currentTarget as HTMLButtonElement;
         const category = target.dataset.cat as typeof categoryNames[number];
+        let newFilters: typeof categoryNames;
         let filteredItems: GalleryItemType[];
 
         setFilters((prev) => {
-            let newFilters = prev.slice();
+            newFilters = prev.slice();
 
             if (prev.some((f) => f === category)) {
                 newFilters.splice(
