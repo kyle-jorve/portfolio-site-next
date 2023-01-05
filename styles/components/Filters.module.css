@@ -56,7 +56,7 @@
     background: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(60px);
     box-shadow: var(--soft-shadow);
-    outline: var(--white) solid var(--border-width);
+    border: var(--border-width) solid var(--white);
     border-radius: var(--border-radius);
     color: var(--dark-color);
     opacity: 0;
