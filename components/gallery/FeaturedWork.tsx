@@ -35,7 +35,7 @@ export default function FeaturedWork(props: FeaturedWorkProps) {
     const [galleryItems, setGalleryItems] = useState(props.featuredItemsShuffled);
     const [intersected, setIntersected] = useState(false);
     const [animationDone, setAnimationDone] = useState(false);
-    const page = props.globalData.nav.find((p) => p.url === router.pathname);
+    const page = props.globalData.nav.find((p: any) => p.url === router.pathname);
     const id = "featured-work";
     const totalDelay = (props.featuredItems.length - 1) * siteContext.transitionDelay + siteContext.transitionDuration;
 
