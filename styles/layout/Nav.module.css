@@ -312,6 +312,110 @@
     line-height: 1.35;
 }
 
+/*----- parent nav items -----*/
+
+.mobile-nav__parent {
+    position: relative;
+}
+
+.mobile-nav__parent-button {
+    width: 100%;
+    height: 100%;
+}
+
+.mobile-nav__children {
+    position: absolute;
+    inset: -1rem -2rem auto auto;
+    z-index: 1;
+    transform: translateY(-100%) scale(0.95);
+    transform-origin: right bottom;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    width: 220px;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    background: var(--light-color);
+    box-shadow: var(--soft-shadow);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition), transform var(--transition);
+}
+
+.mobile-nav__children::before {
+    position: absolute;
+    inset: auto 16.75vw 0 auto;
+    z-index: 2;
+    transform: translateY(50%) rotate(45deg);
+    display: block;
+    width: 1rem;
+    aspect-ratio: 1;
+    border-radius: 0 0 4px 0;
+    background: var(--light-color);
+    content: "";
+    pointer-events: none;
+}
+
+.mobile-nav__child {
+    display: inline-grid;
+    grid-template: auto / 22px auto;
+    align-items: baseline;
+    gap: 0.5rem;
+    padding: 0.25rem 0;
+    font-size: 0.9rem;
+    font-weight: var(--font-weight-extrabold);
+    letter-spacing: 0.26em;
+    line-height: 1.2;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.mobile-nav__child::before {
+    font: var(--fa-font-solid);
+}
+
+.mobile-nav__child--shop-prints::before {
+    content: "\f03e";
+}
+
+.mobile-nav__child--shop-digital::before {
+    content: "\f0ed";
+}
+
+/*-- parent on left --*/
+
+.mobile-nav__parent:first-child .mobile-nav__children {
+    inset: -1rem auto auto 0;
+    transform-origin: left bottom;
+}
+
+.mobile-nav__parent:first-child .mobile-nav__children::before {
+    inset: auto auto 0 1.95rem;
+}
+
+/*-- parent in middle --*/
+
+.mobile-nav__parent:nth-child(2) .mobile-nav__children {
+    inset: -1rem auto auto 50%;
+    transform: translate(-50%, -100%);
+    transform-origin: center bottom;
+}
+
+.mobile-nav__parent:nth-child(2) .mobile-nav__children::before {
+    inset: auto auto 0 50%;
+    transform: translate(-50%, 50%) rotate(45deg);
+}
+
+/*-- active children --*/
+
+.mobile-nav__parent--active .mobile-nav__children {
+    transform: translateY(-100%);
+    pointer-events: all;
+    opacity: 1;
+    transition-delay: 0s;
+}
+
 /*----- active nav -----*/
 
 .mobile-nav--hide {

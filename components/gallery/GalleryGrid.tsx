@@ -18,7 +18,8 @@ export default function GalleryGrid(props: GalleryGridProps) {
     const router = useRouter();
     const [reveal, setReveal] = useState(false);
     const [animationDone, setAnimationDone] = useState(false);
-    const page = globalData.nav.find((p) => p.url === router.pathname);
+    const navItems = globalData.nav.map((item) => (item.children ? item.children : item)).flat(1);
+    const page = navItems.find((p) => p.url === router.pathname);
     const totalDelay =
         (galleryData.items.length - 1 + (props.commerceLinks.length - 1)) * siteContext.transitionDelay +
         siteContext.transitionDuration;

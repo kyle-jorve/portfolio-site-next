@@ -40,10 +40,21 @@ export default function getGlobalData() {
                     showInMobileNav: true,
                 },
                 {
-                    pageID: "shop",
-                    pageName: "Shop",
-                    url: "https://www.inprnt.com/gallery/kylejorve/",
+                    label: "Shop",
+                    id: "shop",
                     showInMobileNav: true,
+                    children: [
+                        {
+                            pageID: "shop-prints",
+                            pageName: "Shop Prints",
+                            url: "https://www.inprnt.com/gallery/kylejorve/",
+                        },
+                        {
+                            pageID: "shop-digital",
+                            pageName: "Shop Digital",
+                            url: "https://kylejorve.gumroad.com/",
+                        },
+                    ],
                 },
                 {
                     pageID: "patreon",

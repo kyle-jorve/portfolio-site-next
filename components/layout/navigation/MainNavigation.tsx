@@ -4,6 +4,7 @@ import SiteContext from "../../../context/global";
 import getGlobalData from "../../../data/global-data";
 import getGalleryData from "../../../data/gallery-data";
 import NavItem from "./NavItem";
+import MainNavParentItem from "./MainNavParentItem";
 import SocialIcon from "../SocialIcon";
 import GalleryItem from "../../gallery/GalleryItem";
 import styles from "../../../styles/layout/Nav.module.css";
@@ -66,13 +67,17 @@ export default function MainNavigation() {
         <nav className={classes.join(" ")} aria-hidden={!siteContext.navOpen} id="main-navigation">
             <section className={styles["nav__inner"]}>
                 {navItems.map((item, index) => {
+                    if (item.children) {
+                        return;
+                    }
+
                     return (
                         <NavItem
                             isMainNav={true}
                             totalDelay={totalDelay.navItems}
                             key={index}
                             index={index}
-                            url={item.url}
+                            url={item.url!}
                             onClick={siteContext.closeNav}
                             attributes={{
                                 tabIndex: siteContext.navOpen ? undefined : -1,
@@ -147,7 +152,7 @@ export default function MainNavigation() {
                                     title={item.title}
                                     thumbnailKey={item.thumbnailKey}
                                     orientation={item.orientation}
-                                    fromPage={page ? page.pageID : null}
+                                    fromPage={page ? page.pageID! : null}
                                     fromSection={null}
                                     style={{
                                         transitionDelay: !galleryAnimationDone

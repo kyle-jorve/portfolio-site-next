@@ -49,7 +49,7 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
     const navButtonRef = useRef<HTMLButtonElement>();
     const globalData = getGlobalData();
     const router = useRouter();
-    const pages = globalData.nav;
+    const pages = globalData.nav.map((item) => (item.children ? item.children : item)).flat(1);
     const detailPageMatch = router.query.itemID !== undefined;
 
     //----- global site context -----//

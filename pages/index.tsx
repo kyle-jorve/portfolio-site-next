@@ -21,6 +21,7 @@ export default function Home(props: HomeProps) {
     const globalData = getGlobalData();
     const siteContext = useContext(SiteContext);
     const cvData = getCvData();
+    const navItems = globalData.nav.map((item) => (item.children ? item.children : item)).flat(1);
 
     useEffect(() => {
         if (timeout) clearTimeout(timeout);
@@ -53,7 +54,7 @@ export default function Home(props: HomeProps) {
                 img={homeData.bio.img}
                 title={cvData.bio.title}
                 content={cvData.bio.content}
-                url={globalData.nav.find((item) => item.pageID === "cv")!.url}
+                url={navItems.find((item) => item.pageID === "cv")!.url}
             />
         </Fragment>
     );

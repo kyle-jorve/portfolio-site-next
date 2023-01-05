@@ -57,7 +57,7 @@ export default function GalleryFilters(props: FilterModalProps) {
                                     data-cat={cat.name}
                                     aria-label={`${props.filters.some((f) => f === cat.name) ? "remove" : "add"} ${
                                         cat.label
-                                    } filter`}
+                                    } project filter`}
                                     tabIndex={props.active ? undefined : -1}
                                 >
                                     <span className={styles["filters__filter-icon"]} aria-hidden="true"></span>
@@ -87,7 +87,7 @@ export default function GalleryFilters(props: FilterModalProps) {
                                     data-cat={cat.name}
                                     aria-label={`${props.filters.some((f) => f === cat.name) ? "remove" : "add"} ${
                                         cat.label
-                                    } filter`}
+                                    } character filter`}
                                     tabIndex={props.active ? undefined : -1}
                                 >
                                     <span className={styles["filters__filter-icon"]} aria-hidden="true"></span>

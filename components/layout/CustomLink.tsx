@@ -18,8 +18,6 @@ export default function CustomLink(props: CustomLinkProps) {
     const siteContext = useContext(SiteContext);
 
     function linkClickHandler(event: React.MouseEvent) {
-        const isDetailRoute = props.to.includes("/gallery/") && props.to.length > 9;
-
         if (!siteContext.desktop) {
             onClick(event);
 
