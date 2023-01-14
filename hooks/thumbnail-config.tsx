@@ -1,63 +1,62 @@
 type ThumbnailConfigProps = {
-    isNew?: boolean;
-    isFeatured?: boolean;
-    isDetail?: boolean;
+	isNew?: boolean;
+	isFeatured?: boolean;
+	isDetail?: boolean;
+	thumbnailKey: {
+		path: string;
+	};
 };
 
 export default function useThumbnailConfig(props: ThumbnailConfigProps) {
-    const configObj = props.isNew
-        ? {
-              sources: [
-                  {
-                      imageWidth: "1024px",
-                      minScreenWidth: "640px",
-                  },
-              ],
-              mobile: {
-                  imageWidth: "100vw",
-              },
-          }
-        : props.isFeatured
-        ? {
-              sources: [
-                  {
-                      imageWidth: "524px",
-                      minScreenWidth: "1440px",
-                  },
-                  {
-                      imageWidth: "33vw",
-                      minScreenWidth: "640px",
-                  },
-              ],
-              mobile: {
-                  imageWidth: "50vw",
-              },
-          }
-        : props.isDetail
-        ? {
-              sources: [
-                  {
-                      imageWidth: "480px",
-                      minScreenWidth: "640px",
-                  },
-              ],
-              mobile: {
-                  imageWidth: "66vw",
-              },
-          }
-        : {
-              sources: [
-                  {
-                      imageWidth: "480px",
-                      minScreenWidth: "1024px",
-                  },
-              ],
-              mobile: {
-                  imageWidth: "50vw",
-              },
-          };
-
-    return `${configObj.sources.map((src) => `(min-width: ${src.minScreenWidth}) ${src.imageWidth}`).join(", ")}, ${
-        configObj.mobile.imageWidth
-    }`;
+	return props.isNew
+		? {
+				sources: [
+					{
+						url: `${props.thumbnailKey.path}-1024.jpg`,
+						minScreenWidth: 640,
+					},
+				],
+				mobile: {
+					url: `${props.thumbnailKey.path}-640.jpg`,
+				},
+		  }
+		: props.isFeatured
+		? {
+				sources: [
+					{
+						url: `${props.thumbnailKey.path}-640.jpg`,
+						minScreenWidth: 1440,
+					},
+					{
+						url: `${props.thumbnailKey.path}-480.jpg`,
+						minScreenWidth: 640,
+					},
+				],
+				mobile: {
+					url: `${props.thumbnailKey.path}-320.jpg`,
+				},
+		  }
+		: props.isDetail
+		? {
+				sources: [
+					{
+						url: `${props.thumbnailKey.path}-480.jpg`,
+						minScreenWidth: 640,
+					},
+				],
+				mobile: {
+					url: `${props.thumbnailKey.path}-640.jpg`,
+				},
+		  }
+		: {
+				sources: [
+					{
+						url: `${props.thumbnailKey.path}-480.jpg`,
+						minScreenWidth: 1024,
+					},
+				],
+				mobile: {
+					url: `${props.thumbnailKey.path}-320.jpg`,
+				},
+		  };
 }

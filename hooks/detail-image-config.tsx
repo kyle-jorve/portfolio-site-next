@@ -1,27 +1,23 @@
 export default function useDetailImageConfig(srcPath: string | boolean) {
     if (!srcPath) return;
 
-    const configObj = {
+    return {
         sources: [
             {
-                imageWidth: "1920px",
-                minScreenWidth: "1440px",
+                url: `${srcPath}-1920.jpg`,
+                minScreenWidth: 1440,
             },
             {
-                imageWidth: "1440px",
-                minScreenWidth: "1024px",
+                url: `${srcPath}-1440.jpg`,
+                minScreenWidth: 1024,
             },
             {
-                imageWidth: "1024px",
-                minScreenWidth: "640px",
+                url: `${srcPath}-1024.jpg`,
+                minScreenWidth: 640,
             },
         ],
         mobile: {
-            imageWidth: "640px",
+            url: `${srcPath}-640.jpg`,
         },
     };
-
-    return `${configObj.sources.map((src) => `(min-width: ${src.minScreenWidth}) ${src.imageWidth}`).join(", ")}, ${
-        configObj.mobile.imageWidth
-    }`;
 }
