@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useCallback, useContext } from 'react';
+import { useEffect, useRef, useState, useContext } from 'react';
 import { useRouter } from 'next/router';
 import SiteContext from '../../context/global';
 import CustomLink from '../layout/CustomLink';
@@ -40,9 +40,12 @@ export default function FeaturedWork(props: FeaturedWorkProps) {
 	const totalDelay =
 		(props.featuredItems.length - 1) * siteContext.transitionDelay +
 		siteContext.transitionDuration;
+	let imgsLoaded = 0;
 
-	const ioHandler = useCallback(
-		(entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+	useEffect(() => {
+		io = new IntersectionObserver(ioHandler, ioOptions);
+
+		function ioHandler(entries: IntersectionObserverEntry[], observer: IntersectionObserver) {
 			entries.forEach((ent) => {
 				if (!ent.isIntersecting) return;
 
@@ -54,19 +57,14 @@ export default function FeaturedWork(props: FeaturedWorkProps) {
 
 				observer.disconnect();
 			});
-		},
-		[totalDelay]
-	);
-
-	useEffect(() => {
-		io = new IntersectionObserver(ioHandler, ioOptions);
+		}
 
 		io.observe(sectionRef.current);
 
 		return () => {
 			io.disconnect();
 		};
-	}, [ioHandler]);
+	}, [totalDelay]);
 
 	function shuffleFeaturedWork() {
 		const shuffled = props.featuredItems
@@ -80,8 +78,17 @@ export default function FeaturedWork(props: FeaturedWorkProps) {
 		timeout = setTimeout(() => {
 			setGalleryItems(shuffled);
 
-			gridRef.current.classList.remove(styles['gallery__grid--hide']);
+			imgLoadHandler();
 		}, siteContext.transitionDuration);
+	}
+
+	function imgLoadHandler() {
+		imgsLoaded++;
+
+		if (imgsLoaded === props.homeData.gallery.itemsLimit) {
+			gridRef.current.classList.remove(styles['gallery__grid--hide']);
+			imgsLoaded = 0;
+		}
 	}
 
 	return (
@@ -109,6 +116,7 @@ export default function FeaturedWork(props: FeaturedWorkProps) {
 								key={index}
 								isNew={false}
 								isFeatured={true}
+								onLoad={imgLoadHandler}
 								name={item.name}
 								title={item.title}
 								thumbnailKey={item.thumbnailKey}

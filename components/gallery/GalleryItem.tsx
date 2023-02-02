@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import SiteContext from '../../context/global';
 import CustomLink from '../layout/CustomLink';
 import useThumbnailConfig from '../../hooks/thumbnail-config';
@@ -11,6 +11,7 @@ type GalleryItemProps = GalleryItemType & {
 	fromSection: string | null;
 	isNew?: boolean;
 	isFeatured?: boolean;
+	onLoad?: () => void;
 	attributes: {
 		tabIndex: number | undefined;
 	};
@@ -20,6 +21,7 @@ type GalleryItemProps = GalleryItemType & {
 };
 
 export default function GalleryItem(props: GalleryItemProps) {
+	const imgRef = useRef<HTMLImageElement>(null!);
 	const siteContext = useContext(SiteContext);
 	const mediaConfig = useThumbnailConfig({
 		isNew: props.isNew,
@@ -32,6 +34,23 @@ export default function GalleryItem(props: GalleryItemProps) {
 		props.isNew && styles['gallery__item--new'],
 		props.className,
 	].filter((c) => c);
+
+	useEffect(() => {
+		const img = imgRef.current;
+
+		if (!props.onLoad) return;
+
+		if (img.complete) {
+			props.onLoad();
+			return;
+		}
+		
+		img.addEventListener('load', props.onLoad);
+
+		return () => {
+			img?.removeEventListener('load', props.onLoad!);
+		}
+	});
 
 	function galleryItemClickHandler() {
 		setTimeout(() => {
@@ -73,6 +92,7 @@ export default function GalleryItem(props: GalleryItemProps) {
 					})}
 
 					<img
+						ref={imgRef}
 						className={`img--lazy ${styles['gallery__img']}`}
 						style={{
 							objectPosition: `center ${props.orientation}`,
