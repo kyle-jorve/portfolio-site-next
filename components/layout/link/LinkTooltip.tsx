@@ -11,7 +11,7 @@ export default function LinkTooltip(props: LinkTooltipProps) {
 	}).mobile.url;
 
 	return (
-		<div className="tooltip" aria-hidden="true">
+		<span className="tooltip" aria-hidden="true">
 			<img
 				className="tooltip__img"
 				alt=""
@@ -22,6 +22,6 @@ export default function LinkTooltip(props: LinkTooltipProps) {
 			/>
 
 			<span className="tooltip__title">{props.galleryItem.title}</span>
-		</div>
+		</span>
 	)
 }
