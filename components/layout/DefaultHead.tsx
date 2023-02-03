@@ -4,6 +4,9 @@ import Head from "next/head";
 export default function DefaultHead() {
     return (
         <Head>
+            {/* ROBOTS */}
+			<meta name="robots" content="noai, noimageai" />
+
             {/* VIEWPORT */}
             <meta httpEquiv="content-type" content="text/html; charset=utf-8" />
             <meta
