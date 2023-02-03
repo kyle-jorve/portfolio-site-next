@@ -1,83 +1,83 @@
 import { Fragment } from 'react';
 import CustomLink from '../components/layout/CustomLink';
 
-export const projectCategories = [
-	{
+export const projectCategories = {
+	ignobleBlood: {
 		name: 'ignoble-blood',
 		label: 'Ignoble Blood',
 	},
-	{
+	postAutumn: {
 		name: 'post-autumn',
 		label: 'Post-Autumn',
 	},
-	{
+	fanArt: {
 		name: 'fan-art',
 		label: 'Fan Art',
 	},
-] as const;
+} as const;
 
-export const characterCategories = [
-	{
+export const characterCategories = {
+	kyra: {
 		name: 'kyra',
 		label: 'Kyra Luckleav',
 	},
-	{
+	toval: {
 		name: 'toval',
 		label: 'Toval Argensente',
 	},
-	{
+	andel: {
 		name: 'andel',
 		label: 'Andel Sommer',
 	},
-	{
+	pendrake: {
 		name: 'pendrake',
 		label: 'Pendrake Sommer',
 	},
-	{
+	talis: {
 		name: 'talis',
 		label: 'Talis Sommer',
 	},
-	{
+	cargha: {
 		name: 'cargha',
 		label: 'Cargha Bezamik',
 	},
-	{
+	berned: {
 		name: 'berned',
 		label: 'Berned Blackhorn',
 	},
-	{
+	fennory: {
 		name: 'fennory',
 		label: 'Fennory Caelden',
 	},
-	{
+	crow: {
 		name: 'crow',
 		label: 'Crow',
 	},
-	{
+	sora: {
 		name: 'sora',
 		label: 'Sora',
 	},
-	{
+	riku: {
 		name: 'riku',
 		label: 'Riku',
 	},
-	{
+	kairi: {
 		name: 'kairi',
 		label: 'Kairi',
 	},
-	{
+	namine: {
 		name: 'namine',
 		label: 'Namine',
 	},
-	{
+	roxas: {
 		name: 'roxas',
 		label: 'Roxas',
 	},
-] as const;
+} as const;
 
 export const categoryNames = [
-	...projectCategories.map((cat) => cat.name),
-	...characterCategories.map((cat) => cat.name),
+	...Object.values(projectCategories).map((cat) => cat.name),
+	...Object.values(characterCategories).map((cat) => cat.name),
 ];
 
 export type DetailKeyType = {
@@ -99,7 +99,8 @@ export type GalleryItemType = {
 	content?: JSX.Element;
 	orientation: string;
 	featured?: boolean;
-	categories?: (typeof projectCategories[number] | typeof characterCategories[number])[];
+	categories?: (typeof projectCategories[keyof typeof projectCategories] | typeof characterCategories[keyof typeof characterCategories])[];
+	releaseDate?: Date;
 	purchaseLink?: string;
 	downloadLink?: string;
 	thumbnailKey: ThumbnailKeyType;
@@ -127,7 +128,7 @@ export default function getGalleryData() {
 					),
 					orientation: 'center',
 					featured: true,
-					categories: [projectCategories[0], characterCategories[0]],
+					categories: [projectCategories.ignobleBlood, characterCategories.kyra],
 					purchaseLink:
 						'https://www.inprnt.com/gallery/kylejorve/kyra-luckleav-portrait/',
 					downloadLink: 'https://kylejorve.gumroad.com/l/vrxhc',
@@ -198,7 +199,7 @@ export default function getGalleryData() {
 					),
 					orientation: 'top',
 					featured: true,
-					categories: [projectCategories[0], characterCategories[0]],
+					categories: [projectCategories.ignobleBlood, characterCategories.kyra],
 					purchaseLink: 'https://www.inprnt.com/gallery/kylejorve/kyra-luckleav/',
 					downloadLink: 'https://kylejorve.gumroad.com/l/jlwzc',
 					thumbnailKey: {
@@ -273,7 +274,7 @@ export default function getGalleryData() {
 					),
 					orientation: 'center',
 					featured: true,
-					categories: [projectCategories[0], characterCategories[1]],
+					categories: [projectCategories.ignobleBlood, characterCategories.toval],
 					purchaseLink:
 						'https://www.inprnt.com/gallery/kylejorve/toval-argensente-portrait/',
 					downloadLink: 'https://kylejorve.gumroad.com/l/vcwgb',
@@ -355,7 +356,7 @@ export default function getGalleryData() {
 					),
 					orientation: 'top',
 					featured: true,
-					categories: [projectCategories[0], characterCategories[1]],
+					categories: [projectCategories.ignobleBlood, characterCategories.toval],
 					purchaseLink: 'https://www.inprnt.com/gallery/kylejorve/toval-argensente/',
 					downloadLink: 'https://kylejorve.gumroad.com/l/ogpkj',
 					thumbnailKey: {
@@ -432,7 +433,7 @@ export default function getGalleryData() {
 						</blockquote>
 					),
 					orientation: 'center',
-					categories: [projectCategories[0], characterCategories[2]],
+					categories: [projectCategories.ignobleBlood, characterCategories.andel],
 					purchaseLink: 'https://www.inprnt.com/gallery/kylejorve/andel-portrait/',
 					downloadLink: 'https://kylejorve.gumroad.com/l/ungde',
 					thumbnailKey: {
@@ -505,7 +506,7 @@ export default function getGalleryData() {
 					),
 					orientation: 'top',
 					featured: true,
-					categories: [projectCategories[0], characterCategories[2]],
+					categories: [projectCategories.ignobleBlood, characterCategories.andel],
 					purchaseLink: 'https://www.inprnt.com/gallery/kylejorve/andel-sommer/',
 					downloadLink: 'https://kylejorve.gumroad.com/l/vqdvkj',
 					thumbnailKey: {
@@ -579,7 +580,7 @@ export default function getGalleryData() {
 						</blockquote>
 					),
 					orientation: 'center',
-					categories: [projectCategories[0], characterCategories[3]],
+					categories: [projectCategories.ignobleBlood, characterCategories.pendrake],
 					purchaseLink: 'https://www.inprnt.com/gallery/kylejorve/pendrake-portrait/',
 					downloadLink: 'https://kylejorve.gumroad.com/l/hhgin',
 					thumbnailKey: {
@@ -651,7 +652,7 @@ export default function getGalleryData() {
 					),
 					orientation: 'top',
 					featured: true,
-					categories: [projectCategories[0], characterCategories[3]],
+					categories: [projectCategories.ignobleBlood, characterCategories.pendrake],
 					purchaseLink: 'https://www.inprnt.com/gallery/kylejorve/pendrake-sommer/',
 					downloadLink: 'https://kylejorve.gumroad.com/l/ndwgm',
 					thumbnailKey: {
@@ -725,7 +726,7 @@ export default function getGalleryData() {
 						</blockquote>
 					),
 					orientation: 'center',
-					categories: [projectCategories[0], characterCategories[4]],
+					categories: [projectCategories.ignobleBlood, characterCategories.talis],
 					purchaseLink: 'https://www.inprnt.com/gallery/kylejorve/talis-portrait/',
 					downloadLink: 'https://kylejorve.gumroad.com/l/bgvVML',
 					thumbnailKey: {
@@ -803,7 +804,7 @@ export default function getGalleryData() {
 					),
 					orientation: 'top',
 					featured: true,
-					categories: [projectCategories[0], characterCategories[4]],
+					categories: [projectCategories.ignobleBlood, characterCategories.talis],
 					purchaseLink: 'https://www.inprnt.com/gallery/kylejorve/talis-sommer/',
 					downloadLink: 'https://kylejorve.gumroad.com/l/CQNFi',
 					thumbnailKey: {
@@ -871,7 +872,7 @@ export default function getGalleryData() {
 					),
 					orientation: 'center',
 					featured: true,
-					categories: [projectCategories[0], characterCategories[5]],
+					categories: [projectCategories.ignobleBlood, characterCategories.cargha],
 					purchaseLink: 'https://www.inprnt.com/gallery/kylejorve/cargha-portrait/',
 					downloadLink: 'https://kylejorve.gumroad.com/l/LNffV',
 					thumbnailKey: {
@@ -924,7 +925,7 @@ export default function getGalleryData() {
 					),
 					orientation: 'top',
 					featured: true,
-					categories: [projectCategories[0], characterCategories[5]],
+					categories: [projectCategories.ignobleBlood, characterCategories.cargha],
 					purchaseLink: 'https://www.inprnt.com/gallery/kylejorve/cargha-bezamik/',
 					downloadLink: 'https://kylejorve.gumroad.com/l/olwWz',
 					thumbnailKey: {
@@ -1021,7 +1022,7 @@ export default function getGalleryData() {
 					),
 					orientation: 'top',
 					featured: true,
-					categories: [projectCategories[1], characterCategories[8]],
+					categories: [projectCategories.postAutumn, characterCategories.crow],
 					purchaseLink: 'https://www.inprnt.com/gallery/kylejorve/crow/',
 					downloadLink: 'https://gumroad.com/l/fTSADI',
 					thumbnailKey: {
@@ -1083,9 +1084,9 @@ export default function getGalleryData() {
 					orientation: 'center',
 					featured: true,
 					categories: [
-						projectCategories[0],
-						characterCategories[0],
-						characterCategories[3],
+						projectCategories.ignobleBlood,
+						characterCategories.kyra,
+						characterCategories.pendrake,
 					],
 					purchaseLink: 'https://www.inprnt.com/gallery/kylejorve/pendrakes-chamber/',
 					downloadLink: 'https://gumroad.com/l/mQzix',
@@ -1169,7 +1170,7 @@ export default function getGalleryData() {
 					),
 					orientation: 'center',
 					featured: true,
-					categories: [projectCategories[0], characterCategories[6]],
+					categories: [projectCategories.ignobleBlood, characterCategories.berned],
 					purchaseLink: 'https://www.inprnt.com/gallery/kylejorve/berned/',
 					downloadLink: 'https://gumroad.com/l/JKDSd',
 					thumbnailKey: {
@@ -1255,7 +1256,7 @@ export default function getGalleryData() {
 					),
 					orientation: 'center',
 					featured: true,
-					categories: [projectCategories[0], characterCategories[7]],
+					categories: [projectCategories.ignobleBlood, characterCategories.fennory],
 					purchaseLink: 'https://www.inprnt.com/gallery/kylejorve/becoming-runa/',
 					downloadLink: 'https://gumroad.com/l/UluBo',
 					thumbnailKey: {
@@ -1318,7 +1319,7 @@ export default function getGalleryData() {
 						</Fragment>
 					),
 					orientation: 'top',
-					categories: [projectCategories[1], characterCategories[8]],
+					categories: [projectCategories.postAutumn, characterCategories.crow],
 					purchaseLink: 'https://www.inprnt.com/gallery/kylejorve/crows/',
 					downloadLink: 'https://gumroad.com/l/itBYi',
 					thumbnailKey: {
@@ -1354,10 +1355,10 @@ export default function getGalleryData() {
 					),
 					orientation: 'center',
 					categories: [
-						projectCategories[2],
-						characterCategories[9],
-						characterCategories[10],
-						characterCategories[11],
+						projectCategories.fanArt,
+						characterCategories.sora,
+						characterCategories.kairi,
+						characterCategories.riku,
 					],
 					thumbnailKey: {
 						path: '/images/gallery/kingdom-hearts-1/kyle-jorve_kingdom-hearts-1',
@@ -1392,10 +1393,10 @@ export default function getGalleryData() {
 					),
 					orientation: 'center',
 					categories: [
-						projectCategories[2],
-						characterCategories[10],
-						characterCategories[12],
-						characterCategories[13],
+						projectCategories.fanArt,
+						characterCategories.riku,
+						characterCategories.roxas,
+						characterCategories.namine,
 					],
 					thumbnailKey: {
 						path: '/images/gallery/kingdom-hearts-2/kyle-jorve_kingdom-hearts-2',
@@ -1410,7 +1411,25 @@ export default function getGalleryData() {
 						},
 					],
 				},
-			];
+			].filter((item: GalleryItemType) => {
+				const dateNow = new Date();
+				const dateNowArr = [
+					dateNow.getFullYear(),
+					dateNow.getMonth(),
+					dateNow.getDate()
+				];
+				let release: [number, number, number];
+
+				if (!item.releaseDate) return true;
+
+				release = [
+					item.releaseDate.getFullYear(),
+					item.releaseDate.getMonth(),
+					item.releaseDate.getDate(),
+				];
+
+				return dateNowArr.every((val, index) => val >= release[index]);
+			});
 		},
 	};
 }

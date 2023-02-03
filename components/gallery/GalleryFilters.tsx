@@ -43,7 +43,7 @@ export default function GalleryFilters(props: FilterModalProps) {
                 <div className={styles["filters__block"]}>
                     <h2 className={styles["filters__title"]}>Projects</h2>
                     <div className={styles["filters__grid"]}>
-                        {projectCategories.map((cat) => {
+                        {Object.values(projectCategories).map((cat) => {
                             const classes = [
                                 styles["filters__filter"],
                                 props.filters.some((f) => f === cat.name) && styles["filters__filter--active"],
@@ -73,7 +73,7 @@ export default function GalleryFilters(props: FilterModalProps) {
                     <h3 className={styles["filters__title"]}>Characters</h3>
 
                     <div className={styles["filters__grid"]}>
-                        {characterCategories.map((cat) => {
+                        {Object.values(characterCategories).map((cat) => {
                             const classes = [
                                 styles["filters__filter"],
                                 props.filters.some((f) => f === cat.name) && styles["filters__filter--active"],
