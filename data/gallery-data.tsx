@@ -17,6 +17,10 @@ export const projectCategories = {
 } as const;
 
 export const characterCategories = {
+	samil: {
+		name: 'samil',
+		label: 'Samil Sealee',
+	},
 	kyra: {
 		name: 'kyra',
 		label: 'Kyra Luckleav',
@@ -99,12 +103,15 @@ export type GalleryItemType = {
 	content?: JSX.Element;
 	orientation: string;
 	featured?: boolean;
-	categories?: (typeof projectCategories[keyof typeof projectCategories] | typeof characterCategories[keyof typeof characterCategories])[];
+	categories?: (
+		| typeof projectCategories[keyof typeof projectCategories]
+		| typeof characterCategories[keyof typeof characterCategories]
+	)[];
 	releaseDate?: Date;
 	purchaseLink?: string;
 	downloadLink?: string;
 	thumbnailKey: ThumbnailKeyType;
-	detailKeys?: DetailKeyType[];
+	detailKeys: DetailKeyType[];
 };
 
 export default function getGalleryData() {
@@ -115,14 +122,91 @@ export default function getGalleryData() {
 		get items(): GalleryItemType[] {
 			return [
 				{
+					name: 'samil',
+					title: 'Samil Sealee',
+					content: (
+						<p>
+							Samil Sealee is a captain in{' '}
+							<CustomLink to="/gallery/andel/" useTooltip={true}>
+								Duke Andel Sommer
+							</CustomLink>
+							&apos;s army. She is at times supportive of{' '}
+							<CustomLink to="/gallery/pendrake" useTooltip={true}>
+								Pendrake
+							</CustomLink>
+							, at other times critical, but she always maintains his respect and the
+							respect of her peers.
+						</p>
+					),
+					orientation: 'top',
+					featured: true,
+					categories: [projectCategories.ignobleBlood, characterCategories.samil],
+					thumbnailKey: {
+						path: '/images/gallery/samil/final/kyle-jorve_samil',
+						alt: 'a vignette of Samil Sealee, looking apprehensively out of frame and gripping the handle of her saber',
+					},
+					detailKeys: [
+						{
+							path: '/images/gallery/samil/final/kyle-jorve_samil',
+							alt: 'a vignette of Samil Sealee, looking apprehensively out of frame and gripping the handle of her saber',
+							width: 1920,
+							height: 2936,
+						},
+						{
+							path: '/images/gallery/samil/wip-1/kyle-jorve_samil-wip-1',
+							alt: `a nude pose study for Samil's vignette`,
+							width: 1920,
+							height: 2485,
+						},
+						{
+							path: '/images/gallery/samil/wip-2/kyle-jorve_samil-wip-2',
+							alt: `a progress snapshot of Samil's vignette in which the line drawing is complete`,
+							width: 1920,
+							height: 2936,
+						},
+						{
+							path: '/images/gallery/samil/wip-3/kyle-jorve_samil-wip-3',
+							alt: `a progress snapshot of Samil's vignette in which the flat colors have been applied`,
+							width: 1920,
+							height: 2936,
+						},
+						{
+							path: '/images/gallery/samil/wip-4/kyle-jorve_samil-wip-4',
+							alt: `a progress snapshot of Samil's vignette in which the lights and shadows have been applied and colorized`,
+							width: 1920,
+							height: 2936,
+						},
+						{
+							path: '/images/gallery/samil/wip-5/kyle-jorve_samil-wip-5',
+							alt: `a progress snapshot of Samil's vignette in which the painting is nearly finished`,
+							width: 1920,
+							height: 2936,
+						},
+						{
+							source: (
+								<iframe
+									width="1440"
+									height="810"
+									src="https://www.youtube.com/embed/yNk05dLtgyE"
+									title="YouTube video player"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+									allowFullScreen
+								></iframe>
+							),
+						},
+					],
+				},
+				{
 					name: 'kyra-portrait',
 					title: 'Kyra Luckleav Portrait',
 					content: (
 						<blockquote className="blockquote">
 							<p>
 								You have much to lose in your involvement with me,{' '}
-								<CustomLink to="/gallery/pendrake" useTooltip={true}>Pendrake</CustomLink>. We would
-								be willfully ignorant to pretend otherwise.
+								<CustomLink to="/gallery/pendrake" useTooltip={true}>
+									Pendrake
+								</CustomLink>
+								. We would be willfully ignorant to pretend otherwise.
 							</p>
 						</blockquote>
 					),
@@ -187,10 +271,15 @@ export default function getGalleryData() {
 					content: (
 						<p>
 							Kyra Luckleav is a kitchen servant in Auerstel Castle and also happens
-							to be <CustomLink to="/gallery/pendrake" useTooltip={true}>Pendrake</CustomLink>&apos;s{' '}
-							love interest.{' '}
-							<CustomLink to="/gallery/andel" useTooltip={true}>Duke Andel Sommer</CustomLink>,
-							Pendrake&apos;s father, expressly forbids their love and instead
+							to be{' '}
+							<CustomLink to="/gallery/pendrake" useTooltip={true}>
+								Pendrake
+							</CustomLink>
+							&apos;s love interest.{' '}
+							<CustomLink to="/gallery/andel" useTooltip={true}>
+								Duke Andel Sommer
+							</CustomLink>
+							, Pendrake&apos;s father, expressly forbids their love and instead
 							campaigns for Pendrake to marry someone equal to his station. Because of
 							this, Pendrake occasionally goes to great and dangerous lengths to prove
 							his devotion to Kyra. At one point in the story his love for her nearly
@@ -342,9 +431,11 @@ export default function getGalleryData() {
 							<p>
 								Toval is a lieutenant in the Auerstel soldiery, and is responsible
 								for training new recruits.{' '}
-								<CustomLink to="/gallery/pendrake" useTooltip={true}>Pendrake</CustomLink> has never
-								taken to his training and, as such, has become a constant thorn in
-								Toval&apos;s side.
+								<CustomLink to="/gallery/pendrake" useTooltip={true}>
+									Pendrake
+								</CustomLink>{' '}
+								has never taken to his training and, as such, has become a constant
+								thorn in Toval&apos;s side.
 							</p>
 							<p>
 								As far as Toval is concerned, Pendrake&apos;s noble status means
@@ -492,10 +583,15 @@ export default function getGalleryData() {
 						<Fragment>
 							<p>
 								<strong>Andel Sommer</strong> is the duke of Tersing and father to{' '}
-								<CustomLink to="/gallery/pendrake" useTooltip={true}>Pendrake</CustomLink> and{' '}
-								<CustomLink to="/gallery/talis" useTooltip={true}>Talis</CustomLink>. He wants nothing
-								more than to ensure a bright future for his duchy&mdash;even if
-								doing so requires extreme methods.
+								<CustomLink to="/gallery/pendrake" useTooltip={true}>
+									Pendrake
+								</CustomLink>{' '}
+								and{' '}
+								<CustomLink to="/gallery/talis" useTooltip={true}>
+									Talis
+								</CustomLink>
+								. He wants nothing more than to ensure a bright future for his
+								duchy&mdash;even if doing so requires extreme methods.
 							</p>
 							<p>
 								Andel is, to put it mildly, not overly fond of his son, Pendrake.
@@ -640,7 +736,10 @@ export default function getGalleryData() {
 							<p>
 								<strong>Pendrake Sommer</strong> is the main protagonist of the
 								in-progress fantasy novel, <i>The Ashes of Hope</i>, and twin
-								brother to <CustomLink to="/gallery/talis" useTooltip={true}>Talis Sommer</CustomLink>
+								brother to{' '}
+								<CustomLink to="/gallery/talis" useTooltip={true}>
+									Talis Sommer
+								</CustomLink>
 								.
 							</p>
 							<p>
@@ -785,10 +884,12 @@ export default function getGalleryData() {
 						<Fragment>
 							<p>
 								<strong>Talis Sommer</strong> is the twin sister of the{' '}
-								<CustomLink to="/gallery/pendrake" useTooltip={true}>main protagonist</CustomLink> in
-								the story I&apos;m currently writing, <i>The Ashes of Hope</i>. She
-								is the lady of the Tersing duchy, daughter of the duke and sister to
-								the heir of the dukedom.
+								<CustomLink to="/gallery/pendrake" useTooltip={true}>
+									main protagonist
+								</CustomLink>{' '}
+								in the story I&apos;m currently writing, <i>The Ashes of Hope</i>.
+								She is the lady of the Tersing duchy, daughter of the duke and
+								sister to the heir of the dukedom.
 							</p>
 							<p>
 								Unlike her noble contemporaries, Talis prefers to spend her time
@@ -1001,7 +1102,10 @@ export default function getGalleryData() {
 							</blockquote>
 							<p>
 								Yet another iteration of my original character,{' '}
-								<CustomLink to="/gallery/crows" useTooltip={true}>Crow</CustomLink>.
+								<CustomLink to="/gallery/crows" useTooltip={true}>
+									Crow
+								</CustomLink>
+								.
 							</p>
 							<p>
 								Crow is a professional assassin and the protagonist of an
@@ -1162,8 +1266,11 @@ export default function getGalleryData() {
 								</strong>{' '}
 								series, which is a fantasy story in progress. In it, Berned
 								apprehends a woman named Sol Ferro and charges her with the crime of
-								murdering <CustomLink to="/gallery/becoming-runa" useTooltip={true}>Luna</CustomLink>,
-								a series protagonist, who at this point in the story has gone
+								murdering{' '}
+								<CustomLink to="/gallery/becoming-runa" useTooltip={true}>
+									Luna
+								</CustomLink>
+								, a series protagonist, who at this point in the story has gone
 								strangely missing without a trace.
 							</p>
 						</Fragment>
@@ -1301,9 +1408,11 @@ export default function getGalleryData() {
 								</p>
 							</blockquote>
 							<p>
-								<CustomLink to="/gallery/crow" useTooltip={true}>Crow</CustomLink> is a professional
-								assassin and the protagonist of an in-progress science fiction story
-								called{' '}
+								<CustomLink to="/gallery/crow" useTooltip={true}>
+									Crow
+								</CustomLink>{' '}
+								is a professional assassin and the protagonist of an in-progress
+								science fiction story called{' '}
 								<strong>
 									<i>Post-Autumn</i>
 								</strong>
@@ -1344,7 +1453,10 @@ export default function getGalleryData() {
 								<strong>
 									Part of a duology. Its companion,{' '}
 									<i>Where Fears and Lies Melt Away</i>, can be found{' '}
-									<CustomLink to="/gallery/kingdom-hearts-2" useTooltip={true}>here</CustomLink>.
+									<CustomLink to="/gallery/kingdom-hearts-2" useTooltip={true}>
+										here
+									</CustomLink>
+									.
 								</strong>
 							</p>
 							<p>
@@ -1382,7 +1494,10 @@ export default function getGalleryData() {
 								<strong>
 									Part of a duology. Its companion,{' '}
 									<em>The Future Doesn&apos;t Scare Me</em>, can be found{' '}
-									<CustomLink to="/gallery/kingdom-hearts-1" useTooltip={true}>here</CustomLink>.
+									<CustomLink to="/gallery/kingdom-hearts-1" useTooltip={true}>
+										here
+									</CustomLink>
+									.
 								</strong>
 							</p>
 							<p>
@@ -1413,11 +1528,7 @@ export default function getGalleryData() {
 				},
 			].filter((item: GalleryItemType) => {
 				const dateNow = new Date();
-				const dateNowArr = [
-					dateNow.getFullYear(),
-					dateNow.getMonth(),
-					dateNow.getDate()
-				];
+				const dateNowArr = [dateNow.getFullYear(), dateNow.getMonth(), dateNow.getDate()];
 				let release: [number, number, number];
 
 				if (!item.releaseDate) return true;
