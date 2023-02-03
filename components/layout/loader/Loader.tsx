@@ -1,6 +1,7 @@
 import { useContext } from "react";
-import SiteContext from "../../context/global";
-import styles from "../../styles/layout/Loader.module.css";
+import SiteContext from "../../../context/global";
+import LoaderInner from "./LoaderInner";
+import styles from "../../../styles/layout/Loader.module.css";
 
 export default function Loader() {
     const siteContext = useContext(SiteContext);
@@ -21,9 +22,7 @@ export default function Loader() {
                 animationDuration: `${siteContext.longTransitionDuration}ms`,
             }}
         >
-            <span className={styles["loader__track"]}>
-                <span className={styles["loader__bar"]}></span>
-            </span>
+            <LoaderInner />
         </div>
     );
 }

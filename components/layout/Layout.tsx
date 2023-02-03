@@ -5,7 +5,7 @@ import DetailHeader from "./header/DetailHeader";
 import Header from "./header/Header";
 import MainNavigation from "./navigation/MainNavigation";
 import MobileNavigation from "./navigation/MobileNavigation";
-import Loader from "./Loader";
+import Loader from "./loader/Loader";
 import Footer from "./footer/Footer";
 
 let timeout: ReturnType<typeof setTimeout>;

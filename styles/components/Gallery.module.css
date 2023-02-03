@@ -10,9 +10,15 @@
     flex-wrap: nowrap;
 }
 
+.gallery__container {
+	position: relative;
+}
+
 /*----- grid -----*/
 
 .gallery__grid {
+	position: relative;
+	z-index: 3;
     display: grid;
     grid-template: auto / repeat(2, minmax(0, 1fr));
     grid-auto-flow: dense;
@@ -21,6 +27,7 @@
     transition: opacity var(--transition);
 }
 
+.featured--hide .gallery__grid,
 .gallery--hide .gallery__grid,
 .gallery__grid--hide {
     opacity: 0;
@@ -364,6 +371,10 @@
 /*=====----- HOMEPAGE GRID (featured work) -----=====*/
 /*===================================================*/
 
+.featured {
+	position: relative;
+}
+
 .gallery__grid--featured .gallery__item:first-child,
 .gallery__grid--featured .gallery__item:nth-child(4n - 1) {
     grid-column: span 1;
@@ -375,6 +386,29 @@
     display: flex;
     justify-content: center;
     padding: 2rem 0 0;
+}
+
+/*----- loading indicator -----*/
+
+.featured__loader {
+	position: absolute;
+	inset: 0;
+	z-index: 4;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity var(--transition);
+}
+
+.featured--hide .featured__loader {
+	opacity: 1;
+}
+
+.featured--hide .featured__shuffle-button {
+	pointer-events: none;
+	opacity: 0.3;
 }
 
 @media (min-width: 40em) {

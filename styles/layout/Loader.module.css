@@ -35,6 +35,19 @@
     animation: growAndShrink 2s ease-in-out 0s normal infinite;
 }
 
+/*----- always shown -----*/
+
+.loader__track--always-shown {
+	opacity: 1;
+	transition: none;
+}
+
+/*----- light loader -----*/
+
+.loader__track--light .loader__bar {
+	background: var(--light-color);
+}
+
 /*----- active/inactive loader -----*/
 
 .loader--slide-in {
