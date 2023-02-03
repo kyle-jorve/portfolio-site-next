@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef } from 'react';
 import SiteContext from '../../context/global';
-import CustomLink from '../layout/CustomLink';
+import CustomLink from '../layout/link/CustomLink';
 import useThumbnailConfig from '../../hooks/thumbnail-config';
 import styles from '../../styles/components/Gallery.module.css';
 import { GalleryItemType } from '../../data/gallery-data';

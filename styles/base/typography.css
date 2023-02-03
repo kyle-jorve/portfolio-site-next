@@ -76,6 +76,11 @@
         cursor: pointer;
     }
 
+	.has-tooltip {
+		position: relative;
+		display: inline-block;
+	}
+
     @media (hover: hover) {
         a:hover {
             background-color: var(--accent-color);

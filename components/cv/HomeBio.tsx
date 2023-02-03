@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import CustomLink from '../layout/CustomLink';
+import CustomLink from '../layout/link/CustomLink';
 import SiteContext from '../../context/global';
 import { HomeBioType } from '../../data/home-data';
 import styles from '../../styles/components/CV.module.css';

@@ -1,11 +1,14 @@
 import { useContext } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import SiteContext from "../../context/global";
+import LinkTooltip from "./LinkTooltip";
+import getGalleryData from "../../../data/gallery-data";
+import SiteContext from "../../../context/global";
 
 type CustomLinkProps = {
     onClick?: React.MouseEventHandler;
     to: string;
+	useTooltip?: boolean;
     className?: string;
     attributes?: {
         tabIndex?: number | undefined;
@@ -16,6 +19,13 @@ export default function CustomLink(props: CustomLinkProps) {
     const onClick = props.onClick || (() => {});
     const router = useRouter();
     const siteContext = useContext(SiteContext);
+	const destinationIsDetailPage = props.to.includes('/gallery/') && props.to.length > 9;
+	const itemID = destinationIsDetailPage && props.to.split('/gallery/')[1].replace(/\//g, '');
+	const galleryItem = destinationIsDetailPage && getGalleryData().items.find(item => item.name === itemID);
+	const classes = [
+		destinationIsDetailPage && !!props.useTooltip && 'has-tooltip',
+		props.className,
+	].filter(c => c);
 
     function linkClickHandler(event: React.MouseEvent) {
         if (!siteContext.desktop) {
@@ -36,8 +46,9 @@ export default function CustomLink(props: CustomLinkProps) {
     }
 
     return (
-        <Link className={props.className} href={props.to} onClick={linkClickHandler} {...props.attributes}>
+        <Link className={classes.join(' ')} href={props.to} onClick={linkClickHandler} {...props.attributes}>
             {props.children}
+			{destinationIsDetailPage && !!galleryItem && !!props.useTooltip && <LinkTooltip galleryItem={galleryItem} />}
         </Link>
     );
 }

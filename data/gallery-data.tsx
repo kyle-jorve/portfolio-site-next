@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import CustomLink from '../components/layout/CustomLink';
+import CustomLink from '../components/layout/link/CustomLink';
 
 export const projectCategories = {
 	ignobleBlood: {
@@ -121,7 +121,7 @@ export default function getGalleryData() {
 						<blockquote className="blockquote">
 							<p>
 								You have much to lose in your involvement with me,{' '}
-								<CustomLink to="/gallery/pendrake">Pendrake</CustomLink>. We would
+								<CustomLink to="/gallery/pendrake" useTooltip={true}>Pendrake</CustomLink>. We would
 								be willfully ignorant to pretend otherwise.
 							</p>
 						</blockquote>
@@ -187,9 +187,9 @@ export default function getGalleryData() {
 					content: (
 						<p>
 							Kyra Luckleav is a kitchen servant in Auerstel Castle and also happens
-							to be <CustomLink to="/gallery/pendrake">Pendrake&apos;s</CustomLink>{' '}
+							to be <CustomLink to="/gallery/pendrake" useTooltip={true}>Pendrake</CustomLink>&apos;s{' '}
 							love interest.{' '}
-							<CustomLink to="/gallery/andel">Duke Andel Sommer</CustomLink>,
+							<CustomLink to="/gallery/andel" useTooltip={true}>Duke Andel Sommer</CustomLink>,
 							Pendrake&apos;s father, expressly forbids their love and instead
 							campaigns for Pendrake to marry someone equal to his station. Because of
 							this, Pendrake occasionally goes to great and dangerous lengths to prove
@@ -342,7 +342,7 @@ export default function getGalleryData() {
 							<p>
 								Toval is a lieutenant in the Auerstel soldiery, and is responsible
 								for training new recruits.{' '}
-								<CustomLink to="/gallery/pendrake">Pendrake</CustomLink> has never
+								<CustomLink to="/gallery/pendrake" useTooltip={true}>Pendrake</CustomLink> has never
 								taken to his training and, as such, has become a constant thorn in
 								Toval&apos;s side.
 							</p>
@@ -492,8 +492,8 @@ export default function getGalleryData() {
 						<Fragment>
 							<p>
 								<strong>Andel Sommer</strong> is the duke of Tersing and father to{' '}
-								<CustomLink to="/gallery/pendrake">Pendrake</CustomLink> and{' '}
-								<CustomLink to="/gallery/talis">Talis</CustomLink>. He wants nothing
+								<CustomLink to="/gallery/pendrake" useTooltip={true}>Pendrake</CustomLink> and{' '}
+								<CustomLink to="/gallery/talis" useTooltip={true}>Talis</CustomLink>. He wants nothing
 								more than to ensure a bright future for his duchy&mdash;even if
 								doing so requires extreme methods.
 							</p>
@@ -640,7 +640,7 @@ export default function getGalleryData() {
 							<p>
 								<strong>Pendrake Sommer</strong> is the main protagonist of the
 								in-progress fantasy novel, <i>The Ashes of Hope</i>, and twin
-								brother to <CustomLink to="/gallery/talis">Talis Sommer</CustomLink>
+								brother to <CustomLink to="/gallery/talis" useTooltip={true}>Talis Sommer</CustomLink>
 								.
 							</p>
 							<p>
@@ -785,7 +785,7 @@ export default function getGalleryData() {
 						<Fragment>
 							<p>
 								<strong>Talis Sommer</strong> is the twin sister of the{' '}
-								<CustomLink to="/gallery/pendrake">main protagonist</CustomLink> in
+								<CustomLink to="/gallery/pendrake" useTooltip={true}>main protagonist</CustomLink> in
 								the story I&apos;m currently writing, <i>The Ashes of Hope</i>. She
 								is the lady of the Tersing duchy, daughter of the duke and sister to
 								the heir of the dukedom.
@@ -1001,7 +1001,7 @@ export default function getGalleryData() {
 							</blockquote>
 							<p>
 								Yet another iteration of my original character,{' '}
-								<CustomLink to="/gallery/crows">Crow</CustomLink>.
+								<CustomLink to="/gallery/crows" useTooltip={true}>Crow</CustomLink>.
 							</p>
 							<p>
 								Crow is a professional assassin and the protagonist of an
@@ -1162,7 +1162,7 @@ export default function getGalleryData() {
 								</strong>{' '}
 								series, which is a fantasy story in progress. In it, Berned
 								apprehends a woman named Sol Ferro and charges her with the crime of
-								murdering <CustomLink to="/gallery/becoming-runa">Luna</CustomLink>,
+								murdering <CustomLink to="/gallery/becoming-runa" useTooltip={true}>Luna</CustomLink>,
 								a series protagonist, who at this point in the story has gone
 								strangely missing without a trace.
 							</p>
@@ -1301,7 +1301,7 @@ export default function getGalleryData() {
 								</p>
 							</blockquote>
 							<p>
-								<CustomLink to="/gallery/crow">Crow</CustomLink> is a professional
+								<CustomLink to="/gallery/crow" useTooltip={true}>Crow</CustomLink> is a professional
 								assassin and the protagonist of an in-progress science fiction story
 								called{' '}
 								<strong>
@@ -1344,7 +1344,7 @@ export default function getGalleryData() {
 								<strong>
 									Part of a duology. Its companion,{' '}
 									<i>Where Fears and Lies Melt Away</i>, can be found{' '}
-									<CustomLink to="/gallery/kingdom-hearts-2">here</CustomLink>.
+									<CustomLink to="/gallery/kingdom-hearts-2" useTooltip={true}>here</CustomLink>.
 								</strong>
 							</p>
 							<p>
@@ -1382,7 +1382,7 @@ export default function getGalleryData() {
 								<strong>
 									Part of a duology. Its companion,{' '}
 									<em>The Future Doesn&apos;t Scare Me</em>, can be found{' '}
-									<CustomLink to="/gallery/kingdom-hearts-1">here</CustomLink>.
+									<CustomLink to="/gallery/kingdom-hearts-1" useTooltip={true}>here</CustomLink>.
 								</strong>
 							</p>
 							<p>

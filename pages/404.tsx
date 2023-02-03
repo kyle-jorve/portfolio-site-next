@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
 import SiteContext from "../context/global";
-import CustomLink from "../components/layout/CustomLink";
+import CustomLink from "../components/layout/link/CustomLink";
 import styles from "../styles/layout/Hero.module.css";
 
 export default function Custom404() {

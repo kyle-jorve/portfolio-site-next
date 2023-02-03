@@ -38,7 +38,7 @@
     position: relative;
     z-index: 1;
     transform: none;
-    aspect-ratio: 5 / 4;
+    aspect-ratio: var(--gallery-item-aspect);
     border-radius: var(--border-radius);
     box-shadow: var(--med-shadow);
     cursor: pointer;

@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import SiteContext from '../../../context/global';
-import CustomLink from '../../layout/CustomLink';
+import CustomLink from '../../layout/link/CustomLink';
 import useThumbnailConfig from '../../../hooks/thumbnail-config';
 import { GalleryItemType } from '../../../data/gallery-data';
 import styles from '../../../styles/components/Showcase.module.css';

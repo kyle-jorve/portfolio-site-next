@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, useContext } from 'react';
 import { useRouter } from 'next/router';
 import SiteContext from '../../context/global';
-import CustomLink from '../layout/CustomLink';
+import CustomLink from '../layout/link/CustomLink';
 import GalleryItem from './GalleryItem';
 import { ThumbnailKeyType } from '../../data/gallery-data';
 import LoaderInner from '../layout/loader/LoaderInner';

@@ -71,6 +71,7 @@
         /* layout */
         --logo-width: 60px;
         --nav-button-width: 70px;
+		--gallery-item-aspect: 5 / 4;
     }
 
     @media (min-width: 40em) {
