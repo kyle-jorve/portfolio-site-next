@@ -100,8 +100,9 @@ export type ThumbnailKeyType = {
 export type GalleryItemType = {
 	name: string;
 	title: string;
-	content?: JSX.Element;
+	thumbnailKey: ThumbnailKeyType;
 	orientation: string;
+	content?: JSX.Element;
 	featured?: boolean;
 	categories?: (
 		| typeof projectCategories[keyof typeof projectCategories]
@@ -110,8 +111,7 @@ export type GalleryItemType = {
 	releaseDate?: Date;
 	purchaseLink?: string;
 	downloadLink?: string;
-	thumbnailKey: ThumbnailKeyType;
-	detailKeys: DetailKeyType[];
+	detailKeys?: DetailKeyType[];
 };
 
 export default function getGalleryData() {
@@ -121,6 +121,82 @@ export default function getGalleryData() {
 		},
 		get items(): GalleryItemType[] {
 			return [
+				{
+					name: 'samil-portrait',
+					title: 'Samil Sealee Portrait',
+					content: (
+						<blockquote className="blockquote">
+							<p>
+								Beneath her soft, rounded features and youthful, sea-green eyes,
+								Captain Sealee had the constitution of a stolid warrior. She was
+								like a well-masoned stone that refuses to fracture even enough to
+								let lichen in. Her skirmishes with Amarendi, however, had shaken her
+								enough to let show her well-concealed cracks.
+							</p>
+							<cite className="cite">
+								<small>
+									&mdash;
+									<CustomLink to="/gallery/pendrake/" useTooltip={true}>
+										Pendrake Sommer
+									</CustomLink>
+									, Lord of Tersng
+								</small>
+							</cite>
+						</blockquote>
+					),
+					orientation: 'center',
+					featured: true,
+					categories: [projectCategories.ignobleBlood, characterCategories.samil],
+					releaseDate: new Date('2023-03-02'),
+					thumbnailKey: {
+						path: '/images/gallery/samil-portrait/final/kyle-jorve_samil-portrait',
+						alt: 'a portrait of Samil Sealee',
+					},
+					detailKeys: [
+						{
+							path: '/images/gallery/samil-portrait/final/kyle-jorve_samil-portrait',
+							alt: 'a portrait of Samil Sealee',
+							width: 1920,
+							height: 2485,
+						},
+						{
+							path: '/images/gallery/samil-portrait/wip-1/kyle-jorve_samil-portrait-wip-1',
+							alt: `a progress snapshot of Samil Sealee's portrait in which the line drawing is complete`,
+							width: 1920,
+							height: 2485,
+						},
+						{
+							path: '/images/gallery/samil-portrait/wip-2/kyle-jorve_samil-portrait-wip-2',
+							alt: `a progress snapshot of Samil Sealee's portrait in which the flat colors have been applied`,
+							width: 1920,
+							height: 2485,
+						},
+						{
+							path: '/images/gallery/samil-portrait/wip-3/kyle-jorve_samil-portrait-wip-3',
+							alt: `a progress snapshot of Samil Sealee's portrait in which the lights and shadows have been applied and colorized`,
+							width: 1920,
+							height: 2485,
+						},
+						{
+							path: '/images/gallery/samil-portrait/wip-4/kyle-jorve_samil-portrait-wip-4',
+							alt: `a progress snapshot of Samil Sealee's portrait in which the painting is nearly finished`,
+							width: 1920,
+							height: 2485,
+						},
+						{
+							source: (
+								<iframe
+									width="1440"
+									height="810"
+									src="https://www.youtube.com/embed/NaqBqRAZZP4"
+									title="YouTube video player"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+									allowFullScreen
+								></iframe>
+							),
+						},
+					],
+				},
 				{
 					name: 'samil',
 					title: 'Samil Sealee',
@@ -141,6 +217,7 @@ export default function getGalleryData() {
 					orientation: 'top',
 					featured: true,
 					categories: [projectCategories.ignobleBlood, characterCategories.samil],
+					releaseDate: new Date('2023-02-14'),
 					thumbnailKey: {
 						path: '/images/gallery/samil/final/kyle-jorve_samil',
 						alt: 'a vignette of Samil Sealee, looking apprehensively out of frame and gripping the handle of her saber',

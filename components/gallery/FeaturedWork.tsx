@@ -38,10 +38,9 @@ export default function FeaturedWork(props: FeaturedWorkProps) {
 	const [animationDone, setAnimationDone] = useState(false);
 	const page = props.globalData.nav.find((p: any) => p.url === router.pathname);
 	const id = 'featured-work';
-	const gridClasses = [
-		styles['gallery__grid'],
-		styles['gallery__grid--featured'],
-	].filter(c => c);
+	const gridClasses = [styles['gallery__grid'], styles['gallery__grid--featured']].filter(
+		(c) => c
+	);
 	const totalDelay =
 		(props.featuredItems.length - 1) * siteContext.transitionDelay +
 		siteContext.transitionDuration;
@@ -74,11 +73,11 @@ export default function FeaturedWork(props: FeaturedWorkProps) {
 		const shuffled = props.featuredItems
 			.sort((a, b) => 0.5 - Math.random())
 			.slice(0, props.homeData.gallery.itemsLimit);
-	
+
 		if (timeout) clearTimeout(timeout);
-	
+
 		sectionRef.current.classList.add(styles['featured--hide']);
-	
+
 		timeout = setTimeout(() => {
 			setGalleryItems(shuffled);
 		}, siteContext.transitionDuration);
@@ -118,7 +117,7 @@ export default function FeaturedWork(props: FeaturedWorkProps) {
 							return (
 								<GalleryItem
 									key={index}
-									isNew={false}
+									isNew={item.isNew}
 									isFeatured={true}
 									onLoad={imgLoadHandler}
 									name={item.name}
@@ -127,7 +126,9 @@ export default function FeaturedWork(props: FeaturedWorkProps) {
 									orientation={item.orientation}
 									fromPage={page ? page.pageID : null}
 									fromSection={id}
-									className={!intersected ? styles['gallery__item--animated'] : ''}
+									className={
+										!intersected ? styles['gallery__item--animated'] : ''
+									}
 									style={{
 										transitionDelay: !animationDone
 											? `${index * siteContext.transitionDelay}ms`

@@ -65,13 +65,13 @@ export async function getStaticProps() {
 	const galleryData = getGalleryData();
 	const featuredItems = galleryData.items
 		.filter((item) => item.featured)
-		.map((item, index) => {
+		.map((item) => {
 			return {
 				name: item.name,
 				title: item.title,
 				thumbnailKey: item.thumbnailKey,
 				orientation: item.orientation,
-				isNew: index === 0,
+				isNew: item.name === galleryData.items[0].name,
 			};
 		});
 	const featuredItemsShuffled = featuredItems
