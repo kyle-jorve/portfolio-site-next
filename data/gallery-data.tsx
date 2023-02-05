@@ -218,6 +218,8 @@ export default function getGalleryData() {
 					featured: true,
 					categories: [projectCategories.ignobleBlood, characterCategories.samil],
 					releaseDate: new Date('2023-02-14'),
+					purchaseLink: 'https://www.inprnt.com/gallery/kylejorve/samil-sealee/',
+					downloadLink: 'https://kylejorve.gumroad.com/l/wwnaw',
 					thumbnailKey: {
 						path: '/images/gallery/samil/final/kyle-jorve_samil',
 						alt: 'a vignette of Samil Sealee, looking apprehensively out of frame and gripping the handle of her saber',
