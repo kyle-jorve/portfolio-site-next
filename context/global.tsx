@@ -20,9 +20,6 @@ const SiteContext = React.createContext<SiteContextType>({
 	loadStatus: 'idle',
 	longTransitionDuration,
 	mobile: true,
-	navButtonRef: null,
-	navOpen: false,
-	navRevealed: false,
 	pageNotFound: false,
 	toSection: null,
 	transitionDelay,
@@ -46,7 +43,6 @@ const SiteContext = React.createContext<SiteContextType>({
 });
 
 export function SiteContextProvider(props: React.PropsWithChildren) {
-	const navButtonRef = useRef<HTMLButtonElement>();
 	const globalData = getGlobalData();
 	const router = useRouter();
 	const pages = globalData.nav.map((item) => (item.children ? item.children : item)).flat(1);
@@ -56,8 +52,6 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
 	const [visited, setVisited] = useState(false);
 	const [mobile, setMobile] = useState(true);
 	const [desktop, setDesktop] = useState(false);
-	const [navOpen, setNavOpen] = useState(false);
-	const [navRevealed, setNavRevealed] = useState(false);
 	const [fromPage, setFromPage] = useState(null);
 	const [fromSection, setFromSection] = useState(null);
 	const [toSection, setToSection] = useState(null);
@@ -89,6 +83,7 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
 			setMobile(true);
 		}
 	}, []);
+	
 	useEffect(() => {
 		resizeHandler();
 
@@ -105,35 +100,6 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
 		} else {
 			removeLoader();
 		}
-	}
-
-	function navToggleHandler() {
-		navButtonRef.current!.blur();
-		navButtonRef.current!.style.pointerEvents = 'none';
-
-		setTimeout(() => {
-			navButtonRef.current!.style.pointerEvents = '';
-		}, transitionDuration + (globalData.socialIcons.standard.length + globalData.socialIcons.commerce.length) * 100);
-
-		setNavOpen((prev) => {
-			if (!prev) {
-				setNavRevealed(true);
-			} else {
-				setTimeout(() => {
-					setNavRevealed(false);
-				}, transitionDuration);
-			}
-
-			return !prev;
-		});
-	}
-
-	function closeNav() {
-		setNavOpen(false);
-
-		setTimeout(() => {
-			setNavRevealed(false);
-		}, transitionDuration);
 	}
 
 	function returnToOriginPage() {
@@ -201,20 +167,15 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
 				loadStatus,
 				longTransitionDuration,
 				mobile,
-				navButtonRef,
-				navOpen,
-				navRevealed,
 				pageNotFound,
 				toSection,
 				transitionDelay,
 				transitionDuration,
 				visited,
 
-				closeNav,
 				goToNextSlide,
 				goToPrevSlide,
 				goToSlide,
-				navToggleHandler,
 				removeLoader,
 				resetSlideIndex,
 				returnToOriginPage,

@@ -3,7 +3,6 @@ import SiteContext from "../../../context/global";
 import getGlobalData from "../../../data/global-data";
 import NavItem from "./NavItem";
 import MobileNavParentItem from "./MobileNavParentItem";
-import NavButton from "./NavButton";
 import styles from "../../../styles/layout/Nav.module.css";
 
 const MobileNavigation = forwardRef<HTMLElement>((props, ref) => {
@@ -47,8 +46,6 @@ const MobileNavigation = forwardRef<HTMLElement>((props, ref) => {
                     </NavItem>
                 );
             })}
-
-            <NavButton />
         </nav>
     );
 });

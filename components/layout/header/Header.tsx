@@ -2,8 +2,8 @@ import { useState, useContext, useEffect } from "react";
 import { useRouter } from "next/router";
 import SiteContext from "../../../context/global";
 import Logo from "./Logo";
-import NavButton from "../navigation/NavButton";
 import styles from "../../../styles/layout/Header.module.css";
+import HeaderNavigation from "../navigation/HeaderNavigation";
 
 export default function Header() {
     const router = useRouter();
@@ -34,7 +34,13 @@ export default function Header() {
         <header className={classes.join(" ")}>
             <Logo />
 
-            {!siteContext.mobile && <NavButton />}
+			<div className={styles['header__right-col']}>
+            	{!siteContext.mobile && <HeaderNavigation />}
+
+				<a className="button button--secondary button--add button--mid button--header-button" href="https://www.patreon.com/kylejorve" target="_blank" rel="noreferrer">
+					Support My Work
+				</a>
+			</div>
         </header>
     );
 }

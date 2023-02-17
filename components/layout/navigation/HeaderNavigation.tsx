@@ -19,7 +19,7 @@ let timeout: {
     gallery: null,
 };
 
-export default function MainNavigation() {
+export default function HeaderNavigation() {
     const globalData = getGlobalData();
     const galleryData = getGalleryData();
     const [socialIconsAnimationDone, setSocialIconsAnimationDone] = useState(false);
