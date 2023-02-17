@@ -12,7 +12,6 @@ const transitionDelay = 100;
 const resizeEvents = ['resize', 'orientationchange'];
 const breakpoints = [640, 1024];
 const SiteContext = React.createContext<SiteContextType>({
-	activeSlideIndex: 0,
 	breakpoints,
 	desktop: false,
 	fromPage: null,
@@ -25,14 +24,8 @@ const SiteContext = React.createContext<SiteContextType>({
 	transitionDelay,
 	transitionDuration,
 	visited: false,
-
-	closeNav: () => {},
-	goToNextSlide: () => {},
-	goToPrevSlide: () => {},
-	goToSlide: () => {},
-	navToggleHandler: () => {},
+	
 	removeLoader: () => {},
-	resetSlideIndex: () => {},
 	returnToOriginPage: () => {},
 	setFromPage: () => {},
 	setFromSection: () => {},
@@ -58,11 +51,7 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
 	const [loadStatus, setLoadStatus] = useState('idle');
 	const [pageNotFound, setPageNotFound] = useState(false);
 
-	//----- gallery detail page context -----//
-	const [activeSlideIndex, setActiveSlideIndex] = useState(0);
-
 	//----- global utilities -----//
-
 	const removeLoader = useCallback(() => {
 		setLoadStatus('out');
 
@@ -109,8 +98,6 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
 		toggleLoader();
 
 		setTimeout(() => {
-			setActiveSlideIndex(0);
-
 			if (!fromPage) {
 				router.push('/');
 				return;
@@ -124,42 +111,9 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
 		}, timeout);
 	}
 
-	//----- gallery detail page utilities -----//
-
-	function goToPrevSlide(slidesLength: number) {
-		setActiveSlideIndex((prev) => {
-			if (prev === 0) return slidesLength - 1;
-
-			return prev - 1;
-		});
-	}
-
-	function goToNextSlide(slidesLength: number) {
-		setActiveSlideIndex((prev) => {
-			if (prev === slidesLength - 1) return 0;
-
-			return prev + 1;
-		});
-	}
-
-	function goToSlide(index: number) {
-		setActiveSlideIndex(index);
-	}
-
-	function resetSlideIndex() {
-		if (!desktop) {
-			setActiveSlideIndex(0);
-		} else {
-			setTimeout(() => {
-				setActiveSlideIndex(0);
-			}, longTransitionDuration);
-		}
-	}
-
 	return (
 		<SiteContext.Provider
 			value={{
-				activeSlideIndex,
 				breakpoints,
 				desktop,
 				fromPage,
@@ -173,11 +127,7 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
 				transitionDuration,
 				visited,
 
-				goToNextSlide,
-				goToPrevSlide,
-				goToSlide,
 				removeLoader,
-				resetSlideIndex,
 				returnToOriginPage,
 				setFromPage,
 				setFromSection,

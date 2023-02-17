@@ -1,62 +1,57 @@
-type ThumbnailConfigProps = {
-	isNew?: boolean;
-	isFeatured?: boolean;
-	isDetail?: boolean;
-	thumbnailKey: {
-		path: string;
-	};
-};
+import { ThumbnailConfigProps } from "../types/gallery-types";
 
 export default function useThumbnailConfig(props: ThumbnailConfigProps) {
-	return props.isNew
-		? {
-				sources: [
-					{
-						url: `${props.thumbnailKey.path}-1024.jpg`,
-						minScreenWidth: 640,
-					},
-				],
-				mobile: {
-					url: `${props.thumbnailKey.path}-640.jpg`,
+	if (props.isNew) {
+		return {
+			sources: [
+				{
+					url: `${props.thumbKey}-1024.jpg`,
+					minScreenWidth: 640,
 				},
-		  }
-		: props.isFeatured
-		? {
-				sources: [
-					{
-						url: `${props.thumbnailKey.path}-640.jpg`,
-						minScreenWidth: 1440,
-					},
-					{
-						url: `${props.thumbnailKey.path}-480.jpg`,
-						minScreenWidth: 640,
-					},
-				],
-				mobile: {
-					url: `${props.thumbnailKey.path}-320.jpg`,
+			],
+			mobile: {
+				url: `${props.thumbKey}-640.jpg`,
+			},
+		};
+	} else if (props.isFeatured) {
+		return {
+			sources: [
+				{
+					url: `${props.thumbKey}-640.jpg`,
+					minScreenWidth: 1440,
 				},
-		  }
-		: props.isDetail
-		? {
-				sources: [
-					{
-						url: `${props.thumbnailKey.path}-480.jpg`,
-						minScreenWidth: 640,
-					},
-				],
-				mobile: {
-					url: `${props.thumbnailKey.path}-640.jpg`,
+				{
+					url: `${props.thumbKey}-480.jpg`,
+					minScreenWidth: 640,
 				},
-		  }
-		: {
-				sources: [
-					{
-						url: `${props.thumbnailKey.path}-480.jpg`,
-						minScreenWidth: 1024,
-					},
-				],
-				mobile: {
-					url: `${props.thumbnailKey.path}-320.jpg`,
+			],
+			mobile: {
+				url: `${props.thumbKey}-320.jpg`,
+			},
+		};
+	} else if (props.isDetail) {
+		return {
+			sources: [
+				{
+					url: `${props.thumbKey}-480.jpg`,
+					minScreenWidth: 640,
 				},
-		  };
+			],
+			mobile: {
+				url: `${props.thumbKey}-640.jpg`,
+			},
+		};
+	} else {
+		return {
+			sources: [
+				{
+					url: `${props.thumbKey}-480.jpg`,
+					minScreenWidth: 1024,
+				},
+			],
+			mobile: {
+				url: `${props.thumbKey}-320.jpg`,
+			},
+		};
+	}
 }

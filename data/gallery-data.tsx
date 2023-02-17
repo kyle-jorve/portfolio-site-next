@@ -1,124 +1,26 @@
 import { Fragment } from 'react';
+import * as galleryTypes from '../types/gallery-types';
 import CustomLink from '../components/layout/link/CustomLink';
-
-export const projectCategories = {
-	ignobleBlood: {
-		name: 'ignoble-blood',
-		label: 'Ignoble Blood',
-	},
-	postAutumn: {
-		name: 'post-autumn',
-		label: 'Post-Autumn',
-	},
-	fanArt: {
-		name: 'fan-art',
-		label: 'Fan Art',
-	},
-} as const;
-
-export const characterCategories = {
-	samil: {
-		name: 'samil',
-		label: 'Samil Sealee',
-	},
-	kyra: {
-		name: 'kyra',
-		label: 'Kyra Luckleav',
-	},
-	toval: {
-		name: 'toval',
-		label: 'Toval Argensente',
-	},
-	andel: {
-		name: 'andel',
-		label: 'Andel Sommer',
-	},
-	pendrake: {
-		name: 'pendrake',
-		label: 'Pendrake Sommer',
-	},
-	talis: {
-		name: 'talis',
-		label: 'Talis Sommer',
-	},
-	cargha: {
-		name: 'cargha',
-		label: 'Cargha Bezamik',
-	},
-	berned: {
-		name: 'berned',
-		label: 'Berned Blackhorn',
-	},
-	fennory: {
-		name: 'fennory',
-		label: 'Fennory Caelden',
-	},
-	crow: {
-		name: 'crow',
-		label: 'Crow',
-	},
-	sora: {
-		name: 'sora',
-		label: 'Sora',
-	},
-	riku: {
-		name: 'riku',
-		label: 'Riku',
-	},
-	kairi: {
-		name: 'kairi',
-		label: 'Kairi',
-	},
-	namine: {
-		name: 'namine',
-		label: 'Namine',
-	},
-	roxas: {
-		name: 'roxas',
-		label: 'Roxas',
-	},
-} as const;
-
-export const categoryNames = [
-	...Object.values(projectCategories).map((cat) => cat.name),
-	...Object.values(characterCategories).map((cat) => cat.name),
-];
-
-export type DetailKeyType = {
-	path?: string;
-	alt?: string;
-	source?: JSX.Element;
-	width?: number;
-	height?: number;
-};
-
-export type ThumbnailKeyType = {
-	path: string;
-	alt: string;
-};
-
-export type GalleryItemType = {
-	name: string;
-	title: string;
-	thumbnailKey: ThumbnailKeyType;
-	orientation: string;
-	content?: JSX.Element;
-	featured?: boolean;
-	categories?: (
-		| typeof projectCategories[keyof typeof projectCategories]
-		| typeof characterCategories[keyof typeof characterCategories]
-	)[];
-	purchaseLink?: string;
-	downloadLink?: string;
-	detailKeys?: DetailKeyType[];
-};
 
 export default function getGalleryData() {
 	return {
 		get title() {
 			return 'Gallery';
 		},
-		get items(): GalleryItemType[] {
+		get videoGallery(): galleryTypes.VideoGalleryType {
+			return {
+				items: [
+					galleryTypes.videos.samil,
+					galleryTypes.videos.kyra,
+					galleryTypes.videos.toval,
+					galleryTypes.videos.andel,
+					galleryTypes.videos.pendrake,
+					galleryTypes.videos.talis,
+				],
+				url: 'https://www.youtube.com/@KyleJorve/videos'
+			}
+		},
+		get items(): galleryTypes.GalleryItemType[] {
 			return [
 				// {
 				// 	name: 'samil-portrait',
@@ -145,7 +47,7 @@ export default function getGalleryData() {
 				// 	),
 				// 	orientation: 'center',
 				// 	featured: true,
-				// 	categories: [projectCategories.ignobleBlood, characterCategories.samil],
+				// 	categories: [galleryTypes.projectCategories.ignobleBlood, galleryTypes.characterCategories.samil],
 				// 	thumbnailKey: {
 				// 		path: '/images/gallery/samil-portrait/final/kyle-jorve_samil-portrait',
 				// 		alt: 'a portrait of Samil Sealee',
@@ -182,16 +84,7 @@ export default function getGalleryData() {
 				// 			height: 2485,
 				// 		},
 				// 		{
-				// 			source: (
-				// 				<iframe
-				// 					width="1440"
-				// 					height="810"
-				// 					src="https://www.youtube.com/embed/NaqBqRAZZP4"
-				// 					title="YouTube video player"
-				// 					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-				// 					allowFullScreen
-				// 				></iframe>
-				// 			),
+				// 			source: galleryTypes.videos.samilPortrait,
 				// 		},
 				// 	],
 				// },
@@ -214,7 +107,7 @@ export default function getGalleryData() {
 					),
 					orientation: 'top',
 					featured: true,
-					categories: [projectCategories.ignobleBlood, characterCategories.samil],
+					categories: [galleryTypes.projectCategories.ignobleBlood, galleryTypes.characterCategories.samil],
 					purchaseLink: 'https://www.inprnt.com/gallery/kylejorve/samil-sealee/',
 					downloadLink: 'https://kylejorve.gumroad.com/l/wwnaw',
 					thumbnailKey: {
@@ -259,16 +152,7 @@ export default function getGalleryData() {
 							height: 2936,
 						},
 						{
-							source: (
-								<iframe
-									width="1440"
-									height="810"
-									src="https://www.youtube.com/embed/yNk05dLtgyE"
-									title="YouTube video player"
-									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-									allowFullScreen
-								></iframe>
-							),
+							source: galleryTypes.videos.samil,
 						},
 					],
 				},
@@ -288,7 +172,7 @@ export default function getGalleryData() {
 					),
 					orientation: 'center',
 					featured: true,
-					categories: [projectCategories.ignobleBlood, characterCategories.kyra],
+					categories: [galleryTypes.projectCategories.ignobleBlood, galleryTypes.characterCategories.kyra],
 					purchaseLink:
 						'https://www.inprnt.com/gallery/kylejorve/kyra-luckleav-portrait/',
 					downloadLink: 'https://kylejorve.gumroad.com/l/vrxhc',
@@ -328,16 +212,7 @@ export default function getGalleryData() {
 							height: 2485,
 						},
 						{
-							source: (
-								<iframe
-									width="1440"
-									height="810"
-									src="https://www.youtube.com/embed/SNKCHXFbFPY"
-									title="YouTube video player"
-									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-									allowFullScreen
-								></iframe>
-							),
+							source: galleryTypes.videos.kyraPortrait,
 						},
 					],
 				},
@@ -364,7 +239,7 @@ export default function getGalleryData() {
 					),
 					orientation: 'top',
 					featured: true,
-					categories: [projectCategories.ignobleBlood, characterCategories.kyra],
+					categories: [galleryTypes.projectCategories.ignobleBlood, galleryTypes.characterCategories.kyra],
 					purchaseLink: 'https://www.inprnt.com/gallery/kylejorve/kyra-luckleav/',
 					downloadLink: 'https://kylejorve.gumroad.com/l/jlwzc',
 					thumbnailKey: {
@@ -409,16 +284,7 @@ export default function getGalleryData() {
 							height: 3162,
 						},
 						{
-							source: (
-								<iframe
-									width="1440"
-									height="810"
-									src="https://www.youtube.com/embed/ALmy-xx7u-c"
-									title="YouTube video player"
-									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-									allowFullScreen
-								></iframe>
-							),
+							source: galleryTypes.videos.kyra,
 						},
 					],
 				},
@@ -439,7 +305,7 @@ export default function getGalleryData() {
 					),
 					orientation: 'center',
 					featured: true,
-					categories: [projectCategories.ignobleBlood, characterCategories.toval],
+					categories: [galleryTypes.projectCategories.ignobleBlood, galleryTypes.characterCategories.toval],
 					purchaseLink:
 						'https://www.inprnt.com/gallery/kylejorve/toval-argensente-portrait/',
 					downloadLink: 'https://kylejorve.gumroad.com/l/vcwgb',
@@ -479,16 +345,7 @@ export default function getGalleryData() {
 							height: 2485,
 						},
 						{
-							source: (
-								<iframe
-									width="1440"
-									height="810"
-									src="https://www.youtube.com/embed/hDk6yKcQYqI"
-									title="YouTube video player"
-									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-									allowFullScreen
-								></iframe>
-							),
+							source: galleryTypes.videos.tovalPortrait,
 						},
 					],
 				},
@@ -523,7 +380,7 @@ export default function getGalleryData() {
 					),
 					orientation: 'top',
 					featured: true,
-					categories: [projectCategories.ignobleBlood, characterCategories.toval],
+					categories: [galleryTypes.projectCategories.ignobleBlood, galleryTypes.characterCategories.toval],
 					purchaseLink: 'https://www.inprnt.com/gallery/kylejorve/toval-argensente/',
 					downloadLink: 'https://kylejorve.gumroad.com/l/ogpkj',
 					thumbnailKey: {
@@ -568,16 +425,7 @@ export default function getGalleryData() {
 							height: 2592,
 						},
 						{
-							source: (
-								<iframe
-									width="1440"
-									height="810"
-									src="https://www.youtube.com/embed/js4NRjOnPbA"
-									title="YouTube video player"
-									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-									allowFullScreen
-								></iframe>
-							),
+							source: galleryTypes.videos.toval,
 						},
 					],
 				},
@@ -600,7 +448,7 @@ export default function getGalleryData() {
 						</blockquote>
 					),
 					orientation: 'center',
-					categories: [projectCategories.ignobleBlood, characterCategories.andel],
+					categories: [galleryTypes.projectCategories.ignobleBlood, galleryTypes.characterCategories.andel],
 					purchaseLink: 'https://www.inprnt.com/gallery/kylejorve/andel-portrait/',
 					downloadLink: 'https://kylejorve.gumroad.com/l/ungde',
 					thumbnailKey: {
@@ -639,16 +487,7 @@ export default function getGalleryData() {
 							height: 2485,
 						},
 						{
-							source: (
-								<iframe
-									width="1440"
-									height="810"
-									src="https://www.youtube.com/embed/W6acBvEQXug"
-									title="YouTube video player"
-									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-									allowFullScreen
-								></iframe>
-							),
+							source: galleryTypes.videos.andelPortrait,
 						},
 					],
 				},
@@ -678,7 +517,7 @@ export default function getGalleryData() {
 					),
 					orientation: 'top',
 					featured: true,
-					categories: [projectCategories.ignobleBlood, characterCategories.andel],
+					categories: [galleryTypes.projectCategories.ignobleBlood, galleryTypes.characterCategories.andel],
 					purchaseLink: 'https://www.inprnt.com/gallery/kylejorve/andel-sommer/',
 					downloadLink: 'https://kylejorve.gumroad.com/l/vqdvkj',
 					thumbnailKey: {
@@ -723,16 +562,7 @@ export default function getGalleryData() {
 							height: 2987,
 						},
 						{
-							source: (
-								<iframe
-									width="1440"
-									height="810"
-									src="https://www.youtube.com/embed/XEaCkUcbfUo"
-									title="YouTube video player"
-									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-									allowFullScreen
-								></iframe>
-							),
+							source: galleryTypes.videos.andel,
 						},
 					],
 				},
@@ -752,7 +582,7 @@ export default function getGalleryData() {
 						</blockquote>
 					),
 					orientation: 'center',
-					categories: [projectCategories.ignobleBlood, characterCategories.pendrake],
+					categories: [galleryTypes.projectCategories.ignobleBlood, galleryTypes.characterCategories.pendrake],
 					purchaseLink: 'https://www.inprnt.com/gallery/kylejorve/pendrake-portrait/',
 					downloadLink: 'https://kylejorve.gumroad.com/l/hhgin',
 					thumbnailKey: {
@@ -791,16 +621,7 @@ export default function getGalleryData() {
 							height: 2486,
 						},
 						{
-							source: (
-								<iframe
-									width="1440"
-									height="810"
-									src="https://www.youtube.com/embed/CetjOlb5zWk"
-									title="YouTube video player"
-									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-									allowFullScreen
-								></iframe>
-							),
+							source: galleryTypes.videos.pendrakePortrait,
 						},
 					],
 				},
@@ -827,7 +648,7 @@ export default function getGalleryData() {
 					),
 					orientation: 'top',
 					featured: true,
-					categories: [projectCategories.ignobleBlood, characterCategories.pendrake],
+					categories: [galleryTypes.projectCategories.ignobleBlood, galleryTypes.characterCategories.pendrake],
 					purchaseLink: 'https://www.inprnt.com/gallery/kylejorve/pendrake-sommer/',
 					downloadLink: 'https://kylejorve.gumroad.com/l/ndwgm',
 					thumbnailKey: {
@@ -872,16 +693,7 @@ export default function getGalleryData() {
 							height: 3316,
 						},
 						{
-							source: (
-								<iframe
-									width="1440"
-									height="810"
-									src="https://www.youtube.com/embed/id079cuwXfE"
-									title="YouTube video player"
-									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-									allowFullScreen
-								></iframe>
-							),
+							source: galleryTypes.videos.pendrake,
 						},
 					],
 				},
@@ -901,7 +713,7 @@ export default function getGalleryData() {
 						</blockquote>
 					),
 					orientation: 'center',
-					categories: [projectCategories.ignobleBlood, characterCategories.talis],
+					categories: [galleryTypes.projectCategories.ignobleBlood, galleryTypes.characterCategories.talis],
 					purchaseLink: 'https://www.inprnt.com/gallery/kylejorve/talis-portrait/',
 					downloadLink: 'https://kylejorve.gumroad.com/l/bgvVML',
 					thumbnailKey: {
@@ -940,16 +752,7 @@ export default function getGalleryData() {
 							height: 2561,
 						},
 						{
-							source: (
-								<iframe
-									width="1440"
-									height="810"
-									src="https://www.youtube.com/embed/FooxBhjNG3E"
-									title="YouTube video player"
-									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-									allowFullScreen
-								></iframe>
-							),
+							source: galleryTypes.videos.talisPortrait,
 						},
 					],
 				},
@@ -981,7 +784,7 @@ export default function getGalleryData() {
 					),
 					orientation: 'top',
 					featured: true,
-					categories: [projectCategories.ignobleBlood, characterCategories.talis],
+					categories: [galleryTypes.projectCategories.ignobleBlood, galleryTypes.characterCategories.talis],
 					purchaseLink: 'https://www.inprnt.com/gallery/kylejorve/talis-sommer/',
 					downloadLink: 'https://kylejorve.gumroad.com/l/CQNFi',
 					thumbnailKey: {
@@ -1020,16 +823,7 @@ export default function getGalleryData() {
 							height: 3040,
 						},
 						{
-							source: (
-								<iframe
-									width="1440"
-									height="810"
-									src="https://www.youtube.com/embed/M8TVkpTIlI0"
-									title="YouTube video player"
-									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-									allowFullScreen
-								></iframe>
-							),
+							source: galleryTypes.videos.talis,
 						},
 					],
 				},
@@ -1049,7 +843,7 @@ export default function getGalleryData() {
 					),
 					orientation: 'center',
 					featured: true,
-					categories: [projectCategories.ignobleBlood, characterCategories.cargha],
+					categories: [galleryTypes.projectCategories.ignobleBlood, galleryTypes.characterCategories.cargha],
 					purchaseLink: 'https://www.inprnt.com/gallery/kylejorve/cargha-portrait/',
 					downloadLink: 'https://kylejorve.gumroad.com/l/LNffV',
 					thumbnailKey: {
@@ -1102,7 +896,7 @@ export default function getGalleryData() {
 					),
 					orientation: 'top',
 					featured: true,
-					categories: [projectCategories.ignobleBlood, characterCategories.cargha],
+					categories: [galleryTypes.projectCategories.ignobleBlood, galleryTypes.characterCategories.cargha],
 					purchaseLink: 'https://www.inprnt.com/gallery/kylejorve/cargha-bezamik/',
 					downloadLink: 'https://kylejorve.gumroad.com/l/olwWz',
 					thumbnailKey: {
@@ -1147,16 +941,7 @@ export default function getGalleryData() {
 							height: 3200,
 						},
 						{
-							source: (
-								<iframe
-									width="1440"
-									height="810"
-									src="https://www.youtube.com/embed/_FzmNukhxFo"
-									title="YouTube video player"
-									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-									allowFullScreen
-								></iframe>
-							),
+							source: galleryTypes.videos.cargha,
 						},
 					],
 				},
@@ -1202,7 +987,7 @@ export default function getGalleryData() {
 					),
 					orientation: 'top',
 					featured: true,
-					categories: [projectCategories.postAutumn, characterCategories.crow],
+					categories: [galleryTypes.projectCategories.postAutumn, galleryTypes.characterCategories.crow],
 					purchaseLink: 'https://www.inprnt.com/gallery/kylejorve/crow/',
 					downloadLink: 'https://gumroad.com/l/fTSADI',
 					thumbnailKey: {
@@ -1229,16 +1014,7 @@ export default function getGalleryData() {
 							height: 1921,
 						},
 						{
-							source: (
-								<iframe
-									width="1440"
-									height="810"
-									src="https://www.youtube.com/embed/oRzRz7eev2c"
-									title="YouTube video player"
-									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-									allowFullScreen
-								></iframe>
-							),
+							source: galleryTypes.videos.crow,
 						},
 					],
 				},
@@ -1264,9 +1040,9 @@ export default function getGalleryData() {
 					orientation: 'center',
 					featured: true,
 					categories: [
-						projectCategories.ignobleBlood,
-						characterCategories.kyra,
-						characterCategories.pendrake,
+						galleryTypes.projectCategories.ignobleBlood,
+						galleryTypes.characterCategories.kyra,
+						galleryTypes.characterCategories.pendrake,
 					],
 					purchaseLink: 'https://www.inprnt.com/gallery/kylejorve/pendrakes-chamber/',
 					downloadLink: 'https://gumroad.com/l/mQzix',
@@ -1353,7 +1129,7 @@ export default function getGalleryData() {
 					),
 					orientation: 'center',
 					featured: true,
-					categories: [projectCategories.ignobleBlood, characterCategories.berned],
+					categories: [galleryTypes.projectCategories.ignobleBlood, galleryTypes.characterCategories.berned],
 					purchaseLink: 'https://www.inprnt.com/gallery/kylejorve/berned/',
 					downloadLink: 'https://gumroad.com/l/JKDSd',
 					thumbnailKey: {
@@ -1439,7 +1215,7 @@ export default function getGalleryData() {
 					),
 					orientation: 'center',
 					featured: true,
-					categories: [projectCategories.ignobleBlood, characterCategories.fennory],
+					categories: [galleryTypes.projectCategories.ignobleBlood, galleryTypes.characterCategories.fennory],
 					purchaseLink: 'https://www.inprnt.com/gallery/kylejorve/becoming-runa/',
 					downloadLink: 'https://gumroad.com/l/UluBo',
 					thumbnailKey: {
@@ -1454,16 +1230,7 @@ export default function getGalleryData() {
 							height: 3757,
 						},
 						{
-							source: (
-								<iframe
-									width="1440"
-									height="810"
-									src="https://www.youtube.com/embed/PxoZ4MjlxOY"
-									title="YouTube video player"
-									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-									allowFullScreen
-								></iframe>
-							),
+							source: galleryTypes.videos.becomingRuna,
 						},
 					],
 				},
@@ -1504,7 +1271,7 @@ export default function getGalleryData() {
 						</Fragment>
 					),
 					orientation: 'top',
-					categories: [projectCategories.postAutumn, characterCategories.crow],
+					categories: [galleryTypes.projectCategories.postAutumn, galleryTypes.characterCategories.crow],
 					purchaseLink: 'https://www.inprnt.com/gallery/kylejorve/crows/',
 					downloadLink: 'https://gumroad.com/l/itBYi',
 					thumbnailKey: {
@@ -1543,10 +1310,10 @@ export default function getGalleryData() {
 					),
 					orientation: 'center',
 					categories: [
-						projectCategories.fanArt,
-						characterCategories.sora,
-						characterCategories.kairi,
-						characterCategories.riku,
+						galleryTypes.projectCategories.fanArt,
+						galleryTypes.characterCategories.sora,
+						galleryTypes.characterCategories.kairi,
+						galleryTypes.characterCategories.riku,
 					],
 					thumbnailKey: {
 						path: '/images/gallery/kingdom-hearts-1/kyle-jorve_kingdom-hearts-1',
@@ -1584,10 +1351,10 @@ export default function getGalleryData() {
 					),
 					orientation: 'center',
 					categories: [
-						projectCategories.fanArt,
-						characterCategories.riku,
-						characterCategories.roxas,
-						characterCategories.namine,
+						galleryTypes.projectCategories.fanArt,
+						galleryTypes.characterCategories.riku,
+						galleryTypes.characterCategories.roxas,
+						galleryTypes.characterCategories.namine,
 					],
 					thumbnailKey: {
 						path: '/images/gallery/kingdom-hearts-2/kyle-jorve_kingdom-hearts-2',

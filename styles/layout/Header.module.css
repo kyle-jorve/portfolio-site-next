@@ -25,10 +25,6 @@
     width: var(--logo-width);
 }
 
-.header__right-col {
-	
-}
-
 @media (min-width: 64em) {
     .header {
         padding: 1rem 2rem;
