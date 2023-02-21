@@ -6,9 +6,6 @@ type SiteContextType = {
 	[prop: string]: any;
 };
 
-const longTransitionDuration = 600; // milliseconds
-const transitionDuration = 300; // milliseconds
-const transitionDelay = 100;
 const resizeEvents = ['resize', 'orientationchange'];
 const breakpoints = [640, 1024];
 const SiteContext = React.createContext<SiteContextType>({
@@ -17,28 +14,25 @@ const SiteContext = React.createContext<SiteContextType>({
 	fromPage: null,
 	fromSection: null,
 	loadStatus: 'idle',
-	longTransitionDuration,
 	mobile: true,
 	pageNotFound: false,
 	toSection: null,
-	transitionDelay,
-	transitionDuration,
 	visited: false,
-	
-	removeLoader: () => {},
-	returnToOriginPage: () => {},
-	setFromPage: () => {},
-	setFromSection: () => {},
-	setPageNotFound: () => {},
-	setToSection: () => {},
-	setVisited: () => {},
-	toggleLoader: () => {},
+
+	removeLoader: () => { },
+	returnToOriginPage: () => { },
+	setFromPage: () => { },
+	setFromSection: () => { },
+	setPageNotFound: () => { },
+	setToSection: () => { },
+	setVisited: () => { },
+	toggleLoader: () => { },
 });
 
 export function SiteContextProvider(props: React.PropsWithChildren) {
 	const globalData = getGlobalData();
 	const router = useRouter();
-	const pages = globalData.nav.map((item) => (item.children ? item.children : item)).flat(1);
+	const pages = globalData.nav.map((item) => ('childItems' in item ? item.childItems : item)).flat(1);
 	const detailPageMatch = router.query.itemID !== undefined;
 
 	//----- global site context -----//
@@ -57,7 +51,7 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
 
 		setTimeout(() => {
 			setLoadStatus('done');
-		}, longTransitionDuration);
+		}, globalData.transitions.long);
 	}, []);
 
 	const resizeHandler = useCallback(() => {
@@ -72,7 +66,7 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
 			setMobile(true);
 		}
 	}, []);
-	
+
 	useEffect(() => {
 		resizeHandler();
 
@@ -92,7 +86,7 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
 	}
 
 	function returnToOriginPage() {
-		const timeout = desktop ? longTransitionDuration : 0;
+		const timeout = desktop ? globalData.transitions.long : 0;
 		let page;
 
 		toggleLoader();
@@ -119,12 +113,9 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
 				fromPage,
 				fromSection,
 				loadStatus,
-				longTransitionDuration,
 				mobile,
 				pageNotFound,
 				toSection,
-				transitionDelay,
-				transitionDuration,
 				visited,
 
 				removeLoader,

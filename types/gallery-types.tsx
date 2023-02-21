@@ -1,3 +1,5 @@
+// ----- TYPES ----- //
+
 export const projectCategories = {
 	ignobleBlood: {
 		name: 'ignoble-blood',
@@ -76,159 +78,6 @@ export const characterCategories = {
 	},
 } as const;
 
-export const videos = {
-	samilPortrait: (
-		<iframe
-			width="1440"
-			height="810"
-			src="https://www.youtube.com/embed/NaqBqRAZZP4"
-			title="YouTube video player"
-			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-			allowFullScreen
-		> </iframe>
-	),
-	samil: (
-		<iframe
-			width="1440"
-			height="810"
-			src="https://www.youtube.com/embed/yNk05dLtgyE"
-			title="YouTube video player"
-			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-			allowFullScreen
-		> </iframe>
-	),
-	kyraPortrait: (
-		<iframe
-			width="1440"
-			height="810"
-			src="https://www.youtube.com/embed/SNKCHXFbFPY"
-			title="YouTube video player"
-			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-			allowFullScreen
-		> </iframe>
-	),
-	kyra: (
-		<iframe
-			width="1440"
-			height="810"
-			src="https://www.youtube.com/embed/ALmy-xx7u-c"
-			title="YouTube video player"
-			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-			allowFullScreen
-		> </iframe>
-	),
-	tovalPortrait: (
-		<iframe
-			width="1440"
-			height="810"
-			src="https://www.youtube.com/embed/hDk6yKcQYqI"
-			title="YouTube video player"
-			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-			allowFullScreen
-		> </iframe>
-	),
-	toval: (
-		<iframe
-			width="1440"
-			height="810"
-			src="https://www.youtube.com/embed/js4NRjOnPbA"
-			title="YouTube video player"
-			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-			allowFullScreen
-		> </iframe>
-	),
-	andelPortrait: (
-		<iframe
-			width="1440"
-			height="810"
-			src="https://www.youtube.com/embed/W6acBvEQXug"
-			title="YouTube video player"
-			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-			allowFullScreen
-		> </iframe>
-	),
-	andel: (
-		<iframe
-			width="1440"
-			height="810"
-			src="https://www.youtube.com/embed/XEaCkUcbfUo"
-			title="YouTube video player"
-			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-			allowFullScreen
-		> </iframe>
-	),
-	pendrakePortrait: (
-		<iframe
-			width="1440"
-			height="810"
-			src="https://www.youtube.com/embed/CetjOlb5zWk"
-			title="YouTube video player"
-			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-			allowFullScreen
-		> </iframe>
-	),
-	pendrake: (
-		<iframe
-			width="1440"
-			height="810"
-			src="https://www.youtube.com/embed/id079cuwXfE"
-			title="YouTube video player"
-			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-			allowFullScreen
-		> </iframe>
-	),
-	talisPortrait: (
-		<iframe
-			width="1440"
-			height="810"
-			src="https://www.youtube.com/embed/FooxBhjNG3E"
-			title="YouTube video player"
-			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-			allowFullScreen
-		> </iframe>
-	),
-	talis: (
-		<iframe
-			width="1440"
-			height="810"
-			src="https://www.youtube.com/embed/M8TVkpTIlI0"
-			title="YouTube video player"
-			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-			allowFullScreen
-		> </iframe>
-	),
-	cargha: (
-		<iframe
-			width="1440"
-			height="810"
-			src="https://www.youtube.com/embed/_FzmNukhxFo"
-			title="YouTube video player"
-			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-			allowFullScreen
-		> </iframe>
-	),
-	crow: (
-		<iframe
-			width="1440"
-			height="810"
-			src="https://www.youtube.com/embed/oRzRz7eev2c"
-			title="YouTube video player"
-			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-			allowFullScreen
-		> </iframe>
-	),
-	becomingRuna: (
-		<iframe
-			width="1440"
-			height="810"
-			src="https://www.youtube.com/embed/PxoZ4MjlxOY"
-			title="YouTube video player"
-			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-			allowFullScreen
-		> </iframe>
-	)
-} as const;
-
 export const categoryNames = [
 	...Object.values(projectCategories).map((cat) => cat.name),
 	...Object.values(characterCategories).map((cat) => cat.name),
@@ -267,6 +116,8 @@ export type VideoGalleryType = {
 	items: JSX.Element[];
 	url: string;
 };
+
+// ----- COMPONENT PROPS ----- //
 
 export type ThumbnailConfigProps = {
 	isNew?: boolean;

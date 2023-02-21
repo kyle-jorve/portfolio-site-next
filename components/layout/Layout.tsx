@@ -1,9 +1,7 @@
 import React, { useRef, useContext, useEffect, Fragment } from "react";
 import { useRouter } from "next/router";
 import SiteContext from "../../context/global";
-import DetailHeader from "./header/DetailHeader";
 import Header from "./header/Header";
-import MainNavigation from "./navigation/HeaderNavigation";
 import MobileNavigation from "./navigation/MobileNavigation";
 import Loader from "./loader/Loader";
 import Footer from "./footer/Footer";
@@ -56,12 +54,11 @@ export default function Layout(props: React.PropsWithChildren) {
 
     return (
         <Fragment>
-            {isDetailPage ? <DetailHeader /> : <Header />}
-            <MainNavigation />
+            <Header />
             <Loader />
             <main aria-hidden={siteContext.navOpen}>{props.children}</main>
             <Footer />
-            {!isDetailPage && siteContext.mobile && <MobileNavigation ref={navRef} />}
+            {siteContext.mobile && <MobileNavigation ref={navRef} />}
         </Fragment>
     );
 }

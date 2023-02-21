@@ -1,4 +1,4 @@
-import { GalleryItemType } from "../../../data/gallery-data";
+import { GalleryItemType } from "../../../types/gallery-types";
 import useThumbnailConfig from "../../../hooks/thumbnail-config";
 
 type LinkTooltipProps = {
@@ -7,7 +7,7 @@ type LinkTooltipProps = {
 
 export default function LinkTooltip(props: LinkTooltipProps) {
 	const imgSrc = useThumbnailConfig({
-		thumbnailKey: props.galleryItem.thumbnailKey
+		thumbKey: props.galleryItem.thumbnailKey.path
 	}).mobile.url;
 
 	return (
