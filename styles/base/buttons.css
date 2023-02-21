@@ -129,25 +129,49 @@
 		height: 1.2em;
 	}
 
-	.close-button {
+	.close-button,
+	.arrow-button {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 50px;
 		aspect-ratio: 1;
 		flex-shrink: 0;
 		border: none;
 		border-radius: 50%;
-		background: var(--accent-color);
+		background-color: var(--accent-color);
 		box-shadow: var(--soft-shadow);
 		color: var(--light-color);
-		font-size: 2rem;
 		cursor: pointer;
+		transition:
+			background-color var(--transition),
+			color var(--transition);
+	}
+
+	.close-button::before,
+	.arrow-button::before {
+		font: var(--fa-font-solid);
+	}
+
+	.close-button {
+		width: 50px;
+		font-size: 2rem;
 	}
 
 	.close-button::before {
-		font: var(--fa-font-solid);
 		content: "\f00d";
+	}
+
+	.arrow-button {
+		width: 40px;
+		font-size: var(--text-base);
+	}
+
+	.arrow-button--left::before {
+		content: "\f060"
+	}
+	
+	.arrow-button--right::before {
+		content: "\f061"
 	}
 
 	@media (hover: hover) {
@@ -163,6 +187,12 @@
 		.button--secondary:hover {
 			background-color: var(--accent-color);
 			color: var(--light-color);
+		}
+
+		.close-button:hover,
+		.arrow-button:hover {
+			background-color: var(--red-light);
+			color: var(--dark-color);
 		}
 	}
 
@@ -183,6 +213,11 @@
 			gap: 1.125rem;
 			padding: 1.25rem 2.5rem;
 			font-size: 1.25rem;
+		}
+
+		.arrow-button {
+			width: 48px;
+			font-size: var(--text-lg);
 		}
 	}
 }

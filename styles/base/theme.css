@@ -1,87 +1,90 @@
 @layer theme {
-    :root {
-        /* typography */
-        --font-family: "Montserrat", sans-serif;
+	:root {
+		/* typography */
+		--font-family: "Montserrat", sans-serif;
 
-        --font-weight-light: 300;
-        --font-weight-normal: 400;
-        --font-weight-semibold: 600;
-        --font-weight-extrabold: 800;
+		--font-weight-light: 300;
+		--font-weight-normal: 400;
+		--font-weight-semibold: 600;
+		--font-weight-extrabold: 800;
 
-        --text-sm: 0.75rem;
-        --text-base: 1rem;
-        --text-lg: 1.25rem;
+		--text-sm: 0.75rem;
+		--text-base: 1rem;
+		--text-lg: 1.25rem;
 
-        /* theme colors */
-        --white: #ffffff;
-        --black: #000000;
+		/* theme colors */
+		--white: #ffffff;
+		--black: #000000;
 
-        --white-cool: #f2f3f4;
-        --gray-cool-light: #e4e6e8;
-        --gray-cool: #b4babc;
-        --black-cool: #131516;
-        --yellow: #f4ce56;
-        --red: #ff5652;
-        --red-light: #ff8885;
-        --red-dark: #cd3b37;
-        --violet: #e83477;
+		--white-cool: #f2f3f4;
+		--gray-cool-light: #e4e6e8;
+		--gray-cool: #b4babc;
+		--black-cool: #131516;
+		--yellow: #f4ce56;
+		--red: #ff5652;
+		--red-light: #ff8885;
+		--red-dark: #cd3b37;
+		--violet: #e83477;
 
-        --accent-color: var(--red);
-        --light-color: var(--white-cool);
-        --dark-color: var(--black-cool);
-        --gray-color: #979b9d;
+		--accent-color: var(--red);
+		--light-color: var(--white-cool);
+		--dark-color: var(--black-cool);
+		--gray-color: #979b9d;
 
-        --body-bg: var(--dark-color);
-        --body-bg-light: var(--gray-cool-light);
+		--body-bg: var(--dark-color);
+		--body-bg-light: var(--gray-cool-light);
 
-        /* layout widths */
-        --width-narrow: 50ch;
-        --width-content: 64ch;
-        --width-section: 1200px;
-        --width-wide: 1600px;
+		/* layout widths */
+		--width-narrow: 54ch;
+		--width-content: 64ch;
+		--width-section: 1200px;
+		--width-wide: 1552px;
 
-        /* shadows */
-        --light-shadow: 0 6px 24px rgba(19, 21, 22, 0.15);
-        --shadow: 0 3px 6px rgba(19, 21, 22, 0.3);
-        --soft-shadow: 0 6px 24px rgba(19, 21, 22, 0.25);
-        --med-shadow: 0 6px 12px rgba(19, 21, 22, 0.25);
-        --long-shadow: 0 12px 24px 2px rgba(19, 21, 22, 0.5);
+		/* shadows */
+		--light-shadow: 0 6px 24px rgba(19, 21, 22, 0.15);
+		--shadow: 0 3px 6px rgba(19, 21, 22, 0.3);
+		--soft-shadow: 0 6px 24px rgba(19, 21, 22, 0.25);
+		--med-shadow: 0 6px 12px rgba(19, 21, 22, 0.25);
+		--long-shadow: 0 12px 24px 2px rgba(19, 21, 22, 0.5);
 
-        /* borders */
-        --border-width: 2px;
-        --large-border-width: 16px;
-        --border-radius: 8px;
+		/* borders */
+		--border-width: 2px;
+		--large-border-width: 16px;
+		--border-radius: 8px;
 
-        --white-border: var(--border-width) solid var(--light-color);
-        --light-border: var(--border-width) solid rgba(255, 255, 255, 0.2);
-        --gray-border: var(--border-width) solid var(--gray-cool);
-        --light-red-border: var(--border-width) solid rgba(255, 86, 82, 0.5);
+		--white-border: var(--border-width) solid var(--light-color);
+		--light-border: var(--border-width) solid
+			rgba(255, 255, 255, 0.2);
+		--gray-border: var(--border-width) solid var(--gray-cool);
+		--light-red-border: var(--border-width) solid
+			rgba(255, 86, 82, 0.5);
 
-        /* containers */
-        --section-padding: 4rem 1rem;
+		/* containers */
+		--section-padding: 4rem 1rem;
 
-        /* transitions */
-        --transition-dur: 0.3s;
-        --transition-ease: ease;
+		/* transitions */
+		--transition-dur: 0.3s;
+		--transition-ease: ease;
 
-        --transition: var(--transition-dur) var(--transition-ease);
-        --long-transition: calc(var(--transition-dur) * 2) var(--transition-ease);
+		--transition: var(--transition-dur) var(--transition-ease);
+		--long-transition: calc(var(--transition-dur) * 2)
+			var(--transition-ease);
 
-        /* layout */
-        --logo-width: 60px;
-        --nav-button-width: 70px;
+		/* layout */
+		--logo-width: 60px;
+		--nav-button-width: 70px;
 		--gallery-item-aspect: 5 / 4;
-    }
+	}
 
-    @media (min-width: 40em) {
-        :root {
-            --logo-width: var(--nav-button-width);
-        }
-    }
+	@media (min-width: 40em) {
+		:root {
+			--logo-width: var(--nav-button-width);
+		}
+	}
 
-    @media (min-width: 64em) {
-        :root {
-            --section-padding: 6rem 2rem;
-        }
-    }
+	@media (min-width: 64em) {
+		:root {
+			--section-padding: 6rem 2rem;
+		}
+	}
 }

@@ -15,7 +15,7 @@ export default function FeaturedItem(props: FeaturedItemProps) {
 
 	return (
 		<article
-			className={styles['featured__slide']}
+			className={classes}
 		>
 			<CustomLink
 				to={`/gallery/${props.name}/`}

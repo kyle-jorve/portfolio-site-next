@@ -1,151 +1,223 @@
 @layer layout {
-    html,
-    body {
-        padding: 0;
-        margin: 0;
-    }
+	html,
+	body {
+		padding: 0;
+		margin: 0;
+	}
 
-    body {
-        width: 100%;
-        background: var(--body-bg);
-        overflow-x: hidden;
-    }
+	body {
+		width: 100%;
+		background: var(--body-bg);
+		overflow-x: hidden;
+	}
 
-    body.light {
-        background: var(--body-bg-light);
-    }
+	body.light {
+		background: var(--body-bg-light);
+	}
 
-    *,
-    *::before,
-    *::after {
-        box-sizing: border-box;
-    }
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
 
-    img,
-    svg,
-    iframe,
-    video {
-        display: block;
-    }
+	img,
+	svg,
+	iframe,
+	video {
+		display: block;
+	}
 
-    img,
-    svg {
-        max-width: 100%;
-        height: auto;
-    }
+	img,
+	svg {
+		max-width: 100%;
+		height: auto;
+	}
 
-    [onclick] {
-        cursor: pointer;
-    }
+	.fancy-image {
+		position: relative;
+		border-radius: var(--border-radius);
+		overflow: hidden;
+	}
 
-    .section {
-        position: relative;
-        padding: var(--section-padding);
-    }
+	.fancy-image::before,
+	.fancy-image::after {
+		position: absolute;
+		inset: 0;
+		display: block;
+		content: "";
+		pointer-events: none;
+	}
 
-    .wrapper {
-        width: 100%;
-        margin: 0 auto;
-    }
+	.fancy-image::before {
+		z-index: 3;
+		transform: translate(-0.5rem, -0.5rem);
+		border: var(--light-border);
+		border-radius: var(--border-radius);
+	}
 
-    .wrapper--narrow {
-        max-width: var(--width-narrow);
-    }
+	.fancy-image::after {
+		z-index: 2;
+		background: linear-gradient(
+			135deg,
+			rgba(232, 52, 119, 0),
+			rgba(232, 52, 119, 0.2)
+		);
+	}
 
-    .wrapper--content {
-        max-width: var(--width-content);
-    }
+	.fancy-image img {
+		position: relative;
+		z-index: 1;
+		width: 100%;
+	}
 
-    .wrapper--section {
-        max-width: var(--width-section);
-    }
+	[onclick],
+	button {
+		cursor: pointer;
+	}
 
-    .wrapper--wide {
-        max-width: var(--width-wide);
-    }
+	.section {
+		position: relative;
+		padding: var(--section-padding);
+	}
 
-    hr {
-        margin: 2rem auto;
-        width: 75%;
-        max-width: 700px;
-        height: var(--border-width);
-        border: none;
-        background: var(--gray-cool);
-    }
+	.wrapper {
+		width: 100%;
+		margin: 0 auto;
+	}
 
-    .flex-line {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
+	.wrapper--narrow {
+		max-width: var(--width-narrow);
+	}
 
-    .flex-line::before,
-    .flex-line::after {
-        display: block;
-        flex: 1 0 auto;
-        height: var(--border-width);
-        background: var(--light-color);
-        content: "";
-    }
+	.wrapper--content {
+		max-width: var(--width-content);
+	}
 
-    .logo-icon {
-        position: absolute;
-        left: 50%;
-        bottom: 0;
-        z-index: 3;
-        transform: translate(-50%, 50%);
-        display: block;
-        width: 60px;
-        height: 60px;
-        pointer-events: none;
-    }
+	.wrapper--section {
+		max-width: var(--width-section);
+	}
 
-    .title-row {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: baseline;
-        justify-content: space-between;
-        gap: 1rem;
-        margin-bottom: 2rem;
-    }
+	.wrapper--wide {
+		max-width: var(--width-wide);
+	}
 
-    .title-row :where(h1, h2, h3, h4, h5, h6) {
-        margin: 0;
-    }
+	.content-box {
+		position: relative;
+		width: 100%;
+		max-width: var(--width-narrow);
+		padding: 2rem 1rem;
+		background: rgba(255, 255, 255, 0.05);
+		border: var(--light-border);
+		border-radius: var(--border-radius);
+		backdrop-filter: blur(60px);
+	}
 
-    /*----- lazy-loaded images -----*/
+	.content-box::before {
+		position: absolute;
+		inset: calc(var(--border-width) * -1)
+			calc(var(--border-width) * -1) auto
+			calc(var(--border-width) * -1);
+		z-index: 2;
+		display: block;
+		height: var(--large-border-width);
+		background: linear-gradient(to right, #e48784, #c83774);
+		border-radius: var(--border-radius) var(--border-radius) 0 0;
+		content: "";
+		pointer-events: none;
+	}
 
-    .img--lazy {
-        background-color: var(--gray-cool);
-        background-position: 130% 0;
-        background-size: 200% 100%;
-        background-repeat: no-repeat;
-        background-image: linear-gradient(to right, var(--gray-cool) 45%, var(--white-cool), var(--gray-cool) 65%);
-        animation: img-loading 1200ms infinite ease-in-out;
-    }
+	hr {
+		margin: 2rem auto;
+		width: 75%;
+		max-width: 700px;
+		height: var(--border-width);
+		border: none;
+		background: var(--gray-cool);
+	}
 
-    .img--lazy.loaded {
-        background: none;
-        animation: none;
-    }
+	.flex-line {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
 
-    /*----- animations -----*/
+	.flex-line::before,
+	.flex-line::after {
+		display: block;
+		flex: 1 0 auto;
+		height: var(--border-width);
+		background: var(--light-color);
+		content: "";
+	}
 
-    @keyframes img-loading {
-        to {
-            background-position: -30% 0;
-        }
-    }
+	.logo-icon {
+		position: absolute;
+		left: 50%;
+		bottom: 0;
+		z-index: 3;
+		transform: translate(-50%, 50%);
+		display: block;
+		width: 60px;
+		height: 60px;
+		pointer-events: none;
+	}
 
-    /*----- media queries -----*/
+	.title-row {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 1rem;
+		margin-bottom: 2rem;
+	}
 
-    @media (min-width: 64em) {
-        .flex-line {
-            gap: 1rem;
-        }
+	.title-row :where(h1, h2, h3, h4, h5, h6) {
+		margin: 0;
+	}
 
-        .title-row {
-            margin-bottom: 2.5rem;
-        }
-    }
+	/*----- lazy-loaded images -----*/
+
+	.img--lazy {
+		background-color: var(--gray-cool);
+		background-position: 130% 0;
+		background-size: 200% 100%;
+		background-repeat: no-repeat;
+		background-image: linear-gradient(
+			to right,
+			var(--gray-cool) 45%,
+			var(--white-cool),
+			var(--gray-cool) 65%
+		);
+		animation: img-loading 1200ms infinite ease-in-out;
+	}
+
+	.img--lazy.loaded {
+		background: none;
+		animation: none;
+	}
+
+	/*----- animations -----*/
+
+	@keyframes img-loading {
+		to {
+			background-position: -30% 0;
+		}
+	}
+
+	/*----- media queries -----*/
+
+	@media (min-width: 64em) {
+		.flex-line {
+			gap: 1rem;
+		}
+
+		.title-row {
+			margin-bottom: 2.5rem;
+		}
+
+		.content-box {
+			padding: 3rem 2rem;
+		}
+	}
 }
