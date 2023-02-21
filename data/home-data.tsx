@@ -13,8 +13,8 @@ export const heroImage: ImageDataType = {
 	],
 	mobileSource: '/images/home-hero/home-hero-640.png',
 	alt: `Pendrake's bedroom in isometric perspective`,
-	width: 553,
-	height: 452,
+	width: 640,
+	height: 580,
 };
 
 export const slideshowLimit = 10;

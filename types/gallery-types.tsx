@@ -99,6 +99,7 @@ export type ThumbnailKeyType = {
 export type GalleryItemType = {
 	name: string;
 	title: string;
+	year: string | number;
 	thumbnailKey: ThumbnailKeyType;
 	orientation: string;
 	content?: JSX.Element;
@@ -120,8 +121,17 @@ export type VideoGalleryType = {
 // ----- COMPONENT PROPS ----- //
 
 export type ThumbnailConfigProps = {
+	thumbKey: string;
 	isNew?: boolean;
 	isFeatured?: boolean;
 	isDetail?: boolean;
-	thumbKey: string;
 };
+
+export type FeaturedItemProps = {
+	name: string;
+	title: string;
+	year: string | number;
+	thumbKey: string;
+	alt?: string;
+	className?: string;
+}

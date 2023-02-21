@@ -171,6 +171,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 	// {
 	// 	name: 'samil-portrait',
 	// 	title: 'Samil Sealee Portrait',
+	//	year: 2023,
 	// 	content: (
 	// 		<blockquote className="blockquote">
 	// 			<p>
@@ -237,6 +238,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 	{
 		name: 'samil',
 		title: 'Samil Sealee',
+		year: 2023,
 		content: (
 			<p>
 				Samil Sealee is a captain in{' '}
@@ -305,6 +307,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 	{
 		name: 'kyra-portrait',
 		title: 'Kyra Luckleav Portrait',
+		year: 2022,
 		content: (
 			<blockquote className="blockquote">
 				<p>
@@ -365,6 +368,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 	{
 		name: 'kyra',
 		title: 'Kyra Luckleav',
+		year: 2022,
 		content: (
 			<p>
 				Kyra Luckleav is a kitchen servant in Auerstel Castle and also happens
@@ -437,6 +441,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 	{
 		name: 'toval-portrait',
 		title: 'Toval Argensente Portrait',
+		year: 2022,
 		content: (
 			<blockquote className="blockquote">
 				<p>
@@ -498,6 +503,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 	{
 		name: 'toval-argensente',
 		title: 'Toval Argensente',
+		year: 2022,
 		content: (
 			<Fragment>
 				<p>
@@ -578,6 +584,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 	{
 		name: 'andel-portrait',
 		title: 'Andel Sommer Portrait',
+		year: 2022,
 		content: (
 			<blockquote className="blockquote">
 				<p>
@@ -640,6 +647,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 	{
 		name: 'andel',
 		title: 'Andel Sommer',
+		year: 2022,
 		content: (
 			<Fragment>
 				<p>
@@ -715,6 +723,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 	{
 		name: 'pendrake-portrait',
 		title: 'Pendrake Sommer Portrait',
+		year: 2021,
 		content: (
 			<blockquote className="blockquote">
 				<p>
@@ -774,6 +783,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 	{
 		name: 'pendrake',
 		title: 'Pendrake Sommer',
+		year: 2021,
 		content: (
 			<Fragment>
 				<p>
@@ -846,6 +856,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 	{
 		name: 'talis-portrait',
 		title: 'Talis Sommer Portrait',
+		year: 2021,
 		content: (
 			<blockquote className="blockquote">
 				<p>
@@ -905,6 +916,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 	{
 		name: 'talis',
 		title: 'Talis Sommer',
+		year: 2021,
 		content: (
 			<Fragment>
 				<p>
@@ -976,6 +988,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 	{
 		name: 'cargha-portrait',
 		title: 'Cargha Bezamik Portrait',
+		year: 2021,
 		content: (
 			<blockquote className="blockquote">
 				<p>
@@ -1032,6 +1045,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 	{
 		name: 'cargha',
 		title: 'Cargha Bezamik',
+		year: 2021,
 		content: (
 			<p>
 				<strong>Cargha Bezamik</strong> is employed as a spy and assassin for
@@ -1094,6 +1108,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 	{
 		name: 'crow',
 		title: 'Crow',
+		year: 2020,
 		content: (
 			<Fragment>
 				<blockquote className="blockquote">
@@ -1167,6 +1182,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 	{
 		name: 'pendrakes-chamber',
 		title: "Pendrake's Chamber",
+		year: 2019,
 		content: (
 			<blockquote className="blockquote">
 				<p>
@@ -1238,6 +1254,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 	{
 		name: 'berned',
 		title: 'Berned',
+		year: 2017,
 		content: (
 			<Fragment>
 				<blockquote className="blockquote">
@@ -1294,6 +1311,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 	{
 		name: 'olfactory',
 		title: 'Olfactory',
+		year: 2017,
 		content: (
 			<Fragment>
 				<p>
@@ -1330,6 +1348,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 	{
 		name: 'becoming-runa',
 		title: 'Becoming Runa',
+		year: 2016,
 		content: (
 			<Fragment>
 				<blockquote className="blockquote">
@@ -1383,6 +1402,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 	{
 		name: 'crows',
 		title: 'Crows',
+		year: 2016,
 		content: (
 			<Fragment>
 				<blockquote className="blockquote">
@@ -1436,6 +1456,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 	{
 		name: 'kingdom-hearts-1',
 		title: "The Future Doesn't Scare Me",
+		year: 2011,
 		content: (
 			<Fragment>
 				<p>
@@ -1477,6 +1498,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 	{
 		name: 'kingdom-hearts-2',
 		title: 'Where Fears and Lies Melt Away',
+		year: 2011,
 		content: (
 			<Fragment>
 				<p>

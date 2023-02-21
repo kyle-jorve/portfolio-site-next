@@ -67,9 +67,9 @@
 	}
 
 	.button--large {
-		gap: 1.125rem;
-		padding: 1.25rem 2.5rem;
-		font-size: 1.25rem;
+		gap: 0.75rem;
+		padding: 1rem 2rem;
+		font-size: var(--text-base);
 		letter-spacing: 0.2em;
 	}
 
@@ -92,18 +92,13 @@
 		pointer-events: none;
 	}
 
-	.button--arrow::after {
-		font: var(--fa-font-solid);
-		font-size: inherit;
-		content: "\f061";
-	}
-
 	:where(
 		.button--download,
 		.button--shop,
 		.button--shuffle,
 		.button--add
-	)::before {
+	)::before,
+	.button--arrow::after {
 		font: var(--fa-font-solid);
 		font-size: inherit;
 	}
@@ -122,6 +117,10 @@
 
 	.button--add::before {
 		content: "\f055";
+	}
+
+	.button--arrow::after {
+		content: "\f061";
 	}
 
 	button svg,
@@ -178,6 +177,12 @@
 
 		.button--mid {
 			padding: 0.85em 1.5em;
+		}
+
+		.button--large {
+			gap: 1.125rem;
+			padding: 1.25rem 2.5rem;
+			font-size: 1.25rem;
 		}
 	}
 }
