@@ -1,10 +1,12 @@
 import { useState, useEffect, useRef } from "react";
+import { useRouter } from "next/router";
 import { ParentNavItemProps } from "../../../types/global-types";
 import NavItem from "./NavItem";
 import styles from "../../../styles/layout/Nav.module.css";
 
 export default function ParentNavItem(props: ParentNavItemProps) {
 	const [expanded, setExpanded] = useState(false);
+	const router = useRouter();
 	const rootRef = useRef<HTMLDivElement>(null);
 	const rootClasses = props.isMobileNav
 		? styles["mobile-nav__parent"]
@@ -14,6 +16,10 @@ export default function ParentNavItem(props: ParentNavItemProps) {
 		props.isMobileNav
 			? styles["mobile-nav__expand"]
 			: styles["nav__expand"],
+		expanded &&
+			(props.isMobileNav
+				? styles["mobile-nav__expand--open"]
+				: styles["nav__expand--open"]),
 	]
 		.filter((c) => c)
 		.join(" ");

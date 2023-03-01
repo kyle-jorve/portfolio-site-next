@@ -1,5 +1,5 @@
 import {
-	SocialIconsType,
+	SocialIconType,
 	NavType,
 	NavItemType,
 } from "../types/global-types";
@@ -43,7 +43,7 @@ export const nav: NavType = [
 	},
 	{
 		pageID: "social",
-		pageName: "Social Media",
+		pageName: "Social",
 		url: "https://linktr.ee/kylejorve",
 		showInMainNav: false,
 		showInMobileNav: true,
@@ -56,50 +56,54 @@ export const headerCTA: NavItemType = {
 	url: "https://www.patreon.com/kylejorve",
 };
 
-export const socialIcons: SocialIconsType = {
-	standard: [
-		{
-			name: "artstation",
-			label: "Artstation",
-			url: "https://www.artstation.com/kylejorve",
-		},
-		{
-			name: "instagram",
-			label: "Instagram",
-			url: "https://www.instagram.com/kylejorve/",
-		},
-		{
-			name: "tumblr",
-			label: "Tumblr",
-			url: "https://kylejorve.tumblr.com/",
-		},
-		{
-			name: "youtube",
-			label: "YouTube",
-			url: "https://www.youtube.com/@KyleJorve/videos",
-		},
-		{
-			name: "email",
-			label: "Email",
-			url: "mailto:kyle@kylejorve.com",
-		},
-	],
-	commerce: [
-		{
-			name: "patreon",
-			label: "Patreon",
-			url: "https://www.patreon.com/kylejorve",
-		},
-		{
-			name: "shop",
-			label: "Print Shop",
-			url: "https://www.inprnt.com/gallery/kylejorve/",
-		},
-		{
-			name: "gumroad",
-			label: "Gumroad Shop",
-			icon: <GumroadIcon />,
-			url: "https://gumroad.com/kylejorve",
-		},
-	],
-};
+export const socialIcons: SocialIconType[] = [
+	{
+		name: "artstation",
+		label: "Artstation",
+		url: "https://www.artstation.com/kylejorve",
+		type: "standard",
+	},
+	{
+		name: "instagram",
+		label: "Instagram",
+		url: "https://www.instagram.com/kylejorve/",
+		type: "standard",
+	},
+	{
+		name: "tumblr",
+		label: "Tumblr",
+		url: "https://kylejorve.tumblr.com/",
+		type: "standard",
+	},
+	{
+		name: "youtube",
+		label: "YouTube",
+		url: "https://www.youtube.com/@KyleJorve/videos",
+		type: "standard",
+	},
+	{
+		name: "email",
+		label: "Email",
+		url: "mailto:kyle@kylejorve.com",
+		type: "standard",
+	},
+	{
+		name: "patreon",
+		label: "Patreon",
+		url: "https://www.patreon.com/kylejorve",
+		type: "commerce",
+	},
+	{
+		name: "shop",
+		label: "Print Shop",
+		url: "https://www.inprnt.com/gallery/kylejorve/",
+		type: "commerce",
+	},
+	{
+		name: "gumroad",
+		label: "Gumroad Shop",
+		icon: <GumroadIcon />,
+		url: "https://gumroad.com/kylejorve",
+		type: "commerce",
+	},
+];

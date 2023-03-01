@@ -16,13 +16,9 @@ export type ImageDataType = {
 export type SocialIconType = {
 	name: string;
 	url: string;
+	type: 'standard' | 'commerce';
 	icon?: JSX.Element;
 	label?: string;
-};
-
-export type SocialIconsType = {
-	standard: SocialIconType[];
-	commerce: SocialIconType[];
 };
 
 export type NavItemType = {
