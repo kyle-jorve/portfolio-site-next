@@ -1,11 +1,13 @@
 @layer theme {
 	:root {
 		/* typography */
-		--font-family: "Montserrat", sans-serif;
+		--font-heading: "Bebas Neue", sans-serif;
+		--font-body: "Montserrat", sans-serif;
 
 		--font-weight-light: 300;
 		--font-weight-normal: 400;
 		--font-weight-semibold: 600;
+		--font-weight-bold: 700;
 		--font-weight-extrabold: 800;
 
 		--text-sm: 0.75rem;
@@ -70,21 +72,39 @@
 		--long-transition: calc(var(--transition-dur) * 2)
 			var(--transition-ease);
 
+		/* animations */
+		--animation-fade-in: fade-in var(--transition-dur)
+			var(--transition-ease) 0s 1 normal forwards;
+		--animation-fade-out: fade-out var(--transition-dur)
+			var(--transition-ease) 0s 1 normal forwards;
+
 		/* layout */
 		--logo-width: 60px;
-		--nav-button-width: 70px;
 		--gallery-item-aspect: 5 / 4;
-	}
-
-	@media (min-width: 40em) {
-		:root {
-			--logo-width: var(--nav-button-width);
-		}
 	}
 
 	@media (min-width: 64em) {
 		:root {
+			--logo-width: 80px;
 			--section-padding: 6rem 2rem;
+		}
+	}
+
+	@keyframes fade-in {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	@keyframes fade-out {
+		from {
+			opacity: 1;
+		}
+		to {
+			opacity: 0;
 		}
 	}
 }

@@ -1,5 +1,4 @@
 @layer buttons {
-
 	button,
 	.button {
 		box-shadow: none;
@@ -40,7 +39,7 @@
 		padding: 1.25em 3em;
 		border: none;
 		border-radius: 9999px;
-		font-family: var(--font-family);
+		font-family: var(--font-body);
 		font-weight: var(--font-weight-extrabold);
 		font-size: 0.675em;
 		line-height: 1;
@@ -49,7 +48,8 @@
 		text-align: center;
 		text-transform: uppercase;
 		opacity: 1;
-		transition: background-color var(--transition), color var(--transition), opacity var(--transition);
+		transition: background-color var(--transition),
+			color var(--transition), opacity var(--transition);
 	}
 
 	.button--small {
@@ -74,17 +74,25 @@
 	}
 
 	.button--primary {
-		background: linear-gradient(to right, var(--accent-color), var(--yellow));
+		background: linear-gradient(
+			to right,
+			var(--accent-color),
+			var(--yellow)
+		);
 		background-size: 200% 100%;
 		background-position: 0 center;
 		color: var(--light-color);
-		transition: background-position var(--transition), color var(--transition);
+		transition: background-position var(--transition),
+			color var(--transition);
 	}
 
 	.button--secondary {
-		background-color: transparent;
+		background-color: rgba(0, 0, 0, 0.35);
 		border: var(--border-width) solid var(--accent-color);
 		color: var(--accent-color);
+		transition: background-color var(--transition),
+			color var(--transition), border-color var(--transition),
+			opacity var(--transition);
 	}
 
 	.button--hide {
@@ -93,14 +101,17 @@
 	}
 
 	:where(
-		.button--download,
-		.button--shop,
-		.button--shuffle,
-		.button--add
-	)::before,
+			.button--download,
+			.button--shop,
+			.button--shuffle,
+			.button--add
+		)::before,
 	.button--arrow::after {
+		display: block;
+		flex-shrink: 0;
 		font: var(--fa-font-solid);
 		font-size: inherit;
+		letter-spacing: 0;
 	}
 
 	.button--download::before {
@@ -142,8 +153,7 @@
 		box-shadow: var(--soft-shadow);
 		color: var(--light-color);
 		cursor: pointer;
-		transition:
-			background-color var(--transition),
+		transition: background-color var(--transition),
 			color var(--transition);
 	}
 
@@ -167,11 +177,11 @@
 	}
 
 	.arrow-button--left::before {
-		content: "\f060"
+		content: "\f060";
 	}
-	
+
 	.arrow-button--right::before {
-		content: "\f061"
+		content: "\f061";
 	}
 
 	@media (hover: hover) {

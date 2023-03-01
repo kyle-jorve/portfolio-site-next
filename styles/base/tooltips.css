@@ -19,7 +19,8 @@
 		color: var(--dark-color);
 		opacity: 0;
 		pointer-events: none;
-		transition: opacity var(--transition), transform var(--transition);
+		transition: opacity var(--transition),
+			transform var(--transition);
 	}
 
 	.tooltip::before {
@@ -29,7 +30,7 @@
 		width: var(--caret-width);
 		border: calc(var(--caret-width) / 2) solid transparent;
 		border-top-color: var(--white);
-		content: '';
+		content: "";
 	}
 
 	.tooltip__img {
@@ -40,14 +41,14 @@
 		box-shadow: var(--light-shadow);
 		object-fit: cover;
 	}
-	
+
 	.tooltip__title {
 		display: block;
-		font-family: var(--font-family);
-        font-weight: var(--font-weight-extrabold);
-        text-transform: uppercase;
-        letter-spacing: 0.3em;
-        line-height: 1.35;
+		font-family: var(--font-body);
+		font-weight: var(--font-weight-extrabold);
+		text-transform: uppercase;
+		letter-spacing: 0.3em;
+		line-height: 1.35;
 		font-size: var(--text-sm);
 	}
 

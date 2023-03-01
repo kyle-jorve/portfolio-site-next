@@ -7,20 +7,25 @@ import { items as galleryItems } from "../../../data/gallery-data";
 import SiteContext from "../../../context/global";
 
 export default function CustomLink(props: CustomLinkProps) {
-	const onClick = props.onClick || (() => { });
+	const onClick = props.onClick || (() => {});
 	const router = useRouter();
 	const siteContext = useContext(SiteContext);
-	const destinationIsDetailPage = props.to.includes('/gallery/') && props.to.length > 9;
-	const itemID = destinationIsDetailPage && props.to.split('/gallery/')[1].replace(/\//g, '');
-	const galleryItem = destinationIsDetailPage && galleryItems.find(item => item.name === itemID);
-	const hasTooltip = destinationIsDetailPage && !!galleryItem && !!props.useTooltip;
-	const classes = [
-		hasTooltip && 'has-tooltip',
-		props.className,
-	].filter(c => c).join(' ');
+	const destinationIsDetailPage =
+		props.to.includes("/gallery/") && props.to.length > 9;
+	const itemID =
+		destinationIsDetailPage &&
+		props.to.split("/gallery/")[1].replace(/\//g, "");
+	const galleryItem =
+		destinationIsDetailPage &&
+		galleryItems.find((item) => item.name === itemID);
+	const hasTooltip =
+		destinationIsDetailPage && !!galleryItem && !!props.useTooltip;
+	const classes = [hasTooltip && "has-tooltip", props.className]
+		.filter((c) => c)
+		.join(" ");
 
 	function linkClickHandler(event: React.MouseEvent) {
-		if (!siteContext.desktop) {
+		if (siteContext.mobile) {
 			onClick(event);
 
 			return;
@@ -38,7 +43,12 @@ export default function CustomLink(props: CustomLinkProps) {
 	}
 
 	return (
-		<Link className={classes} href={props.to} onClick={linkClickHandler} {...props.attributes}>
+		<Link
+			className={classes}
+			href={props.to}
+			onClick={linkClickHandler}
+			{...props.attributes}
+		>
 			{props.children}
 			{hasTooltip && <LinkTooltip galleryItem={galleryItem} />}
 		</Link>

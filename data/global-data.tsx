@@ -1,10 +1,14 @@
-import { SocialIconsType, NavType, NavItemType } from "../types/global-types";
+import {
+	SocialIconsType,
+	NavType,
+	NavItemType,
+} from "../types/global-types";
 import GumroadIcon from "../components/icons/Gumroad";
 
 export const transitions = {
 	delay: 100,
 	long: 600,
-	short: 300
+	short: 300,
 };
 
 export const nav: NavType = [
@@ -38,12 +42,12 @@ export const nav: NavType = [
 		],
 	},
 	{
-		pageID: 'social',
-		pageName: 'Social Media',
-		url: 'https://linktr.ee/kylejorve',
+		pageID: "social",
+		pageName: "Social Media",
+		url: "https://linktr.ee/kylejorve",
 		showInMainNav: false,
 		showInMobileNav: true,
-	}
+	},
 ];
 
 export const headerCTA: NavItemType = {

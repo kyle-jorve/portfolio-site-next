@@ -1,0 +1,211 @@
+/*================================*/
+/*=====----- MOBILE NAV -----=====*/
+/*================================*/
+
+.mobile-nav {
+	position: fixed;
+	inset: auto 16px 16px 16px;
+	z-index: 100;
+	padding: 0 26px 22px;
+	text-align: center;
+	color: var(--white);
+}
+
+.mobile-nav__inner {
+	position: relative;
+	z-index: 2;
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	align-items: start;
+	gap: 10px;
+	background: var(--accent-color);
+	border-radius: var(--border-radius);
+	box-shadow: var(--soft-shadow);
+}
+
+.mobile-nav__item,
+.mobile-nav__expand {
+	display: grid;
+	grid-template: 24px minmax(0, 1fr) / minmax(0, 1fr);
+	gap: 8px;
+	padding: 13px 14px 7px;
+	font-family: var(--font-body);
+	font-weight: var(--font-weight-bold);
+	font-size: 0.5rem;
+	line-height: 1.25;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	text-decoration: none !important;
+	color: inherit;
+}
+
+:where(.mobile-nav__item, .mobile-nav__expand)::before {
+	display: block;
+	font: var(--fa-font-solid);
+	font-size: 1.5rem;
+	line-height: 1;
+	align-self: center;
+}
+
+:where(
+		.mobile-nav__item--gallery,
+		.mobile-nav__expand--gallery
+	)::before {
+	content: "\f302";
+}
+
+:where(.mobile-nav__item--cv, .mobile-nav__expand--cv)::before {
+	content: "\f0b1";
+}
+
+:where(.mobile-nav__item--shop, .mobile-nav__expand--shop)::before {
+	content: "\f290";
+}
+
+:where(.mobile-nav__item--social, .mobile-nav__expand--social)::before {
+	content: "\23";
+}
+
+/*----- parent nav item -----*/
+
+.mobile-nav__dropdown {
+	display: none;
+}
+
+/*================================*/
+/*=====----- HEADER NAV -----=====*/
+/*================================*/
+
+.nav {
+	display: flex;
+	align-items: center;
+	gap: 40px;
+}
+
+.nav__item,
+.nav__expand {
+	display: block;
+	padding: 0;
+	margin: 0;
+	background: none !important;
+	border: none;
+	font-family: var(--font-body);
+	font-weight: var(--font-weight-extrabold);
+	font-size: 1.125rem;
+	line-height: calc(11 / 9);
+	letter-spacing: 0.2em;
+	text-decoration: none !important;
+	text-transform: uppercase;
+	color: var(--white);
+}
+
+/*----- parent nav item -----*/
+
+.nav__parent {
+	position: relative;
+	z-index: 2;
+}
+
+.nav__dropdown {
+	position: absolute;
+	inset: auto auto -1rem 50%;
+	transform: translate(-50%, calc(100% - 1rem));
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	width: 240px;
+	padding: 1rem 0;
+	background: rgba(255, 255, 255, 0.75);
+	backdrop-filter: blur(60px);
+	box-shadow: var(--soft-shadow);
+	border: var(--border-width) solid var(--white);
+	border-radius: var(--border-radius);
+	color: var(--dark-color);
+	opacity: 0;
+	pointer-events: none;
+	transition: transform var(--transition), opacity var(--transition);
+}
+
+.nav__dropdown::before {
+	position: absolute;
+	inset: 0 auto auto 50%;
+	transform: translate(-50%, -50%) rotate(45deg);
+	display: block;
+	width: 1rem;
+	aspect-ratio: 1;
+	border-radius: 4px 0 0 0;
+	border: 0.5rem solid transparent;
+	border-top-color: var(--white);
+	border-left-color: var(--white);
+	content: "";
+}
+
+.nav__item--child {
+	padding: 0.25rem 1.25rem;
+	color: inherit;
+	pointer-events: inherit;
+}
+
+/*----- open dropdown -----*/
+
+.nav__dropdown--open {
+	transform: translate(-50%, 100%);
+	opacity: 1;
+	pointer-events: all;
+}
+
+/*----- media queries -----*/
+
+@media (min-width: 90em) {
+	.nav {
+		gap: 60px;
+	}
+}
+
+/*===================================*/
+/*=====----- HEADER BUTTON -----=====*/
+/*===================================*/
+
+.nav__cta {
+	gap: 12px;
+	padding: 8px 12px;
+	backdrop-filter: blur(40px);
+	font-size: var(--text-sm);
+}
+
+.nav__cta::before {
+	display: none;
+	font-size: 0.875rem;
+}
+
+/*----- media queries -----*/
+
+@media (min-width: 23.4375rem) {
+	.nav__cta::before {
+		display: block;
+	}
+}
+
+@media (min-width: 26rem) {
+	.nav__cta {
+		padding: 10px 24px;
+	}
+}
+
+@media (min-width: 64em) {
+	.nav__cta {
+		gap: 16px;
+		font-size: 1rem;
+	}
+}
+
+@media (min-width: 90em) {
+	.nav__cta {
+		padding: 12px 32px;
+		font-size: 1.125rem;
+	}
+
+	.nav__cta::before {
+		font-size: 1.125rem;
+	}
+}

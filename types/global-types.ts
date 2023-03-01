@@ -57,8 +57,12 @@ export type CustomLinkProps = {
 
 export type NavItemProps = {
 	url: string;
+	onClick?: React.MouseEventHandler;
 	isMobileNav?: boolean;
 	className?: string;
+	attributes?: {
+		tabIndex?: number | undefined;
+	};
 } & React.PropsWithChildren;
 
 export type ParentNavItemProps = {
