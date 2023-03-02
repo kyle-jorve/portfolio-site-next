@@ -59,17 +59,13 @@ export default function FeaturedWork() {
 						className="glide__arrow glide__arrow--left arrow-button arrow-button--left"
 						aria-label="move slideshow left"
 						data-glide-dir="<"
-					>
-						prev
-					</button>
+					></button>
 
 					<button
 						className="glide__arrow glide__arrow--left arrow-button arrow-button--right"
 						data-glide-dir=">"
 						aria-label="move slideshow right"
-					>
-						next
-					</button>
+					></button>
 				</div>
 
 				<div

@@ -92,7 +92,7 @@
 	}
 }
 
-@media (min-width: 23.4375rem) {
+@media (min-width: 23.4375em) {
 	.social {
 		gap: 20px;
 	}

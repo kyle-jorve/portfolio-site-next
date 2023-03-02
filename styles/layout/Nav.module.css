@@ -163,13 +163,13 @@
 
 /*----- media queries -----*/
 
-@media (min-width: 23.4375rem) {
+@media (min-width: 23.4375em) {
 	.nav__cta::before {
 		display: block;
 	}
 }
 
-@media (min-width: 26rem) {
+@media (min-width: 26em) {
 	.nav__cta {
 		padding: 10px 24px;
 	}
@@ -328,7 +328,7 @@
 
 /*----- media queries -----*/
 
-@media (min-width: 23.4375rem) {
+@media (min-width: 23.4375em) {
 	.mobile-nav {
 		inset: auto 16px 16px 16px;
 		padding: 0 24px 20px;

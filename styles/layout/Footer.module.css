@@ -35,7 +35,7 @@
 	color: var(--white);
 }
 
-@media (min-width: 23.4375rem) {
+@media (min-width: 23.4375em) {
 	.footer {
 		padding: 32px;
 	}

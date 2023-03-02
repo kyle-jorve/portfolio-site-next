@@ -15,15 +15,24 @@ export default function HomeHero() {
 	}
 
 	return (
-		<section className={styles.hero}>
+		<section className={`section ${styles.hero}`}>
 			<div className={styles["hero__inner"]}>
 				<div className={styles["hero__content-col"]}>
 					<h1 className={styles["hero__title"]}>
 						<span className={styles["hero__title-1"]}>
-							Kyle Jorve
+							Kyle
+							<br />
+							Jorve
 						</span>
 						<small className={styles["hero__title-2"]}>
-							Illustration & Design
+							<span
+								className={
+									styles["hero__title-2-inner"]
+								}
+							>
+								Illustration
+								<br />& Design
+							</span>
 						</small>
 					</h1>
 
@@ -59,13 +68,11 @@ export default function HomeHero() {
 			</div>
 
 			<button
-				className={styles["scroll"]}
+				className={styles.scroll}
 				aria-label="scroll to Featured Work"
 				onClick={scrollIconClickHandler}
 			>
-				<span className={styles["scroll__track"]}>
-					<span className={styles["scroll__ball"]}></span>
-				</span>
+				<span className={styles["scroll__ball"]}></span>
 			</button>
 		</section>
 	);
