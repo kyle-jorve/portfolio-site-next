@@ -1,44 +1,59 @@
-import { BioType, HeroImgType } from "../../data/cv-data";
-import styles from "../../styles/components/CV.module.css";
+import { bio } from "../../data/cv-data";
+import styles from "../../styles/components/Bio.module.css";
 
-type BioProps = {
-    heroImg: HeroImgType;
-    bio: BioType;
-};
+export default function Bio() {
+	return (
+		<section className={`section ${styles.bio}`}>
+			<div
+				className={`wrapper wrapper--wide ${styles["bio__row"]}`}
+			>
+				<div
+					className={`fancy-image ${styles["bio__image"]} ${styles["bio__image--mobile"]}`}
+					aria-hidden="true"
+				>
+					<img
+						src={bio.img.mobileSource}
+						alt=""
+						width={640}
+						height={640}
+					/>
+				</div>
 
-export default function Bio(props: BioProps) {
-    return (
-        <div className={styles.bio}>
-            <div className={styles["bio__hero"]} aria-hidden="true">
-                <img className={styles["bio__bg"]} src={props.heroImg.url} alt="" loading="eager" />
-            </div>
+				<div
+					className={`content-box ${styles["bio__content"]}`}
+				>
+					<h2 className={`underline ${styles["bio__title"]}`}>
+						{bio.title}
+					</h2>
 
-            <section className={`section ${styles["bio__content"]}`}>
-                <div className="wrapper wrapper--narrow">
-                    <div className={styles["bio__img-cont"]}>
-                        <img
-                            className={styles["bio__img"]}
-                            src={props.heroImg.url}
-                            alt={props.heroImg.alt}
-                            loading="eager"
-                            width="400"
-                            height="400"
-                        />
-                    </div>
+					{bio.content}
+				</div>
 
-                    <h1 className={`underline underline--center ${styles["bio__title"]}`}>{props.bio.title}</h1>
+				<div className={`fancy-image ${styles["bio__image"]}`}>
+					<picture>
+						{bio.img.sources.map((src, index) => {
+							return (
+								<source
+									key={`bio-img-source-${index}`}
+									srcSet={src.url}
+									media={`(min-width: ${src.minScreenWidth}px)`}
+								/>
+							);
+						})}
 
-                    {props.bio.content}
-                </div>
-            </section>
-
-            <img
-                className="logo-icon"
-                src="/images/icons-logos/logo-circle-icon.svg"
-                alt=""
-                aria-hidden="true"
-                loading="lazy"
-            />
-        </div>
-    );
+						<img
+							src={
+								bio.img.sources[
+									bio.img.sources.length - 1
+								].url
+							}
+							alt={bio.img.alt}
+							width={bio.img.width}
+							height={bio.img.height}
+						/>
+					</picture>
+				</div>
+			</div>
+		</section>
+	);
 }
