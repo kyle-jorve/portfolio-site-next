@@ -41,9 +41,10 @@
 	.underline::after {
 		display: block;
 		max-width: 150px;
-		height: var(--border-width);
-		margin-top: 0.5rem;
-		background: var(--red);
+		height: 6px;
+		margin-top: 0.125rem;
+		background: linear-gradient(to right, #e48784, #c83774);
+		border-radius: 3px;
 		content: "";
 	}
 
@@ -52,7 +53,7 @@
 	}
 
 	.underline--center::after {
-		margin: 0.5rem auto 0;
+		margin: 0.125rem auto 0;
 	}
 
 	.underline--right {
@@ -60,7 +61,7 @@
 	}
 
 	.underline--right::after {
-		margin: 0.5rem 0 0 auto;
+		margin-left: auto;
 	}
 
 	/*===========================*/

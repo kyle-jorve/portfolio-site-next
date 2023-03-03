@@ -1,80 +1,82 @@
+import React from "react";
+
 // ----- TYPES ----- //
 
 export const projectCategories = {
 	ignobleBlood: {
-		name: 'ignoble-blood',
-		label: 'Ignoble Blood',
+		name: "ignoble-blood",
+		label: "Ignoble Blood",
 	},
 	postAutumn: {
-		name: 'post-autumn',
-		label: 'Post-Autumn',
+		name: "post-autumn",
+		label: "Post-Autumn",
 	},
 	fanArt: {
-		name: 'fan-art',
-		label: 'Fan Art',
+		name: "fan-art",
+		label: "Fan Art",
 	},
 } as const;
 
 export const characterCategories = {
 	samil: {
-		name: 'samil',
-		label: 'Samil Sealee',
+		name: "samil",
+		label: "Samil Sealee",
 	},
 	kyra: {
-		name: 'kyra',
-		label: 'Kyra Luckleav',
+		name: "kyra",
+		label: "Kyra Luckleav",
 	},
 	toval: {
-		name: 'toval',
-		label: 'Toval Argensente',
+		name: "toval",
+		label: "Toval Argensente",
 	},
 	andel: {
-		name: 'andel',
-		label: 'Andel Sommer',
+		name: "andel",
+		label: "Andel Sommer",
 	},
 	pendrake: {
-		name: 'pendrake',
-		label: 'Pendrake Sommer',
+		name: "pendrake",
+		label: "Pendrake Sommer",
 	},
 	talis: {
-		name: 'talis',
-		label: 'Talis Sommer',
+		name: "talis",
+		label: "Talis Sommer",
 	},
 	cargha: {
-		name: 'cargha',
-		label: 'Cargha Bezamik',
+		name: "cargha",
+		label: "Cargha Bezamik",
 	},
 	berned: {
-		name: 'berned',
-		label: 'Berned Blackhorn',
+		name: "berned",
+		label: "Berned Blackhorn",
 	},
 	fennory: {
-		name: 'fennory',
-		label: 'Fennory Caelden',
+		name: "fennory",
+		label: "Fennory Caelden",
 	},
 	crow: {
-		name: 'crow',
-		label: 'Crow',
+		name: "crow",
+		label: "Crow",
 	},
 	sora: {
-		name: 'sora',
-		label: 'Sora',
+		name: "sora",
+		label: "Sora",
 	},
 	riku: {
-		name: 'riku',
-		label: 'Riku',
+		name: "riku",
+		label: "Riku",
 	},
 	kairi: {
-		name: 'kairi',
-		label: 'Kairi',
+		name: "kairi",
+		label: "Kairi",
 	},
 	namine: {
-		name: 'namine',
-		label: 'Namine',
+		name: "namine",
+		label: "Namine",
 	},
 	roxas: {
-		name: 'roxas',
-		label: 'Roxas',
+		name: "roxas",
+		label: "Roxas",
 	},
 } as const;
 
@@ -132,6 +134,7 @@ export type FeaturedItemProps = {
 	title: string;
 	year: string | number;
 	thumbKey: string;
+	orientation: string;
 	alt?: string;
-	className?: string;
-}
+	isNew?: boolean;
+} & React.HTMLAttributes<HTMLElement>;

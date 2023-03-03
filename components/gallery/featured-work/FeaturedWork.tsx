@@ -15,40 +15,54 @@ export default function FeaturedWork() {
 
 	useEffect(() => {
 		const sliderOptions: Partial<Glide.Options> = {
-			type: "carousel",
 			perView: 3,
-			gap: 24,
+			gap: 8,
 			animationTimingFunc: "ease",
 			peek: 254,
 			breakpoints: {
 				1023: {
 					perView: 2,
-					gap: 20,
+					gap: 6,
 					peek: 100,
 				},
 				639: {
 					perView: 1,
-					gap: 20,
+					gap: 6,
 					peek: 44,
 				},
 			},
 		};
 		const slider = new Glide(glideRef.current!, sliderOptions);
+		const slides = Array.from(
+			document.querySelectorAll("[data-featured-slide]"),
+		);
+
+		slider.on("run.before", () => {
+			slides[slider.index].classList.remove(
+				styles["featured__slide--active"],
+			);
+		});
+
+		slider.on("run", () => {
+			slides[slider.index].classList.add(
+				styles["featured__slide--active"],
+			);
+		});
 
 		slider.mount();
 	}, []);
 
 	return (
 		<section
-			className={`section ${styles.featured}`}
+			className="section"
 			id="featured-work"
 		>
-			<h2 className={`underline ${styles["featured__title"]}`}>
+			<h2 className="underline underline--center">
 				Featured Work
 			</h2>
 
 			<div
-				className={`glide ${styles["featured__slider-cont"]}`}
+				className={`glide ${styles.featured}`}
 				ref={glideRef}
 			>
 				<div
@@ -56,34 +70,48 @@ export default function FeaturedWork() {
 					data-glide-el="controls"
 				>
 					<button
-						className="glide__arrow glide__arrow--left arrow-button arrow-button--left"
+						className={`${styles["featured__arrow"]} glide__arrow glide__arrow--left arrow-button arrow-button--left`}
 						aria-label="move slideshow left"
 						data-glide-dir="<"
 					></button>
 
 					<button
-						className="glide__arrow glide__arrow--left arrow-button arrow-button--right"
+						className={`${styles["featured__arrow"]} glide__arrow glide__arrow--left arrow-button arrow-button--right`}
 						data-glide-dir=">"
 						aria-label="move slideshow right"
 					></button>
 				</div>
 
 				<div
-					className="glide__track"
+					className={`${styles["featured__track"]} glide__track`}
 					data-glide-el="track"
 				>
 					<div
-						className={`glide__slides ${styles["featured__slider"]}`}
+						className={`${styles["featured__slides"]} glide__slides`}
 					>
-						{featuredItems.map((item) => {
+						{featuredItems.map((item, index) => {
 							return (
 								<FeaturedItem
+									className={
+										index === 0
+											? styles[
+													"featured__slide--active"
+											  ]
+											: undefined
+									}
 									key={item.name}
 									name={item.name}
 									title={item.title}
 									year={item.year}
 									thumbKey={item.thumbnailKey.path}
+									orientation={item.orientation}
 									alt={item.thumbnailKey.alt}
+									isNew={
+										galleryItems.findIndex(
+											(gi) =>
+												gi.name === item.name,
+										) === 0
+									}
 								/>
 							);
 						})}
