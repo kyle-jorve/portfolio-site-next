@@ -36,10 +36,17 @@ export default function FeaturedWork() {
 		const slides = Array.from(
 			document.querySelectorAll("[data-featured-slide]"),
 		);
+		const bullets = Array.from(
+			document.querySelectorAll("[data-featured-slider-dot]"),
+		);
 
 		slider.on("run.before", () => {
 			slides[slider.index].classList.remove(
 				styles["featured__slide--active"],
+			);
+
+			bullets[slider.index].classList.remove(
+				"slider-dot--active",
 			);
 		});
 
@@ -47,6 +54,8 @@ export default function FeaturedWork() {
 			slides[slider.index].classList.add(
 				styles["featured__slide--active"],
 			);
+
+			bullets[slider.index].classList.add("slider-dot--active");
 		});
 
 		slider.mount();
@@ -54,7 +63,7 @@ export default function FeaturedWork() {
 
 	return (
 		<section
-			className="section"
+			className={`${styles.featured} section`}
 			id="featured-work"
 		>
 			<h2 className="underline underline--center">
@@ -62,7 +71,7 @@ export default function FeaturedWork() {
 			</h2>
 
 			<div
-				className={`glide ${styles.featured}`}
+				className={`glide ${styles["featured__slider"]}`}
 				ref={glideRef}
 			>
 				<div
@@ -116,6 +125,27 @@ export default function FeaturedWork() {
 							);
 						})}
 					</div>
+				</div>
+
+				<div
+					className={`${styles["featured__bullets"]} slider-dots glide__bullets`}
+					data-glide-el="controls[nav]"
+				>
+					{featuredItems.map((item, index) => {
+						return (
+							<button
+								key={item.name}
+								data-featured-slider-dot
+								className={`slider-dot${
+									index === 0
+										? ` slider-dot--active`
+										: ""
+								} glide__bullet`}
+								aria-label={`go to slide ${index + 1}`}
+								data-glide-dir={`=${index}`}
+							></button>
+						);
+					})}
 				</div>
 			</div>
 

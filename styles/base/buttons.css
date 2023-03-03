@@ -184,6 +184,35 @@
 		content: "\f061";
 	}
 
+	.slider-dots {
+		position: relative;
+		z-index: 3;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		margin-top: 2rem;
+	}
+
+	.slider-dot {
+		transform: scale(0.65);
+		display: block;
+		width: 12px;
+		height: 12px;
+		flex-shrink: 0;
+		background-color: transparent;
+		border: var(--border-width) solid var(--light-color);
+		border-radius: 50%;
+		transition: background-color var(--transition),
+			transform var(--transition);
+	}
+
+	.slider-dot--active {
+		transform: none;
+		background-color: var(--light-color);
+	}
+
 	@media (hover: hover) {
 		.button:hover {
 			text-decoration: none;

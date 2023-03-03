@@ -1,5 +1,11 @@
-.featured {
+.featured,
+.featured__slider {
 	position: relative;
+}
+
+.featured {
+	padding-left: 0;
+	padding-right: 0;
 }
 
 .featured__arrows {
@@ -50,6 +56,25 @@
 	pointer-events: none;
 	opacity: 0;
 	transition: opacity var(--transition), transform var(--transition);
+}
+
+.featured__new-badge {
+	position: absolute;
+	inset: 16px auto auto 16px;
+	z-index: 2;
+	display: block;
+	padding: 6px 10px;
+	background: var(--accent-color);
+	border-radius: 999px;
+	box-shadow: var(--med-shadow);
+	font-family: var(--font-body);
+	font-weight: var(--font-weight-extrabold);
+	font-size: var(--text-sm);
+	line-height: 1;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: var(--light-color);
+	pointer-events: none;
 }
 
 .featured__link {
@@ -109,29 +134,19 @@
 	object-fit: cover;
 }
 
-.featured__new-badge {
+.featured__bullets {
 	position: absolute;
-	inset: 16px auto auto 16px;
-	z-index: 2;
-	display: block;
-	padding: 6px 10px;
-	background: var(--accent-color);
-	border-radius: 999px;
-	box-shadow: var(--med-shadow);
-	font-family: var(--font-body);
-	font-weight: var(--font-weight-extrabold);
-	font-size: var(--text-sm);
-	line-height: 1;
-	letter-spacing: 0.1em;
-	text-transform: uppercase;
-	color: var(--light-color);
-	pointer-events: none;
+	inset: 100% auto auto 50%;
+	transform: translateX(-50%);
+	width: 100%;
+	margin-top: 1.5rem;
+	padding: 0 1rem;
 }
 
 .featured__button-row {
 	display: flex;
 	justify-content: center;
-	margin-top: 44px;
+	margin-top: 80px;
 }
 
 /*----- active slide -----*/
