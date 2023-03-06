@@ -98,12 +98,14 @@
 }
 
 .scroll {
-	position: relative;
+	position: absolute;
+	inset: auto auto 72px 50%;
+	z-index: 4;
+	transform: translateX(-50%);
 	display: block;
 	width: 20px;
 	aspect-ratio: 2 / 3;
 	padding: 0;
-	margin: 64px auto 0;
 	background: none;
 	border: var(--border-width) solid var(--white);
 	border-radius: 4px;
@@ -223,7 +225,7 @@
 		--image-width: 130%;
 
 		padding-top: 120px;
-		padding-bottom: 0;
+		padding-bottom: 120px;
 	}
 
 	.hero::before,

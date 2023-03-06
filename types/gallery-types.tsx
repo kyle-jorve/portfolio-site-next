@@ -1,4 +1,5 @@
 import React from "react";
+import { items as galleryItems } from "../data/gallery-data";
 
 // ----- TYPES ----- //
 
@@ -96,14 +97,16 @@ export type DetailKeyType = {
 export type ThumbnailKeyType = {
 	path: string;
 	alt: string;
+	orientation?: "top" | "center" | "bottom";
+	width?: number;
+	height?: number;
 };
 
 export type GalleryItemType = {
 	name: string;
 	title: string;
 	year: string | number;
-	thumbnailKey: ThumbnailKeyType;
-	orientation: string;
+	thumb: ThumbnailKeyType;
 	content?: JSX.Element;
 	featured?: boolean;
 	categories?: (
@@ -115,8 +118,14 @@ export type GalleryItemType = {
 	detailKeys?: DetailKeyType[];
 };
 
+export type VideoGalleryItemType = {
+	name: string;
+	poster: ThumbnailKeyType;
+	video: JSX.Element;
+};
+
 export type VideoGalleryType = {
-	items: JSX.Element[];
+	items: VideoGalleryItemType[];
 	url: string;
 };
 
@@ -127,14 +136,15 @@ export type ThumbnailConfigProps = {
 	isNew?: boolean;
 	isFeatured?: boolean;
 	isDetail?: boolean;
+	isVideo?: boolean;
 };
 
 export type FeaturedItemProps = {
 	name: string;
 	title: string;
 	year: string | number;
-	thumbKey: string;
-	orientation: string;
-	alt?: string;
+	thumb: ThumbnailKeyType;
 	isNew?: boolean;
 } & React.HTMLAttributes<HTMLElement>;
+
+export type VideoGalleryItemProps = VideoGalleryItemType;

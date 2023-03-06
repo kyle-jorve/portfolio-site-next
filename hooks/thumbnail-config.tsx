@@ -1,6 +1,8 @@
 import { ThumbnailConfigProps } from "../types/gallery-types";
 
-export default function useThumbnailConfig(props: ThumbnailConfigProps) {
+export default function useThumbnailConfig(
+	props: ThumbnailConfigProps,
+) {
 	if (props.isNew) {
 		return {
 			sources: [
@@ -13,20 +15,10 @@ export default function useThumbnailConfig(props: ThumbnailConfigProps) {
 				url: `${props.thumbKey}-640.jpg`,
 			},
 		};
-	} else if (props.isFeatured) {
+	} else if (props.isFeatured || props.isVideo) {
 		return {
-			sources: [
-				{
-					url: `${props.thumbKey}-640.jpg`,
-					minScreenWidth: 1440,
-				},
-				{
-					url: `${props.thumbKey}-480.jpg`,
-					minScreenWidth: 640,
-				},
-			],
 			mobile: {
-				url: `${props.thumbKey}-320.jpg`,
+				url: `${props.thumbKey}-640.jpg`,
 			},
 		};
 	} else if (props.isDetail) {

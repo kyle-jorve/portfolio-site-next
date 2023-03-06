@@ -15,19 +15,38 @@ export default function FeaturedWork() {
 
 	useEffect(() => {
 		const sliderOptions: Partial<Glide.Options> = {
-			perView: 3,
-			gap: 8,
+			perView: 4,
+			gap: 24,
+			peek: {
+				before: 200,
+				after: 310,
+			},
 			animationTimingFunc: "ease",
-			peek: 254,
 			breakpoints: {
+				2175: {
+					perView: 3,
+					gap: 24,
+					peek: {
+						before: 200,
+						after: 310,
+					},
+				},
+				1439: {
+					perView: 3,
+					gap: 24,
+					peek: {
+						before: 40,
+						after: 60,
+					},
+				},
 				1023: {
 					perView: 2,
-					gap: 6,
-					peek: 100,
+					gap: 0,
+					peek: 60,
 				},
 				639: {
 					perView: 1,
-					gap: 6,
+					gap: 0,
 					peek: 44,
 				},
 			},
@@ -66,96 +85,101 @@ export default function FeaturedWork() {
 			className={`${styles.featured} section`}
 			id="featured-work"
 		>
-			<h2 className="underline underline--center">
-				Featured Work
-			</h2>
-
-			<div
-				className={`glide ${styles["featured__slider"]}`}
-				ref={glideRef}
-			>
-				<div
-					className={`glide__arrows ${styles["featured__arrows"]}`}
-					data-glide-el="controls"
+			<div className={styles["featured__inner"]}>
+				<h2
+					className={`${styles["featured__title"]} underline underline--center`}
 				>
-					<button
-						className={`${styles["featured__arrow"]} glide__arrow glide__arrow--left arrow-button arrow-button--left`}
-						aria-label="move slideshow left"
-						data-glide-dir="<"
-					></button>
-
-					<button
-						className={`${styles["featured__arrow"]} glide__arrow glide__arrow--left arrow-button arrow-button--right`}
-						data-glide-dir=">"
-						aria-label="move slideshow right"
-					></button>
-				</div>
+					Featured Work
+				</h2>
 
 				<div
-					className={`${styles["featured__track"]} glide__track`}
-					data-glide-el="track"
+					className={`glide ${styles["featured__slider"]}`}
+					ref={glideRef}
 				>
 					<div
-						className={`${styles["featured__slides"]} glide__slides`}
+						className={`glide__arrows ${styles["featured__arrows"]}`}
+						data-glide-el="controls"
+					>
+						<button
+							className={`${styles["featured__arrow"]} glide__arrow glide__arrow--left arrow-button arrow-button--left`}
+							aria-label="move slideshow left"
+							data-glide-dir="<"
+						></button>
+
+						<button
+							className={`${styles["featured__arrow"]} glide__arrow glide__arrow--left arrow-button arrow-button--right`}
+							data-glide-dir=">"
+							aria-label="move slideshow right"
+						></button>
+					</div>
+
+					<div
+						className={`${styles["featured__track"]} glide__track`}
+						data-glide-el="track"
+					>
+						<div
+							className={`${styles["featured__slides"]} glide__slides`}
+						>
+							{featuredItems.map((item, index) => {
+								return (
+									<FeaturedItem
+										className={
+											index === 0
+												? styles[
+														"featured__slide--active"
+												  ]
+												: undefined
+										}
+										key={item.name}
+										name={item.name}
+										title={item.title}
+										year={item.year}
+										thumb={item.thumb}
+										isNew={
+											galleryItems.findIndex(
+												(gi) =>
+													gi.name ===
+													item.name,
+											) === 0
+										}
+									/>
+								);
+							})}
+						</div>
+					</div>
+
+					<div
+						className={`${styles["featured__bullets"]} slider-dots glide__bullets`}
+						data-glide-el="controls[nav]"
 					>
 						{featuredItems.map((item, index) => {
 							return (
-								<FeaturedItem
-									className={
-										index === 0
-											? styles[
-													"featured__slide--active"
-											  ]
-											: undefined
-									}
+								<button
 									key={item.name}
-									name={item.name}
-									title={item.title}
-									year={item.year}
-									thumbKey={item.thumbnailKey.path}
-									orientation={item.orientation}
-									alt={item.thumbnailKey.alt}
-									isNew={
-										galleryItems.findIndex(
-											(gi) =>
-												gi.name === item.name,
-										) === 0
-									}
-								/>
+									data-featured-slider-dot
+									className={`slider-dot${
+										index === 0
+											? ` slider-dot--active`
+											: ""
+									} glide__bullet`}
+									aria-label={`go to slide ${
+										index + 1
+									}`}
+									data-glide-dir={`=${index}`}
+								></button>
 							);
 						})}
 					</div>
 				</div>
 
-				<div
-					className={`${styles["featured__bullets"]} slider-dots glide__bullets`}
-					data-glide-el="controls[nav]"
-				>
-					{featuredItems.map((item, index) => {
-						return (
-							<button
-								key={item.name}
-								data-featured-slider-dot
-								className={`slider-dot${
-									index === 0
-										? ` slider-dot--active`
-										: ""
-								} glide__bullet`}
-								aria-label={`go to slide ${index + 1}`}
-								data-glide-dir={`=${index}`}
-							></button>
-						);
-					})}
+				<div className={styles["featured__button-row"]}>
+					<CustomLink
+						to="/gallery/"
+						className="button button--primary button--arrow"
+					>
+						View Gallery
+					</CustomLink>
 				</div>
-			</div>
-
-			<div className={styles["featured__button-row"]}>
-				<CustomLink
-					to="/gallery/"
-					className="button button--primary button--arrow"
-				>
-					View Gallery
-				</CustomLink>
 			</div>
 		</section>
 	);

@@ -12,7 +12,7 @@ export default function FeaturedItem(props: FeaturedItemProps) {
 		.filter((c) => c)
 		.join(" ");
 	const imgConfig = useThumbnailConfig({
-		thumbKey: props.thumbKey,
+		thumbKey: props.thumb.path,
 		isFeatured: true,
 	});
 
@@ -21,34 +21,38 @@ export default function FeaturedItem(props: FeaturedItemProps) {
 			className={classes}
 			data-featured-slide
 		>
-			{props.isNew ? (
-				<span className={styles["featured__new-badge"]}>
-					New
-				</span>
-			) : (
-				""
-			)}
+			<div className={styles["featured__slide-inner"]}>
+				{props.isNew ? (
+					<span className={styles["featured__new-badge"]}>
+						New
+					</span>
+				) : (
+					""
+				)}
 
-			<CustomLink
-				to={`/gallery/${props.name}/`}
-				className={styles["featured__link"]}
-			>
-				<h3 className={styles["featured__slide-title"]}>
-					{props.title}
-					<small>{props.year}</small>
-				</h3>
+				<CustomLink
+					to={`/gallery/${props.name}/`}
+					className={styles["featured__link"]}
+				>
+					<h3 className={styles["featured__slide-title"]}>
+						{props.title}
+						<small>{props.year}</small>
+					</h3>
 
-				<img
-					className={styles["featured__image"]}
-					style={{
-						objectPosition: props.orientation,
-					}}
-					src={imgConfig.mobile.url}
-					alt={props.alt || ""}
-					width="332"
-					height="218"
-				/>
-			</CustomLink>
+					<img
+						className={styles["featured__image"]}
+						style={{
+							objectPosition: `center ${
+								props.thumb.orientation || "center"
+							}`,
+						}}
+						src={imgConfig.mobile.url}
+						alt={props.thumb.alt || ""}
+						width="332"
+						height="218"
+					/>
+				</CustomLink>
+			</div>
 		</article>
 	);
 }

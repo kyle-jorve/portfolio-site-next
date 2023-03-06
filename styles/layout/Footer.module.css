@@ -2,22 +2,12 @@
 	position: relative;
 	z-index: 1;
 	padding: 16px;
-}
-
-.footer::before {
-	position: absolute;
-	inset: auto 0 0 0;
-	z-index: 1;
-	display: block;
-	height: 480px;
 	background: linear-gradient(
 		to top,
 		var(--dark-color),
 		#312835,
 		var(--dark-color)
 	);
-	content: "";
-	pointer-events: none;
 }
 
 .footer__inner {
@@ -42,7 +32,7 @@
 }
 
 @media (min-width: 64em) {
-	.footer::before {
+	.footer {
 		background: linear-gradient(to top, #312835, var(--dark-color));
 	}
 }

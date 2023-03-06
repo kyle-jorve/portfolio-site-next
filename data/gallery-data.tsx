@@ -5,7 +5,6 @@ import CustomLink from "../components/layout/link/CustomLink";
 export const videos = {
 	samilPortrait: (
 		<iframe
-			key="samil-portrait"
 			width="1440"
 			height="810"
 			src="https://www.youtube.com/embed/NaqBqRAZZP4"
@@ -18,7 +17,6 @@ export const videos = {
 	),
 	samil: (
 		<iframe
-			key="samil"
 			width="1440"
 			height="810"
 			src="https://www.youtube.com/embed/yNk05dLtgyE"
@@ -31,7 +29,6 @@ export const videos = {
 	),
 	kyraPortrait: (
 		<iframe
-			key="kyra-portrait"
 			width="1440"
 			height="810"
 			src="https://www.youtube.com/embed/SNKCHXFbFPY"
@@ -44,7 +41,6 @@ export const videos = {
 	),
 	kyra: (
 		<iframe
-			key="kyra"
 			width="1440"
 			height="810"
 			src="https://www.youtube.com/embed/ALmy-xx7u-c"
@@ -57,7 +53,6 @@ export const videos = {
 	),
 	tovalPortrait: (
 		<iframe
-			key="toval-portrait"
 			width="1440"
 			height="810"
 			src="https://www.youtube.com/embed/hDk6yKcQYqI"
@@ -70,7 +65,6 @@ export const videos = {
 	),
 	toval: (
 		<iframe
-			key="toval"
 			width="1440"
 			height="810"
 			src="https://www.youtube.com/embed/js4NRjOnPbA"
@@ -83,7 +77,6 @@ export const videos = {
 	),
 	andelPortrait: (
 		<iframe
-			key="andel-portrait"
 			width="1440"
 			height="810"
 			src="https://www.youtube.com/embed/W6acBvEQXug"
@@ -96,7 +89,6 @@ export const videos = {
 	),
 	andel: (
 		<iframe
-			key="andel"
 			width="1440"
 			height="810"
 			src="https://www.youtube.com/embed/XEaCkUcbfUo"
@@ -109,7 +101,6 @@ export const videos = {
 	),
 	pendrakePortrait: (
 		<iframe
-			key="pendrake-portrait"
 			width="1440"
 			height="810"
 			src="https://www.youtube.com/embed/CetjOlb5zWk"
@@ -122,7 +113,6 @@ export const videos = {
 	),
 	pendrake: (
 		<iframe
-			key="pendrake"
 			width="1440"
 			height="810"
 			src="https://www.youtube.com/embed/id079cuwXfE"
@@ -135,7 +125,6 @@ export const videos = {
 	),
 	talisPortrait: (
 		<iframe
-			key="talis-portrait"
 			width="1440"
 			height="810"
 			src="https://www.youtube.com/embed/FooxBhjNG3E"
@@ -148,7 +137,6 @@ export const videos = {
 	),
 	talis: (
 		<iframe
-			key="talis"
 			width="1440"
 			height="810"
 			src="https://www.youtube.com/embed/M8TVkpTIlI0"
@@ -161,7 +149,6 @@ export const videos = {
 	),
 	cargha: (
 		<iframe
-			key="cargha"
 			width="1440"
 			height="810"
 			src="https://www.youtube.com/embed/_FzmNukhxFo"
@@ -174,7 +161,6 @@ export const videos = {
 	),
 	crow: (
 		<iframe
-			key="crow"
 			width="1440"
 			height="810"
 			src="https://www.youtube.com/embed/oRzRz7eev2c"
@@ -187,7 +173,6 @@ export const videos = {
 	),
 	becomingRuna: (
 		<iframe
-			key="becoming-runa"
 			width="1440"
 			height="810"
 			src="https://www.youtube.com/embed/PxoZ4MjlxOY"
@@ -200,14 +185,202 @@ export const videos = {
 	),
 };
 
+export const thumbs: {
+	[index: string]: galleryTypes.ThumbnailKeyType;
+} = {
+	samilPortrait: {
+		path: "/images/gallery/samil-portrait/final/kyle-jorve_samil-portrait",
+		alt: "a portrait of Samil Sealee",
+		width: 1920,
+		height: 2485,
+		orientation: "center",
+	},
+	samil: {
+		path: "/images/gallery/samil/final/kyle-jorve_samil",
+		alt: "a vignette of Samil Sealee, looking apprehensively out of frame and gripping the handle of her saber",
+		width: 1920,
+		height: 2936,
+		orientation: "top",
+	},
+	kyraPortrait: {
+		path: "/images/gallery/kyra-portrait/final/kyle-jorve_kyra-portrait",
+		alt: "a portrait of Kyra Luckleav",
+		width: 1920,
+		height: 2485,
+		orientation: "center",
+	},
+	kyra: {
+		path: "/images/gallery/kyra/final/kyle-jorve_kyra",
+		alt: "a vignette of Kyra Luckleav, grinning and looking out of frame",
+		width: 1920,
+		height: 3162,
+		orientation: "top",
+	},
+	tovalPortrait: {
+		path: "/images/gallery/toval-portrait/final/kyle-jorve_toval-portrait",
+		alt: "a portrait of Toval Argensente",
+		width: 1920,
+		height: 2485,
+		orientation: "center",
+	},
+	toval: {
+		path: "/images/gallery/toval/final/kyle-jorve_toval",
+		alt: "a vignette of Toval Argensente, looking menacingly toward the viewer with a sword in her left hand pointed to the ground",
+		width: 1920,
+		height: 2592,
+		orientation: "top",
+	},
+	andelPortrait: {
+		path: "/images/gallery/andel-portrait/final/kyle-jorve_andel-portrait",
+		alt: "a portrait of Andel Sommer",
+		width: 1920,
+		height: 2485,
+		orientation: "center",
+	},
+	andel: {
+		path: "/images/gallery/andel/final/kyle-jorve_andel",
+		alt: `a vignette of Andel Sommer, who stands wearing his duke's finery, holding a sword in one hand and a heavy tome in another`,
+		width: 1920,
+		height: 2987,
+		orientation: "top",
+	},
+	pendrakePortrait: {
+		path: "/images/gallery/pendrake-portrait/final/kyle-jorve_pendrake-portrait",
+		alt: "a portrait of Pendrake Sommer",
+		width: 1920,
+		height: 2486,
+		orientation: "center",
+	},
+	pendrake: {
+		path: "/images/gallery/pendrake/final/kyle-jorve_pendrake",
+		alt: "a vignette of Pendrake Sommer, looking backward with a puzzled expression while gripping his saber",
+		width: 1920,
+		height: 3316,
+		orientation: "top",
+	},
+	talisPortrait: {
+		path: "/images/gallery/talis-portrait/final/kyle-jorve_talis-portrait",
+		alt: "a portrait of Talis Sommer",
+		width: 1920,
+		height: 2561,
+		orientation: "center",
+	},
+	talis: {
+		path: "/images/gallery/talis/final/kyle-jorve_talis",
+		alt: "Talis stands with an amused expression, her hand resting on the saber mounted to her belt",
+		width: 1920,
+		height: 3040,
+		orientation: "top",
+	},
+	carghaPortrait: {
+		path: "/images/gallery/cargha-portrait/final/kyle-jorve_cargha-portrait",
+		alt: "a portrait of Cargha Bezamik which features his scarred-over left eye and the tattoo which covers it",
+		width: 1920,
+		height: 2545,
+		orientation: "center",
+	},
+	cargha: {
+		path: "/images/gallery/cargha/final/kyle-jorve_cargha",
+		alt: "Cargha stands stoically, a dagger in one hand and a khopesh in the other",
+		width: 1920,
+		height: 3200,
+		orientation: "top",
+	},
+	crow: {
+		path: "/images/gallery/crow/final/kyle-jorve_crow",
+		alt: "Crow stands against a wall smoking an e-cigarette, his mechanical right eye glowing green",
+		width: 1920,
+		height: 2560,
+		orientation: "top",
+	},
+	pendrakesChamber: {
+		path: "/images/gallery/pendrakes-chamber/detail-1/kyle-jorve_pendrakes-chamber-detail-1",
+		alt: "a close-up crop of Pendrake and Kyra lying in bed together",
+		width: 1920,
+		height: 1920,
+		orientation: "center",
+	},
+	berned: {
+		path: "/images/gallery/berned/kyle-jorve_berned",
+		alt: "Berned stands before the circular red door to his house",
+		width: 1920,
+		height: 2560,
+		orientation: "center",
+	},
+	olfactory: {
+		path: "/images/gallery/olfactory/kyle-jorve_olfactory",
+		alt: "an alien breathes in the thick atmoshpere of its home planet through a mouth overgrown with filtering cilia",
+		width: 1920,
+		height: 2688,
+		orientation: "center",
+	},
+	becomingRuna: {
+		path: "/images/gallery/becoming-runa/kyle-jorve_becoming-runa",
+		alt: "Luna stands naked and emaciated beneath the symbol of the Order of the Runa, crystalline growths covering his body as his extremities fade from existence",
+		width: 1920,
+		height: 3757,
+		orientation: "center",
+	},
+	crows: {
+		path: "/images/gallery/crows/kyle-jorve_crows",
+		alt: "Crow stands before a cluster of dead ravens as more fall from the sky, a dead white raven at his feet",
+		width: 1920,
+		height: 3142,
+		orientation: "top",
+	},
+	kh1: {
+		path: "/images/gallery/kingdom-hearts-1/kyle-jorve_kingdom-hearts-1",
+		alt: "Sora, Riku, and Kairi stand on a sandy beach on Destiny Island",
+		width: 1920,
+		height: 2745,
+		orientation: "center",
+	},
+	kh2: {
+		path: "/images/gallery/kingdom-hearts-2/kyle-jorve_kingdom-hearts-2",
+		alt: "Riku, Namine, and Roxas stand on a dark, destroyed beach on Destiny Island; fissures crack the landscape; Mickey stands hidden in the distance; a heart-shaped moon glows overhead",
+		width: 1920,
+		height: 2745,
+		orientation: "center",
+	},
+};
+
 export const videoGallery: galleryTypes.VideoGalleryType = {
 	items: [
-		videos.samil,
-		videos.kyra,
-		videos.toval,
-		videos.andel,
-		videos.pendrake,
-		videos.talis,
+		{
+			name: "samil-portrait",
+			poster: thumbs.samilPortrait,
+			video: videos.samilPortrait,
+		},
+		{
+			name: "samil",
+			poster: thumbs.samil,
+			video: videos.samil,
+		},
+		{
+			name: "kyra",
+			poster: thumbs.kyra,
+			video: videos.kyra,
+		},
+		{
+			name: "toval",
+			poster: thumbs.toval,
+			video: videos.toval,
+		},
+		{
+			name: "andel",
+			poster: thumbs.andel,
+			video: videos.andel,
+		},
+		{
+			name: "pendrake",
+			poster: thumbs.pendrake,
+			video: videos.pendrake,
+		},
+		{
+			name: "talis",
+			poster: thumbs.talis,
+			video: videos.talis,
+		},
 	],
 	url: "https://www.youtube.com/@KyleJorve/videos",
 };
@@ -242,23 +415,14 @@ export const items: galleryTypes.GalleryItemType[] = [
 				</cite>
 			</blockquote>
 		),
-		orientation: "center",
 		featured: true,
 		categories: [
 			galleryTypes.projectCategories.ignobleBlood,
 			galleryTypes.characterCategories.samil,
 		],
-		thumbnailKey: {
-			path: "/images/gallery/samil-portrait/final/kyle-jorve_samil-portrait",
-			alt: "a portrait of Samil Sealee",
-		},
+		thumb: thumbs.samilPortrait,
 		detailKeys: [
-			{
-				path: "/images/gallery/samil-portrait/final/kyle-jorve_samil-portrait",
-				alt: "a portrait of Samil Sealee",
-				width: 1920,
-				height: 2485,
-			},
+			thumbs.samilPortrait,
 			{
 				path: "/images/gallery/samil-portrait/wip-1/kyle-jorve_samil-portrait-wip-1",
 				alt: `a progress snapshot of Samil Sealee's portrait in which the line drawing is complete`,
@@ -312,7 +476,6 @@ export const items: galleryTypes.GalleryItemType[] = [
 				respect and the respect of her peers.
 			</p>
 		),
-		orientation: "top",
 		featured: true,
 		categories: [
 			galleryTypes.projectCategories.ignobleBlood,
@@ -321,17 +484,9 @@ export const items: galleryTypes.GalleryItemType[] = [
 		purchaseLink:
 			"https://www.inprnt.com/gallery/kylejorve/samil-sealee/",
 		downloadLink: "https://kylejorve.gumroad.com/l/wwnaw",
-		thumbnailKey: {
-			path: "/images/gallery/samil/final/kyle-jorve_samil",
-			alt: "a vignette of Samil Sealee, looking apprehensively out of frame and gripping the handle of her saber",
-		},
+		thumb: thumbs.samil,
 		detailKeys: [
-			{
-				path: "/images/gallery/samil/final/kyle-jorve_samil",
-				alt: "a vignette of Samil Sealee, looking apprehensively out of frame and gripping the handle of her saber",
-				width: 1920,
-				height: 2936,
-			},
+			thumbs.samil,
 			{
 				path: "/images/gallery/samil/wip-1/kyle-jorve_samil-wip-1",
 				alt: `a nude pose study for Samil's vignette`,
@@ -386,7 +541,6 @@ export const items: galleryTypes.GalleryItemType[] = [
 				</p>
 			</blockquote>
 		),
-		orientation: "center",
 		featured: true,
 		categories: [
 			galleryTypes.projectCategories.ignobleBlood,
@@ -395,17 +549,9 @@ export const items: galleryTypes.GalleryItemType[] = [
 		purchaseLink:
 			"https://www.inprnt.com/gallery/kylejorve/kyra-luckleav-portrait/",
 		downloadLink: "https://kylejorve.gumroad.com/l/vrxhc",
-		thumbnailKey: {
-			path: "/images/gallery/kyra-portrait/final/kyle-jorve_kyra-portrait",
-			alt: "a portrait of Kyra Luckleav",
-		},
+		thumb: thumbs.kyraPortrait,
 		detailKeys: [
-			{
-				path: "/images/gallery/kyra-portrait/final/kyle-jorve_kyra-portrait",
-				alt: "a portrait of Kyra Luckleav",
-				width: 1920,
-				height: 2485,
-			},
+			thumbs.kyraPortrait,
 			{
 				path: "/images/gallery/kyra-portrait/wip-1/kyle-jorve_kyra-portrait-wip-1",
 				alt: `a progress snapshot of Kyra Luckleav's portrait in which the line drawing is complete`,
@@ -464,7 +610,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 				his love for her nearly gets him killed.
 			</p>
 		),
-		orientation: "top",
+
 		featured: true,
 		categories: [
 			galleryTypes.projectCategories.ignobleBlood,
@@ -473,17 +619,9 @@ export const items: galleryTypes.GalleryItemType[] = [
 		purchaseLink:
 			"https://www.inprnt.com/gallery/kylejorve/kyra-luckleav/",
 		downloadLink: "https://kylejorve.gumroad.com/l/jlwzc",
-		thumbnailKey: {
-			path: "/images/gallery/kyra/final/kyle-jorve_kyra",
-			alt: "a vignette of Kyra Luckleav, grinning and looking out of frame",
-		},
+		thumb: thumbs.kyra,
 		detailKeys: [
-			{
-				path: "/images/gallery/kyra/final/kyle-jorve_kyra",
-				alt: "a vignette of Kyra Luckleav, grinning and looking out of frame",
-				width: 1920,
-				height: 3162,
-			},
+			thumbs.kyra,
 			{
 				path: "/images/gallery/kyra/wip-1/kyle-jorve_kyra-wip-1",
 				alt: `a nude pose study for Kyra's vignette`,
@@ -537,7 +675,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 				</p>
 			</blockquote>
 		),
-		orientation: "center",
+
 		featured: true,
 		categories: [
 			galleryTypes.projectCategories.ignobleBlood,
@@ -546,17 +684,9 @@ export const items: galleryTypes.GalleryItemType[] = [
 		purchaseLink:
 			"https://www.inprnt.com/gallery/kylejorve/toval-argensente-portrait/",
 		downloadLink: "https://kylejorve.gumroad.com/l/vcwgb",
-		thumbnailKey: {
-			path: "/images/gallery/toval-portrait/final/kyle-jorve_toval-portrait",
-			alt: "a portrait of Toval Argensente",
-		},
+		thumb: thumbs.tovalPortrait,
 		detailKeys: [
-			{
-				path: "/images/gallery/toval-portrait/final/kyle-jorve_toval-portrait",
-				alt: "a portrait of Toval Argensente",
-				width: 1920,
-				height: 2485,
-			},
+			thumbs.tovalPortrait,
 			{
 				path: "/images/gallery/toval-portrait/wip-1/kyle-jorve_toval-portrait-wip-1",
 				alt: `a progress snapshot of Toval Argensente's portrait in which the line drawing is complete`,
@@ -620,7 +750,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 				</p>
 			</Fragment>
 		),
-		orientation: "top",
+
 		featured: true,
 		categories: [
 			galleryTypes.projectCategories.ignobleBlood,
@@ -629,17 +759,9 @@ export const items: galleryTypes.GalleryItemType[] = [
 		purchaseLink:
 			"https://www.inprnt.com/gallery/kylejorve/toval-argensente/",
 		downloadLink: "https://kylejorve.gumroad.com/l/ogpkj",
-		thumbnailKey: {
-			path: "/images/gallery/toval/final/kyle-jorve_toval",
-			alt: "a vignette of Toval Argensente, looking menacingly toward the viewer with a sword in her left hand pointed to the ground",
-		},
+		thumb: thumbs.toval,
 		detailKeys: [
-			{
-				path: "/images/gallery/toval/final/kyle-jorve_toval",
-				alt: "a vignette of Toval Argensente, looking menacingly toward the viewer with a sword in her left hand pointed to the ground",
-				width: 1920,
-				height: 2592,
-			},
+			thumbs.toval,
 			{
 				path: "/images/gallery/toval/wip-1/kyle-jorve_toval-wip-1",
 				alt: `a nude pose study for Toval's vignette`,
@@ -697,7 +819,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 				</p>
 			</blockquote>
 		),
-		orientation: "center",
+
 		categories: [
 			galleryTypes.projectCategories.ignobleBlood,
 			galleryTypes.characterCategories.andel,
@@ -705,17 +827,9 @@ export const items: galleryTypes.GalleryItemType[] = [
 		purchaseLink:
 			"https://www.inprnt.com/gallery/kylejorve/andel-portrait/",
 		downloadLink: "https://kylejorve.gumroad.com/l/ungde",
-		thumbnailKey: {
-			path: "/images/gallery/andel-portrait/final/kyle-jorve_andel-portrait",
-			alt: "a portrait of Andel Sommer",
-		},
+		thumb: thumbs.andelPortrait,
 		detailKeys: [
-			{
-				path: "/images/gallery/andel-portrait/final/kyle-jorve_andel-portrait",
-				alt: "a portrait of Andel Sommer",
-				width: 1920,
-				height: 2485,
-			},
+			thumbs.andelPortrait,
 			{
 				path: "/images/gallery/andel-portrait/wip-1/kyle-jorve_andel-portrait-wip-1",
 				alt: `a progress snapshot of Andel Sommer's portrait in which the line drawing is complete`,
@@ -778,7 +892,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 				</p>
 			</Fragment>
 		),
-		orientation: "top",
+
 		featured: true,
 		categories: [
 			galleryTypes.projectCategories.ignobleBlood,
@@ -787,17 +901,9 @@ export const items: galleryTypes.GalleryItemType[] = [
 		purchaseLink:
 			"https://www.inprnt.com/gallery/kylejorve/andel-sommer/",
 		downloadLink: "https://kylejorve.gumroad.com/l/vqdvkj",
-		thumbnailKey: {
-			path: "/images/gallery/andel/final/kyle-jorve_andel",
-			alt: `a vignette of Andel Sommer, who stands wearing his duke's finery, holding a sword in one hand and a heavy tome in another`,
-		},
+		thumb: thumbs.andel,
 		detailKeys: [
-			{
-				path: "/images/gallery/andel/final/kyle-jorve_andel",
-				alt: "Andel Sommer stands proudly, a sheathed sword in one hand and a heavy tome in the other",
-				width: 1920,
-				height: 2987,
-			},
+			thumbs.andel,
 			{
 				path: "/images/gallery/andel/wip-1/kyle-jorve_andel-wip-1",
 				alt: "an in-progress image of Andel in the nude pose phase of the piece",
@@ -852,7 +958,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 				</cite>
 			</blockquote>
 		),
-		orientation: "center",
+
 		categories: [
 			galleryTypes.projectCategories.ignobleBlood,
 			galleryTypes.characterCategories.pendrake,
@@ -860,17 +966,9 @@ export const items: galleryTypes.GalleryItemType[] = [
 		purchaseLink:
 			"https://www.inprnt.com/gallery/kylejorve/pendrake-portrait/",
 		downloadLink: "https://kylejorve.gumroad.com/l/hhgin",
-		thumbnailKey: {
-			path: "/images/gallery/pendrake-portrait/final/kyle-jorve_pendrake-portrait",
-			alt: "a portrait of Pendrake Sommer",
-		},
+		thumb: thumbs.pendrakePortrait,
 		detailKeys: [
-			{
-				path: "/images/gallery/pendrake-portrait/final/kyle-jorve_pendrake-portrait",
-				alt: "a portrait of Pendrake Sommer",
-				width: 1920,
-				height: 2486,
-			},
+			thumbs.pendrakePortrait,
 			{
 				path: "/images/gallery/pendrake-portrait/wip-1/kyle-jorve_pendrake-portrait-wip-1",
 				alt: `a progress snapshot of Pendrake's portrait in which the line drawing has been finished`,
@@ -926,7 +1024,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 				</p>
 			</Fragment>
 		),
-		orientation: "top",
+
 		featured: true,
 		categories: [
 			galleryTypes.projectCategories.ignobleBlood,
@@ -935,17 +1033,9 @@ export const items: galleryTypes.GalleryItemType[] = [
 		purchaseLink:
 			"https://www.inprnt.com/gallery/kylejorve/pendrake-sommer/",
 		downloadLink: "https://kylejorve.gumroad.com/l/ndwgm",
-		thumbnailKey: {
-			path: "/images/gallery/pendrake/final/kyle-jorve_pendrake",
-			alt: "a vignette of Pendrake Sommer, looking backward with a puzzled expression while gripping his saber",
-		},
+		thumb: thumbs.pendrake,
 		detailKeys: [
-			{
-				path: "/images/gallery/pendrake/final/kyle-jorve_pendrake",
-				alt: "a vignette of Pendrake Sommer, looking backward with a puzzled expression while gripping his saber",
-				width: 1920,
-				height: 3316,
-			},
+			thumbs.pendrake,
 			{
 				path: "/images/gallery/pendrake/wip-1/kyle-jorve_pendrake-wip-1",
 				alt: `a nude pose study for Pendrake's vignette`,
@@ -1000,7 +1090,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 				</cite>
 			</blockquote>
 		),
-		orientation: "center",
+
 		categories: [
 			galleryTypes.projectCategories.ignobleBlood,
 			galleryTypes.characterCategories.talis,
@@ -1008,17 +1098,9 @@ export const items: galleryTypes.GalleryItemType[] = [
 		purchaseLink:
 			"https://www.inprnt.com/gallery/kylejorve/talis-portrait/",
 		downloadLink: "https://kylejorve.gumroad.com/l/bgvVML",
-		thumbnailKey: {
-			path: "/images/gallery/talis-portrait/final/kyle-jorve_talis-portrait",
-			alt: "a portrait of Talis Sommer",
-		},
+		thumb: thumbs.talisPortrait,
 		detailKeys: [
-			{
-				path: "/images/gallery/talis-portrait/final/kyle-jorve_talis-portrait",
-				alt: "a portrait of Talis Sommer",
-				width: 1920,
-				height: 2561,
-			},
+			thumbs.talisPortrait,
 			{
 				path: "/images/gallery/talis-portrait/wip-1/kyle-jorve_talis-portrait-wip-1",
 				alt: `a progress snapshot of Talis's portrait in which the line drawing is complete`,
@@ -1082,7 +1164,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 				</p>
 			</Fragment>
 		),
-		orientation: "top",
+
 		featured: true,
 		categories: [
 			galleryTypes.projectCategories.ignobleBlood,
@@ -1091,17 +1173,9 @@ export const items: galleryTypes.GalleryItemType[] = [
 		purchaseLink:
 			"https://www.inprnt.com/gallery/kylejorve/talis-sommer/",
 		downloadLink: "https://kylejorve.gumroad.com/l/CQNFi",
-		thumbnailKey: {
-			path: "/images/gallery/talis/final/kyle-jorve_talis",
-			alt: "Talis stands with an amused expression, her hand resting on the saber mounted to her belt",
-		},
+		thumb: thumbs.talis,
 		detailKeys: [
-			{
-				path: "/images/gallery/talis/final/kyle-jorve_talis",
-				alt: "Talis stands with an amused expression, her hand resting on the saber mounted to her belt",
-				width: 1920,
-				height: 3040,
-			},
+			thumbs.talis,
 			{
 				path: "/images/gallery/talis/wip-1/kyle-jorve_talis-wip-1",
 				alt: `a progress snapshot of Talis's vignette in which the line drawing is complete`,
@@ -1148,7 +1222,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 				</p>
 			</blockquote>
 		),
-		orientation: "center",
+
 		featured: true,
 		categories: [
 			galleryTypes.projectCategories.ignobleBlood,
@@ -1157,17 +1231,9 @@ export const items: galleryTypes.GalleryItemType[] = [
 		purchaseLink:
 			"https://www.inprnt.com/gallery/kylejorve/cargha-portrait/",
 		downloadLink: "https://kylejorve.gumroad.com/l/LNffV",
-		thumbnailKey: {
-			path: "/images/gallery/cargha-portrait/final/kyle-jorve_cargha-portrait",
-			alt: "a portrait of Cargha Bezamik which features his scarred-over left eye and the tattoo which covers it",
-		},
+		thumb: thumbs.carghaPortrait,
 		detailKeys: [
-			{
-				path: "/images/gallery/cargha-portrait/final/kyle-jorve_cargha-portrait",
-				alt: "a portrait of Cargha Bezamik which features his scarred-over left eye and the tattoo which covers it",
-				width: 1920,
-				height: 2545,
-			},
+			thumbs.carghaPortrait,
 			{
 				path: "/images/gallery/cargha-portrait/wip-1/kyle-jorve_cargha-portrait-wip-1",
 				alt: `a progress snapshot of Cargha's portrait in which the line drawing is complete`,
@@ -1207,7 +1273,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 				often nebulous.
 			</p>
 		),
-		orientation: "top",
+
 		featured: true,
 		categories: [
 			galleryTypes.projectCategories.ignobleBlood,
@@ -1216,17 +1282,9 @@ export const items: galleryTypes.GalleryItemType[] = [
 		purchaseLink:
 			"https://www.inprnt.com/gallery/kylejorve/cargha-bezamik/",
 		downloadLink: "https://kylejorve.gumroad.com/l/olwWz",
-		thumbnailKey: {
-			path: "/images/gallery/cargha/final/kyle-jorve_cargha",
-			alt: "Cargha stands stoically, a dagger in one hand and a khopesh in the other",
-		},
+		thumb: thumbs.cargha,
 		detailKeys: [
-			{
-				path: "/images/gallery/cargha/final/kyle-jorve_cargha",
-				alt: "Cargha stands stoically, a dagger in one hand and a khopesh in the other",
-				width: 1920,
-				height: 3200,
-			},
+			thumbs.cargha,
 			{
 				path: "/images/gallery/cargha/wip-1/kyle-jorve_cargha-wip-1",
 				alt: `a nude pose study for Cargha's vignette`,
@@ -1310,7 +1368,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 				</p>
 			</Fragment>
 		),
-		orientation: "top",
+
 		featured: true,
 		categories: [
 			galleryTypes.projectCategories.postAutumn,
@@ -1318,17 +1376,9 @@ export const items: galleryTypes.GalleryItemType[] = [
 		],
 		purchaseLink: "https://www.inprnt.com/gallery/kylejorve/crow/",
 		downloadLink: "https://gumroad.com/l/fTSADI",
-		thumbnailKey: {
-			path: "/images/gallery/crow/final/kyle-jorve_crow",
-			alt: "Crow stands against a wall smoking an e-cigarette, his mechanical right eye glowing green",
-		},
+		thumb: thumbs.crow,
 		detailKeys: [
-			{
-				path: "/images/gallery/crow/final/kyle-jorve_crow",
-				alt: "Crow stands against a wall smoking an e-cigarette, his mechanical right eye glowing green",
-				width: 1920,
-				height: 2560,
-			},
+			thumbs.crow,
 			{
 				path: "/images/gallery/crow/detail-1/kyle-jorve_crow-detail-1",
 				alt: `a detailed crop showing Crow's face`,
@@ -1369,7 +1419,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 				</p>
 			</blockquote>
 		),
-		orientation: "center",
+
 		featured: true,
 		categories: [
 			galleryTypes.projectCategories.ignobleBlood,
@@ -1379,10 +1429,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 		purchaseLink:
 			"https://www.inprnt.com/gallery/kylejorve/pendrakes-chamber/",
 		downloadLink: "https://gumroad.com/l/mQzix",
-		thumbnailKey: {
-			path: "/images/gallery/pendrakes-chamber/detail-1/kyle-jorve_pendrakes-chamber-detail-1",
-			alt: "a close-up crop of Pendrake and Kyra lying in bed together",
-		},
+		thumb: thumbs.pendrakesChamber,
 		detailKeys: [
 			{
 				path: "/images/gallery/pendrakes-chamber/final/kyle-jorve_pendrakes-chamber",
@@ -1390,12 +1437,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 				width: 1920,
 				height: 2095,
 			},
-			{
-				path: "/images/gallery/pendrakes-chamber/detail-1/kyle-jorve_pendrakes-chamber-detail-1",
-				alt: "a close-up crop of Pendrake and Kyra lying in bed together",
-				width: 1920,
-				height: 1920,
-			},
+			thumbs.pendrakesChamber,
 			{
 				path: "/images/gallery/pendrakes-chamber/detail-2/kyle-jorve_pendrakes-chamber-detail-2",
 				alt: `a close-up crop of the vanity in the corner of Pendrake's room`,
@@ -1467,7 +1509,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 				</p>
 			</Fragment>
 		),
-		orientation: "center",
+
 		featured: true,
 		categories: [
 			galleryTypes.projectCategories.ignobleBlood,
@@ -1476,18 +1518,8 @@ export const items: galleryTypes.GalleryItemType[] = [
 		purchaseLink:
 			"https://www.inprnt.com/gallery/kylejorve/berned/",
 		downloadLink: "https://gumroad.com/l/JKDSd",
-		thumbnailKey: {
-			path: "/images/gallery/berned/kyle-jorve_berned",
-			alt: "Berned stands before the circular red door to his house",
-		},
-		detailKeys: [
-			{
-				path: "/images/gallery/berned/kyle-jorve_berned",
-				alt: "Berned stands before the circular red door to his house",
-				width: 1920,
-				height: 2560,
-			},
-		],
+		thumb: thumbs.berned,
+		detailKeys: [thumbs.berned],
 	},
 	{
 		name: "olfactory",
@@ -1511,23 +1543,13 @@ export const items: galleryTypes.GalleryItemType[] = [
 				</p>
 			</Fragment>
 		),
-		orientation: "center",
+
 		featured: true,
 		purchaseLink:
 			"https://www.inprnt.com/gallery/kylejorve/olfactory/",
 		downloadLink: "https://gumroad.com/l/KMcGj",
-		thumbnailKey: {
-			path: "/images/gallery/olfactory/kyle-jorve_olfactory",
-			alt: "an alien breathes in the thick atmoshpere of its home planet through a mouth overgrown with filtering cilia",
-		},
-		detailKeys: [
-			{
-				path: "/images/gallery/olfactory/kyle-jorve_olfactory",
-				alt: "an alien breathes in the thick atmoshpere of its home planet through a mouth overgrown with filtering cilia",
-				width: 1920,
-				height: 2688,
-			},
-		],
+		thumb: thumbs.olfactory,
+		detailKeys: [thumbs.olfactory],
 	},
 	{
 		name: "becoming-runa",
@@ -1567,7 +1589,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 				</p>
 			</Fragment>
 		),
-		orientation: "center",
+
 		featured: true,
 		categories: [
 			galleryTypes.projectCategories.ignobleBlood,
@@ -1576,17 +1598,9 @@ export const items: galleryTypes.GalleryItemType[] = [
 		purchaseLink:
 			"https://www.inprnt.com/gallery/kylejorve/becoming-runa/",
 		downloadLink: "https://gumroad.com/l/UluBo",
-		thumbnailKey: {
-			path: "/images/gallery/becoming-runa/kyle-jorve_becoming-runa",
-			alt: "Luna stands naked and emaciated beneath the symbol of the Order of the Runa, crystalline growths covering his body as his extremities fade from existence",
-		},
+		thumb: thumbs.becomingRuna,
 		detailKeys: [
-			{
-				path: "/images/gallery/becoming-runa/kyle-jorve_becoming-runa",
-				alt: "Luna stands naked beneath the symbol of the Order of the Runa, crystalline growths covering his body as his extremities fade from existence",
-				width: 1920,
-				height: 3757,
-			},
+			thumbs.becomingRuna,
 			{
 				source: videos.becomingRuna,
 			},
@@ -1636,25 +1650,15 @@ export const items: galleryTypes.GalleryItemType[] = [
 				</p>
 			</Fragment>
 		),
-		orientation: "top",
+
 		categories: [
 			galleryTypes.projectCategories.postAutumn,
 			galleryTypes.characterCategories.crow,
 		],
 		purchaseLink: "https://www.inprnt.com/gallery/kylejorve/crows/",
 		downloadLink: "https://gumroad.com/l/itBYi",
-		thumbnailKey: {
-			path: "/images/gallery/crows/kyle-jorve_crows",
-			alt: "Crow stands before a cluster of dead ravens as more fall from the sky, a dead white raven at his feet",
-		},
-		detailKeys: [
-			{
-				path: "/images/gallery/crows/kyle-jorve_crows",
-				alt: "Crow stands before a cluster of dead ravens as more fall from the sky, a dead white raven at his feet",
-				width: 1920,
-				height: 3142,
-			},
-		],
+		thumb: thumbs.crows,
+		detailKeys: [thumbs.crows],
 	},
 	{
 		name: "kingdom-hearts-1",
@@ -1682,25 +1686,15 @@ export const items: galleryTypes.GalleryItemType[] = [
 				</p>
 			</Fragment>
 		),
-		orientation: "center",
+
 		categories: [
 			galleryTypes.projectCategories.fanArt,
 			galleryTypes.characterCategories.sora,
 			galleryTypes.characterCategories.kairi,
 			galleryTypes.characterCategories.riku,
 		],
-		thumbnailKey: {
-			path: "/images/gallery/kingdom-hearts-1/kyle-jorve_kingdom-hearts-1",
-			alt: "Sora, Riku, and Kairi stand on a sandy beach on Destiny Island",
-		},
-		detailKeys: [
-			{
-				path: "/images/gallery/kingdom-hearts-1/kyle-jorve_kingdom-hearts-1",
-				alt: "Sora, Riku, and Kairi stand on a sandy beach on Destiny Island",
-				width: 1920,
-				height: 2745,
-			},
-		],
+		thumb: thumbs.kh1,
+		detailKeys: [thumbs.kh1],
 	},
 	{
 		name: "kingdom-hearts-2",
@@ -1728,24 +1722,14 @@ export const items: galleryTypes.GalleryItemType[] = [
 				</p>
 			</Fragment>
 		),
-		orientation: "center",
+
 		categories: [
 			galleryTypes.projectCategories.fanArt,
 			galleryTypes.characterCategories.riku,
 			galleryTypes.characterCategories.roxas,
 			galleryTypes.characterCategories.namine,
 		],
-		thumbnailKey: {
-			path: "/images/gallery/kingdom-hearts-2/kyle-jorve_kingdom-hearts-2",
-			alt: "Riku, Namine, and Roxas stand on a dark, destroyed beach on Destiny Island; fissures crack the landscape; Mickey stands hidden in the distance; a heart-shaped moon glows overhead",
-		},
-		detailKeys: [
-			{
-				path: "/images/gallery/kingdom-hearts-2/kyle-jorve_kingdom-hearts-2",
-				alt: "Riku, Namine, and Roxas stand on a dark, destroyed beach on Destiny Island; fissures crack the landscape; Mickey stands hidden in the distance; a heart-shaped moon glows overhead",
-				width: 1920,
-				height: 2745,
-			},
-		],
+		thumb: thumbs.kh2,
+		detailKeys: [thumbs.kh2],
 	},
 ];

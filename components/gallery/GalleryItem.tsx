@@ -26,7 +26,7 @@ export default function GalleryItem(props: GalleryItemProps) {
 	const mediaConfig = useThumbnailConfig({
 		isNew: props.isNew,
 		isFeatured: props.isFeatured,
-		thumbnailKey: props.thumbnailKey,
+		thumbnailKey: props.thumb.path,
 	});
 	const mobileImgSrc = mediaConfig.mobile.url;
 	const classes = [
@@ -104,7 +104,7 @@ export default function GalleryItem(props: GalleryItemProps) {
 						ref={imgRef}
 						className={`img--lazy ${styles["gallery__img"]}`}
 						style={{
-							objectPosition: `center ${props.orientation}`,
+							objectPosition: `center ${props.thumbnailKey.orientation}`,
 						}}
 						src={mobileImgSrc}
 						alt={props.thumbnailKey.alt}

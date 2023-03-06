@@ -235,7 +235,7 @@
 		}
 	}
 
-	@media (min-width: 40em) {
+	@media (min-width: 64em) {
 		.button {
 			font-size: var(--text-sm);
 		}
@@ -257,6 +257,15 @@
 		.arrow-button {
 			width: 48px;
 			font-size: var(--text-lg);
+		}
+
+		.slider-dots {
+			gap: 0.75rem;
+		}
+
+		.slider-dot {
+			width: 16px;
+			height: 16px;
 		}
 	}
 }
