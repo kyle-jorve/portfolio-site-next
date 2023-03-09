@@ -3,19 +3,23 @@ import { useRouter } from "next/router";
 import CustomLink from "../link/CustomLink";
 import styles from "../../../styles/layout/Nav.module.css";
 
-export default function NavItem(props: NavItemProps) {
+export default function NavItem({
+	url,
+	children,
+	onClick = () => {},
+	isMobileNav = false,
+	className = "",
+	...otherProps
+}: NavItemProps) {
 	const router = useRouter();
-	const onClick = props.onClick || (() => {});
-	const linkIsExternal = props.url.includes("http");
+	const linkIsExternal = url.includes("http");
 	const classes = [
-		props.isMobileNav
-			? styles["mobile-nav__item"]
-			: styles["nav__item"],
-		router.pathname === props.url &&
-			(props.isMobileNav
+		isMobileNav ? styles["mobile-nav__item"] : styles["nav__item"],
+		router.pathname === url &&
+			(isMobileNav
 				? styles["mobile-nav__item--current"]
 				: styles["nav__item--current"]),
-		props.className,
+		...className.trim().split(" "),
 	]
 		.filter((c) => c)
 		.join(" ");
@@ -24,13 +28,13 @@ export default function NavItem(props: NavItemProps) {
 		return (
 			<a
 				className={classes}
-				href={props.url}
+				href={url}
 				target="_blank"
 				rel="noreferrer"
 				onClick={onClick}
-				{...props.attributes}
+				{...otherProps}
 			>
-				{props.children}
+				{children}
 			</a>
 		);
 	}
@@ -38,11 +42,11 @@ export default function NavItem(props: NavItemProps) {
 	return (
 		<CustomLink
 			className={classes}
-			to={props.url}
+			to={url}
 			onClick={onClick}
-			{...props.attributes}
+			{...otherProps}
 		>
-			{props.children}
+			{children}
 		</CustomLink>
 	);
 }

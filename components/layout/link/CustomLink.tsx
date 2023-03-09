@@ -1,55 +1,68 @@
 import { useContext } from "react";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 import { CustomLinkProps } from "../../../types/global-types";
 import Link from "next/link";
 import LinkTooltip from "./LinkTooltip";
 import { items as galleryItems } from "../../../data/gallery-data";
 import SiteContext from "../../../context/global";
 
-export default function CustomLink(props: CustomLinkProps) {
-	const onClick = props.onClick || (() => {});
-	const router = useRouter();
+export default function CustomLink({
+	to,
+	children,
+	onClick = () => {},
+	useTooltip = false,
+	className = "",
+	tabIndex = undefined,
+	...otherProps
+}: CustomLinkProps) {
+	// const router = useRouter();
 	const siteContext = useContext(SiteContext);
 	const destinationIsDetailPage =
-		props.to.includes("/gallery/") && props.to.length > 9;
+		to.includes("/gallery/") && to.length > 9;
 	const itemID =
 		destinationIsDetailPage &&
-		props.to.split("/gallery/")[1].replace(/\//g, "");
+		to.split("/gallery/")[1].replace(/\//g, "");
 	const galleryItem =
 		destinationIsDetailPage &&
 		galleryItems.find((item) => item.name === itemID);
 	const hasTooltip =
-		destinationIsDetailPage && !!galleryItem && !!props.useTooltip;
-	const classes = [hasTooltip && "has-tooltip", props.className]
+		destinationIsDetailPage && !!galleryItem && !!useTooltip;
+	const classes = [
+		hasTooltip && "has-tooltip",
+		...className.trim().split(" "),
+	]
 		.filter((c) => c)
 		.join(" ");
 
-	function linkClickHandler(event: React.MouseEvent) {
-		if (siteContext.mobile) {
-			onClick(event);
+	// function linkClickHandler(event: React.MouseEvent) {
+	// 	if (siteContext.mobile) {
+	// 		onClick(event);
 
-			return;
-		}
+	// 		return;
+	// 	}
 
-		event.preventDefault();
+	// 	event.preventDefault();
 
-		onClick(event);
+	// 	onClick(event);
 
-		siteContext.toggleLoader();
+	// 	siteContext.toggleLoader();
 
-		setTimeout(() => {
-			router.push(props.to);
-		}, siteContext.longTransitionDuration);
-	}
+	// 	setTimeout(() => {
+	// 		router.push(to);
+	// 	}, siteContext.longTransitionDuration);
+	// }
 
 	return (
 		<Link
 			className={classes}
-			href={props.to}
-			onClick={linkClickHandler}
-			{...props.attributes}
+			href={to}
+			// onClick={linkClickHandler}
+			tabIndex={
+				siteContext.lightboxStatus === "open" ? -1 : undefined
+			}
+			{...otherProps}
 		>
-			{props.children}
+			{children}
 			{hasTooltip && <LinkTooltip galleryItem={galleryItem} />}
 		</Link>
 	);

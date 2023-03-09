@@ -9,18 +9,17 @@ type SiteContextType = {
 const resizeEvents = ["resize", "orientationchange"];
 const breakpoint = 1024;
 const SiteContext = React.createContext<SiteContextType>({
-	fromPage: null,
-	fromSection: null,
+	lightboxStatus: "closed",
 	loadStatus: "idle",
 	mobile: true,
 	pageNotFound: false,
 	toSection: null,
 	visited: false,
 
+	closeLightbox: () => {},
+	openLightbox: () => {},
 	removeLoader: () => {},
 	returnToOriginPage: () => {},
-	setFromPage: () => {},
-	setFromSection: () => {},
 	setPageNotFound: () => {},
 	setToSection: () => {},
 	setVisited: () => {},
@@ -37,10 +36,12 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
 	//----- global site context -----//
 	const [visited, setVisited] = useState(false);
 	const [mobile, setMobile] = useState(true);
-	const [fromPage, setFromPage] = useState(null);
-	const [fromSection, setFromSection] = useState(null);
-	const [toSection, setToSection] = useState(null);
 	const [loadStatus, setLoadStatus] = useState("idle");
+	const [lightboxStatus, setLightboxStatus] = useState<
+		"closed" | "open" | "out"
+	>("closed");
+	const [lightboxContent, setLightboxContent] =
+		useState<JSX.Element | null>(null);
 	const [pageNotFound, setPageNotFound] = useState(false);
 
 	//----- global utilities -----//
@@ -82,43 +83,38 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
 		}
 	}
 
-	function returnToOriginPage() {
-		const timeout = mobile ? 0 : transitions.long;
-		let page;
+	function openLightbox(content: JSX.Element) {
+		if (!content) return;
 
-		toggleLoader();
+		setLightboxContent(content);
+		setLightboxStatus("open");
+	}
+
+	function closeLightbox() {
+		if (lightboxStatus === "closed") return;
+
+		setLightboxStatus("out");
 
 		setTimeout(() => {
-			if (!fromPage) {
-				router.push("/");
-				return;
-			}
-
-			page = pages.find((p) => p.pageID === fromPage);
-
-			if (!page) return;
-
-			router.push(page.url);
-		}, timeout);
+			setLightboxContent(null);
+			setLightboxStatus("closed");
+		}, transitions.short);
 	}
 
 	return (
 		<SiteContext.Provider
 			value={{
-				fromPage,
-				fromSection,
+				lightboxContent,
+				lightboxStatus,
 				loadStatus,
 				mobile,
 				pageNotFound,
-				toSection,
 				visited,
 
+				closeLightbox,
+				openLightbox,
 				removeLoader,
-				returnToOriginPage,
-				setFromPage,
-				setFromSection,
 				setPageNotFound,
-				setToSection,
 				setVisited,
 				toggleLoader,
 			}}

@@ -1,11 +1,30 @@
+import { useContext } from "react";
+import SiteContext from "../../../context/global";
+import { VideoGalleryProps } from "../../../types/gallery-types";
 import { videoGallery } from "../../../data/gallery-data";
 import VideoGalleryItem from "./VideoGalleryItem";
-import Script from "next/script";
 import styles from "../../../styles/components/VideoGallery.module.css";
 
-export default function VideoGallery() {
+export default function VideoGallery({
+	className = "",
+	...otherProps
+}: VideoGalleryProps) {
+	const context = useContext(SiteContext);
+	const classes = [
+		...className.trim().split(" "),
+		"section",
+		"swoops",
+		"swoops--right",
+		styles["video-gallery"],
+	]
+		.filter((c) => c)
+		.join(" ");
+
 	return (
-		<section className={`section ${styles["video-gallery"]}`}>
+		<section
+			className={classes}
+			{...otherProps}
+		>
 			<div
 				className={`${styles["video-gallery__inner"]} wrapper wrapper--wide`}
 			>
@@ -32,23 +51,16 @@ export default function VideoGallery() {
 						href={videoGallery.url}
 						target="_blank"
 						rel="noreferrer"
+						tabIndex={
+							context.lightboxStatus === "open"
+								? -1
+								: undefined
+						}
 					>
 						See More
 					</a>
 				</div>
 			</div>
-
-			{videoGallery.items.map((item) => {
-				return (
-					<Script
-						key={item.name}
-						type="text/template"
-						id={`vid-${item.name}`}
-					>
-						{item.video}
-					</Script>
-				);
-			})}
 		</section>
 	);
 }

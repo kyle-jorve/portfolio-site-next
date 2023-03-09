@@ -1,8 +1,20 @@
+import { HomeHeroProps } from "../../types/global-types";
 import { heroImage } from "../../data/home-data";
 import CustomLink from "./link/CustomLink";
 import styles from "../../styles/layout/Hero.module.css";
 
-export default function HomeHero() {
+export default function HomeHero({
+	className = "",
+	...otherProps
+}: HomeHeroProps) {
+	const classes = [
+		...className.trim().split(" "),
+		"section",
+		styles.hero,
+	]
+		.filter((c) => c)
+		.join(" ");
+
 	function scrollIconClickHandler() {
 		const featuredWorkSection =
 			document.querySelector("#featured-work");
@@ -15,7 +27,10 @@ export default function HomeHero() {
 	}
 
 	return (
-		<section className={`section ${styles.hero}`}>
+		<section
+			className={classes}
+			{...otherProps}
+		>
 			<div className={styles["hero__inner"]}>
 				<div className={styles["hero__content-col"]}>
 					<h1 className={styles["hero__title"]}>

@@ -1,9 +1,27 @@
 import { bio } from "../../data/cv-data";
+import { BioProps } from "../../types/cv-types";
+import CustomLink from "../layout/link/CustomLink";
 import styles from "../../styles/components/Bio.module.css";
 
-export default function Bio() {
+export default function Bio({
+	className = "",
+	...otherProps
+}: BioProps) {
+	const classes = [
+		...className.trim().split(" "),
+		"section",
+		"swoops",
+		"swoops--left",
+		styles.bio,
+	]
+		.filter((c) => c)
+		.join(" ");
+
 	return (
-		<section className={`section ${styles.bio}`}>
+		<section
+			className={classes}
+			{...otherProps}
+		>
 			<div
 				className={`wrapper wrapper--wide ${styles["bio__row"]}`}
 			>
@@ -22,11 +40,18 @@ export default function Bio() {
 				<div
 					className={`content-box ${styles["bio__content"]}`}
 				>
-					<h2 className={`underline ${styles["bio__title"]}`}>
-						{bio.title}
-					</h2>
+					<h2 className="underline small">{bio.title}</h2>
 
 					{bio.content}
+
+					<div className={styles["bio__button-row"]}>
+						<CustomLink
+							className="button button--primary button--arrow"
+							to="/cv#resume"
+						>
+							See R&eacute;sum&eacute;
+						</CustomLink>
+					</div>
 				</div>
 
 				<div className={`fancy-image ${styles["bio__image"]}`}>

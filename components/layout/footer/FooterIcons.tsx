@@ -1,13 +1,18 @@
+import { FooterIconProps } from "../../../types/global-types";
 import { socialIcons } from "../../../data/global-data";
 import { SocialIconType } from "../../../types/global-types";
 import styles from "../../../styles/layout/Social.module.css";
 
-export default function FooterIcons() {
+export default function FooterIcons({
+	className = "",
+	...otherProps
+}: FooterIconProps) {
 	function printIcon(icon: SocialIconType) {
 		const classes = [
 			styles["social__icon"],
 			styles[`social__icon--${icon.name}`],
 			styles[`social__icon--${icon.type}`],
+			...className.trim().split(" "),
 		]
 			.filter((c) => c)
 			.join(" ");
@@ -27,7 +32,10 @@ export default function FooterIcons() {
 	}
 
 	return (
-		<div className={styles.social}>
+		<div
+			className={styles.social}
+			{...otherProps}
+		>
 			<div className={styles["social__icons"]}>
 				{socialIcons
 					.filter((icon) => icon.type === "standard")

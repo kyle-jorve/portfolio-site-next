@@ -1,9 +1,20 @@
+import { FooterProps } from "../../../types/global-types";
 import FooterIcons from "./FooterIcons";
 import styles from "../../../styles/layout/Footer.module.css";
 
-export default function Footer() {
+export default function Footer({
+	className = "",
+	...otherProps
+}: FooterProps) {
+	const classes = [styles.footer, ...className.trim().split(" ")]
+		.filter((c) => c)
+		.join(" ");
+
 	return (
-		<footer className={styles.footer}>
+		<footer
+			className={classes}
+			{...otherProps}
+		>
 			<div className={styles["footer__inner"]}>
 				<FooterIcons />
 

@@ -1,18 +1,28 @@
 import { useContext, Fragment } from "react";
+import { HeaderNavigationProps } from "../../../types/global-types";
 import SiteContext from "../../../context/global";
 import { nav, headerCTA } from "../../../data/global-data";
 import NavItem from "./NavItem";
 import ParentNavItem from "./ParentNavItem";
 import styles from "../../../styles/layout/Nav.module.css";
 
-export default function HeaderNavigation() {
+export default function HeaderNavigation({
+	className = "",
+	...otherProps
+}: HeaderNavigationProps) {
 	const siteContext = useContext(SiteContext);
 	const navItems = nav.filter((item) =>
 		"showInMainNav" in item ? item.showInMainNav : true,
 	);
+	const classes = [...className.trim().split(" "), styles.nav]
+		.filter((c) => c)
+		.join(" ");
 
 	return (
-		<nav className={styles.nav}>
+		<nav
+			className={classes}
+			{...otherProps}
+		>
 			{!siteContext.mobile && (
 				<Fragment>
 					{navItems.map((item) => {

@@ -1,24 +1,49 @@
+import { useContext } from "react";
+import SiteContext from "../../../context/global";
 import { VideoGalleryItemProps } from "../../../types/gallery-types";
 import useThumbnailConfig from "../../../hooks/thumbnail-config";
 import styles from "../../../styles/components/VideoGallery.module.css";
 
-export default function VideoGalleryItem(props: VideoGalleryItemProps) {
+export default function VideoGalleryItem({
+	name,
+	title,
+	poster,
+	video,
+	className = "",
+	...otherProps
+}: VideoGalleryItemProps) {
+	const context = useContext(SiteContext);
 	const thumb = useThumbnailConfig({
-		thumbKey: props.poster.path,
+		thumbKey: poster.path,
 		isVideo: true,
 	});
+	const classes = [
+		styles["video-gallery__item"],
+		...className.trim().split(" "),
+	]
+		.filter((c) => c)
+		.join(" ");
+
+	function handleVideoOpen() {
+		context.openLightbox(video);
+	}
 
 	return (
 		<button
-			className={styles["video-gallery__item"]}
-			data-vid={props.name}
+			className={classes}
+			aria-label={`open ${title} video`}
+			onClick={handleVideoOpen}
+			tabIndex={
+				context.lightboxStatus === "open" ? -1 : undefined
+			}
+			{...otherProps}
 		>
 			<img
 				className={styles["video-gallery__image"]}
 				src={thumb.mobile.url}
-				alt={props.poster.alt}
+				alt={poster.alt}
 				style={{
-					objectPosition: `center ${props.poster.orientation}`,
+					objectPosition: `center ${poster.orientation}`,
 				}}
 				loading="lazy"
 			/>

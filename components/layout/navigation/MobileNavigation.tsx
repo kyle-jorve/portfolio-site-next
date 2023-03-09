@@ -1,13 +1,26 @@
 import { nav } from "../../../data/global-data";
+import { MobileNavigationProps } from "../../../types/global-types";
 import NavItem from "./NavItem";
 import ParentNavItem from "./ParentNavItem";
 import styles from "../../../styles/layout/Nav.module.css";
 
-export default function MobileNavigation() {
+export default function MobileNavigation({
+	className = "",
+	...otherProps
+}: MobileNavigationProps) {
 	const navItems = nav.filter((item) => item.showInMobileNav);
+	const classes = [
+		...className.trim().split(" "),
+		styles["mobile-nav"],
+	]
+		.filter((c) => c)
+		.join(" ");
 
 	return (
-		<nav className={styles["mobile-nav"]}>
+		<nav
+			className={classes}
+			{...otherProps}
+		>
 			<div className={styles["mobile-nav__inner"]}>
 				{navItems.map((item) => {
 					if ("childItems" in item) {

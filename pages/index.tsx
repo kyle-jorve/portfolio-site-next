@@ -10,7 +10,7 @@ export default function Home() {
 			<HomeHero />
 			<FeaturedWork />
 			<VideoGallery />
-			{/* <Bio /> */}
+			<Bio />
 		</Fragment>
 	);
 }

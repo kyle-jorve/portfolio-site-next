@@ -45,26 +45,26 @@ export type CustomLinkProps = {
 	to: string;
 	onClick?: React.MouseEventHandler;
 	useTooltip?: boolean;
-	className?: string;
-	attributes?: {
-		tabIndex?: number | undefined;
-	};
-} & React.PropsWithChildren;
+} & React.PropsWithChildren & Exclude<React.HTMLAttributes<HTMLAnchorElement>, 'href'>;
 
 export type NavItemProps = {
 	url: string;
 	onClick?: React.MouseEventHandler;
 	isMobileNav?: boolean;
-	className?: string;
-	attributes?: {
-		tabIndex?: number | undefined;
-	};
-} & React.PropsWithChildren;
+} & React.PropsWithChildren & React.HTMLAttributes<HTMLAnchorElement>;
 
 export type ParentNavItemProps = {
 	id: string;
 	label: string;
 	childItems: NavItemType[];
 	isMobileNav?: boolean;
-	className?: string;
-}
+} & React.HTMLAttributes<HTMLDivElement>;
+
+export type HeaderProps = React.HTMLAttributes<HTMLElement>;
+export type LogoProps = React.HTMLAttributes<HTMLAnchorElement>;
+export type HeaderNavigationProps = React.HTMLAttributes<HTMLElement>;
+export type FooterProps = React.HTMLAttributes<HTMLElement>;
+export type FooterIconProps = React.HTMLAttributes<HTMLDivElement>
+export type MobileNavigationProps = React.HTMLAttributes<HTMLElement>;
+export type LightboxProps = React.HTMLAttributes<HTMLDivElement>;
+export type HomeHeroProps = React.HTMLAttributes<HTMLElement>;

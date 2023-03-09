@@ -1,48 +1,52 @@
 import { ThumbnailConfigProps } from "../types/gallery-types";
 
-export default function useThumbnailConfig(
-	props: ThumbnailConfigProps,
-) {
-	if (props.isNew) {
+export default function useThumbnailConfig({
+	thumbKey,
+	isNew = false,
+	isFeatured = false,
+	isDetail = false,
+	isVideo = false,
+}: ThumbnailConfigProps) {
+	if (isNew) {
 		return {
 			sources: [
 				{
-					url: `${props.thumbKey}-1024.jpg`,
+					url: `${thumbKey}-1024.jpg`,
 					minScreenWidth: 640,
 				},
 			],
 			mobile: {
-				url: `${props.thumbKey}-640.jpg`,
+				url: `${thumbKey}-640.jpg`,
 			},
 		};
-	} else if (props.isFeatured || props.isVideo) {
+	} else if (isFeatured || isVideo) {
 		return {
 			mobile: {
-				url: `${props.thumbKey}-640.jpg`,
+				url: `${thumbKey}-640.jpg`,
 			},
 		};
-	} else if (props.isDetail) {
+	} else if (isDetail) {
 		return {
 			sources: [
 				{
-					url: `${props.thumbKey}-480.jpg`,
+					url: `${thumbKey}-480.jpg`,
 					minScreenWidth: 640,
 				},
 			],
 			mobile: {
-				url: `${props.thumbKey}-640.jpg`,
+				url: `${thumbKey}-640.jpg`,
 			},
 		};
 	} else {
 		return {
 			sources: [
 				{
-					url: `${props.thumbKey}-480.jpg`,
+					url: `${thumbKey}-480.jpg`,
 					minScreenWidth: 1024,
 				},
 			],
 			mobile: {
-				url: `${props.thumbKey}-320.jpg`,
+				url: `${thumbKey}-320.jpg`,
 			},
 		};
 	}

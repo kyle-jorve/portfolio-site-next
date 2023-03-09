@@ -145,16 +145,22 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		width: 40px;
 		aspect-ratio: 1;
 		flex-shrink: 0;
 		border: none;
 		border-radius: 50%;
 		background-color: var(--accent-color);
 		box-shadow: var(--soft-shadow);
+		font-size: var(--text-base);
 		color: var(--light-color);
 		cursor: pointer;
 		transition: background-color var(--transition),
 			color var(--transition);
+	}
+
+	.close-button {
+		font-size: var(--text-lg);
 	}
 
 	.close-button::before,
@@ -162,18 +168,8 @@
 		font: var(--fa-font-solid);
 	}
 
-	.close-button {
-		width: 50px;
-		font-size: 2rem;
-	}
-
 	.close-button::before {
 		content: "\f00d";
-	}
-
-	.arrow-button {
-		width: 40px;
-		font-size: var(--text-base);
 	}
 
 	.arrow-button--left::before {
@@ -254,9 +250,14 @@
 			font-size: 1.125rem;
 		}
 
-		.arrow-button {
+		.arrow-button,
+		.close-button {
 			width: 48px;
 			font-size: var(--text-lg);
+		}
+
+		.close-button {
+			font-size: 1.5rem;
 		}
 
 		.slider-dots {

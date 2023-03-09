@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { FeaturedWorkProps } from "../../../types/gallery-types";
 import { items as galleryItems } from "../../../data/gallery-data";
 import { slideshowLimit } from "../../../data/home-data";
 import Glide from "@glidejs/glide";
@@ -7,11 +8,24 @@ import CustomLink from "../../layout/link/CustomLink";
 import "@glidejs/glide/dist/css/glide.core.min.css";
 import styles from "../../../styles/components/FeaturedWork.module.css";
 
-export default function FeaturedWork() {
+export default function FeaturedWork({
+	className = "",
+	id = "featured-work",
+	...otherProps
+}: FeaturedWorkProps) {
 	const glideRef = useRef<HTMLDivElement>(null);
 	const featuredItems = galleryItems
 		.filter((item) => item.featured)
 		.slice(0, slideshowLimit);
+	const classes = [
+		...className.trim().split(" "),
+		"section",
+		"swoops",
+		"swoops--left",
+		styles.featured,
+	]
+		.filter((c) => c)
+		.join(" ");
 
 	useEffect(() => {
 		const sliderOptions: Partial<Glide.Options> = {
@@ -82,8 +96,9 @@ export default function FeaturedWork() {
 
 	return (
 		<section
-			className={`${styles.featured} section`}
-			id="featured-work"
+			className={classes}
+			id={id}
+			{...otherProps}
 		>
 			<div className={styles["featured__inner"]}>
 				<h2

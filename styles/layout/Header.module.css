@@ -47,8 +47,4 @@
 	.header {
 		padding: 1rem 2rem;
 	}
-
-	.header::before {
-		height: 248px;
-	}
 }

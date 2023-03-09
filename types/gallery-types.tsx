@@ -120,6 +120,7 @@ export type GalleryItemType = {
 
 export type VideoGalleryItemType = {
 	name: string;
+	title: string;
 	poster: ThumbnailKeyType;
 	video: JSX.Element;
 };
@@ -139,6 +140,7 @@ export type ThumbnailConfigProps = {
 	isVideo?: boolean;
 };
 
+export type FeaturedWorkProps = React.HTMLAttributes<HTMLElement>;
 export type FeaturedItemProps = {
 	name: string;
 	title: string;
@@ -147,4 +149,6 @@ export type FeaturedItemProps = {
 	isNew?: boolean;
 } & React.HTMLAttributes<HTMLElement>;
 
-export type VideoGalleryItemProps = VideoGalleryItemType;
+export type VideoGalleryProps = React.HTMLAttributes<HTMLElement>;
+export type VideoGalleryItemProps = VideoGalleryItemType &
+	React.HTMLAttributes<HTMLButtonElement>;

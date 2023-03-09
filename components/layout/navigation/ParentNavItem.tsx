@@ -1,40 +1,44 @@
 import { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/router";
 import { ParentNavItemProps } from "../../../types/global-types";
 import NavItem from "./NavItem";
 import styles from "../../../styles/layout/Nav.module.css";
 
-export default function ParentNavItem(props: ParentNavItemProps) {
+export default function ParentNavItem({
+	id,
+	label,
+	childItems,
+	isMobileNav = false,
+	className = "",
+}: ParentNavItemProps) {
 	const [expanded, setExpanded] = useState(false);
-	const router = useRouter();
 	const rootRef = useRef<HTMLDivElement>(null);
-	const rootClasses = props.isMobileNav
+	const rootClasses = isMobileNav
 		? styles["mobile-nav__parent"]
 		: styles["nav__parent"];
 	const buttonClasses = [
-		props.className,
-		props.isMobileNav
+		...className.trim().split(" "),
+		isMobileNav
 			? styles["mobile-nav__expand"]
 			: styles["nav__expand"],
 		expanded &&
-			(props.isMobileNav
+			(isMobileNav
 				? styles["mobile-nav__expand--open"]
 				: styles["nav__expand--open"]),
 	]
 		.filter((c) => c)
 		.join(" ");
 	const dropdownClasses = [
-		props.isMobileNav
+		isMobileNav
 			? styles["mobile-nav__dropdown"]
 			: styles["nav__dropdown"],
 		expanded &&
-			(props.isMobileNav
+			(isMobileNav
 				? styles["mobile-nav__dropdown--open"]
 				: styles["nav__dropdown--open"]),
 	]
 		.filter((c) => c)
 		.join(" ");
-	const navItemClasses = props.isMobileNav
+	const navItemClasses = isMobileNav
 		? styles["mobile-nav__child"]
 		: styles["nav__item--child"];
 
@@ -65,28 +69,26 @@ export default function ParentNavItem(props: ParentNavItemProps) {
 		>
 			<button
 				className={buttonClasses}
-				aria-label={`toggle ${props.label} menu`}
-				aria-controls={props.id}
+				aria-label={`toggle ${label} menu`}
+				aria-controls={id}
 				aria-expanded={expanded}
 				onClick={() => setExpanded((prev) => !prev)}
 			>
-				{props.label}
+				{label}
 			</button>
 
 			<div
 				className={dropdownClasses}
 				aria-hidden={!expanded}
 			>
-				{props.childItems.map((ci) => {
+				{childItems.map((ci) => {
 					return (
 						<NavItem
 							className={navItemClasses}
 							key={ci.pageID}
 							url={ci.url}
 							onClick={() => setExpanded(false)}
-							attributes={{
-								tabIndex: expanded ? undefined : -1,
-							}}
+							tabIndex={expanded ? undefined : -1}
 						>
 							{ci.pageName}
 						</NavItem>

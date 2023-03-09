@@ -11,9 +11,7 @@ export const videos = {
 			title="YouTube video player"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 			allowFullScreen
-		>
-			{" "}
-		</iframe>
+		></iframe>
 	),
 	samil: (
 		<iframe
@@ -23,9 +21,7 @@ export const videos = {
 			title="YouTube video player"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 			allowFullScreen
-		>
-			{" "}
-		</iframe>
+		></iframe>
 	),
 	kyraPortrait: (
 		<iframe
@@ -35,9 +31,7 @@ export const videos = {
 			title="YouTube video player"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 			allowFullScreen
-		>
-			{" "}
-		</iframe>
+		></iframe>
 	),
 	kyra: (
 		<iframe
@@ -47,9 +41,7 @@ export const videos = {
 			title="YouTube video player"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 			allowFullScreen
-		>
-			{" "}
-		</iframe>
+		></iframe>
 	),
 	tovalPortrait: (
 		<iframe
@@ -59,9 +51,7 @@ export const videos = {
 			title="YouTube video player"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 			allowFullScreen
-		>
-			{" "}
-		</iframe>
+		></iframe>
 	),
 	toval: (
 		<iframe
@@ -71,9 +61,7 @@ export const videos = {
 			title="YouTube video player"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 			allowFullScreen
-		>
-			{" "}
-		</iframe>
+		></iframe>
 	),
 	andelPortrait: (
 		<iframe
@@ -83,9 +71,7 @@ export const videos = {
 			title="YouTube video player"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 			allowFullScreen
-		>
-			{" "}
-		</iframe>
+		></iframe>
 	),
 	andel: (
 		<iframe
@@ -95,9 +81,7 @@ export const videos = {
 			title="YouTube video player"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 			allowFullScreen
-		>
-			{" "}
-		</iframe>
+		></iframe>
 	),
 	pendrakePortrait: (
 		<iframe
@@ -107,9 +91,7 @@ export const videos = {
 			title="YouTube video player"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 			allowFullScreen
-		>
-			{" "}
-		</iframe>
+		></iframe>
 	),
 	pendrake: (
 		<iframe
@@ -119,9 +101,7 @@ export const videos = {
 			title="YouTube video player"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 			allowFullScreen
-		>
-			{" "}
-		</iframe>
+		></iframe>
 	),
 	talisPortrait: (
 		<iframe
@@ -131,9 +111,7 @@ export const videos = {
 			title="YouTube video player"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 			allowFullScreen
-		>
-			{" "}
-		</iframe>
+		></iframe>
 	),
 	talis: (
 		<iframe
@@ -143,9 +121,7 @@ export const videos = {
 			title="YouTube video player"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 			allowFullScreen
-		>
-			{" "}
-		</iframe>
+		></iframe>
 	),
 	cargha: (
 		<iframe
@@ -155,9 +131,7 @@ export const videos = {
 			title="YouTube video player"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 			allowFullScreen
-		>
-			{" "}
-		</iframe>
+		></iframe>
 	),
 	crow: (
 		<iframe
@@ -167,9 +141,7 @@ export const videos = {
 			title="YouTube video player"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 			allowFullScreen
-		>
-			{" "}
-		</iframe>
+		></iframe>
 	),
 	becomingRuna: (
 		<iframe
@@ -179,9 +151,7 @@ export const videos = {
 			title="YouTube video player"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 			allowFullScreen
-		>
-			{" "}
-		</iframe>
+		></iframe>
 	),
 };
 
@@ -348,36 +318,43 @@ export const videoGallery: galleryTypes.VideoGalleryType = {
 	items: [
 		{
 			name: "samil-portrait",
+			title: "Samil Sealee Portrait",
 			poster: thumbs.samilPortrait,
 			video: videos.samilPortrait,
 		},
 		{
 			name: "samil",
+			title: "Samil Sealee",
 			poster: thumbs.samil,
 			video: videos.samil,
 		},
 		{
 			name: "kyra",
+			title: "Kyra Luckleav",
 			poster: thumbs.kyra,
 			video: videos.kyra,
 		},
 		{
 			name: "toval",
+			title: "Toval Argensente",
 			poster: thumbs.toval,
 			video: videos.toval,
 		},
 		{
 			name: "andel",
+			title: "Andel Sommer",
 			poster: thumbs.andel,
 			video: videos.andel,
 		},
 		{
 			name: "pendrake",
+			title: "Pendrake Sommer",
 			poster: thumbs.pendrake,
 			video: videos.pendrake,
 		},
 		{
 			name: "talis",
+			title: "Talis Sommer",
 			poster: thumbs.talis,
 			video: videos.talis,
 		},
