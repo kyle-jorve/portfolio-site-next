@@ -1,4 +1,5 @@
 import { projectCategories, characterCategories, categoryNames } from "../../data/gallery-data";
+import Button from "../layout/Button";
 import styles from "../../styles/components/Filters.module.css";
 
 type FilterModalProps = {
@@ -15,7 +16,7 @@ export default function GalleryFilters(props: FilterModalProps) {
     return (
         <div className={classes.join(" ")}>
             <div className={styles["filters__buttons-row"]}>
-                <button
+                <Button
                     className={`${styles["filters__button"]} ${styles["filters__button--clear"]}${
                         props.filters.length === 0 ? " button--hide" : ""
                     }`}
@@ -24,9 +25,9 @@ export default function GalleryFilters(props: FilterModalProps) {
                     tabIndex={props.filters.length === 0 ? -1 : undefined}
                 >
                     Clear All Filters
-                </button>
+                </Button>
 
-                <button
+                <Button
                     className={`${styles["filters__button"]}${
                         props.active ? ` ${styles["filters__button--active"]}` : ""
                     }`}
@@ -36,7 +37,7 @@ export default function GalleryFilters(props: FilterModalProps) {
                     onClick={props.onToggleFilters}
                 >
                     Filters
-                </button>
+                </Button>
             </div>
 
             <div className={styles["filters__tooltip"]} id="filters" aria-hidden={!props.active}>
@@ -50,7 +51,7 @@ export default function GalleryFilters(props: FilterModalProps) {
                             ].filter((c) => c);
 
                             return (
-                                <button
+                                <Button
                                     key={cat.name}
                                     className={classes.join(" ")}
                                     onClick={props.onFilterClick}
@@ -63,7 +64,7 @@ export default function GalleryFilters(props: FilterModalProps) {
                                     <span className={styles["filters__filter-icon"]} aria-hidden="true"></span>
 
                                     {cat.label}
-                                </button>
+                                </Button>
                             );
                         })}
                     </div>
@@ -80,7 +81,7 @@ export default function GalleryFilters(props: FilterModalProps) {
                             ].filter((c) => c);
 
                             return (
-                                <button
+                                <Button
                                     key={cat.name}
                                     className={classes.join(" ")}
                                     onClick={props.onFilterClick}
@@ -93,7 +94,7 @@ export default function GalleryFilters(props: FilterModalProps) {
                                     <span className={styles["filters__filter-icon"]} aria-hidden="true"></span>
 
                                     {cat.label}
-                                </button>
+                                </Button>
                             );
                         })}
                     </div>

@@ -59,7 +59,7 @@
 
 	.fancy-image::before {
 		z-index: 3;
-		transform: translate(-0.5rem, -0.5rem);
+		transform: translate(-8px, -8px);
 		border: var(--light-border);
 		border-radius: var(--border-radius);
 	}
@@ -149,7 +149,7 @@
 		position: relative;
 		width: 100%;
 		max-width: var(--width-narrow);
-		padding: 2rem 1rem;
+		padding: 32px 16px;
 		background: rgba(255, 255, 255, 0.05);
 		border: var(--light-border);
 		border-radius: var(--border-radius);
@@ -180,7 +180,7 @@
 	}
 
 	hr {
-		margin: 2rem auto;
+		margin: 32px auto;
 		width: 75%;
 		max-width: 700px;
 		height: var(--border-width);
@@ -191,7 +191,7 @@
 	.flex-line {
 		display: flex;
 		align-items: center;
-		gap: 0.5rem;
+		gap: 8px;
 	}
 
 	.flex-line::before,
@@ -220,8 +220,8 @@
 		flex-wrap: wrap;
 		align-items: baseline;
 		justify-content: space-between;
-		gap: 1rem;
-		margin-bottom: 2rem;
+		gap: 16px;
+		margin-bottom: 32px;
 	}
 
 	.title-row :where(h1, h2, h3, h4, h5, h6) {
@@ -275,15 +275,15 @@
 		}
 
 		.flex-line {
-			gap: 1rem;
+			gap: 16px;
 		}
 
 		.title-row {
-			margin-bottom: 2.5rem;
+			margin-bottom: 40px;
 		}
 
 		.content-box {
-			padding: 3rem 2rem;
+			padding: 48px 32px;
 		}
 	}
 }

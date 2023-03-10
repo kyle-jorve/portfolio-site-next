@@ -64,6 +64,12 @@
 		margin-left: auto;
 	}
 
+	@media (min-width: 64em) {
+		.underline::after {
+			max-width: 200px;
+		}
+	}
+
 	/*===========================*/
 	/*=====----- LINKS -----=====*/
 	/*===========================*/
@@ -235,8 +241,8 @@
 
 	.blockquote {
 		position: relative;
-		padding: 2rem 0 1rem 1rem;
-		margin: 2.5rem 0 1rem;
+		padding: 32px 0 16px 16px;
+		margin: 40px 0 16px;
 		border-radius: var(--border-radius) 0 0 0;
 		border: var(--border-width) solid transparent;
 		border-top-color: var(--accent-color);
@@ -253,42 +259,42 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 3rem;
-		height: 3rem;
+		width: 48px;
+		height: 48px;
 		border: var(--border-width) solid var(--accent-color);
 		border-radius: 50%;
 		background: var(--gray-cool-light);
 		content: "\f10d";
 		font: var(--fa-font-solid);
 		font-style: normal;
-		font-size: 1.5rem;
+		font-size: 24px;
 		line-height: 1;
 		color: var(--accent-color);
 	}
 
 	.cite {
 		display: block;
-		margin-top: 1rem;
+		margin-top: 16px;
 		font-style: normal;
 	}
 
 	@media (min-width: 40em) {
 		.blockquote {
-			padding-top: 2.75rem;
-			margin: 3.5rem 0 0;
+			padding-top: 44px;
+			margin: 56px 0 0;
 		}
 
 		.blockquote::before {
-			width: 4rem;
-			height: 4rem;
-			font-size: 1.75rem;
+			width: 64px;
+			height: 64px;
+			font-size: 28px;
 		}
 	}
 
 	@media (min-width: 64em) {
 		.blockquote {
-			padding: 3rem 0 2rem 2rem;
-			margin: 3rem 0 2rem 0;
+			padding: 48px 0 32px 32px;
+			margin: 48px 0 32px 0;
 		}
 	}
 }

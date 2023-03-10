@@ -4,6 +4,7 @@ import SiteContext from "../../../context/global";
 import { nav, headerCTA } from "../../../data/global-data";
 import NavItem from "./NavItem";
 import ParentNavItem from "./ParentNavItem";
+import CustomLink from "../link/CustomLink";
 import styles from "../../../styles/layout/Nav.module.css";
 
 export default function HeaderNavigation({
@@ -49,14 +50,14 @@ export default function HeaderNavigation({
 				</Fragment>
 			)}
 
-			<a
+			<CustomLink
 				className={`${styles["nav__cta"]} button button--secondary button--add`}
-				href={headerCTA.url}
+				to={headerCTA.url}
 				target="_blank"
 				rel="noreferrer"
 			>
 				{headerCTA.pageName}
-			</a>
+			</CustomLink>
 		</nav>
 	);
 }

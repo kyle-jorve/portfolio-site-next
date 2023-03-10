@@ -3,6 +3,7 @@ import SiteContext from "../../../context/global";
 import { VideoGalleryProps } from "../../../types/gallery-types";
 import { videoGallery } from "../../../data/gallery-data";
 import VideoGalleryItem from "./VideoGalleryItem";
+import CustomLink from "../../layout/link/CustomLink";
 import styles from "../../../styles/components/VideoGallery.module.css";
 
 export default function VideoGallery({
@@ -46,9 +47,9 @@ export default function VideoGallery({
 				</div>
 
 				<div className={styles["video-gallery__button-row"]}>
-					<a
+					<CustomLink
 						className="button button--primary button--arrow"
-						href={videoGallery.url}
+						to={videoGallery.url}
 						target="_blank"
 						rel="noreferrer"
 						tabIndex={
@@ -58,7 +59,7 @@ export default function VideoGallery({
 						}
 					>
 						See More
-					</a>
+					</CustomLink>
 				</div>
 			</div>
 		</section>

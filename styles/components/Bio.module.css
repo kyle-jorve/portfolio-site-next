@@ -64,7 +64,7 @@
 	.bio__content {
 		z-index: 2;
 		max-width: none;
-		padding-top: 3rem;
+		padding-top: 48px;
 		margin: 0;
 	}
 }

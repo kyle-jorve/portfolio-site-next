@@ -2,6 +2,7 @@ import { useContext } from "react";
 import SiteContext from "../../context/global";
 import CVItem from "./CVItem";
 import { ResumeProps } from "../../types/cv-types";
+import CustomLink from "../layout/link/CustomLink";
 import styles from "../../styles/components/CV.module.css";
 
 export default function Resume(props: ResumeProps) {
@@ -23,16 +24,16 @@ export default function Resume(props: ResumeProps) {
 					</h2>
 
 					<div className={styles["resume__button-cont"]}>
-						<a
+						<CustomLink
 							className="button button--primary button--download"
-							href={resume}
+							to={resume}
 							download
 							tabIndex={
 								siteContext.navOpen ? -1 : undefined
 							}
 						>
 							Download
-						</a>
+						</CustomLink>
 					</div>
 				</div>
 

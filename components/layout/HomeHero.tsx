@@ -1,6 +1,7 @@
 import { HomeHeroProps } from "../../types/global-types";
 import { heroImage } from "../../data/home-data";
 import CustomLink from "./link/CustomLink";
+import Button from "./Button";
 import styles from "../../styles/layout/Hero.module.css";
 
 export default function HomeHero({
@@ -82,13 +83,13 @@ export default function HomeHero({
 				</div>
 			</div>
 
-			<button
+			<Button
 				className={styles.scroll}
 				aria-label="scroll to Featured Work"
 				onClick={scrollIconClickHandler}
 			>
 				<span className={styles["scroll__ball"]}></span>
-			</button>
+			</Button>
 		</section>
 	);
 }

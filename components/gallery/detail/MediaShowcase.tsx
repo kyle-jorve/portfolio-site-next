@@ -3,6 +3,7 @@ import SiteContext from '../../../context/global';
 import ShowcaseSlide from './ShowcaseSlide';
 import ShowcasePicture from './ShowcasePicture';
 import { GalleryItemType } from '../../../data/gallery-data';
+import Button from '../../layout/Button';
 import styles from '../../../styles/components/Showcase.module.css';
 
 type MediaShowcaseProps = {
@@ -60,23 +61,23 @@ export default function MediaShowcase(props: MediaShowcaseProps) {
 			{item.detailKeys && item.detailKeys.length > 1 && (
 				<Fragment>
 					<div className={styles['slider__arrows']}>
-						<button
+						<Button
 							onClick={arrowClickHandler}
 							className={`${styles['slider__arrow']} ${styles['slider__arrow--prev']}`}
 							data-direction="prev"
-						></button>
+						></Button>
 
-						<button
+						<Button
 							onClick={arrowClickHandler}
 							className={`${styles['slider__arrow']} ${styles['slider__arrow--next']}`}
 							data-direction="next"
-						></button>
+						></Button>
 					</div>
 
 					<div className={styles['slider__dots']}>
 						{item.detailKeys.map((key, index) => {
 							return (
-								<button
+								<Button
 									key={index}
 									onClick={dotClickHandler}
 									className={`${styles['slider__dot']}${
@@ -85,7 +86,7 @@ export default function MediaShowcase(props: MediaShowcaseProps) {
 											: ''
 									}`}
 									data-index={index}
-								></button>
+								></Button>
 							);
 						})}
 					</div>

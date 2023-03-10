@@ -1,4 +1,4 @@
-import React from "react";
+import React, {AnchorHTMLAttributes} from "react";
 
 // ----- DATA TYPES ----- //
 
@@ -45,13 +45,15 @@ export type CustomLinkProps = {
 	to: string;
 	onClick?: React.MouseEventHandler;
 	useTooltip?: boolean;
-} & React.PropsWithChildren & Exclude<React.HTMLAttributes<HTMLAnchorElement>, 'href'>;
+} & React.PropsWithChildren & Exclude<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'>;
+
+export type ButtonProps = React.PropsWithChildren & React.HTMLAttributes<HTMLButtonElement>;
 
 export type NavItemProps = {
 	url: string;
 	onClick?: React.MouseEventHandler;
 	isMobileNav?: boolean;
-} & React.PropsWithChildren & React.HTMLAttributes<HTMLAnchorElement>;
+} & React.PropsWithChildren & AnchorHTMLAttributes<HTMLAnchorElement>;
 
 export type ParentNavItemProps = {
 	id: string;

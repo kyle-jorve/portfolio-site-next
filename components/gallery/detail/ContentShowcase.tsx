@@ -1,5 +1,6 @@
 import Neighbors from "./Neighbors";
 import { GalleryItemType } from "../../../data/gallery-data";
+import CustomLink from "../../layout/link/CustomLink";
 import styles from "../../../styles/components/Showcase.module.css";
 
 type ContentShowcaseProps = {
@@ -17,25 +18,25 @@ export default function ContentShowcase(props: ContentShowcaseProps) {
                 {(!!props.item.purchaseLink || !!props.item.downloadLink) && (
                     <div className={styles["showcase__buttons"]}>
                         {!!props.item.purchaseLink && (
-                            <a
+                            <CustomLink
                                 className="button button--primary button--shop"
-                                href={props.item.purchaseLink}
+                                to={props.item.purchaseLink}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
                                 Buy Print
-                            </a>
+                            </CustomLink>
                         )}
 
                         {!!props.item.downloadLink && (
-                            <a
+                            <CustomLink
                                 className="button button--primary button--download"
-                                href={props.item.downloadLink}
+                                to={props.item.downloadLink}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
                                 Buy Digital
-                            </a>
+                            </CustomLink>
                         )}
                     </div>
                 )}

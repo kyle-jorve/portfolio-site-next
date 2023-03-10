@@ -5,8 +5,8 @@ import CustomLink from "../components/layout/link/CustomLink";
 export const videos = {
 	samilPortrait: (
 		<iframe
-			width="1440"
-			height="810"
+			width="1920"
+			height="1080"
 			src="https://www.youtube.com/embed/NaqBqRAZZP4"
 			title="YouTube video player"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -15,8 +15,8 @@ export const videos = {
 	),
 	samil: (
 		<iframe
-			width="1440"
-			height="810"
+			width="1920"
+			height="1080"
 			src="https://www.youtube.com/embed/yNk05dLtgyE"
 			title="YouTube video player"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -25,8 +25,8 @@ export const videos = {
 	),
 	kyraPortrait: (
 		<iframe
-			width="1440"
-			height="810"
+			width="1920"
+			height="1080"
 			src="https://www.youtube.com/embed/SNKCHXFbFPY"
 			title="YouTube video player"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -35,8 +35,8 @@ export const videos = {
 	),
 	kyra: (
 		<iframe
-			width="1440"
-			height="810"
+			width="1920"
+			height="1080"
 			src="https://www.youtube.com/embed/ALmy-xx7u-c"
 			title="YouTube video player"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -45,8 +45,8 @@ export const videos = {
 	),
 	tovalPortrait: (
 		<iframe
-			width="1440"
-			height="810"
+			width="1920"
+			height="1080"
 			src="https://www.youtube.com/embed/hDk6yKcQYqI"
 			title="YouTube video player"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -55,8 +55,8 @@ export const videos = {
 	),
 	toval: (
 		<iframe
-			width="1440"
-			height="810"
+			width="1920"
+			height="1080"
 			src="https://www.youtube.com/embed/js4NRjOnPbA"
 			title="YouTube video player"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -65,8 +65,8 @@ export const videos = {
 	),
 	andelPortrait: (
 		<iframe
-			width="1440"
-			height="810"
+			width="1920"
+			height="1080"
 			src="https://www.youtube.com/embed/W6acBvEQXug"
 			title="YouTube video player"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -75,8 +75,8 @@ export const videos = {
 	),
 	andel: (
 		<iframe
-			width="1440"
-			height="810"
+			width="1920"
+			height="1080"
 			src="https://www.youtube.com/embed/XEaCkUcbfUo"
 			title="YouTube video player"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -85,8 +85,8 @@ export const videos = {
 	),
 	pendrakePortrait: (
 		<iframe
-			width="1440"
-			height="810"
+			width="1920"
+			height="1080"
 			src="https://www.youtube.com/embed/CetjOlb5zWk"
 			title="YouTube video player"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -95,8 +95,8 @@ export const videos = {
 	),
 	pendrake: (
 		<iframe
-			width="1440"
-			height="810"
+			width="1920"
+			height="1080"
 			src="https://www.youtube.com/embed/id079cuwXfE"
 			title="YouTube video player"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -105,8 +105,8 @@ export const videos = {
 	),
 	talisPortrait: (
 		<iframe
-			width="1440"
-			height="810"
+			width="1920"
+			height="1080"
 			src="https://www.youtube.com/embed/FooxBhjNG3E"
 			title="YouTube video player"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -115,8 +115,8 @@ export const videos = {
 	),
 	talis: (
 		<iframe
-			width="1440"
-			height="810"
+			width="1920"
+			height="1080"
 			src="https://www.youtube.com/embed/M8TVkpTIlI0"
 			title="YouTube video player"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -125,8 +125,8 @@ export const videos = {
 	),
 	cargha: (
 		<iframe
-			width="1440"
-			height="810"
+			width="1920"
+			height="1080"
 			src="https://www.youtube.com/embed/_FzmNukhxFo"
 			title="YouTube video player"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -135,8 +135,8 @@ export const videos = {
 	),
 	crow: (
 		<iframe
-			width="1440"
-			height="810"
+			width="1920"
+			height="1080"
 			src="https://www.youtube.com/embed/oRzRz7eev2c"
 			title="YouTube video player"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -145,8 +145,8 @@ export const videos = {
 	),
 	becomingRuna: (
 		<iframe
-			width="1440"
-			height="810"
+			width="1920"
+			height="1080"
 			src="https://www.youtube.com/embed/PxoZ4MjlxOY"
 			title="YouTube video player"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

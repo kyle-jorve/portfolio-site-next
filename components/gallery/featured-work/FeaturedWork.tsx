@@ -5,6 +5,7 @@ import { slideshowLimit } from "../../../data/home-data";
 import Glide from "@glidejs/glide";
 import FeaturedItem from "./FeaturedItem";
 import CustomLink from "../../layout/link/CustomLink";
+import Button from "../../layout/Button";
 import "@glidejs/glide/dist/css/glide.core.min.css";
 import styles from "../../../styles/components/FeaturedWork.module.css";
 
@@ -115,17 +116,17 @@ export default function FeaturedWork({
 						className={`glide__arrows ${styles["featured__arrows"]}`}
 						data-glide-el="controls"
 					>
-						<button
+						<Button
 							className={`${styles["featured__arrow"]} glide__arrow glide__arrow--left arrow-button arrow-button--left`}
 							aria-label="move slideshow left"
 							data-glide-dir="<"
-						></button>
+						></Button>
 
-						<button
+						<Button
 							className={`${styles["featured__arrow"]} glide__arrow glide__arrow--left arrow-button arrow-button--right`}
 							data-glide-dir=">"
 							aria-label="move slideshow right"
-						></button>
+						></Button>
 					</div>
 
 					<div
@@ -169,7 +170,7 @@ export default function FeaturedWork({
 					>
 						{featuredItems.map((item, index) => {
 							return (
-								<button
+								<Button
 									key={item.name}
 									data-featured-slider-dot
 									className={`slider-dot${
@@ -181,7 +182,7 @@ export default function FeaturedWork({
 										index + 1
 									}`}
 									data-glide-dir={`=${index}`}
-								></button>
+								></Button>
 							);
 						})}
 					</div>

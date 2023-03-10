@@ -1,6 +1,7 @@
 import { FooterIconProps } from "../../../types/global-types";
 import { socialIcons } from "../../../data/global-data";
 import { SocialIconType } from "../../../types/global-types";
+import CustomLink from "../link/CustomLink";
 import styles from "../../../styles/layout/Social.module.css";
 
 export default function FooterIcons({
@@ -18,16 +19,16 @@ export default function FooterIcons({
 			.join(" ");
 
 		return (
-			<a
+			<CustomLink
 				key={icon.name}
 				className={classes}
-				href={icon.url}
+				to={icon.url}
 				target="_blank"
 				rel="noreferrer"
 				aria-label={`link to Kyle's ${icon.label}`}
 			>
 				{icon.icon}
-			</a>
+			</CustomLink>
 		);
 	}
 

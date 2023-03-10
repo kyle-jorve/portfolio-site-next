@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useRef } from "react";
 import SiteContext from "../../context/global";
 import { LightboxProps } from "../../types/global-types";
 import styles from "../../styles/layout/Lightbox.module.css";
@@ -8,6 +8,7 @@ export default function Lightbox({
 	...props
 }: LightboxProps) {
 	const context = useContext(SiteContext);
+	const buttonRef = useRef<HTMLButtonElement>(null);
 	const classes = [
 		...className.trim().split(" "),
 		styles.lightbox,
@@ -18,6 +19,14 @@ export default function Lightbox({
 	]
 		.filter((c) => c)
 		.join(" ");
+
+	useEffect(() => {
+		if (context.lightboxStatus === "open") {
+			const target = buttonRef.current as HTMLButtonElement;
+
+			target.focus();
+		}
+	}, [context.lightboxStatus]);
 
 	if (!context.lightboxContent) return null;
 
@@ -31,6 +40,7 @@ export default function Lightbox({
 					className={`close-button ${styles["lightbox__close-button"]}`}
 					aria-label="close lightbox"
 					onClick={context.closeLightbox}
+					ref={buttonRef}
 				></button>
 				<div className={styles["lightbox__box-inner"]}>
 					{context.lightboxContent}

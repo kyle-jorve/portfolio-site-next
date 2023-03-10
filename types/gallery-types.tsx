@@ -152,3 +152,4 @@ export type FeaturedItemProps = {
 export type VideoGalleryProps = React.HTMLAttributes<HTMLElement>;
 export type VideoGalleryItemProps = VideoGalleryItemType &
 	React.HTMLAttributes<HTMLButtonElement>;
+export type GalleryGridProps = React.HTMLAttributes<HTMLDivElement>;

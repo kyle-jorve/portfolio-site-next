@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { ParentNavItemProps } from "../../../types/global-types";
 import NavItem from "./NavItem";
+import Button from "../Button";
 import styles from "../../../styles/layout/Nav.module.css";
 
 export default function ParentNavItem({
@@ -67,7 +68,7 @@ export default function ParentNavItem({
 			ref={rootRef}
 			data-parent-root
 		>
-			<button
+			<Button
 				className={buttonClasses}
 				aria-label={`toggle ${label} menu`}
 				aria-controls={id}
@@ -75,7 +76,7 @@ export default function ParentNavItem({
 				onClick={() => setExpanded((prev) => !prev)}
 			>
 				{label}
-			</button>
+			</Button>
 
 			<div
 				className={dropdownClasses}

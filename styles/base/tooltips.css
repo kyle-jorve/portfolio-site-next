@@ -1,14 +1,14 @@
 @layer tooltips {
 	.tooltip {
-		--caret-width: 1.2rem;
+		--caret-width: 20px;
 
 		position: absolute;
-		inset: -1rem auto auto 50%;
-		transform: translate(-50%, calc(-100% + 1rem));
+		inset: -16px auto auto 50%;
+		transform: translate(-50%, calc(-100% + 16px));
 		z-index: 4;
 		display: block;
 		width: 200px;
-		padding: 0.5rem;
+		padding: 8px;
 		background: rgba(255, 255, 255, 0.75);
 		backdrop-filter: blur(60px);
 		box-shadow: var(--soft-shadow);
@@ -35,7 +35,7 @@
 
 	.tooltip__img {
 		width: 100%;
-		margin-bottom: 0.5rem;
+		margin-bottom: 8px;
 		aspect-ratio: var(--gallery-item-aspect);
 		border-radius: var(--border-radius);
 		box-shadow: var(--light-shadow);

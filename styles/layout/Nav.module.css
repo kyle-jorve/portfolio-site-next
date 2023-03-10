@@ -31,7 +31,7 @@
 	position: absolute;
 	display: flex;
 	flex-direction: column;
-	gap: 0.5rem;
+	gap: 8px;
 	background: rgba(255, 255, 255, 0.75);
 	backdrop-filter: blur(60px);
 	box-shadow: var(--soft-shadow);
@@ -47,9 +47,9 @@
 .mobile-nav__dropdown::before {
 	position: absolute;
 	display: block;
-	width: 1rem;
+	width: 16px;
 	aspect-ratio: 1;
-	border: 0.5rem solid transparent;
+	border: 8px solid transparent;
 	content: "";
 }
 
@@ -61,7 +61,7 @@
 
 .nav__item--child,
 .mobile-nav__child {
-	padding: 0.25rem 1.25rem;
+	padding: 4px 20px;
 	color: inherit;
 	pointer-events: inherit;
 }
@@ -83,10 +83,10 @@
 
 .nav__item::before {
 	position: absolute;
-	inset: auto auto -0.75rem 50%;
-	transform: translate(-50%, 1rem);
+	inset: auto auto -12px 50%;
+	transform: translate(-50%, 16px);
 	display: block;
-	width: 0.5rem;
+	width: 8px;
 	aspect-ratio: 1;
 	background: var(--white);
 	border-radius: 50%;
@@ -99,10 +99,10 @@
 /*----- parent nav item -----*/
 
 .nav__dropdown {
-	inset: auto auto -1rem 50%;
-	transform: translate(-50%, calc(100% + 1rem));
+	inset: auto auto -16px 50%;
+	transform: translate(-50%, calc(100% + 16px));
 	width: 240px;
-	padding: 1rem 0;
+	padding: 16px 0;
 }
 
 .nav__dropdown::before {
@@ -288,10 +288,10 @@
 /*----- parent nav item -----*/
 
 .mobile-nav__dropdown {
-	inset: -1rem auto auto 50%;
-	transform: translate(-50%, calc(-100% - 1.5rem));
+	inset: -16px auto auto 50%;
+	transform: translate(-50%, calc(-100% - 24px));
 	width: 220px;
-	padding: 0.75rem 0;
+	padding: 12px 0;
 }
 
 .mobile-nav__dropdown::before {
@@ -313,14 +313,14 @@
 /*----- open dropdown -----*/
 
 .mobile-nav__dropdown--open {
-	transform: translate(-50%, calc(-100% - 0.5rem));
+	transform: translate(-50%, calc(-100% - 8px));
 }
 
 /*----- active nav item -----*/
 
 .mobile-nav__item--current,
 .mobile-nav__expand--open {
-	transform: translateY(-0.5rem);
+	transform: translateY(-8px);
 	background-color: var(--white);
 	color: var(--accent-color);
 	box-shadow: var(--med-shadow);

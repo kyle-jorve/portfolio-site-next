@@ -80,13 +80,12 @@ export default function Neighbor(props: NeighborProps) {
 				</div>
 
 				<div className={styles['neighbor__inner']}>
-					<button
+					<span
 						className={`${styles['neighbor__arrow']} ${
 							styles[`neighbor__arrow--${props.direction}`]
 						}`}
 						aria-hidden="true"
-						aria-label={`Go to ${props.item.title}`}
-					></button>
+					></span>
 
 					<div className={styles['neighbor__content']}>
 						<h2 className={styles['neighbor__title']}>{props.direction}</h2>

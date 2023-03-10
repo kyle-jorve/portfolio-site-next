@@ -13,6 +13,7 @@ export default function CustomLink({
 	useTooltip = false,
 	className = "",
 	tabIndex = undefined,
+	target = "_self",
 	...otherProps
 }: CustomLinkProps) {
 	// const router = useRouter();
@@ -33,6 +34,7 @@ export default function CustomLink({
 	]
 		.filter((c) => c)
 		.join(" ");
+	const linkIsExternal = to.includes("http") || target !== "_self";
 
 	// function linkClickHandler(event: React.MouseEvent) {
 	// 	if (siteContext.mobile) {
@@ -52,7 +54,20 @@ export default function CustomLink({
 	// 	}, siteContext.longTransitionDuration);
 	// }
 
-	return (
+	return linkIsExternal ? (
+		<a
+			className={classes}
+			href={to}
+			tabIndex={
+				siteContext.lightboxStatus === "open" ? -1 : undefined
+			}
+			rel="noreferrer"
+			target="_blank"
+			{...otherProps}
+		>
+			{children}
+		</a>
+	) : (
 		<Link
 			className={classes}
 			href={to}
@@ -60,6 +75,8 @@ export default function CustomLink({
 			tabIndex={
 				siteContext.lightboxStatus === "open" ? -1 : undefined
 			}
+			rel={linkIsExternal ? "noreferrer" : undefined}
+			target={linkIsExternal ? "_blank" : undefined}
 			{...otherProps}
 		>
 			{children}

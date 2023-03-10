@@ -22,7 +22,7 @@
 
 .bio-home__img-cont::before,
 .bio__img-cont::before {
-	inset: -0.5rem 0.5rem 0.5rem -0.5rem;
+	inset: -8px 8px 8px -8px;
 	z-index: 3;
 	border: var(--light-border);
 	border-radius: var(--border-radius);
@@ -64,13 +64,13 @@
 }
 
 .resume__title-row {
-	margin-bottom: 2rem;
+	margin-bottom: 32px;
 }
 
 .resume__button-cont {
 	display: flex;
 	justify-content: center;
-	padding: 1rem 0;
+	padding: 16px 0;
 }
 
 .resume__item-title {
@@ -79,16 +79,16 @@
 
 .resume__sub-items {
 	display: grid;
-	gap: 2rem;
+	gap: 32px;
 }
 
 .resume__sub-items--bordered {
-	gap: 1rem;
+	gap: 16px;
 }
 
 .resume__sub-items--bordered .resume__sub-item {
-	padding-top: 1rem;
-	padding-bottom: 1rem;
+	padding-top: 16px;
+	padding-bottom: 16px;
 	border-bottom: var(--gray-border);
 }
 
@@ -107,13 +107,13 @@
 
 .resume__sub-item-year {
 	display: block;
-	margin-bottom: 0.35rem;
+	margin-bottom: 6px;
 	font-size: 0.9rem;
 	font-weight: var(--font-weight-normal);
 }
 
 .resume__sub-item-role {
-	padding: 0.25rem 0.5rem;
+	padding: 4px 8px;
 	background: var(--red);
 	box-decoration-break: clone;
 	-webkit-box-decoration-break: clone;
@@ -122,12 +122,12 @@
 
 .resume__sub-item-company {
 	display: block;
-	margin-top: 0.35rem;
+	margin-top: 6px;
 }
 
 .resume__sub-item-content {
-	padding: 1rem 0 1rem 1rem;
-	margin-right: 1rem;
+	padding: 16px 0 16px 16px;
+	margin-right: 16px;
 	border-left: var(--border-width) solid var(--gray-cool);
 	border-bottom: var(--border-width) solid var(--gray-cool);
 	border-radius: 0 0 0 var(--border-radius);
@@ -152,7 +152,7 @@
 
 .resume__hr {
 	max-width: 240px;
-	margin: 4rem auto;
+	margin: 64px auto;
 	background: var(--red);
 }
 
@@ -161,8 +161,8 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 1rem;
-		margin-bottom: 3rem;
+		gap: 16px;
+		margin-bottom: 48px;
 	}
 
 	.resume__title {
@@ -177,15 +177,15 @@
 
 @media (min-width: 64em) {
 	.resume__sub-items {
-		gap: 3rem;
+		gap: 48px;
 	}
 
 	.resume__sub-items--bordered {
-		gap: 1rem;
+		gap: 16px;
 	}
 
 	.resume__sub-item-content {
 		margin-right: 0;
-		padding: 1rem 0 2rem 2rem;
+		padding: 16px 0 32px 32px;
 	}
 }

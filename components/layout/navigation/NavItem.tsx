@@ -12,7 +12,6 @@ export default function NavItem({
 	...otherProps
 }: NavItemProps) {
 	const router = useRouter();
-	const linkIsExternal = url.includes("http");
 	const classes = [
 		isMobileNav ? styles["mobile-nav__item"] : styles["nav__item"],
 		router.pathname === url &&
@@ -23,21 +22,6 @@ export default function NavItem({
 	]
 		.filter((c) => c)
 		.join(" ");
-
-	if (linkIsExternal) {
-		return (
-			<a
-				className={classes}
-				href={url}
-				target="_blank"
-				rel="noreferrer"
-				onClick={onClick}
-				{...otherProps}
-			>
-				{children}
-			</a>
-		);
-	}
 
 	return (
 		<CustomLink

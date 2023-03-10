@@ -2,6 +2,7 @@ import { useContext } from "react";
 import SiteContext from "../../../context/global";
 import { VideoGalleryItemProps } from "../../../types/gallery-types";
 import useThumbnailConfig from "../../../hooks/thumbnail-config";
+import Button from "../../layout/Button";
 import styles from "../../../styles/components/VideoGallery.module.css";
 
 export default function VideoGalleryItem({
@@ -29,7 +30,7 @@ export default function VideoGalleryItem({
 	}
 
 	return (
-		<button
+		<Button
 			className={classes}
 			aria-label={`open ${title} video`}
 			onClick={handleVideoOpen}
@@ -47,6 +48,6 @@ export default function VideoGalleryItem({
 				}}
 				loading="lazy"
 			/>
-		</button>
+		</Button>
 	);
 }
