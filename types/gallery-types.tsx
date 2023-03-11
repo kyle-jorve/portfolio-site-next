@@ -1,5 +1,4 @@
-import React from "react";
-import { items as galleryItems } from "../data/gallery-data";
+import React, { AnchorHTMLAttributes } from "react";
 
 // ----- TYPES ----- //
 
@@ -153,3 +152,16 @@ export type VideoGalleryProps = React.HTMLAttributes<HTMLElement>;
 export type VideoGalleryItemProps = VideoGalleryItemType &
 	React.HTMLAttributes<HTMLButtonElement>;
 export type GalleryGridProps = React.HTMLAttributes<HTMLDivElement>;
+export type GalleryItemProps = { isNew?: boolean } & Exclude<
+	GalleryItemType,
+	| "content"
+	| "featured"
+	| "categories"
+	| "purchaseLink"
+	| "downloadLink"
+	| "detailKeys"
+> &
+	React.HTMLAttributes<HTMLElement>;
+
+export type NewBadgeProps = React.HTMLAttributes<HTMLSpanElement>;
+export type CommerceTilesProps = React.HTMLAttributes<HTMLDivElement>;

@@ -10,7 +10,7 @@ export default function Logo({
 		...className.trim().split(" "),
 		styles["header__logo-cont"],
 	]
-		.filter((c) => c)
+		.filter((c) => c?.length)
 		.join(" ");
 
 	return (

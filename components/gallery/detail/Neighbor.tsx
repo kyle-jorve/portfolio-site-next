@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import SiteContext from '../../../context/global';
 import CustomLink from '../../layout/link/CustomLink';
-import useThumbnailConfig from '../../../hooks/thumbnail-config';
+import useThumbnailConfig from '../../../hooks/useThumbnailConfig';
 import { GalleryItemType } from '../../../data/gallery-data';
 import styles from '../../../styles/components/Showcase.module.css';
 
@@ -43,7 +43,7 @@ export default function Neighbor(props: NeighborProps) {
 	});
 	const mobileImg = thumb.mobile.url;
 	const neighborClasses = [styles['neighbor'], styles[`neighbor--${props.direction}`]].filter(
-		(c) => c
+		(c) => c?.length
 	);
 
 	return (

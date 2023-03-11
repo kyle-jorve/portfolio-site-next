@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import useDetailImageConfig from '../../../hooks/detail-image-config';
+import useDetailImageConfig from '../../../hooks/uesDetailImageConfig';
 import styles from '../../../styles/components/Showcase.module.css';
 
 type ShowcasePictureProps = {

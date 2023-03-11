@@ -1,5 +1,5 @@
 import { GalleryItemType } from "../../../types/gallery-types";
-import useThumbnailConfig from "../../../hooks/thumbnail-config";
+import useThumbnailConfig from "../../../hooks/useThumbnailConfig";
 
 type LinkTooltipProps = {
 	galleryItem: GalleryItemType;

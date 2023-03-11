@@ -41,12 +41,12 @@ export default function useThumbnailConfig({
 		return {
 			sources: [
 				{
-					url: `${thumbKey}-480.jpg`,
+					url: `${thumbKey}-1024.jpg`,
 					minScreenWidth: 1024,
 				},
 			],
 			mobile: {
-				url: `${thumbKey}-320.jpg`,
+				url: `${thumbKey}-640.jpg`,
 			},
 		};
 	}

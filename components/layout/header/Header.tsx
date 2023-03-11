@@ -8,7 +8,7 @@ export default function Header({
 	...otherProps
 }: HeaderProps) {
 	const classes = [...className.trim().split(" "), styles.header]
-		.filter((c) => c)
+		.filter((c) => c?.length)
 		.join(" ");
 
 	return (

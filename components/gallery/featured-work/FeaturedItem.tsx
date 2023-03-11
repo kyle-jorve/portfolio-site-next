@@ -1,6 +1,7 @@
 import { FeaturedItemProps } from "../../../types/gallery-types";
-import useThumbnailConfig from "../../../hooks/thumbnail-config";
+import useThumbnailConfig from "../../../hooks/useThumbnailConfig";
 import CustomLink from "../../layout/link/CustomLink";
+import NewBadge from "../NewBadge";
 import styles from "../../../styles/components/FeaturedWork.module.css";
 
 export default function FeaturedItem({
@@ -17,7 +18,7 @@ export default function FeaturedItem({
 		"glide__slide",
 		...className.trim().split(" "),
 	]
-		.filter((c) => c)
+		.filter((c) => c?.length)
 		.join(" ");
 	const imgConfig = useThumbnailConfig({
 		thumbKey: thumb.path,
@@ -31,13 +32,7 @@ export default function FeaturedItem({
 			{...otherProps}
 		>
 			<div className={styles["featured__slide-inner"]}>
-				{isNew ? (
-					<span className={styles["featured__new-badge"]}>
-						New
-					</span>
-				) : (
-					""
-				)}
+				{isNew && <NewBadge />}
 
 				<CustomLink
 					to={`/gallery/${name}/`}

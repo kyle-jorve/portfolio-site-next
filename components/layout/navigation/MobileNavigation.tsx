@@ -13,7 +13,7 @@ export default function MobileNavigation({
 		...className.trim().split(" "),
 		styles["mobile-nav"],
 	]
-		.filter((c) => c)
+		.filter((c) => c?.length)
 		.join(" ");
 
 	return (

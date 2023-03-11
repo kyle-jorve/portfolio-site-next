@@ -14,7 +14,7 @@ export default function Bio({
 		"swoops--left",
 		styles.bio,
 	]
-		.filter((c) => c)
+		.filter((c) => c?.length)
 		.join(" ");
 
 	return (

@@ -13,7 +13,7 @@ export default function HomeHero({
 		"section",
 		styles.hero,
 	]
-		.filter((c) => c)
+		.filter((c) => c?.length)
 		.join(" ");
 
 	function scrollIconClickHandler() {

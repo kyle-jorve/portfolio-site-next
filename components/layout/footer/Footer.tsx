@@ -7,7 +7,7 @@ export default function Footer({
 	...otherProps
 }: FooterProps) {
 	const classes = [styles.footer, ...className.trim().split(" ")]
-		.filter((c) => c)
+		.filter((c) => c?.length)
 		.join(" ");
 
 	return (

@@ -96,25 +96,6 @@
 	transition: opacity var(--transition), transform var(--transition);
 }
 
-.featured__new-badge {
-	position: absolute;
-	inset: 16px auto auto 16px;
-	z-index: 2;
-	display: block;
-	padding: 6px 10px;
-	background: var(--accent-color);
-	border-radius: 999px;
-	box-shadow: var(--med-shadow);
-	font-family: var(--font-body);
-	font-weight: var(--font-weight-extrabold);
-	font-size: var(--text-sm);
-	line-height: 1;
-	letter-spacing: 0.1em;
-	text-transform: uppercase;
-	color: var(--light-color);
-	pointer-events: none;
-}
-
 .featured__link {
 	position: relative;
 	z-index: 1;

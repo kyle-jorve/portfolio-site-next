@@ -15,7 +15,7 @@ export default function FooterIcons({
 			styles[`social__icon--${icon.type}`],
 			...className.trim().split(" "),
 		]
-			.filter((c) => c)
+			.filter((c) => c?.length)
 			.join(" ");
 
 		return (

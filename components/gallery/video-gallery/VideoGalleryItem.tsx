@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import SiteContext from "../../../context/global";
 import { VideoGalleryItemProps } from "../../../types/gallery-types";
-import useThumbnailConfig from "../../../hooks/thumbnail-config";
+import useThumbnailConfig from "../../../hooks/useThumbnailConfig";
 import Button from "../../layout/Button";
 import styles from "../../../styles/components/VideoGallery.module.css";
 
@@ -22,7 +22,7 @@ export default function VideoGalleryItem({
 		styles["video-gallery__item"],
 		...className.trim().split(" "),
 	]
-		.filter((c) => c)
+		.filter((c) => c?.length)
 		.join(" ");
 
 	function handleVideoOpen() {
@@ -39,6 +39,11 @@ export default function VideoGalleryItem({
 			}
 			{...otherProps}
 		>
+			<span
+				className={styles["video-gallery__play-button"]}
+				aria-hidden={true}
+			></span>
+
 			<img
 				className={styles["video-gallery__image"]}
 				src={thumb.mobile.url}

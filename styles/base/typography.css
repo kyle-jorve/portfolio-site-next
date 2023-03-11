@@ -26,11 +26,11 @@
 	}
 
 	small {
-		font-size: var(--text-sm);
+		font-size: 0.75em;
 	}
 
 	.large-text {
-		font-size: var(--text-lg);
+		font-size: 1.25em;
 		font-weight: var(--font-weight-semibold);
 	}
 
@@ -296,5 +296,28 @@
 			padding: 48px 0 32px 32px;
 			margin: 48px 0 32px 0;
 		}
+	}
+
+	/*=================================*/
+	/*=====----- "NEW" BADGE -----=====*/
+	/*=================================*/
+
+	.new-badge {
+		position: absolute;
+		inset: 16px auto auto 16px;
+		z-index: 4;
+		display: block;
+		padding: 6px 10px;
+		background: var(--accent-color);
+		border-radius: 999px;
+		box-shadow: var(--med-shadow);
+		font-family: var(--font-body);
+		font-weight: var(--font-weight-extrabold);
+		font-size: var(--text-sm);
+		line-height: 1;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--light-color);
+		pointer-events: none;
 	}
 }

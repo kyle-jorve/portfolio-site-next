@@ -1,22 +1,85 @@
+import { useState, useEffect } from "react";
 import { GalleryGridProps } from "../../../types/gallery-types";
 import { items as galleryItems } from "../../../data/gallery-data";
+import GalleryItem from "./GalleryItem";
 import styles from "../../../styles/components/Gallery.module.css";
+
+const breakpoints = [0, 640, 1024];
+let timeout: ReturnType<typeof setTimeout>;
 
 export default function GalleryGrid({
 	className = "",
 	...otheProps
 }: GalleryGridProps) {
+	const [breakpoint, setBreakpoint] = useState(
+		breakpoints.map((p, i) => (i === 0 ? true : false)),
+	);
 	const classes = [
 		...className.trim().split(" "),
 		styles["gallery__grid"],
+		breakpoint[0] && styles["gallery__grid--level-1"],
+		breakpoint[1] && styles["gallery__grid--level-2"],
+		breakpoint[2] && styles["gallery__grid--level-3"],
 	]
 		.filter((c) => c)
 		.join(" ");
+
+	useEffect(() => {
+		let resizeFn: EventListenerOrEventListenerObject;
+
+		function resizeHandler() {
+			if (window.innerWidth >= breakpoints[2]) {
+				setBreakpoint([false, false, true]);
+				return;
+			}
+
+			if (window.innerWidth >= breakpoints[1]) {
+				setBreakpoint([false, true, false]);
+				return;
+			}
+
+			setBreakpoint([true, false, false]);
+		}
+
+		resizeHandler();
+
+		["resize", "orientationchange"].forEach((ev) =>
+			window.addEventListener(
+				ev,
+				(resizeFn = () => {
+					if (timeout) clearTimeout(timeout);
+
+					timeout = setTimeout(resizeHandler, 200);
+				}),
+			),
+		);
+
+		return () => {
+			["resize", "orientationchange"].forEach((ev) =>
+				window.removeEventListener(ev, resizeFn),
+			);
+		};
+	}, []);
 
 	return (
 		<div
 			className={classes}
 			{...otheProps}
-		></div>
+		>
+			{galleryItems.map((item) => {
+				const isNew = item.name === galleryItems[0].name;
+
+				return (
+					<GalleryItem
+						key={item.name}
+						name={item.name}
+						title={item.title}
+						year={item.year}
+						thumb={item.thumb}
+						isNew={isNew}
+					/>
+				);
+			})}
+		</div>
 	);
 }

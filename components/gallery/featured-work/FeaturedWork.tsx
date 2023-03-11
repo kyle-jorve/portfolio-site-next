@@ -25,7 +25,7 @@ export default function FeaturedWork({
 		"swoops--left",
 		styles.featured,
 	]
-		.filter((c) => c)
+		.filter((c) => c?.length)
 		.join(" ");
 
 	useEffect(() => {

@@ -17,7 +17,7 @@ export default function Lightbox({
 			styles["lightbox--active"],
 		context.lightboxStatus === "out" && styles["lightbox--out"],
 	]
-		.filter((c) => c)
+		.filter((c) => c?.length)
 		.join(" ");
 
 	useEffect(() => {

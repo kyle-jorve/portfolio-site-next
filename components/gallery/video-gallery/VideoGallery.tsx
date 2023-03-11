@@ -18,7 +18,7 @@ export default function VideoGallery({
 		"swoops--right",
 		styles["video-gallery"],
 	]
-		.filter((c) => c)
+		.filter((c) => c?.length)
 		.join(" ");
 
 	return (

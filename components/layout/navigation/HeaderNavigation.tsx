@@ -16,7 +16,7 @@ export default function HeaderNavigation({
 		"showInMainNav" in item ? item.showInMainNav : true,
 	);
 	const classes = [...className.trim().split(" "), styles.nav]
-		.filter((c) => c)
+		.filter((c) => c?.length)
 		.join(" ");
 
 	return (
