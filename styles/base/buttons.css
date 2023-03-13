@@ -48,8 +48,7 @@
 		text-align: center;
 		text-transform: uppercase;
 		opacity: 1;
-		transition: background-color var(--transition),
-			color var(--transition), opacity var(--transition);
+		transition: background-color var(--transition), color var(--transition), opacity var(--transition);
 	}
 
 	.button--small {
@@ -74,25 +73,25 @@
 	}
 
 	.button--primary {
-		background: linear-gradient(
-			to right,
-			var(--accent-color),
-			var(--yellow)
-		);
+		background: linear-gradient(to right, var(--accent-color), var(--yellow));
 		background-size: 200% 100%;
 		background-position: 0 center;
 		color: var(--light-color);
-		transition: background-position var(--transition),
-			color var(--transition);
+		transition: background-position var(--transition), color var(--transition);
 	}
 
 	.button--secondary {
 		background-color: rgba(0, 0, 0, 0.35);
 		border: var(--border-width) solid var(--accent-color);
 		color: var(--accent-color);
-		transition: background-color var(--transition),
-			color var(--transition), border-color var(--transition),
+		transition: background-color var(--transition), color var(--transition), border-color var(--transition),
 			opacity var(--transition);
+	}
+
+	.button--white-border {
+		background-color: rgba(0, 0, 0, 0.35);
+		border: var(--border-width) solid var(--white);
+		color: var(--white);
 	}
 
 	.button--hide {
@@ -100,12 +99,7 @@
 		pointer-events: none;
 	}
 
-	:where(
-			.button--download,
-			.button--shop,
-			.button--shuffle,
-			.button--add
-		)::before,
+	:where(.button--download, .button--shop, .button--shuffle, .button--add, .button--back)::before,
 	.button--arrow::after {
 		display: block;
 		flex-shrink: 0;
@@ -128,6 +122,10 @@
 
 	.button--add::before {
 		content: "\f055";
+	}
+
+	.button--back::before {
+		content: "\f060";
 	}
 
 	.button--arrow::after {
@@ -155,8 +153,7 @@
 		font-size: var(--text-base);
 		color: var(--light-color);
 		cursor: pointer;
-		transition: background-color var(--transition),
-			color var(--transition);
+		transition: background-color var(--transition), color var(--transition);
 	}
 
 	.close-button {
@@ -200,8 +197,7 @@
 		background-color: transparent;
 		border: var(--border-width) solid var(--light-color);
 		border-radius: 50%;
-		transition: background-color var(--transition),
-			transform var(--transition);
+		transition: background-color var(--transition), transform var(--transition);
 	}
 
 	.slider-dot--active {
@@ -222,6 +218,11 @@
 		.button--secondary:hover {
 			background-color: var(--accent-color);
 			color: var(--light-color);
+		}
+
+		.button--white-border:hover {
+			background-color: var(--white);
+			color: var(--dark-color);
 		}
 
 		.close-button:hover,
