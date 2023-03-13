@@ -81,7 +81,8 @@
 	font-size: 1.125rem;
 }
 
-.nav__item::before {
+.nav__item::before,
+.nav__expand::before {
 	position: absolute;
 	inset: auto auto -12px 50%;
 	transform: translate(-50%, 16px);
@@ -119,6 +120,11 @@
 
 /*----- open dropdown -----*/
 
+.nav__expand--open::before {
+	transform: translate(-50%, 16px);
+	opacity: 0;
+}
+
 .nav__dropdown--open {
 	transform: translate(-50%, 100%);
 }
@@ -133,7 +139,8 @@
 /*----- media queries -----*/
 
 @media (hover: hover) {
-	.nav__item:hover::before {
+	.nav__item:hover::before,
+	.nav__expand:not(.nav__expand--open):hover::before {
 		transform: translateX(-50%);
 		opacity: 1;
 	}
@@ -320,7 +327,7 @@
 
 .mobile-nav__item--current,
 .mobile-nav__expand--open {
-	transform: translateY(-8px);
+	transform: translateY(-12px);
 	background-color: var(--white);
 	color: var(--accent-color);
 	box-shadow: var(--med-shadow);

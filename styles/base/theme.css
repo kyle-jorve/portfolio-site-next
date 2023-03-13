@@ -39,7 +39,7 @@
 
 		/* layout widths */
 		--width-narrow: 54ch;
-		--width-content: 64ch;
+		--width-content: 800px;
 		--width-section: 1200px;
 		--width-wide: 1520px;
 
@@ -56,32 +56,26 @@
 		--border-radius: 8px;
 
 		--white-border: var(--border-width) solid var(--light-color);
-		--light-border: var(--border-width) solid
-			rgba(255, 255, 255, 0.2);
+		--light-border: var(--border-width) solid rgba(255, 255, 255, 0.2);
 		--gray-border: var(--border-width) solid var(--gray-cool);
-		--light-red-border: var(--border-width) solid
-			rgba(255, 86, 82, 0.5);
+		--light-red-border: var(--border-width) solid rgba(255, 86, 82, 0.5);
 
 		/* containers */
 		--section-padding: 64px 16px;
+		--top-margin: 100px;
 
 		/* transitions */
 		--transition-dur: 0.3s;
 		--transition-ease: ease;
 
 		--transition: var(--transition-dur) var(--transition-ease);
-		--long-transition: calc(var(--transition-dur) * 2)
-			var(--transition-ease);
+		--long-transition: calc(var(--transition-dur) * 2) var(--transition-ease);
 
 		/* animations */
-		--animation-fade-in: fade-in var(--transition-dur)
-			var(--transition-ease) 0s 1 normal forwards;
-		--animation-fade-out: fade-out var(--transition-dur)
-			var(--transition-ease) 0s 1 normal forwards;
-		--animation-slide-up: slide-up var(--transition-dur)
-			var(--transition-ease) 0s 1 normal forwards;
-		--animation-slide-down: slide-down var(--transition-dur)
-			var(--transition-ease) 0s 1 normal forwards;
+		--animation-fade-in: fade-in var(--transition-dur) var(--transition-ease) 0s 1 normal forwards;
+		--animation-fade-out: fade-out var(--transition-dur) var(--transition-ease) 0s 1 normal forwards;
+		--animation-slide-up: slide-up var(--transition-dur) var(--transition-ease) 0s 1 normal forwards;
+		--animation-slide-down: slide-down var(--transition-dur) var(--transition-ease) 0s 1 normal forwards;
 
 		/* layout */
 		--logo-width: 60px;
@@ -92,6 +86,7 @@
 		:root {
 			--logo-width: 80px;
 			--section-padding: 96px 32px;
+			--top-margin: 160px;
 		}
 	}
 

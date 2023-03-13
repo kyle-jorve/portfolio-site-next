@@ -40,9 +40,10 @@
 
 	.underline::after {
 		display: block;
+		width: 100%;
 		max-width: 150px;
 		height: 6px;
-		margin-top: 0.125rem;
+		margin-top: 0.125em;
 		background: linear-gradient(to right, #e48784, #c83774);
 		border-radius: 3px;
 		content: "";
@@ -53,7 +54,7 @@
 	}
 
 	.underline--center::after {
-		margin: 0.125rem auto 0;
+		margin: 0.125em auto 0;
 	}
 
 	.underline--right {
@@ -79,8 +80,7 @@
 		color: var(--accent-color);
 		text-decoration: underline;
 		font-weight: var(--font-weight-semibold);
-		transition: background-color var(--transition),
-			color var(--transition);
+		transition: background-color var(--transition), color var(--transition);
 		cursor: pointer;
 	}
 
@@ -131,6 +131,11 @@
 		line-height: 0.84;
 	}
 
+	h1.small {
+		font-size: 3.75rem;
+		line-height: 1;
+	}
+
 	h2 {
 		font-size: 3.75rem;
 	}
@@ -160,6 +165,7 @@
 			font-size: 5rem;
 		}
 
+		h1.small,
 		h2.small {
 			font-size: 4rem;
 		}
@@ -190,6 +196,7 @@
 			font-size: 6.25rem;
 		}
 
+		h1.small,
 		h2.small {
 			font-size: 4.5rem;
 		}
@@ -212,6 +219,7 @@
 			font-size: 7.5rem;
 		}
 
+		h1.small,
 		h2.small {
 			font-size: 5rem;
 		}
@@ -228,6 +236,12 @@
 	/*=======================================*/
 	/*=====----- PARAGRAPHS, LISTS -----=====*/
 	/*=======================================*/
+
+	ul,
+	ol {
+		padding-inline-start: 24px;
+		margin: 0;
+	}
 
 	p,
 	ul,

@@ -12,18 +12,27 @@ export type BioType = {
 export type ResumeType = {
 	docUrl: string;
 	items: {
+		name: string;
 		heading: string;
-		content: JSX.Element;
+		subItems: {
+			period?: string;
+			position?: string;
+			company?: string;
+			title?: string;
+			content?: JSX.Element;
+		}[]
 	}[];
 };
 
 // ----- COMPONENT PROPS ----- //
 
-export type BioProps = React.HTMLAttributes<HTMLElement>;
+export type BioProps = {
+	useH1?: boolean;
+	showButton?: boolean;
+} & React.HTMLAttributes<HTMLElement>;
+export type ResumeProps = React.HTMLAttributes<HTMLElement>;
 export type CVItemProps = {
     title: string;
     content: JSX.Element;
     showHR?: boolean;
 } & React.HTMLAttributes<HTMLDivElement>;
-
-export type ResumeProps = React.HTMLAttributes<HTMLElement>;

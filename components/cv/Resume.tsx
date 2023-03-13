@@ -1,54 +1,85 @@
-import { useContext } from "react";
-import SiteContext from "../../context/global";
-import CVItem from "./CVItem";
 import { ResumeProps } from "../../types/cv-types";
+import { resume } from "../../data/cv-data";
 import CustomLink from "../layout/link/CustomLink";
-import styles from "../../styles/components/CV.module.css";
+import styles from "../../styles/components/Resume.module.css";
 
-export default function Resume(props: ResumeProps) {
-	const siteContext = useContext(SiteContext);
-	const resume = props.resume.docUrl;
+export default function Resume({ className = "", ...otherProps }: ResumeProps) {
+	const classes = ["section", "swoops", "swoops--right", styles["resume"], ...className.trim().split(" ")]
+		.filter((c) => c)
+		.join(" ");
 
 	return (
 		<section
-			className={`section ${styles.resume}`}
-			id="resume"
-			{...props}
+			className={classes}
+			{...otherProps}
 		>
 			<div className="wrapper wrapper--content">
-				<div className={styles["resume__title-row"]}>
-					<h2
-						className={`underline underline--center ${styles["resume__title"]}`}
-					>
-						R&eacute;sum&eacute;
-					</h2>
+				<div className="title-row">
+					<h2 className="underline">R&eacute;sum&eacute;</h2>
 
-					<div className={styles["resume__button-cont"]}>
-						<CustomLink
-							className="button button--primary button--download"
-							to={resume}
-							download
-							tabIndex={
-								siteContext.navOpen ? -1 : undefined
-							}
-						>
-							Download
-						</CustomLink>
-					</div>
+					<CustomLink
+						className="button button--primary button--download"
+						to={resume.docUrl}
+						download
+					>
+						Download
+					</CustomLink>
 				</div>
 
-				{props.resume.items.map((item, index) => {
-					return (
-						<CVItem
-							key={index}
-							title={item.heading}
-							content={item.content}
-							showHR={
-								index + 1 < props.resume.items.length
-							}
-						/>
-					);
-				})}
+				<div className={styles["resume__grid"]}>
+					{resume.items.map((item) => {
+						return (
+							<div
+								key={item.name}
+								className={`content-box ${styles["resume__item"]}`}
+							>
+								<h3>{item.heading}</h3>
+
+								<div className={styles["resume__subgrid"]}>
+									{item.subItems.map((subitem, index) => {
+										const hasTitle =
+											!!subitem.period ||
+											!!subitem.position ||
+											!!subitem.company ||
+											!!subitem.title;
+
+										return (
+											<div
+												key={`${item.name}-subitem-${index}`}
+												className={styles["resume__subitem"]}
+											>
+												{hasTitle && (
+													<h4 className={styles["resume__subitem-title"]}>
+														{!!subitem.period && subitem.period}
+														{!!subitem.position && (
+															<div>
+																<span className={styles["resume__highlight"]}>
+																	{subitem.position}
+																</span>
+															</div>
+														)}
+														{!!subitem.company && subitem.company}
+														{!!subitem.title && (
+															<div>
+																<span className={styles["resume__highlight"]}>
+																	{subitem.title}
+																</span>
+															</div>
+														)}
+													</h4>
+												)}
+
+												{!!subitem.content && (
+													<div className={styles["resume__content"]}>{subitem.content}</div>
+												)}
+											</div>
+										);
+									})}
+								</div>
+							</div>
+						);
+					})}
+				</div>
 			</div>
 		</section>
 	);

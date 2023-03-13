@@ -4,6 +4,8 @@ import CustomLink from "../layout/link/CustomLink";
 import styles from "../../styles/components/Bio.module.css";
 
 export default function Bio({
+	useH1 = false,
+	showButton = true,
 	className = "",
 	...otherProps
 }: BioProps) {
@@ -16,6 +18,7 @@ export default function Bio({
 	]
 		.filter((c) => c?.length)
 		.join(" ");
+	const Heading = (useH1 ? "h1" : "h2") as React.ElementType;
 
 	return (
 		<section
@@ -40,18 +43,22 @@ export default function Bio({
 				<div
 					className={`content-box ${styles["bio__content"]}`}
 				>
-					<h2 className="underline small">{bio.title}</h2>
+					<Heading className="underline small">
+						{bio.title}
+					</Heading>
 
 					{bio.content}
 
-					<div className={styles["bio__button-row"]}>
-						<CustomLink
-							className="button button--primary button--arrow"
-							to="/cv#resume"
-						>
-							See R&eacute;sum&eacute;
-						</CustomLink>
-					</div>
+					{showButton && (
+						<div className={styles["bio__button-row"]}>
+							<CustomLink
+								className="button button--primary button--arrow"
+								to="/cv#resume"
+							>
+								See R&eacute;sum&eacute;
+							</CustomLink>
+						</div>
+					)}
 				</div>
 
 				<div className={`fancy-image ${styles["bio__image"]}`}>

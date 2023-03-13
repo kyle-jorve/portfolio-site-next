@@ -4,7 +4,7 @@
 
 .gallery {
 	position: relative;
-	margin-top: 80px;
+	margin-top: var(--top-margin);
 	padding: 40px 8px 64px;
 }
 
@@ -43,7 +43,6 @@
 
 @media (min-width: 64em) {
 	.gallery {
-		margin-top: 160px;
 		padding: 40px 8px 96px;
 	}
 
@@ -100,6 +99,7 @@
 	z-index: 3;
 	border: var(--light-border);
 	border-radius: var(--border-radius);
+	backdrop-filter: blur(40px);
 	opacity: 0;
 	transition: opacity var(--transition), inset var(--transition);
 }
@@ -205,43 +205,39 @@
 
 /*----- grid level 3 -----*/
 
-.gallery__grid--level-3 .gallery__item:nth-child(23n),
-.gallery__grid--level-3 .gallery__item:nth-child(23n - 1),
-.gallery__grid--level-3 .gallery__item:nth-child(23n - 4),
-.gallery__grid--level-3 .gallery__item:nth-child(23n - 5),
-.gallery__grid--level-3 .gallery__item:nth-child(23n - 6),
-.gallery__grid--level-3 .gallery__item:nth-child(23n - 7),
-.gallery__grid--level-3 .gallery__item:nth-child(23n - 10),
-.gallery__grid--level-3 .gallery__item:nth-child(23n - 11),
-.gallery__grid--level-3 .gallery__item:nth-child(23n - 12),
-.gallery__grid--level-3 .gallery__item:nth-child(23n - 15),
-.gallery__grid--level-3 .gallery__item:nth-child(23n - 18),
-.gallery__grid--level-3 .gallery__item:nth-child(23n - 20) {
+.gallery__grid--level-3 .gallery__item:nth-child(6n),
+.gallery__grid--level-3 .gallery__item:nth-child(6n - 1),
+.gallery__grid--level-3 .gallery__item:nth-child(6n - 2),
+.gallery__grid--level-3 .gallery__item:nth-child(6n - 3) {
 	aspect-ratio: 1;
+	grid-row: span 1;
+	grid-column: span 1;
 }
 
-.gallery__grid--level-3 .gallery__item:nth-child(23n - 2),
-.gallery__grid--level-3 .gallery__item:nth-child(23n - 3),
-.gallery__grid--level-3 .gallery__item:nth-child(23n - 8),
-.gallery__grid--level-3 .gallery__item:nth-child(23n - 9),
-.gallery__grid--level-3 .gallery__item:nth-child(23n - 13),
-.gallery__grid--level-3 .gallery__item:nth-child(23n - 14),
-.gallery__grid--level-3 .gallery__item:nth-child(23n - 17),
-.gallery__grid--level-3 .gallery__item:nth-child(23n - 21) {
+.gallery__grid--level-3 .gallery__item:nth-child(6n - 4),
+.gallery__grid--level-3 .gallery__item:nth-child(6n - 5) {
 	aspect-ratio: 2 / 1;
+	grid-row: span 1;
 	grid-column: span 2;
-}
-
-.gallery__grid--level-3 .gallery__item:nth-child(23n - 16),
-.gallery__grid--level-3 .gallery__item:nth-child(23n - 19) {
-	aspect-ratio: 1 / 2;
-	grid-row: span 2;
 }
 
 .gallery__grid--level-3 .gallery__item:first-child {
 	aspect-ratio: 1;
 	grid-row: span 2;
 	grid-column: span 2;
+}
+
+.gallery__grid--level-3 .gallery__item:nth-child(2) {
+	aspect-ratio: 2 / 1;
+	grid-row: span 1;
+	grid-column: span 2;
+}
+
+.gallery__grid--level-3 .gallery__item:nth-child(3),
+.gallery__grid--level-3 .gallery__item:nth-child(4) {
+	aspect-ratio: 1;
+	grid-row: span 1;
+	grid-column: span 1;
 }
 
 /*----- media queries -----*/

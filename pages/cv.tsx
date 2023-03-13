@@ -1,39 +1,23 @@
-import { Fragment, useEffect, useContext } from "react";
+import { Fragment } from "react";
 import Head from "next/head";
-import SiteContext from "../context/global";
-import getCvData from "../data/cv-data";
 import Bio from "../components/cv/Bio";
 import Resume from "../components/cv/Resume";
+import bioStyles from "../styles/components/Bio.module.css";
 
 export default function CV() {
-    const siteContext = useContext(SiteContext);
-    const cvData = getCvData();
+	return (
+		<Fragment>
+			<Head>
+				<title key="title">Curriculum Vitae | Kyle Jorve | Illustration and Design</title>
+			</Head>
 
-    useEffect(() => {
-        document.querySelector("body")?.classList.add("light");
+			<Bio
+				className={bioStyles["bio--hero"]}
+				useH1={true}
+				showButton={false}
+			/>
 
-        return () => document.querySelector("body")?.classList.remove("light");
-    });
-
-    useEffect(() => {
-        if (siteContext.toSection) {
-            const section = document.querySelector(`#${siteContext.toSection}`);
-
-            siteContext.setToSection(null);
-
-            if (!section) return;
-
-            section.scrollIntoView();
-        }
-    }, [siteContext.toSection]);
-
-    return (
-        <Fragment>
-            <Head>
-                <title key="title">Curriculum Vitae | Kyle Jorve | Illustration and Design</title>
-            </Head>
-            <Bio heroImg={cvData.heroImg} bio={cvData.bio} />
-            <Resume resume={cvData.resume} />
-        </Fragment>
-    );
+			<Resume />
+		</Fragment>
+	);
 }
