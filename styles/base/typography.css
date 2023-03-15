@@ -277,13 +277,13 @@
 		height: 48px;
 		border: var(--border-width) solid var(--accent-color);
 		border-radius: 50%;
-		background: var(--gray-cool-light);
+		background: var(--accent-color);
 		content: "\f10d";
 		font: var(--fa-font-solid);
 		font-style: normal;
 		font-size: 24px;
 		line-height: 1;
-		color: var(--accent-color);
+		color: var(--light-color);
 	}
 
 	.cite {

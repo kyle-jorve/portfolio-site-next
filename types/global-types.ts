@@ -63,10 +63,17 @@ export type ParentNavItemProps = {
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export type HeaderProps = React.HTMLAttributes<HTMLElement>;
+
 export type LogoProps = React.HTMLAttributes<HTMLAnchorElement>;
+
 export type HeaderNavigationProps = React.HTMLAttributes<HTMLElement>;
+
 export type FooterProps = React.HTMLAttributes<HTMLElement>;
-export type FooterIconProps = React.HTMLAttributes<HTMLDivElement>
+
+export type FooterIconProps = React.HTMLAttributes<HTMLDivElement>;
+
 export type MobileNavigationProps = React.HTMLAttributes<HTMLElement>;
+
 export type LightboxProps = React.HTMLAttributes<HTMLDivElement>;
+
 export type HomeHeroProps = React.HTMLAttributes<HTMLElement>;

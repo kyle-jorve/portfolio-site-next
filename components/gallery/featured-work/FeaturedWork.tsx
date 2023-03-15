@@ -79,9 +79,7 @@ export default function FeaturedWork({
 				styles["featured__slide--active"],
 			);
 
-			bullets[slider.index].classList.remove(
-				"slider-dot--active",
-			);
+			bullets[slider.index].classList.remove("slider-dot--active");
 		});
 
 		slider.on("run", () => {
@@ -93,6 +91,10 @@ export default function FeaturedWork({
 		});
 
 		slider.mount();
+
+		return () => {
+			slider.destroy();
+		};
 	}, []);
 
 	return (
@@ -123,7 +125,7 @@ export default function FeaturedWork({
 						></Button>
 
 						<Button
-							className={`${styles["featured__arrow"]} glide__arrow glide__arrow--left arrow-button arrow-button--right`}
+							className={`${styles["featured__arrow"]} glide__arrow glide__arrow--right arrow-button arrow-button--right`}
 							data-glide-dir=">"
 							aria-label="move slideshow right"
 						></Button>
@@ -153,9 +155,7 @@ export default function FeaturedWork({
 										thumb={item.thumb}
 										isNew={
 											galleryItems.findIndex(
-												(gi) =>
-													gi.name ===
-													item.name,
+												(gi) => gi.name === item.name,
 											) === 0
 										}
 									/>
@@ -174,13 +174,9 @@ export default function FeaturedWork({
 									key={item.name}
 									data-featured-slider-dot
 									className={`slider-dot${
-										index === 0
-											? ` slider-dot--active`
-											: ""
+										index === 0 ? ` slider-dot--active` : ""
 									} glide__bullet`}
-									aria-label={`go to slide ${
-										index + 1
-									}`}
+									aria-label={`go to slide ${index + 1}`}
 									data-glide-dir={`=${index}`}
 								></Button>
 							);

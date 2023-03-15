@@ -19,20 +19,8 @@ export default function useThumbnailConfig({
 				url: `${thumbKey}-640.jpg`,
 			},
 		};
-	} else if (isFeatured || isVideo) {
+	} else if (isFeatured || isVideo || isDetail) {
 		return {
-			mobile: {
-				url: `${thumbKey}-640.jpg`,
-			},
-		};
-	} else if (isDetail) {
-		return {
-			sources: [
-				{
-					url: `${thumbKey}-480.jpg`,
-					minScreenWidth: 640,
-				},
-			],
 			mobile: {
 				url: `${thumbKey}-640.jpg`,
 			},

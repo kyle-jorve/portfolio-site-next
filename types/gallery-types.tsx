@@ -101,21 +101,32 @@ export type ThumbnailKeyType = {
 	height?: number;
 };
 
+export type GalleryItemContent = {
+	title: string;
+	content: JSX.Element;
+	year: string | number;
+	purchaseLink?: string;
+	downloadLink?: string;
+};
+
 export type GalleryItemType = {
 	name: string;
-	title: string;
-	year: string | number;
 	thumb: ThumbnailKeyType;
-	content?: JSX.Element;
-	featured?: boolean;
-	categories?: (
+	detailKeys: DetailKeyType[];
+	categories: (
 		| typeof projectCategories[keyof typeof projectCategories]
 		| typeof characterCategories[keyof typeof characterCategories]
 	)[];
-	purchaseLink?: string;
-	downloadLink?: string;
-	detailKeys?: DetailKeyType[];
-};
+	featured?: boolean;
+} & GalleryItemContent;
+
+export type NeighborType =
+	| {
+			name: string;
+			title: string;
+			thumb: ThumbnailKeyType;
+	  }
+	| undefined;
 
 export type VideoGalleryItemType = {
 	name: string;
@@ -140,6 +151,7 @@ export type ThumbnailConfigProps = {
 };
 
 export type FeaturedWorkProps = React.HTMLAttributes<HTMLElement>;
+
 export type FeaturedItemProps = {
 	name: string;
 	title: string;
@@ -149,9 +161,12 @@ export type FeaturedItemProps = {
 } & React.HTMLAttributes<HTMLElement>;
 
 export type VideoGalleryProps = React.HTMLAttributes<HTMLElement>;
+
 export type VideoGalleryItemProps = VideoGalleryItemType &
 	React.HTMLAttributes<HTMLButtonElement>;
+
 export type GalleryGridProps = React.HTMLAttributes<HTMLDivElement>;
+
 export type GalleryItemProps = { isNew?: boolean } & Exclude<
 	GalleryItemType,
 	| "content"
@@ -164,4 +179,26 @@ export type GalleryItemProps = { isNew?: boolean } & Exclude<
 	React.HTMLAttributes<HTMLElement>;
 
 export type NewBadgeProps = React.HTMLAttributes<HTMLSpanElement>;
+
 export type CommerceTilesProps = React.HTMLAttributes<HTMLDivElement>;
+
+export type DetailSlideshowProps = {
+	galleryItem: GalleryItemType;
+} & React.HTMLAttributes<HTMLDivElement>;
+
+export type DetailSlideProps = {
+	image: DetailKeyType;
+	name: string;
+} & React.HTMLAttributes<HTMLDivElement>;
+
+export type DetailContentProps = GalleryItemContent &
+	React.HTMLAttributes<HTMLDivElement>;
+
+export type NeighborsProps = {
+	prev?: NeighborType;
+	next?: NeighborType;
+} & React.HTMLAttributes<HTMLDivElement>;
+
+export type NeighborProps = NeighborType & {
+	direction: "prev" | "next";
+} & React.HTMLAttributes<HTMLElement>;

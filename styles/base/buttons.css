@@ -5,6 +5,13 @@
 		cursor: pointer;
 	}
 
+	.button-row {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 16px;
+	}
+
 	/* reset */
 	button {
 		appearance: none;
@@ -48,7 +55,8 @@
 		text-align: center;
 		text-transform: uppercase;
 		opacity: 1;
-		transition: background-color var(--transition), color var(--transition), opacity var(--transition);
+		transition: background-color var(--transition), color var(--transition),
+			opacity var(--transition);
 	}
 
 	.button--small {
@@ -73,19 +81,24 @@
 	}
 
 	.button--primary {
-		background: linear-gradient(to right, var(--accent-color), var(--yellow));
+		background: linear-gradient(
+			to right,
+			var(--accent-color),
+			var(--yellow)
+		);
 		background-size: 200% 100%;
 		background-position: 0 center;
 		color: var(--light-color);
-		transition: background-position var(--transition), color var(--transition);
+		transition: background-position var(--transition),
+			color var(--transition);
 	}
 
 	.button--secondary {
 		background-color: rgba(0, 0, 0, 0.35);
 		border: var(--border-width) solid var(--accent-color);
 		color: var(--accent-color);
-		transition: background-color var(--transition), color var(--transition), border-color var(--transition),
-			opacity var(--transition);
+		transition: background-color var(--transition), color var(--transition),
+			border-color var(--transition), opacity var(--transition);
 	}
 
 	.button--white-border {
@@ -99,7 +112,14 @@
 		pointer-events: none;
 	}
 
-	:where(.button--download, .button--shop, .button--shuffle, .button--add, .button--back)::before,
+	:where(
+			.button--download,
+			.button--save,
+			.button--shop,
+			.button--shuffle,
+			.button--add,
+			.button--back
+		)::before,
 	.button--arrow::after {
 		display: block;
 		flex-shrink: 0;
@@ -110,6 +130,10 @@
 
 	.button--download::before {
 		content: "\f019";
+	}
+
+	.button--save::before {
+		content: "\f0c7";
 	}
 
 	.button--shop::before {
@@ -156,6 +180,13 @@
 		transition: background-color var(--transition), color var(--transition);
 	}
 
+	.close-button--white-border,
+	.arrow-button--white-border {
+		background-color: transparent;
+		border: var(--border-width) solid var(--white);
+		box-shadow: none;
+	}
+
 	.close-button {
 		font-size: var(--text-lg);
 	}
@@ -197,7 +228,8 @@
 		background-color: transparent;
 		border: var(--border-width) solid var(--light-color);
 		border-radius: 50%;
-		transition: background-color var(--transition), transform var(--transition);
+		transition: background-color var(--transition),
+			transform var(--transition);
 	}
 
 	.slider-dot--active {
@@ -225,14 +257,18 @@
 			color: var(--dark-color);
 		}
 
-		.close-button:hover,
-		.arrow-button:hover {
+		.close-button:not(.close-button--white-border):hover,
+		.arrow-button:not(.arrow-button--white-border):hover {
 			background-color: var(--red-light);
 			color: var(--dark-color);
 		}
 	}
 
 	@media (min-width: 64em) {
+		.button-row {
+			gap: 32px;
+		}
+
 		.button {
 			font-size: var(--text-sm);
 		}

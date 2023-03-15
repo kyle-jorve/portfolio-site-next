@@ -17,11 +17,20 @@ export default function CustomLink({
 }: CustomLinkProps) {
 	const siteContext = useContext(SiteContext);
 	const destinationIsDetailPage = to.includes("/gallery/") && to.length > 9;
-	const itemID = destinationIsDetailPage && to.split("/gallery/")[1].replace(/\//g, "");
-	const galleryItem = destinationIsDetailPage && galleryItems.find((item) => item.name === itemID);
+	const itemID =
+		destinationIsDetailPage && to.split("/gallery/")[1].replace(/\//g, "");
+	const galleryItem =
+		destinationIsDetailPage &&
+		galleryItems.find((item) => item.name === itemID);
 	const hasTooltip = destinationIsDetailPage && !!galleryItem && !!useTooltip;
-	const classes = [hasTooltip && "has-tooltip", ...className.trim().split(" ")].filter((c) => c).join(" ");
-	const linkIsExternal = to.includes("http") || target !== "_self" || !!otherProps.download;
+	const classes = [
+		hasTooltip && "has-tooltip",
+		...className.trim().split(" "),
+	]
+		.filter((c) => c)
+		.join(" ");
+	const linkIsExternal =
+		to.includes("http") || target !== "_self" || !!otherProps.download;
 
 	return linkIsExternal ? (
 		<a
@@ -44,7 +53,7 @@ export default function CustomLink({
 			{...otherProps}
 		>
 			{children}
-			{hasTooltip && <LinkTooltip galleryItem={galleryItem} />}
+			{/* {hasTooltip && <LinkTooltip galleryItem={galleryItem} />} */}
 		</Link>
 	);
 }

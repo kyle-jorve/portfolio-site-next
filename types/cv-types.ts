@@ -30,7 +30,9 @@ export type BioProps = {
 	useH1?: boolean;
 	showButton?: boolean;
 } & React.HTMLAttributes<HTMLElement>;
+
 export type ResumeProps = React.HTMLAttributes<HTMLElement>;
+
 export type CVItemProps = {
     title: string;
     content: JSX.Element;

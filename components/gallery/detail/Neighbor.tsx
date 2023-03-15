@@ -1,100 +1,85 @@
-import { useContext } from 'react';
-import SiteContext from '../../../context/global';
-import CustomLink from '../../layout/link/CustomLink';
-import useThumbnailConfig from '../../../hooks/useThumbnailConfig';
-import { GalleryItemType } from '../../../data/gallery-data';
-import styles from '../../../styles/components/Showcase.module.css';
+import { NeighborProps } from "../../../types/gallery-types";
+import useThumbnailConfig from "../../../hooks/useThumbnailConfig";
+import CustomLink from "../../layout/link/CustomLink";
+import styles from "../../../styles/components/Showcase.module.css";
 
-type NeighborProps = {
-	item: GalleryItemType;
-	direction: string;
-};
+export default function Neighbor({
+	name,
+	title,
+	thumb,
+	direction,
+	className = "",
+	...otherProps
+}: NeighborProps) {
+	const classes = [
+		styles.neighbor,
+		direction === "prev"
+			? styles["neighbor--prev"]
+			: styles["neighbor--next"],
+		...className.trim().split(" "),
+	]
+		.filter((c) => c)
+		.join(" ");
+	const imgSources = useThumbnailConfig({
+		thumbKey: thumb.path,
+		isDetail: true,
+	});
 
-function truncateTitle(title: string) {
-	const titleArr = title.split(' ');
-	const maxLength = 22;
-	let truncTitle = '';
+	function truncateTitle(title: string) {
+		const titleArr = title.split(" ");
+		const maxLength = 22;
+		let truncTitle = "";
 
-	for (let i = 0; i < titleArr.length; i++) {
-		const word = titleArr[i];
-		const isLastWord = i === titleArr.length - 1;
+		for (let i = 0; i < titleArr.length; i++) {
+			const word = titleArr[i];
+			const isLastWord = i === titleArr.length - 1;
 
-		if (truncTitle.length + word.length <= maxLength) {
-			truncTitle += `${word}${isLastWord ? '' : ' '}`;
-		} else {
-			truncTitle = truncTitle.trim();
+			if (truncTitle.length + word.length <= maxLength) {
+				truncTitle += `${word}${isLastWord ? "" : " "}`;
+			} else {
+				truncTitle = truncTitle.trim();
 
-			if (truncTitle.length < title.length) {
-				truncTitle += '...';
+				if (truncTitle.length < title.length) {
+					truncTitle += "...";
+				}
+
+				break;
 			}
-
-			break;
 		}
+
+		return truncTitle;
 	}
 
-	return truncTitle;
-}
-
-export default function Neighbor(props: NeighborProps) {
-	const context = useContext(SiteContext);
-	const thumb = useThumbnailConfig({
-		isDetail: true,
-		thumbnailKey: props.item.thumbnailKey,
-	});
-	const mobileImg = thumb.mobile.url;
-	const neighborClasses = [styles['neighbor'], styles[`neighbor--${props.direction}`]].filter(
-		(c) => c?.length
-	);
-
 	return (
-		<article className={neighborClasses.join(' ')}>
-			<CustomLink
-				className={styles['neighbor__link']}
-				to={`/gallery/${props.item.name}`}
-				onClick={context.resetSlideIndex}
-			>
-				<div className={styles['neighbor__img-cont']}>
-					<picture>
-						{thumb.sources.map((s, index) => {
-							const srcset = s.url;
+		<article
+			className={classes}
+			{...otherProps}
+		>
+			<CustomLink to={`/gallery/${name}`}>
+				<span
+					className={`arrow-button arrow-button--${direction} arrow-button--white-border`}
+					aria-hidden="true"
+				></span>
 
-							return (
-								<source
-									key={index}
-									srcSet={srcset}
-									media={`(min-width: ${s.minScreenWidth}px)`}
-								/>
-							);
-						})}
+				<h2 className={styles["neighbor__title"]}>
+					<span className={styles["neighbor__light-title"]}>
+						{direction}
+					</span>
+					{truncateTitle(title)}
+				</h2>
 
-						<img
-							className={styles['neighbor__img']}
-							src={mobileImg}
-							alt={props.item.thumbnailKey.alt}
-							style={{
-								objectPosition: `center ${props.item.orientation}`,
-							}}
-							loading="lazy"
-						/>
-					</picture>
-				</div>
-
-				<div className={styles['neighbor__inner']}>
-					<span
-						className={`${styles['neighbor__arrow']} ${
-							styles[`neighbor__arrow--${props.direction}`]
-						}`}
-						aria-hidden="true"
-					></span>
-
-					<div className={styles['neighbor__content']}>
-						<h2 className={styles['neighbor__title']}>{props.direction}</h2>
-
-						<h3 className={styles['neighbor__subtitle']}>
-							{truncateTitle(props.item.title)}
-						</h3>
-					</div>
-				</div>
+				<img
+					className={styles["neighbor__image"]}
+					src={imgSources.mobile.url}
+					alt={thumb.alt}
+					style={
+						thumb.orientation
+							? {
+									objectPosition: `center ${thumb.orientation}`,
+							  }
+							: undefined
+					}
+				/>
 			</CustomLink>
 		</article>
 	);
