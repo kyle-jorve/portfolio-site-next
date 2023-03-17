@@ -1,6 +1,6 @@
 import { NavItemProps } from "../../../types/global-types";
 import { useRouter } from "next/router";
-import CustomLink from "../link/CustomLink";
+import CustomLink from "../CustomLink";
 import styles from "../../../styles/layout/Nav.module.css";
 
 export default function NavItem({

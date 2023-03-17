@@ -9,13 +9,12 @@
 	min-height: 100vh;
 	padding-top: 80px;
 	padding-bottom: 142px;
-	background: linear-gradient(
-		to top,
-		var(--dark-color),
-		#6b464f,
-		#3a455c
-	);
+	background: linear-gradient(to top, var(--dark-color), #6b464f, #3a455c);
 	overflow: hidden;
+}
+
+.hero--content {
+	text-align: center;
 }
 
 .hero::before,
@@ -41,6 +40,11 @@
 	z-index: 2;
 	transform: translate(calc(-50% + 4px), 4px);
 	border: var(--light-border);
+}
+
+.hero__content {
+	position: relative;
+	z-index: 3;
 }
 
 .hero__inner {

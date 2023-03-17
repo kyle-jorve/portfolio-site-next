@@ -200,11 +200,13 @@
 		content: "\f00d";
 	}
 
-	.arrow-button--left::before {
+	.arrow-button--left::before,
+	.arrow-button--prev::before {
 		content: "\f060";
 	}
 
-	.arrow-button--right::before {
+	.arrow-button--right::before,
+	.arrow-button--next::before {
 		content: "\f061";
 	}
 

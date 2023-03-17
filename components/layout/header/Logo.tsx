@@ -1,11 +1,8 @@
 import { LogoProps } from "../../../types/global-types";
-import CustomLink from "../link/CustomLink";
+import CustomLink from "../CustomLink";
 import styles from "../../../styles/layout/Header.module.css";
 
-export default function Logo({
-	className = "",
-	...otherProps
-}: LogoProps) {
+export default function Logo({ className = "", ...otherProps }: LogoProps) {
 	const classes = [
 		...className.trim().split(" "),
 		styles["header__logo-cont"],

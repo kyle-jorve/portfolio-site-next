@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import * as galleryTypes from "../types/gallery-types";
-import CustomLink from "../components/layout/link/CustomLink";
+import CustomLink from "../components/layout/CustomLink";
 
 export const videos = {
 	samilPortrait: (
@@ -370,21 +370,17 @@ export const items: galleryTypes.GalleryItemType[] = [
 		content: (
 			<blockquote className="blockquote">
 				<p>
-					Beneath her soft, rounded features and youthful,
-					sea-green eyes, Captain Sealee had the constitution
-					of a stolid warrior. She was like a well-masoned
-					stone that refuses to fracture even enough to let
-					lichen in. Her skirmishes with Amarendi, however,
-					had shaken her enough to let show her well-concealed
-					cracks.
+					Beneath her soft, rounded features and youthful, sea-green
+					eyes, Captain Sealee had the constitution of a stolid
+					warrior. She was like a well-masoned stone that refuses to
+					fracture even enough to let lichen in. Her skirmishes with
+					Amarendi, however, had shaken her enough to let show her
+					well-concealed cracks.
 				</p>
 				<cite className="cite">
 					<small>
 						&mdash;
-						<CustomLink
-							to="/gallery/pendrake/"
-							useTooltip={true}
-						>
+						<CustomLink to="/gallery/pendrake/">
 							Pendrake Sommer
 						</CustomLink>
 						, Lord of Tersng
@@ -436,21 +432,11 @@ export const items: galleryTypes.GalleryItemType[] = [
 		content: (
 			<p>
 				Samil Sealee is a captain in{" "}
-				<CustomLink
-					to="/gallery/andel/"
-					useTooltip={true}
-				>
-					Duke Andel Sommer
-				</CustomLink>
+				<CustomLink to="/gallery/andel/">Duke Andel Sommer</CustomLink>
 				&apos;s army. She is at times supportive of{" "}
-				<CustomLink
-					to="/gallery/pendrake"
-					useTooltip={true}
-				>
-					Pendrake
-				</CustomLink>
-				, at other times critical, but she always maintains his
-				respect and the respect of her peers.
+				<CustomLink to="/gallery/pendrake">Pendrake</CustomLink>, at
+				other times critical, but she always maintains his respect and
+				the respect of her peers.
 			</p>
 		),
 		featured: true,
@@ -458,8 +444,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 			galleryTypes.projectCategories.ignobleBlood,
 			galleryTypes.characterCategories.samil,
 		],
-		purchaseLink:
-			"https://www.inprnt.com/gallery/kylejorve/samil-sealee/",
+		purchaseLink: "https://www.inprnt.com/gallery/kylejorve/samil-sealee/",
 		downloadLink: "https://kylejorve.gumroad.com/l/wwnaw",
 		thumb: thumbs.samil,
 		detailKeys: [
@@ -507,14 +492,8 @@ export const items: galleryTypes.GalleryItemType[] = [
 			<blockquote className="blockquote">
 				<p>
 					You have much to lose in your involvement with me,{" "}
-					<CustomLink
-						to="/gallery/pendrake"
-						useTooltip={true}
-					>
-						Pendrake
-					</CustomLink>
-					. We would be willfully ignorant to pretend
-					otherwise.
+					<CustomLink to="/gallery/pendrake">Pendrake</CustomLink>. We
+					would be willfully ignorant to pretend otherwise.
 				</p>
 			</blockquote>
 		),
@@ -564,27 +543,16 @@ export const items: galleryTypes.GalleryItemType[] = [
 		year: 2022,
 		content: (
 			<p>
-				Kyra Luckleav is a kitchen servant in Auerstel Castle
-				and also happens to be{" "}
-				<CustomLink
-					to="/gallery/pendrake"
-					useTooltip={true}
-				>
-					Pendrake
-				</CustomLink>
+				Kyra Luckleav is a kitchen servant in Auerstel Castle and also
+				happens to be{" "}
+				<CustomLink to="/gallery/pendrake">Pendrake</CustomLink>
 				&apos;s love interest.{" "}
-				<CustomLink
-					to="/gallery/andel"
-					useTooltip={true}
-				>
-					Duke Andel Sommer
-				</CustomLink>
-				, Pendrake&apos;s father, expressly forbids their love
-				and instead campaigns for Pendrake to marry someone
-				equal to his station. Because of this, Pendrake
-				occasionally goes to great and dangerous lengths to
-				prove his devotion to Kyra. At one point in the story
-				his love for her nearly gets him killed.
+				<CustomLink to="/gallery/andel">Duke Andel Sommer</CustomLink>,
+				Pendrake&apos;s father, expressly forbids their love and instead
+				campaigns for Pendrake to marry someone equal to his station.
+				Because of this, Pendrake occasionally goes to great and
+				dangerous lengths to prove his devotion to Kyra. At one point in
+				the story his love for her nearly gets him killed.
 			</p>
 		),
 
@@ -593,8 +561,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 			galleryTypes.projectCategories.ignobleBlood,
 			galleryTypes.characterCategories.kyra,
 		],
-		purchaseLink:
-			"https://www.inprnt.com/gallery/kylejorve/kyra-luckleav/",
+		purchaseLink: "https://www.inprnt.com/gallery/kylejorve/kyra-luckleav/",
 		downloadLink: "https://kylejorve.gumroad.com/l/jlwzc",
 		thumb: thumbs.kyra,
 		detailKeys: [
@@ -641,14 +608,13 @@ export const items: galleryTypes.GalleryItemType[] = [
 		content: (
 			<blockquote className="blockquote">
 				<p>
-					Patience is the wise warrior&apos;s strongest
-					virtue. It will guard you from wounds as surely as
-					armor. It will give you insight that others are less
-					keen to seek out. Now, recall the fight you just
-					witnessed and ask yourselves what quality Talis
-					lacked, and what that lack cost her. She&apos;ll be
-					nursing her new wounds for days, simply because she
-					could not wait for an opening.
+					Patience is the wise warrior&apos;s strongest virtue. It
+					will guard you from wounds as surely as armor. It will give
+					you insight that others are less keen to seek out. Now,
+					recall the fight you just witnessed and ask yourselves what
+					quality Talis lacked, and what that lack cost her.
+					She&apos;ll be nursing her new wounds for days, simply
+					because she could not wait for an opening.
 				</p>
 			</blockquote>
 		),
@@ -700,30 +666,24 @@ export const items: galleryTypes.GalleryItemType[] = [
 		content: (
 			<Fragment>
 				<p>
-					<strong>Toval Argensente</strong> is a descendant of
-					the Norfeld, a tribal people who migrated south from
-					the Ice Wilds millennia ago. Her pure-blooded
-					Norfeld features&mdash;ice-white skin, hair, and
-					eyes&mdash;are a rarity these days, especially in
-					the kingdoms of Lensing.
+					<strong>Toval Argensente</strong> is a descendant of the
+					Norfeld, a tribal people who migrated south from the Ice
+					Wilds millennia ago. Her pure-blooded Norfeld
+					features&mdash;ice-white skin, hair, and eyes&mdash;are a
+					rarity these days, especially in the kingdoms of Lensing.
 				</p>
 				<p>
-					Toval is a lieutenant in the Auerstel soldiery, and
-					is responsible for training new recruits.{" "}
-					<CustomLink
-						to="/gallery/pendrake"
-						useTooltip={true}
-					>
-						Pendrake
-					</CustomLink>{" "}
-					has never taken to his training and, as such, has
-					become a constant thorn in Toval&apos;s side.
+					Toval is a lieutenant in the Auerstel soldiery, and is
+					responsible for training new recruits.{" "}
+					<CustomLink to="/gallery/pendrake">Pendrake</CustomLink> has
+					never taken to his training and, as such, has become a
+					constant thorn in Toval&apos;s side.
 				</p>
 				<p>
-					As far as Toval is concerned, Pendrake&apos;s noble
-					status means nothing on the training grounds, and
-					she disciplines his lack of commitment as harshly as
-					she would any other soldier under her command.
+					As far as Toval is concerned, Pendrake&apos;s noble status
+					means nothing on the training grounds, and she disciplines
+					his lack of commitment as harshly as she would any other
+					soldier under her command.
 				</p>
 			</Fragment>
 		),
@@ -781,18 +741,16 @@ export const items: galleryTypes.GalleryItemType[] = [
 		content: (
 			<blockquote className="blockquote">
 				<p>
-					Do you know what we&apos;ve lost, Pendrake? Warend
-					Joring is the duke of Torencald. The trade
-					agreements I meant to draft between our duchies
-					would have enriched the Sommers for generations and
-					made both us and the Jorings two of the most
-					powerful families in Dayle. I&apos;ve spent years
-					building to this point, and in a single evening
-					you&apos;ve managed to dash it all away. And for
-					what, Pendrake? For a gods-damned scullion? Your
-					children and your children&apos;s children will be
-					dead and buried long before we&apos;ve heard the
-					last echoes of this scandal.
+					Do you know what we&apos;ve lost, Pendrake? Warend Joring is
+					the duke of Torencald. The trade agreements I meant to draft
+					between our duchies would have enriched the Sommers for
+					generations and made both us and the Jorings two of the most
+					powerful families in Dayle. I&apos;ve spent years building
+					to this point, and in a single evening you&apos;ve managed
+					to dash it all away. And for what, Pendrake? For a
+					gods-damned scullion? Your children and your children&apos;s
+					children will be dead and buried long before we&apos;ve
+					heard the last echoes of this scandal.
 				</p>
 			</blockquote>
 		),
@@ -843,29 +801,17 @@ export const items: galleryTypes.GalleryItemType[] = [
 		content: (
 			<Fragment>
 				<p>
-					<strong>Andel Sommer</strong> is the duke of Tersing
-					and father to{" "}
-					<CustomLink
-						to="/gallery/pendrake"
-						useTooltip={true}
-					>
-						Pendrake
-					</CustomLink>{" "}
-					and{" "}
-					<CustomLink
-						to="/gallery/talis"
-						useTooltip={true}
-					>
-						Talis
-					</CustomLink>
-					. He wants nothing more than to ensure a bright
-					future for his duchy&mdash;even if doing so requires
-					extreme methods.
+					<strong>Andel Sommer</strong> is the duke of Tersing and
+					father to{" "}
+					<CustomLink to="/gallery/pendrake">Pendrake</CustomLink> and{" "}
+					<CustomLink to="/gallery/talis">Talis</CustomLink>. He wants
+					nothing more than to ensure a bright future for his
+					duchy&mdash;even if doing so requires extreme methods.
 				</p>
 				<p>
-					Andel is, to put it mildly, not overly fond of his
-					son, Pendrake. Even so, he tries, often in vain, to
-					mold his heir into a worthy successor.
+					Andel is, to put it mildly, not overly fond of his son,
+					Pendrake. Even so, he tries, often in vain, to mold his heir
+					into a worthy successor.
 				</p>
 			</Fragment>
 		),
@@ -875,8 +821,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 			galleryTypes.projectCategories.ignobleBlood,
 			galleryTypes.characterCategories.andel,
 		],
-		purchaseLink:
-			"https://www.inprnt.com/gallery/kylejorve/andel-sommer/",
+		purchaseLink: "https://www.inprnt.com/gallery/kylejorve/andel-sommer/",
 		downloadLink: "https://kylejorve.gumroad.com/l/vqdvkj",
 		thumb: thumbs.andel,
 		detailKeys: [
@@ -923,15 +868,13 @@ export const items: galleryTypes.GalleryItemType[] = [
 		content: (
 			<blockquote className="blockquote">
 				<p>
-					If Pendrake Sommer were half the man his father is,
-					well, perhaps Tersing would be in a better spot. As
-					it is, I hate to think what will come of our duchy
-					when that boy finally becomes duke.
+					If Pendrake Sommer were half the man his father is, well,
+					perhaps Tersing would be in a better spot. As it is, I hate
+					to think what will come of our duchy when that boy finally
+					becomes duke.
 				</p>
 				<cite className="cite">
-					<small>
-						&mdash;Captain Nils of the Auerstel Soldiery
-					</small>
+					<small>&mdash;Captain Nils of the Auerstel Soldiery</small>
 				</cite>
 			</blockquote>
 		),
@@ -982,22 +925,16 @@ export const items: galleryTypes.GalleryItemType[] = [
 		content: (
 			<Fragment>
 				<p>
-					<strong>Pendrake Sommer</strong> is the main
-					protagonist of the in-progress fantasy novel,{" "}
-					<i>The Ashes of Hope</i>, and twin brother to{" "}
-					<CustomLink
-						to="/gallery/talis"
-						useTooltip={true}
-					>
-						Talis Sommer
-					</CustomLink>
-					.
+					<strong>Pendrake Sommer</strong> is the main protagonist of
+					the in-progress fantasy novel, <i>The Ashes of Hope</i>, and
+					twin brother to{" "}
+					<CustomLink to="/gallery/talis">Talis Sommer</CustomLink>.
 				</p>
 				<p>
-					Pendrake Sommer is less of a fighter than his
-					sister, and far more of a romantic. Some say he
-					would happily sell his duchy for the object of his
-					affection, were he given the chance.
+					Pendrake Sommer is less of a fighter than his sister, and
+					far more of a romantic. Some say he would happily sell his
+					duchy for the object of his affection, were he given the
+					chance.
 				</p>
 			</Fragment>
 		),
@@ -1055,15 +992,13 @@ export const items: galleryTypes.GalleryItemType[] = [
 		content: (
 			<blockquote className="blockquote">
 				<p>
-					The lady of Tersing? I wouldn&apos;t call her a lady
-					so much as a force of nature. Every man who crosses
-					blades with her lives to regret it&mdash;that is, if
-					they live through the encounter at all.
+					The lady of Tersing? I wouldn&apos;t call her a lady so much
+					as a force of nature. Every man who crosses blades with her
+					lives to regret it&mdash;that is, if they live through the
+					encounter at all.
 				</p>
 				<cite className="cite">
-					<small>
-						&mdash;Howle of the Auerstel Castle guard
-					</small>
+					<small>&mdash;Howle of the Auerstel Castle guard</small>
 				</cite>
 			</blockquote>
 		),
@@ -1114,30 +1049,26 @@ export const items: galleryTypes.GalleryItemType[] = [
 		content: (
 			<Fragment>
 				<p>
-					<strong>Talis Sommer</strong> is the twin sister of
-					the{" "}
-					<CustomLink
-						to="/gallery/pendrake"
-						useTooltip={true}
-					>
+					<strong>Talis Sommer</strong> is the twin sister of the{" "}
+					<CustomLink to="/gallery/pendrake">
 						main protagonist
 					</CustomLink>{" "}
 					in the story I&apos;m currently writing,{" "}
-					<i>The Ashes of Hope</i>. She is the lady of the
-					Tersing duchy, daughter of the duke and sister to
-					the heir of the dukedom.
+					<i>The Ashes of Hope</i>. She is the lady of the Tersing
+					duchy, daughter of the duke and sister to the heir of the
+					dukedom.
 				</p>
 				<p>
-					Unlike her noble contemporaries, Talis prefers to
-					spend her time honing her skills with a saber and
-					bow. As such, she&apos;s earned the admiration and
-					respect of her peers in the soldiery.
+					Unlike her noble contemporaries, Talis prefers to spend her
+					time honing her skills with a saber and bow. As such,
+					she&apos;s earned the admiration and respect of her peers in
+					the soldiery.
 				</p>
 				<p>
 					In stark contrast with her brother, Talis is highly
-					disciplined and dedicates herself fully to
-					everything she pursues. Some have even speculated
-					that she should be the heir instead of her brother.
+					disciplined and dedicates herself fully to everything she
+					pursues. Some have even speculated that she should be the
+					heir instead of her brother.
 				</p>
 			</Fragment>
 		),
@@ -1147,8 +1078,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 			galleryTypes.projectCategories.ignobleBlood,
 			galleryTypes.characterCategories.talis,
 		],
-		purchaseLink:
-			"https://www.inprnt.com/gallery/kylejorve/talis-sommer/",
+		purchaseLink: "https://www.inprnt.com/gallery/kylejorve/talis-sommer/",
 		downloadLink: "https://kylejorve.gumroad.com/l/CQNFi",
 		thumb: thumbs.talis,
 		detailKeys: [
@@ -1189,13 +1119,12 @@ export const items: galleryTypes.GalleryItemType[] = [
 		content: (
 			<blockquote className="blockquote">
 				<p>
-					I was only a thief back then, part of a guild of
-					them, living on a little Sylranian island called{" "}
-					<i>Dorokilson</i>. In Daylish you might call it the
-					Island of Holes. It was an apt name, for whoever
-					came through there, if they&apos;d anything worth
-					losing, we made sure it was lost&mdash;eaten by the
-					Island.
+					I was only a thief back then, part of a guild of them,
+					living on a little Sylranian island called <i>Dorokilson</i>
+					. In Daylish you might call it the Island of Holes. It was
+					an apt name, for whoever came through there, if they&apos;d
+					anything worth losing, we made sure it was lost&mdash;eaten
+					by the Island.
 				</p>
 			</blockquote>
 		),
@@ -1244,10 +1173,9 @@ export const items: galleryTypes.GalleryItemType[] = [
 		content: (
 			<p>
 				<strong>Cargha Bezamik</strong> is employed as a spy and
-				assassin for the antagonist in an in-progress fantasy
-				novel. As with much else in this story, Cargha is not
-				quite what he seems at first, and his motivations are
-				often nebulous.
+				assassin for the antagonist in an in-progress fantasy novel. As
+				with much else in this story, Cargha is not quite what he seems
+				at first, and his motivations are often nebulous.
 			</p>
 		),
 
@@ -1305,43 +1233,33 @@ export const items: galleryTypes.GalleryItemType[] = [
 			<Fragment>
 				<blockquote className="blockquote">
 					<p>
-						Have you met the boy? I&apos;d sooner take my
-						chances outside the Ark than match blades with
-						him. Crow&apos;s his name, killing&apos;s his
-						profession. And be damned certain, he&apos;s a
-						professional.
+						Have you met the boy? I&apos;d sooner take my chances
+						outside the Ark than match blades with him. Crow&apos;s
+						his name, killing&apos;s his profession. And be damned
+						certain, he&apos;s a professional.
 						<cite className="cite">
-							<small>
-								&mdash;Councillor Genteid, Valkyrie
-							</small>
+							<small>&mdash;Councillor Genteid, Valkyrie</small>
 						</cite>
 					</p>
 				</blockquote>
 				<p>
 					Yet another iteration of my original character,{" "}
-					<CustomLink
-						to="/gallery/crows"
-						useTooltip={true}
-					>
-						Crow
-					</CustomLink>
-					.
+					<CustomLink to="/gallery/crows">Crow</CustomLink>.
 				</p>
 				<p>
-					Crow is a professional assassin and the protagonist
-					of an in-progress science fiction story called{" "}
+					Crow is a professional assassin and the protagonist of an
+					in-progress science fiction story called{" "}
 					<strong>
 						<i>Post-Autumn</i>
 					</strong>
 					.
 				</p>
 				<p>
-					In it, mankind has been forced by a cataclysmic
-					event to live in domed cities called Arks. When
-					tensions between Arks escalate, having no means to
-					do battle out in the uninhabitable wastelands
-					between cities, governments must quell their
-					conflicts by more surgical means.
+					In it, mankind has been forced by a cataclysmic event to
+					live in domed cities called Arks. When tensions between Arks
+					escalate, having no means to do battle out in the
+					uninhabitable wastelands between cities, governments must
+					quell their conflicts by more surgical means.
 				</p>
 			</Fragment>
 		),
@@ -1381,17 +1299,15 @@ export const items: galleryTypes.GalleryItemType[] = [
 			<blockquote className="blockquote">
 				<p>
 					I was seventeen, by all means still a boy, yet I was
-					possessed of the sort of steel-hard conviction only
-					youth can muster that I was as good as a man grown.
-					I was entirely given to my appetites, boisterous and
-					inconsiderate, and a downright embarrassment to my
-					father and his court. I was, in other words, a young
-					Daylish noble. And, like many young Daylish nobles,
-					I was hopelessly, stupidly, recklessly in love.
+					possessed of the sort of steel-hard conviction only youth
+					can muster that I was as good as a man grown. I was entirely
+					given to my appetites, boisterous and inconsiderate, and a
+					downright embarrassment to my father and his court. I was,
+					in other words, a young Daylish noble. And, like many young
+					Daylish nobles, I was hopelessly, stupidly, recklessly in
+					love.
 					<cite className="cite">
-						<small>
-							&mdash;Pendrake Sommer, Duke of Tersing
-						</small>
+						<small>&mdash;Pendrake Sommer, Duke of Tersing</small>
 					</cite>
 				</p>
 			</blockquote>
@@ -1449,40 +1365,32 @@ export const items: galleryTypes.GalleryItemType[] = [
 			<Fragment>
 				<blockquote className="blockquote">
 					<p>
-						I wouldn&apos;t call him a kind man, but
-						he&apos;s loyal. As soon slug you in the face as
-						laugh at your jesting. All depends on which side
-						of him you lie on. I wouldn&apos;t want to be on
-						his bad side, though. Fair lot of trouble
-						follows those what fall on his bad side.
+						I wouldn&apos;t call him a kind man, but he&apos;s
+						loyal. As soon slug you in the face as laugh at your
+						jesting. All depends on which side of him you lie on. I
+						wouldn&apos;t want to be on his bad side, though. Fair
+						lot of trouble follows those what fall on his bad side.
 						<cite className="cite">
-							<small>
-								&mdash;Malder, Foothills Tavern
-							</small>
+							<small>&mdash;Malder, Foothills Tavern</small>
 						</cite>
 					</p>
 				</blockquote>
 				<p>
-					Berned is Auerstel Town&apos;s constable&mdash;at
-					times of help, at times an obstacle, and sometimes,
-					when he feels like it, a downright villain.
+					Berned is Auerstel Town&apos;s constable&mdash;at times of
+					help, at times an obstacle, and sometimes, when he feels
+					like it, a downright villain.
 				</p>
 				<p>
 					He plays a critical role in the{" "}
 					<strong>
 						<i>Ignoble Blood</i>
 					</strong>{" "}
-					series, which is a fantasy story in progress. In it,
-					Berned apprehends a woman named Sol Ferro and
-					charges her with the crime of murdering{" "}
-					<CustomLink
-						to="/gallery/becoming-runa"
-						useTooltip={true}
-					>
-						Luna
-					</CustomLink>
-					, a series protagonist, who at this point in the
-					story has gone strangely missing without a trace.
+					series, which is a fantasy story in progress. In it, Berned
+					apprehends a woman named Sol Ferro and charges her with the
+					crime of murdering{" "}
+					<CustomLink to="/gallery/becoming-runa">Luna</CustomLink>, a
+					series protagonist, who at this point in the story has gone
+					strangely missing without a trace.
 				</p>
 			</Fragment>
 		),
@@ -1492,8 +1400,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 			galleryTypes.projectCategories.ignobleBlood,
 			galleryTypes.characterCategories.berned,
 		],
-		purchaseLink:
-			"https://www.inprnt.com/gallery/kylejorve/berned/",
+		purchaseLink: "https://www.inprnt.com/gallery/kylejorve/berned/",
 		downloadLink: "https://gumroad.com/l/JKDSd",
 		thumb: thumbs.berned,
 		detailKeys: [thumbs.berned],
@@ -1506,24 +1413,22 @@ export const items: galleryTypes.GalleryItemType[] = [
 			<Fragment>
 				<p>
 					<strong>
-						I have no idea why, but I love doing portraits
-						of aliens.
+						I have no idea why, but I love doing portraits of
+						aliens.
 					</strong>
 				</p>
 				<p>
-					This is a creature that lives on a planet whose
-					atmosphere is so thick that the sense of sight never
-					evolved, so instead this species developed
-					extra-sensitive olfactory senses. Threads stretching
-					over the holes in its &quot;face&quot; protect
-					against contaminants as it inhales.
+					This is a creature that lives on a planet whose atmosphere
+					is so thick that the sense of sight never evolved, so
+					instead this species developed extra-sensitive olfactory
+					senses. Threads stretching over the holes in its
+					&quot;face&quot; protect against contaminants as it inhales.
 				</p>
 			</Fragment>
 		),
 
 		featured: true,
-		purchaseLink:
-			"https://www.inprnt.com/gallery/kylejorve/olfactory/",
+		purchaseLink: "https://www.inprnt.com/gallery/kylejorve/olfactory/",
 		downloadLink: "https://gumroad.com/l/KMcGj",
 		thumb: thumbs.olfactory,
 		detailKeys: [thumbs.olfactory],
@@ -1536,10 +1441,10 @@ export const items: galleryTypes.GalleryItemType[] = [
 			<Fragment>
 				<blockquote className="blockquote">
 					<p>
-						Fennory is gone, Bethany. Call him dead, and
-						leave it at that. Mourn him as if you&apos;d
-						seen his body and known the stillness of it.
-						There will be no peace for you until you do.
+						Fennory is gone, Bethany. Call him dead, and leave it at
+						that. Mourn him as if you&apos;d seen his body and known
+						the stillness of it. There will be no peace for you
+						until you do.
 						<cite className="cite">
 							<small>
 								&mdash;Pendrake Sommer, Duke of Tersing
@@ -1552,17 +1457,15 @@ export const items: galleryTypes.GalleryItemType[] = [
 					<strong>
 						<i>Ignoble Blood</i>
 					</strong>{" "}
-					series, which is a work of fantasy in progress.
-					Fennory is his real name, but by this point in the
-					story he goes by the alias of Luna, as he is hiding
-					from a powerful enemy.
+					series, which is a work of fantasy in progress. Fennory is
+					his real name, but by this point in the story he goes by the
+					alias of Luna, as he is hiding from a powerful enemy.
 				</p>
 				<p>
-					A darker, more malevolent force whisks him away,
-					however, forcing those closest to him into a
-					desperate search, while outside their quiet town a
-					greater threat, once thought defeated, rises from
-					the ashes.
+					A darker, more malevolent force whisks him away, however,
+					forcing those closest to him into a desperate search, while
+					outside their quiet town a greater threat, once thought
+					defeated, rises from the ashes.
 				</p>
 			</Fragment>
 		),
@@ -1572,8 +1475,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 			galleryTypes.projectCategories.ignobleBlood,
 			galleryTypes.characterCategories.fennory,
 		],
-		purchaseLink:
-			"https://www.inprnt.com/gallery/kylejorve/becoming-runa/",
+		purchaseLink: "https://www.inprnt.com/gallery/kylejorve/becoming-runa/",
 		downloadLink: "https://gumroad.com/l/UluBo",
 		thumb: thumbs.becomingRuna,
 		detailKeys: [
@@ -1591,39 +1493,30 @@ export const items: galleryTypes.GalleryItemType[] = [
 			<Fragment>
 				<blockquote className="blockquote">
 					<p>
-						The Ravens still exist, if you can believe it.
-						Though they take a different form today.
-						Different stories tell it different ways, but I
-						prefer to believe they linger as men now, having
-						forgotten all they once were.
+						The Ravens still exist, if you can believe it. Though
+						they take a different form today. Different stories tell
+						it different ways, but I prefer to believe they linger
+						as men now, having forgotten all they once were.
 						<cite className="cite">
-							<small>
-								&mdash;Eden, The Sunken Valley
-							</small>
+							<small>&mdash;Eden, The Sunken Valley</small>
 						</cite>
 					</p>
 				</blockquote>
 				<p>
-					<CustomLink
-						to="/gallery/crow"
-						useTooltip={true}
-					>
-						Crow
-					</CustomLink>{" "}
-					is a professional assassin and the protagonist of an
-					in-progress science fiction story called{" "}
+					<CustomLink to="/gallery/crow">Crow</CustomLink> is a
+					professional assassin and the protagonist of an in-progress
+					science fiction story called{" "}
 					<strong>
 						<i>Post-Autumn</i>
 					</strong>
 					.
 				</p>
 				<p>
-					In it, mankind has been forced by a cataclysmic
-					event to live in domed cities called Arks. When
-					tensions between Arks escalate, having no means to
-					do battle out in the uninhabitable wastelands
-					between cities, governments must quell their
-					conflicts by more surgical means.
+					In it, mankind has been forced by a cataclysmic event to
+					live in domed cities called Arks. When tensions between Arks
+					escalate, having no means to do battle out in the
+					uninhabitable wastelands between cities, governments must
+					quell their conflicts by more surgical means.
 				</p>
 			</Fragment>
 		),
@@ -1646,20 +1539,16 @@ export const items: galleryTypes.GalleryItemType[] = [
 				<p>
 					<strong>
 						Part of a duology. Its companion,{" "}
-						<i>Where Fears and Lies Melt Away</i>, can be
-						found{" "}
-						<CustomLink
-							to="/gallery/kingdom-hearts-2"
-							useTooltip={true}
-						>
+						<i>Where Fears and Lies Melt Away</i>, can be found{" "}
+						<CustomLink to="/gallery/kingdom-hearts-2">
 							here
 						</CustomLink>
 						.
 					</strong>
 				</p>
 				<p>
-					<i>Kingdom Hearts</i> is copyrighted and owned by
-					Disney and Square Enix.
+					<i>Kingdom Hearts</i> is copyrighted and owned by Disney and
+					Square Enix.
 				</p>
 			</Fragment>
 		),
@@ -1682,20 +1571,16 @@ export const items: galleryTypes.GalleryItemType[] = [
 				<p>
 					<strong>
 						Part of a duology. Its companion,{" "}
-						<em>The Future Doesn&apos;t Scare Me</em>, can
-						be found{" "}
-						<CustomLink
-							to="/gallery/kingdom-hearts-1"
-							useTooltip={true}
-						>
+						<em>The Future Doesn&apos;t Scare Me</em>, can be found{" "}
+						<CustomLink to="/gallery/kingdom-hearts-1">
 							here
 						</CustomLink>
 						.
 					</strong>
 				</p>
 				<p>
-					<i>Kingdom Hearts</i> is copyrighted and owned by
-					Disney and Square Enix.
+					<i>Kingdom Hearts</i> is copyrighted and owned by Disney and
+					Square Enix.
 				</p>
 			</Fragment>
 		),

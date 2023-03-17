@@ -1,6 +1,6 @@
 import { HomeHeroProps } from "../../types/global-types";
 import { heroImage } from "../../data/home-data";
-import CustomLink from "./link/CustomLink";
+import CustomLink from "./CustomLink";
 import Button from "./Button";
 import styles from "../../styles/layout/Hero.module.css";
 
@@ -8,17 +8,12 @@ export default function HomeHero({
 	className = "",
 	...otherProps
 }: HomeHeroProps) {
-	const classes = [
-		...className.trim().split(" "),
-		"section",
-		styles.hero,
-	]
+	const classes = [...className.trim().split(" "), "section", styles.hero]
 		.filter((c) => c?.length)
 		.join(" ");
 
 	function scrollIconClickHandler() {
-		const featuredWorkSection =
-			document.querySelector("#featured-work");
+		const featuredWorkSection = document.querySelector("#featured-work");
 
 		if (!featuredWorkSection) return;
 
@@ -41,11 +36,7 @@ export default function HomeHero({
 							Jorve
 						</span>
 						<small className={styles["hero__title-2"]}>
-							<span
-								className={
-									styles["hero__title-2-inner"]
-								}
-							>
+							<span className={styles["hero__title-2-inner"]}>
 								Illustration
 								<br />& Design
 							</span>

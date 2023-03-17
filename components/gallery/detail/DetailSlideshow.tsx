@@ -1,4 +1,5 @@
 import { useRef, useEffect } from "react";
+import { useRouter } from "next/router";
 import { DetailSlideshowProps } from "../../../types/gallery-types";
 import Button from "../../layout/Button";
 import DetailSlide from "./DetailSlide";
@@ -11,6 +12,7 @@ export default function DetailSlideshow({
 	className = "",
 	...otherProps
 }: DetailSlideshowProps) {
+	const router = useRouter();
 	const glideRef = useRef<HTMLDivElement>(null);
 	const classes = [
 		"glide",
@@ -31,10 +33,12 @@ export default function DetailSlideshow({
 		);
 
 		slider.on("run.before", () => {
+			if (!bullets.length) return;
 			bullets[slider.index].classList.remove("slider-dot--active");
 		});
 
 		slider.on("run", () => {
+			if (!bullets.length) return;
 			bullets[slider.index].classList.add("slider-dot--active");
 		});
 
@@ -43,7 +47,7 @@ export default function DetailSlideshow({
 		return () => {
 			slider.destroy();
 		};
-	}, []);
+	}, [router.query.itemID, router.pathname]);
 
 	return (
 		<div
@@ -87,24 +91,26 @@ export default function DetailSlideshow({
 				</div>
 			</div>
 
-			<div
-				className={`${styles["showcase__bullets"]} slider-dots glide__bullets`}
-				data-glide-el="conrols[nav]"
-			>
-				{galleryItem.detailKeys.map((_, index) => {
-					return (
-						<Button
-							key={`${galleryItem.name}-bullet-${index}`}
-							data-showcase-slider-dot
-							className={`slider-dot${
-								index === 0 ? " slider-dot--active" : ""
-							} glide_bullet`}
-							aria-label={`go to slide ${index + 1}`}
-							data-glide-dir={`=${index}`}
-						></Button>
-					);
-				})}
-			</div>
+			{galleryItem.detailKeys.length > 1 && (
+				<div
+					className={`${styles["showcase__bullets"]} slider-dots glide__bullets`}
+					data-glide-el="conrols[nav]"
+				>
+					{galleryItem.detailKeys.map((_, index) => {
+						return (
+							<Button
+								key={`${galleryItem.name}-bullet-${index}`}
+								data-showcase-slider-dot
+								className={`slider-dot${
+									index === 0 ? " slider-dot--active" : ""
+								} glide_bullet`}
+								aria-label={`go to slide ${index + 1}`}
+								data-glide-dir={`=${index}`}
+							></Button>
+						);
+					})}
+				</div>
+			)}
 		</div>
 	);
 }

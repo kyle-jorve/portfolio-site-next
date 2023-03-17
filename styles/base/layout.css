@@ -158,9 +158,8 @@
 
 	.content-box::before {
 		position: absolute;
-		inset: calc(var(--border-width) * -1)
-			calc(var(--border-width) * -1) auto
-			calc(var(--border-width) * -1);
+		inset: calc(var(--border-width) * -1) calc(var(--border-width) * -1)
+			auto calc(var(--border-width) * -1);
 		z-index: 2;
 		display: block;
 		height: var(--large-border-width);
@@ -284,6 +283,10 @@
 
 		.content-box {
 			padding: 48px 32px;
+		}
+
+		.fancy-image::before {
+			transform: translate(-10px, -10px);
 		}
 	}
 }

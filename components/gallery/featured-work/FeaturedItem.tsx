@@ -1,6 +1,6 @@
 import { FeaturedItemProps } from "../../../types/gallery-types";
 import useThumbnailConfig from "../../../hooks/useThumbnailConfig";
-import CustomLink from "../../layout/link/CustomLink";
+import CustomLink from "../../layout/CustomLink";
 import NewBadge from "../NewBadge";
 import styles from "../../../styles/components/FeaturedWork.module.css";
 

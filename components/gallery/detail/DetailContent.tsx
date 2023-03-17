@@ -1,5 +1,5 @@
 import { DetailContentProps } from "../../../types/gallery-types";
-import CustomLink from "../../layout/link/CustomLink";
+import CustomLink from "../../layout/CustomLink";
 import styles from "../../../styles/components/Showcase.module.css";
 
 export default function DetailContent({

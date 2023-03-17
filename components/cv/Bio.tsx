@@ -1,6 +1,6 @@
 import { bio } from "../../data/cv-data";
 import { BioProps } from "../../types/cv-types";
-import CustomLink from "../layout/link/CustomLink";
+import CustomLink from "../layout/CustomLink";
 import styles from "../../styles/components/Bio.module.css";
 
 export default function Bio({
@@ -25,9 +25,7 @@ export default function Bio({
 			className={classes}
 			{...otherProps}
 		>
-			<div
-				className={`wrapper wrapper--wide ${styles["bio__row"]}`}
-			>
+			<div className={`wrapper wrapper--wide ${styles["bio__row"]}`}>
 				<div
 					className={`fancy-image ${styles["bio__image"]} ${styles["bio__image--mobile"]}`}
 					aria-hidden="true"
@@ -40,12 +38,8 @@ export default function Bio({
 					/>
 				</div>
 
-				<div
-					className={`content-box ${styles["bio__content"]}`}
-				>
-					<Heading className="underline small">
-						{bio.title}
-					</Heading>
+				<div className={`content-box ${styles["bio__content"]}`}>
+					<Heading className="underline small">{bio.title}</Heading>
 
 					{bio.content}
 
@@ -75,9 +69,7 @@ export default function Bio({
 
 						<img
 							src={
-								bio.img.sources[
-									bio.img.sources.length - 1
-								].url
+								bio.img.sources[bio.img.sources.length - 1].url
 							}
 							alt={bio.img.alt}
 							width={bio.img.width}

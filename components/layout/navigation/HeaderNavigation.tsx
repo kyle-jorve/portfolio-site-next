@@ -4,7 +4,7 @@ import SiteContext from "../../../context/global";
 import { nav, headerCTA } from "../../../data/global-data";
 import NavItem from "./NavItem";
 import ParentNavItem from "./ParentNavItem";
-import CustomLink from "../link/CustomLink";
+import CustomLink from "../CustomLink";
 import styles from "../../../styles/layout/Nav.module.css";
 
 export default function HeaderNavigation({

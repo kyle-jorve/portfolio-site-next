@@ -1,14 +1,14 @@
 import { FooterIconProps } from "../../../types/global-types";
-import { socialIcons } from "../../../data/global-data";
-import { SocialIconType } from "../../../types/global-types";
-import CustomLink from "../link/CustomLink";
+import { socialMedia } from "../../../data/global-data";
+import { SocialMediaType } from "../../../types/global-types";
+import CustomLink from "../CustomLink";
 import styles from "../../../styles/layout/Social.module.css";
 
 export default function FooterIcons({
 	className = "",
 	...otherProps
 }: FooterIconProps) {
-	function printIcon(icon: SocialIconType) {
+	function printIcon(icon: SocialMediaType) {
 		const classes = [
 			styles["social__icon"],
 			styles[`social__icon--${icon.name}`],
@@ -38,18 +38,18 @@ export default function FooterIcons({
 			{...otherProps}
 		>
 			<div className={styles["social__icons"]}>
-				{socialIcons
-					.filter((icon) => icon.type === "standard")
-					.map((icon) => {
-						return printIcon(icon);
+				{socialMedia
+					.filter((soc) => soc.type === "standard")
+					.map((soc) => {
+						return printIcon(soc);
 					})}
 			</div>
 
 			<div className={styles["social__icons"]}>
-				{socialIcons
-					.filter((icon) => icon.type === "commerce")
-					.map((icon) => {
-						return printIcon(icon);
+				{socialMedia
+					.filter((soc) => soc.type === "commerce")
+					.map((soc) => {
+						return printIcon(soc);
 					})}
 			</div>
 		</div>

@@ -1,8 +1,4 @@
-import {
-	SocialIconType,
-	NavType,
-	NavItemType,
-} from "../types/global-types";
+import { SocialMediaType, NavType, NavItemType } from "../types/global-types";
 import GumroadIcon from "../components/icons/Gumroad";
 
 export const transitions = {
@@ -45,7 +41,6 @@ export const nav: NavType = [
 		pageID: "social",
 		pageName: "Social",
 		url: "https://linktr.ee/kylejorve",
-		showInMainNav: false,
 		showInMobileNav: true,
 	},
 ];
@@ -56,7 +51,7 @@ export const headerCTA: NavItemType = {
 	url: "https://www.patreon.com/kylejorve",
 };
 
-export const socialIcons: SocialIconType[] = [
+export const socialMedia: SocialMediaType[] = [
 	{
 		name: "artstation",
 		label: "Artstation",

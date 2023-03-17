@@ -1,6 +1,6 @@
 import { NeighborProps } from "../../../types/gallery-types";
 import useThumbnailConfig from "../../../hooks/useThumbnailConfig";
-import CustomLink from "../../layout/link/CustomLink";
+import CustomLink from "../../layout/CustomLink";
 import styles from "../../../styles/components/Showcase.module.css";
 
 export default function Neighbor({
@@ -13,9 +13,8 @@ export default function Neighbor({
 }: NeighborProps) {
 	const classes = [
 		styles.neighbor,
-		direction === "prev"
-			? styles["neighbor--prev"]
-			: styles["neighbor--next"],
+		"fancy-image",
+		styles[`neighbor--${direction}`],
 		...className.trim().split(" "),
 	]
 		.filter((c) => c)
@@ -55,18 +54,21 @@ export default function Neighbor({
 			className={classes}
 			{...otherProps}
 		>
-			<CustomLink to={`/gallery/${name}`}>
+			<CustomLink
+				className={styles["neighbor__link"]}
+				to={`/gallery/${name}`}
+			>
 				<span
-					className={`arrow-button arrow-button--${direction} arrow-button--white-border`}
+					className={`arrow-button arrow-button--${direction} arrow-button--white-border ${styles["neighbor__button"]}`}
 					aria-hidden="true"
 				></span>
 
-				<h2 className={styles["neighbor__title"]}>
+				<span className={styles["neighbor__title"]}>
 					<span className={styles["neighbor__light-title"]}>
 						{direction}
 					</span>
 					{truncateTitle(title)}
-				</h2>
+				</span>
 
 				<img
 					className={styles["neighbor__image"]}
@@ -79,6 +81,7 @@ export default function Neighbor({
 							  }
 							: undefined
 					}
+					loading="lazy"
 				/>
 			</CustomLink>
 		</article>

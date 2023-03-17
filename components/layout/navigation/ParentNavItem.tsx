@@ -18,9 +18,7 @@ export default function ParentNavItem({
 		: styles["nav__parent"];
 	const buttonClasses = [
 		...className.trim().split(" "),
-		isMobileNav
-			? styles["mobile-nav__expand"]
-			: styles["nav__expand"],
+		isMobileNav ? styles["mobile-nav__expand"] : styles["nav__expand"],
 		expanded &&
 			(isMobileNav
 				? styles["mobile-nav__expand--open"]
@@ -29,9 +27,7 @@ export default function ParentNavItem({
 		.filter((c) => c)
 		.join(" ");
 	const dropdownClasses = [
-		isMobileNav
-			? styles["mobile-nav__dropdown"]
-			: styles["nav__dropdown"],
+		isMobileNav ? styles["mobile-nav__dropdown"] : styles["nav__dropdown"],
 		expanded &&
 			(isMobileNav
 				? styles["mobile-nav__dropdown--open"]

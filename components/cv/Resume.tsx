@@ -1,16 +1,27 @@
 import { ResumeProps } from "../../types/cv-types";
 import { resume } from "../../data/cv-data";
-import CustomLink from "../layout/link/CustomLink";
+import CustomLink from "../layout/CustomLink";
 import styles from "../../styles/components/Resume.module.css";
 
-export default function Resume({ className = "", ...otherProps }: ResumeProps) {
-	const classes = ["section", "swoops", "swoops--right", styles["resume"], ...className.trim().split(" ")]
+export default function Resume({
+	className = "",
+	id = "",
+	...otherProps
+}: ResumeProps) {
+	const classes = [
+		"section",
+		"swoops",
+		"swoops--right",
+		styles["resume"],
+		...className.trim().split(" "),
+	]
 		.filter((c) => c)
 		.join(" ");
 
 	return (
 		<section
 			className={classes}
+			id="resume"
 			{...otherProps}
 		>
 			<div className="wrapper wrapper--content">
@@ -46,23 +57,49 @@ export default function Resume({ className = "", ...otherProps }: ResumeProps) {
 										return (
 											<div
 												key={`${item.name}-subitem-${index}`}
-												className={styles["resume__subitem"]}
+												className={
+													styles["resume__subitem"]
+												}
 											>
 												{hasTitle && (
-													<h4 className={styles["resume__subitem-title"]}>
-														{!!subitem.period && subitem.period}
+													<h4
+														className={
+															styles[
+																"resume__subitem-title"
+															]
+														}
+													>
+														{!!subitem.period &&
+															subitem.period}
 														{!!subitem.position && (
 															<div>
-																<span className={styles["resume__highlight"]}>
-																	{subitem.position}
+																<span
+																	className={
+																		styles[
+																			"resume__highlight"
+																		]
+																	}
+																>
+																	{
+																		subitem.position
+																	}
 																</span>
 															</div>
 														)}
-														{!!subitem.company && subitem.company}
+														{!!subitem.company &&
+															subitem.company}
 														{!!subitem.title && (
 															<div>
-																<span className={styles["resume__highlight"]}>
-																	{subitem.title}
+																<span
+																	className={
+																		styles[
+																			"resume__highlight"
+																		]
+																	}
+																>
+																	{
+																		subitem.title
+																	}
 																</span>
 															</div>
 														)}
@@ -70,7 +107,15 @@ export default function Resume({ className = "", ...otherProps }: ResumeProps) {
 												)}
 
 												{!!subitem.content && (
-													<div className={styles["resume__content"]}>{subitem.content}</div>
+													<div
+														className={
+															styles[
+																"resume__content"
+															]
+														}
+													>
+														{subitem.content}
+													</div>
 												)}
 											</div>
 										);

@@ -3,7 +3,7 @@ import SiteContext from "../../../context/global";
 import { VideoGalleryProps } from "../../../types/gallery-types";
 import { videoGallery } from "../../../data/gallery-data";
 import VideoGalleryItem from "./VideoGalleryItem";
-import CustomLink from "../../layout/link/CustomLink";
+import CustomLink from "../../layout/CustomLink";
 import styles from "../../../styles/components/VideoGallery.module.css";
 
 export default function VideoGallery({
@@ -53,9 +53,7 @@ export default function VideoGallery({
 						target="_blank"
 						rel="noreferrer"
 						tabIndex={
-							context.lightboxStatus === "open"
-								? -1
-								: undefined
+							context.lightboxStatus === "open" ? -1 : undefined
 						}
 					>
 						See More

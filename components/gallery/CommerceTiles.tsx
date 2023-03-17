@@ -1,6 +1,6 @@
 import { CommerceTilesProps } from "../../types/gallery-types";
-import { socialIcons } from "../../data/global-data";
-import CustomLink from "../layout/link/CustomLink";
+import { socialMedia } from "../../data/global-data";
+import CustomLink from "../layout/CustomLink";
 import styles from "../../styles/components/CommerceTiles.module.css";
 
 export default function CommerceTiles({
@@ -10,9 +10,7 @@ export default function CommerceTiles({
 	const classes = [styles["tiles"], ...className.trim().split(" ")]
 		.filter((c) => c)
 		.join(" ");
-	const tiles = socialIcons.filter(
-		(icon) => icon.type === "commerce",
-	);
+	const tiles = socialMedia.filter((soc) => soc.type === "commerce");
 
 	return (
 		<div

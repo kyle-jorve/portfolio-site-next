@@ -13,7 +13,7 @@ export type ImageDataType = {
 	height: number;
 };
 
-export type SocialIconType = {
+export type SocialMediaType = {
 	name: string;
 	url: string;
 	type: 'standard' | 'commerce';
@@ -44,7 +44,6 @@ export type NavType = (NavItemType | NavItemParentType)[];
 export type CustomLinkProps = {
 	to: string;
 	onClick?: React.MouseEventHandler;
-	useTooltip?: boolean;
 } & React.PropsWithChildren & Exclude<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'>;
 
 export type ButtonProps = React.PropsWithChildren & React.HTMLAttributes<HTMLButtonElement>;

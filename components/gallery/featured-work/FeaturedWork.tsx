@@ -4,7 +4,7 @@ import { items as galleryItems } from "../../../data/gallery-data";
 import { slideshowLimit } from "../../../data/home-data";
 import Glide from "@glidejs/glide";
 import FeaturedItem from "./FeaturedItem";
-import CustomLink from "../../layout/link/CustomLink";
+import CustomLink from "../../layout/CustomLink";
 import Button from "../../layout/Button";
 import "@glidejs/glide/dist/css/glide.core.min.css";
 import styles from "../../../styles/components/FeaturedWork.module.css";
