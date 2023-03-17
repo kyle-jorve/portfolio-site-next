@@ -14,7 +14,6 @@ export type ImageDataType = {
 };
 
 export type SocialMediaType = {
-	name: string;
 	url: string;
 	type: 'standard' | 'commerce';
 	icon?: JSX.Element;

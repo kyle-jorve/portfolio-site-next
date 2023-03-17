@@ -109,12 +109,12 @@
 	h4,
 	h5,
 	h6 {
-		margin-bottom: 0.75em;
+		margin-bottom: 0.65em;
 		font-family: var(--font-heading);
 		font-weight: normal;
 		text-transform: uppercase;
 		letter-spacing: 0.02em;
-		line-height: 1;
+		line-height: 0.9;
 	}
 
 	:is(h1, h2, h3, h4, h5, h6) :is(strong, b, a) {
@@ -128,7 +128,7 @@
 
 	h1.small {
 		font-size: 3.75rem;
-		line-height: 1;
+		line-height: 0.9;
 	}
 
 	h2 {

@@ -1,3 +1,5 @@
+import { useRef, useEffect } from "react";
+import { detectIntersection } from "../../utils/utils";
 import { ResumeProps } from "../../types/cv-types";
 import { resume } from "../../data/cv-data";
 import CustomLink from "../layout/CustomLink";
@@ -8,8 +10,10 @@ export default function Resume({
 	id = "",
 	...otherProps
 }: ResumeProps) {
+	const sectionRef = useRef<HTMLElement>(null);
 	const classes = [
 		"section",
+		"hide-until-intersected",
 		"swoops",
 		"swoops--right",
 		styles["resume"],
@@ -18,10 +22,20 @@ export default function Resume({
 		.filter((c) => c)
 		.join(" ");
 
+	useEffect(() => {
+		const section = sectionRef.current as HTMLElement;
+		const io = detectIntersection(section);
+
+		return () => {
+			io.disconnect();
+		};
+	}, []);
+
 	return (
 		<section
 			className={classes}
 			id="resume"
+			ref={sectionRef}
 			{...otherProps}
 		>
 			<div className="wrapper wrapper--content">

@@ -1,3 +1,7 @@
+/*==========================*/
+/*=====----- GRID -----=====*/
+/*==========================*/
+
 .video-gallery__inner {
 	position: relative;
 	z-index: 2;
@@ -24,6 +28,10 @@
 	margin-top: 48px;
 }
 
+/*===================================*/
+/*=====----- GALLERY ITEMS -----=====*/
+/*===================================*/
+
 .video-gallery__item {
 	position: relative;
 	aspect-ratio: 16 / 9;
@@ -34,6 +42,7 @@
 	border-radius: var(--border-radius);
 	box-shadow: var(--soft-shadow);
 	overflow: hidden;
+	color: var(--white);
 }
 
 .video-gallery__item::before,
@@ -55,6 +64,7 @@
 	z-index: 3;
 	border: var(--light-border);
 	border-radius: var(--border-radius);
+	backdrop-filter: blur(40px);
 	transition: opacity var(--transition), inset var(--transition);
 }
 
@@ -72,7 +82,8 @@
 	border-radius: 50%;
 	box-shadow: var(--soft-shadow);
 	backdrop-filter: blur(20px);
-	transition: background-color var(--transition);
+	opacity: 1;
+	transition: opacity var(--transition);
 }
 
 .video-gallery__play-button::before {
@@ -82,6 +93,29 @@
 	content: "\f04b";
 }
 
+.video-gallery__item-title {
+	position: absolute;
+	inset: 0;
+	z-index: 5;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 24px;
+	margin: 0;
+	text-align: center;
+	opacity: 0;
+	transition: opacity var(--transition);
+}
+
+.video-gallery__item-title small {
+	display: block;
+	margin-top: 4px;
+	font-family: var(--font-body);
+	font-size: 0.5333em;
+	letter-spacing: 0.02em;
+}
+
 .video-gallery__image {
 	position: relative;
 	z-index: 1;
@@ -89,6 +123,10 @@
 	height: 100%;
 	object-fit: cover;
 }
+
+/*===================================*/
+/*=====----- MEDIA QUERIES -----=====*/
+/*===================================*/
 
 @media (hover: hover) {
 	.video-gallery__item:hover::before,
@@ -101,7 +139,11 @@
 	}
 
 	.video-gallery__item:hover .video-gallery__play-button {
-		background-color: rgba(255, 255, 255, 0.75);
+		opacity: 0;
+	}
+
+	.video-gallery__item:hover .video-gallery__item-title {
+		opacity: 1;
 	}
 }
 

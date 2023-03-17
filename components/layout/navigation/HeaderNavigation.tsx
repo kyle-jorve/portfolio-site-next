@@ -51,7 +51,7 @@ export default function HeaderNavigation({
 			)}
 
 			<CustomLink
-				className={`${styles["nav__cta"]} button button--secondary button--add`}
+				className={`${styles["nav__cta"]} button button--secondary button--patreon`}
 				to={headerCTA.url}
 				target="_blank"
 				rel="noreferrer"

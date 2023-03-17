@@ -1,7 +1,7 @@
 @layer theme {
 	:root {
 		/* typography */
-		--font-heading: "Bebas Neue", sans-serif;
+		--font-heading: "bebas-neue-rounded", sans-serif;
 		--font-body: "Montserrat", sans-serif;
 
 		--font-weight-light: 300;
@@ -69,13 +69,18 @@
 		--transition-ease: ease;
 
 		--transition: var(--transition-dur) var(--transition-ease);
-		--long-transition: calc(var(--transition-dur) * 2) var(--transition-ease);
+		--long-transition: calc(var(--transition-dur) * 2)
+			var(--transition-ease);
 
 		/* animations */
-		--animation-fade-in: fade-in var(--transition-dur) var(--transition-ease) 0s 1 normal forwards;
-		--animation-fade-out: fade-out var(--transition-dur) var(--transition-ease) 0s 1 normal forwards;
-		--animation-slide-up: slide-up var(--transition-dur) var(--transition-ease) 0s 1 normal forwards;
-		--animation-slide-down: slide-down var(--transition-dur) var(--transition-ease) 0s 1 normal forwards;
+		--animation-fade-in: fade-in var(--transition-dur)
+			var(--transition-ease) 0s 1 normal forwards;
+		--animation-fade-out: fade-out var(--transition-dur)
+			var(--transition-ease) 0s 1 normal forwards;
+		--animation-slide-up: slide-up var(--transition-dur)
+			var(--transition-ease) 0s 1 normal forwards;
+		--animation-slide-down: slide-down var(--transition-dur)
+			var(--transition-ease) 0s 1 normal forwards;
 
 		/* layout */
 		--logo-width: 60px;

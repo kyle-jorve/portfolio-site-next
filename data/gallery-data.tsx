@@ -314,54 +314,6 @@ export const thumbs: {
 	},
 };
 
-export const videoGallery: galleryTypes.VideoGalleryType = {
-	items: [
-		{
-			name: "samil-portrait",
-			title: "Samil Sealee Portrait",
-			poster: thumbs.samilPortrait,
-			video: videos.samilPortrait,
-		},
-		{
-			name: "samil",
-			title: "Samil Sealee",
-			poster: thumbs.samil,
-			video: videos.samil,
-		},
-		{
-			name: "kyra",
-			title: "Kyra Luckleav",
-			poster: thumbs.kyra,
-			video: videos.kyra,
-		},
-		{
-			name: "toval",
-			title: "Toval Argensente",
-			poster: thumbs.toval,
-			video: videos.toval,
-		},
-		{
-			name: "andel",
-			title: "Andel Sommer",
-			poster: thumbs.andel,
-			video: videos.andel,
-		},
-		{
-			name: "pendrake",
-			title: "Pendrake Sommer",
-			poster: thumbs.pendrake,
-			video: videos.pendrake,
-		},
-		{
-			name: "talis",
-			title: "Talis Sommer",
-			poster: thumbs.talis,
-			video: videos.talis,
-		},
-	],
-	url: "https://www.youtube.com/@KyleJorve/videos",
-};
-
 export const items: galleryTypes.GalleryItemType[] = [
 	{
 		name: "samil-portrait",
@@ -660,7 +612,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 		],
 	},
 	{
-		name: "toval-argensente",
+		name: "toval",
 		title: "Toval Argensente",
 		year: 2022,
 		content: (
@@ -1426,7 +1378,6 @@ export const items: galleryTypes.GalleryItemType[] = [
 				</p>
 			</Fragment>
 		),
-
 		featured: true,
 		purchaseLink: "https://www.inprnt.com/gallery/kylejorve/olfactory/",
 		downloadLink: "https://gumroad.com/l/KMcGj",
@@ -1595,3 +1546,58 @@ export const items: galleryTypes.GalleryItemType[] = [
 		detailKeys: [thumbs.kh2],
 	},
 ];
+
+export const videoGallery: galleryTypes.VideoGalleryType = {
+	items: [
+		{
+			name: "samil-portrait",
+			title: "Samil Sealee Portrait",
+			year: items.find((item) => item.name === "samil-portrait")!.year,
+			poster: thumbs.samilPortrait,
+			video: videos.samilPortrait,
+		},
+		{
+			name: "samil",
+			title: "Samil Sealee",
+			year: items.find((item) => item.name === "samil")!.year,
+			poster: thumbs.samil,
+			video: videos.samil,
+		},
+		{
+			name: "kyra",
+			title: "Kyra Luckleav",
+			year: items.find((item) => item.name === "kyra")!.year,
+			poster: thumbs.kyra,
+			video: videos.kyra,
+		},
+		{
+			name: "toval",
+			title: "Toval Argensente",
+			year: items.find((item) => item.name === "toval")!.year,
+			poster: thumbs.toval,
+			video: videos.toval,
+		},
+		{
+			name: "andel",
+			title: "Andel Sommer",
+			year: items.find((item) => item.name === "andel")!.year,
+			poster: thumbs.andel,
+			video: videos.andel,
+		},
+		{
+			name: "pendrake",
+			title: "Pendrake Sommer",
+			year: items.find((item) => item.name === "pendrake")!.year,
+			poster: thumbs.pendrake,
+			video: videos.pendrake,
+		},
+		{
+			name: "talis",
+			title: "Talis Sommer",
+			year: items.find((item) => item.name === "talis")!.year,
+			poster: thumbs.talis,
+			video: videos.talis,
+		},
+	],
+	url: "https://www.youtube.com/@KyleJorve/videos",
+};

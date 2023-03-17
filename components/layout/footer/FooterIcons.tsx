@@ -8,11 +8,11 @@ export default function FooterIcons({
 	className = "",
 	...otherProps
 }: FooterIconProps) {
-	function printIcon(icon: SocialMediaType) {
+	function printIcon([key, value]: [string, SocialMediaType]) {
 		const classes = [
 			styles["social__icon"],
-			styles[`social__icon--${icon.name}`],
-			styles[`social__icon--${icon.type}`],
+			styles[`social__icon--${key}`],
+			styles[`social__icon--${value.type}`],
 			...className.trim().split(" "),
 		]
 			.filter((c) => c?.length)
@@ -20,14 +20,14 @@ export default function FooterIcons({
 
 		return (
 			<CustomLink
-				key={icon.name}
+				key={key}
 				className={classes}
-				to={icon.url}
+				to={value.url}
 				target="_blank"
 				rel="noreferrer"
-				aria-label={`link to Kyle's ${icon.label}`}
+				aria-label={`link to Kyle's ${value.label}`}
 			>
-				{icon.icon}
+				{value.icon}
 			</CustomLink>
 		);
 	}
@@ -38,18 +38,16 @@ export default function FooterIcons({
 			{...otherProps}
 		>
 			<div className={styles["social__icons"]}>
-				{socialMedia
-					.filter((soc) => soc.type === "standard")
-					.map((soc) => {
-						return printIcon(soc);
-					})}
+				{Object.entries(socialMedia)
+					.filter(([_, value]) => value.type === "standard")
+					.map((entry) => printIcon(entry))}
 			</div>
 
 			<div className={styles["social__icons"]}>
-				{socialMedia
-					.filter((soc) => soc.type === "commerce")
-					.map((soc) => {
-						return printIcon(soc);
+				{Object.entries(socialMedia)
+					.filter(([_, value]) => value.type === "commerce")
+					.map((entry) => {
+						return printIcon(entry);
 					})}
 			</div>
 		</div>

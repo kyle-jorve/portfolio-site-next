@@ -8,6 +8,7 @@ import styles from "../../../styles/components/VideoGallery.module.css";
 export default function VideoGalleryItem({
 	name,
 	title,
+	year,
 	poster,
 	video,
 	className = "",
@@ -34,15 +35,18 @@ export default function VideoGalleryItem({
 			className={classes}
 			aria-label={`open ${title} video`}
 			onClick={handleVideoOpen}
-			tabIndex={
-				context.lightboxStatus === "open" ? -1 : undefined
-			}
+			tabIndex={context.lightboxStatus === "open" ? -1 : undefined}
 			{...otherProps}
 		>
 			<span
 				className={styles["video-gallery__play-button"]}
 				aria-hidden={true}
 			></span>
+
+			<h3 className={styles["video-gallery__item-title"]}>
+				{title}
+				<small>{year}</small>
+			</h3>
 
 			<img
 				className={styles["video-gallery__image"]}

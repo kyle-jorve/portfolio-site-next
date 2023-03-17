@@ -1,3 +1,5 @@
+import { useRef, useEffect } from "react";
+import { detectIntersection } from "../../utils/utils";
 import { bio } from "../../data/cv-data";
 import { BioProps } from "../../types/cv-types";
 import CustomLink from "../layout/CustomLink";
@@ -9,9 +11,11 @@ export default function Bio({
 	className = "",
 	...otherProps
 }: BioProps) {
+	const sectionRef = useRef<HTMLElement>(null);
 	const classes = [
 		...className.trim().split(" "),
 		"section",
+		"hide-until-intersected",
 		"swoops",
 		"swoops--left",
 		styles.bio,
@@ -20,9 +24,19 @@ export default function Bio({
 		.join(" ");
 	const Heading = (useH1 ? "h1" : "h2") as React.ElementType;
 
+	useEffect(() => {
+		const section = sectionRef.current as HTMLElement;
+		const io = detectIntersection(section);
+
+		return () => {
+			io.disconnect();
+		};
+	}, []);
+
 	return (
 		<section
 			className={classes}
+			ref={sectionRef}
 			{...otherProps}
 		>
 			<div className={`wrapper wrapper--wide ${styles["bio__row"]}`}>

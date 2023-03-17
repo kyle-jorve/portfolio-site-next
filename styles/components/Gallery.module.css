@@ -118,6 +118,7 @@
 
 .gallery__item-title small {
 	display: block;
+	margin-top: 8px;
 	font-family: var(--font-body);
 	font-weight: normal;
 	font-size: 0.4em;

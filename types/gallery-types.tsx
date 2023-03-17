@@ -113,7 +113,7 @@ export type GalleryItemType = {
 	name: string;
 	thumb: ThumbnailKeyType;
 	detailKeys: DetailKeyType[];
-	categories: (
+	categories?: (
 		| typeof projectCategories[keyof typeof projectCategories]
 		| typeof characterCategories[keyof typeof characterCategories]
 	)[];
@@ -131,6 +131,7 @@ export type NeighborType =
 export type VideoGalleryItemType = {
 	name: string;
 	title: string;
+	year: string | number;
 	poster: ThumbnailKeyType;
 	video: JSX.Element;
 };

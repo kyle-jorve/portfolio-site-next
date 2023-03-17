@@ -1,3 +1,5 @@
+import { useRef, useEffect, useContext } from "react";
+import SiteContext from "../../context/global";
 import { HomeHeroProps } from "../../types/global-types";
 import { heroImage } from "../../data/home-data";
 import CustomLink from "./CustomLink";
@@ -8,9 +10,51 @@ export default function HomeHero({
 	className = "",
 	...otherProps
 }: HomeHeroProps) {
+	const context = useContext(SiteContext);
+	const contentRef = useRef<HTMLDivElement>(null);
+	const imageRef = useRef<HTMLDivElement>(null);
 	const classes = [...className.trim().split(" "), "section", styles.hero]
 		.filter((c) => c?.length)
 		.join(" ");
+
+	useEffect(() => {
+		function scrollHandler() {
+			const content = contentRef.current as HTMLDivElement;
+			const image = imageRef.current as HTMLDivElement;
+			const contentOffset = {
+				top: content.getBoundingClientRect().top,
+				bottom: content.getBoundingClientRect().bottom,
+				height: content.offsetHeight,
+			};
+			const imageOffset = {
+				top: image.getBoundingClientRect().top,
+				bottom: image.getBoundingClientRect().bottom,
+				height: image.offsetHeight,
+			};
+
+			if (contentOffset.bottom <= 0 && imageOffset.bottom <= 0) return;
+
+			if (context.mobile) {
+				[content, image].forEach((el) => (el.style.transform = ""));
+				return;
+			}
+
+			content.style.transform = `translateY(${window.scrollY * 0.2}px)`;
+			image.style.transform = `translateY(${window.scrollY * 0.125}px)`;
+		}
+
+		["resize", "orientationchange"].forEach((ev) =>
+			window.addEventListener(ev, scrollHandler),
+		);
+		window.addEventListener("scroll", scrollHandler);
+
+		return () => {
+			["resize", "orientationchange"].forEach((ev) =>
+				window.removeEventListener(ev, scrollHandler),
+			);
+			window.removeEventListener("scroll", scrollHandler);
+		};
+	}, [context.mobile]);
 
 	function scrollIconClickHandler() {
 		const featuredWorkSection = document.querySelector("#featured-work");
@@ -28,7 +72,10 @@ export default function HomeHero({
 			{...otherProps}
 		>
 			<div className={styles["hero__inner"]}>
-				<div className={styles["hero__content-col"]}>
+				<div
+					className={styles["hero__content-col"]}
+					ref={contentRef}
+				>
 					<h1 className={styles["hero__title"]}>
 						<span className={styles["hero__title-1"]}>
 							Kyle
@@ -51,7 +98,10 @@ export default function HomeHero({
 					</CustomLink>
 				</div>
 
-				<div className={styles["hero__img-col"]}>
+				<div
+					className={styles["hero__img-col"]}
+					ref={imageRef}
+				>
 					<picture>
 						{heroImage.sources.map((src, index) => {
 							return (

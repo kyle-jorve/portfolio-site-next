@@ -13,9 +13,15 @@ export default function ParentNavItem({
 }: ParentNavItemProps) {
 	const [expanded, setExpanded] = useState(false);
 	const rootRef = useRef<HTMLDivElement>(null);
-	const rootClasses = isMobileNav
-		? styles["mobile-nav__parent"]
-		: styles["nav__parent"];
+	const rootClasses = [
+		isMobileNav ? styles["mobile-nav__parent"] : styles["nav__parent"],
+		expanded &&
+			(isMobileNav
+				? styles["mobile-nav__parent--expanded"]
+				: styles["nav__parent--expanded"]),
+	]
+		.filter((c) => c)
+		.join(" ");
 	const buttonClasses = [
 		...className.trim().split(" "),
 		isMobileNav ? styles["mobile-nav__expand"] : styles["nav__expand"],
@@ -35,16 +41,13 @@ export default function ParentNavItem({
 	]
 		.filter((c) => c)
 		.join(" ");
-	const navItemClasses = isMobileNav
-		? styles["mobile-nav__child"]
-		: styles["nav__item--child"];
 
 	useEffect(() => {
 		function dismissDropdown(event: MouseEvent) {
 			const target = event.target as HTMLElement;
 			const targetIsNavItem =
 				target === rootRef.current ||
-				!!target.closest("[data-parent-root]");
+				target.closest("[data-parent-root]") === rootRef.current;
 
 			if (!expanded || targetIsNavItem) return;
 
@@ -79,9 +82,20 @@ export default function ParentNavItem({
 				aria-hidden={!expanded}
 			>
 				{childItems.map((ci) => {
+					const classes = [
+						isMobileNav
+							? styles["mobile-nav__child"]
+							: styles["nav__item--child"],
+						isMobileNav
+							? styles[`mobile-nav__child--${ci.pageID}`]
+							: styles[`nav__item--${ci.pageID}`],
+					]
+						.filter((c) => c)
+						.join(" ");
+
 					return (
 						<NavItem
-							className={navItemClasses}
+							className={classes}
 							key={ci.pageID}
 							url={ci.url}
 							onClick={() => setExpanded(false)}

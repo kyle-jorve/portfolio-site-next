@@ -118,14 +118,31 @@
 			.button--shop,
 			.button--shuffle,
 			.button--add,
-			.button--back
+			.button--back,
+			.button--patreon
 		)::before,
 	.button--arrow::after {
 		display: block;
 		flex-shrink: 0;
-		font: var(--fa-font-solid);
 		font-size: inherit;
 		letter-spacing: 0;
+	}
+
+	:where(
+			.button--download,
+			.button--save,
+			.button--shop,
+			.button--shuffle,
+			.button--add,
+			.button--back
+		)::before,
+	.button--arrow::after {
+		font: var(--fa-font-solid);
+	}
+
+	.button--patreon::before {
+		font: var(--fa-font-brands);
+		content: "\f3d9";
 	}
 
 	.button--download::before {

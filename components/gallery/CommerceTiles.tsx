@@ -10,7 +10,9 @@ export default function CommerceTiles({
 	const classes = [styles["tiles"], ...className.trim().split(" ")]
 		.filter((c) => c)
 		.join(" ");
-	const tiles = socialMedia.filter((soc) => soc.type === "commerce");
+	const tiles = Object.entries(socialMedia).filter(
+		([_, value]) => value.type === "commerce",
+	);
 
 	return (
 		<div
@@ -18,19 +20,19 @@ export default function CommerceTiles({
 			{...otherProps}
 		>
 			<div className={styles["tiles__inner"]}>
-				{tiles.map((tile) => {
+				{tiles.map(([key, value]) => {
 					return (
 						<CustomLink
-							key={tile.name}
+							key={key}
 							className={`${styles["tile"]} ${
-								styles[`tile--${tile.name}`]
+								styles[`tile--${key}`]
 							}`}
-							to={tile.url}
+							to={value.url}
 						>
-							{!!tile.icon && tile.icon}
+							{!!value.icon && value.icon}
 
 							<span className={styles["tile__title"]}>
-								{tile.label}
+								{value.label}
 							</span>
 						</CustomLink>
 					);

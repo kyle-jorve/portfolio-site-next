@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { useRouter } from "next/router";
-import { nav, transitions } from "../data/global-data";
+import { transitions } from "../data/global-data";
 
 type SiteContextType = {
 	[prop: string]: any;
@@ -27,12 +26,6 @@ const SiteContext = React.createContext<SiteContextType>({
 });
 
 export function SiteContextProvider(props: React.PropsWithChildren) {
-	const router = useRouter();
-	const pages = nav
-		.map((item) => ("childItems" in item ? item.childItems : item))
-		.flat(1);
-	const detailPageMatch = router.query.itemID !== undefined;
-
 	//----- global site context -----//
 	const [visited, setVisited] = useState(false);
 	const [mobile, setMobile] = useState(true);
@@ -40,8 +33,9 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
 	const [lightboxStatus, setLightboxStatus] = useState<
 		"closed" | "open" | "out"
 	>("closed");
-	const [lightboxContent, setLightboxContent] =
-		useState<JSX.Element | null>(null);
+	const [lightboxContent, setLightboxContent] = useState<JSX.Element | null>(
+		null,
+	);
 	const [pageNotFound, setPageNotFound] = useState(false);
 
 	//----- global utilities -----//
@@ -73,7 +67,7 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
 				window.removeEventListener(ev, resizeHandler),
 			);
 		};
-	}, [resizeHandler, removeLoader, detailPageMatch, pageNotFound]);
+	}, [resizeHandler]);
 
 	function toggleLoader(on: boolean = true) {
 		if (on) {

@@ -90,6 +90,17 @@
 		padding: var(--section-padding);
 	}
 
+	.hide-until-intersected {
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity var(--transition);
+	}
+
+	.hide-until-intersected.intersected {
+		opacity: 1;
+		pointer-events: all;
+	}
+
 	.swoops {
 		position: relative;
 	}
@@ -271,6 +282,15 @@
 	@media (min-width: 64em) {
 		body {
 			padding-bottom: 0;
+		}
+
+		.hide-until-intersected {
+			transform: translateY(32px);
+			transition: opacity var(--transition), transform var(--transition);
+		}
+
+		.hide-until-intersected.intersected {
+			transform: none;
 		}
 
 		.flex-line {

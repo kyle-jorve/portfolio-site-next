@@ -1,5 +1,6 @@
-import { useContext } from "react";
+import { useContext, useEffect, useRef } from "react";
 import SiteContext from "../../../context/global";
+import { detectIntersection } from "../../../utils/utils";
 import { VideoGalleryProps } from "../../../types/gallery-types";
 import { videoGallery } from "../../../data/gallery-data";
 import VideoGalleryItem from "./VideoGalleryItem";
@@ -10,10 +11,12 @@ export default function VideoGallery({
 	className = "",
 	...otherProps
 }: VideoGalleryProps) {
+	const sectionRef = useRef<HTMLElement>(null);
 	const context = useContext(SiteContext);
 	const classes = [
 		...className.trim().split(" "),
 		"section",
+		"hide-until-intersected",
 		"swoops",
 		"swoops--right",
 		styles["video-gallery"],
@@ -21,9 +24,19 @@ export default function VideoGallery({
 		.filter((c) => c?.length)
 		.join(" ");
 
+	useEffect(() => {
+		const section = sectionRef.current as HTMLElement;
+		const io = detectIntersection(section);
+
+		return () => {
+			io.disconnect();
+		};
+	}, []);
+
 	return (
 		<section
 			className={classes}
+			ref={sectionRef}
 			{...otherProps}
 		>
 			<div

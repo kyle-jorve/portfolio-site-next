@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { FeaturedWorkProps } from "../../../types/gallery-types";
+import { detectIntersection } from "../../../utils/utils";
 import { items as galleryItems } from "../../../data/gallery-data";
 import { slideshowLimit } from "../../../data/home-data";
 import Glide from "@glidejs/glide";
@@ -14,6 +15,7 @@ export default function FeaturedWork({
 	id = "featured-work",
 	...otherProps
 }: FeaturedWorkProps) {
+	const sectionRef = useRef<HTMLElement>(null);
 	const glideRef = useRef<HTMLDivElement>(null);
 	const featuredItems = galleryItems
 		.filter((item) => item.featured)
@@ -21,6 +23,7 @@ export default function FeaturedWork({
 	const classes = [
 		...className.trim().split(" "),
 		"section",
+		"hide-until-intersected",
 		"swoops",
 		"swoops--left",
 		styles.featured,
@@ -73,6 +76,8 @@ export default function FeaturedWork({
 		const bullets = Array.from(
 			document.querySelectorAll("[data-featured-slider-dot]"),
 		);
+		const section = sectionRef.current as HTMLElement;
+		const io = detectIntersection(section);
 
 		slider.on("run.before", () => {
 			slides[slider.index].classList.remove(
@@ -94,6 +99,7 @@ export default function FeaturedWork({
 
 		return () => {
 			slider.destroy();
+			io.disconnect();
 		};
 	}, []);
 
@@ -101,6 +107,7 @@ export default function FeaturedWork({
 		<section
 			className={classes}
 			id={id}
+			ref={sectionRef}
 			{...otherProps}
 		>
 			<div className={styles["featured__inner"]}>
