@@ -7,8 +7,13 @@ import styles from "../../../styles/components/Gallery.module.css";
 const breakpoints = [0, 640, 1024];
 let timeout: ReturnType<typeof setTimeout>;
 
-export default function GalleryGrid({ className = "", ...otheProps }: GalleryGridProps) {
-	const [breakpoint, setBreakpoint] = useState(breakpoints.map((p, i) => i === 0));
+export default function GalleryGrid({
+	className = "",
+	...otheProps
+}: GalleryGridProps) {
+	const [breakpoint, setBreakpoint] = useState(
+		breakpoints.map((p, i) => i === 0),
+	);
 	const classes = [
 		...className.trim().split(" "),
 		styles["gallery__grid"],
@@ -50,7 +55,9 @@ export default function GalleryGrid({ className = "", ...otheProps }: GalleryGri
 		);
 
 		return () => {
-			["resize", "orientationchange"].forEach((ev) => window.removeEventListener(ev, resizeFn));
+			["resize", "orientationchange"].forEach((ev) =>
+				window.removeEventListener(ev, resizeFn),
+			);
 		};
 	}, []);
 

@@ -49,6 +49,8 @@ export default function Bio({
 						alt=""
 						width={640}
 						height={640}
+						loading="lazy"
+						fetchpriority="low"
 					/>
 				</div>
 
@@ -88,6 +90,8 @@ export default function Bio({
 							alt={bio.img.alt}
 							width={bio.img.width}
 							height={bio.img.height}
+							loading="lazy"
+							fetchpriority="low"
 						/>
 					</picture>
 				</div>

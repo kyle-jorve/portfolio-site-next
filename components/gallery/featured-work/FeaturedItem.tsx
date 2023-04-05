@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { FeaturedItemProps } from "../../../types/gallery-types";
 import useThumbnailConfig from "../../../hooks/useThumbnailConfig";
 import CustomLink from "../../layout/CustomLink";
@@ -13,12 +14,15 @@ export default function FeaturedItem({
 	className = "",
 	...otherProps
 }: FeaturedItemProps) {
+	const [imageLoaded, setImageLoaded] = useState(false);
 	const classes = [
+		"has-load-indicator",
+		imageLoaded && "loaded",
 		styles["featured__slide"],
 		"glide__slide",
 		...className.trim().split(" "),
 	]
-		.filter((c) => c?.length)
+		.filter((c) => c)
 		.join(" ");
 	const imgConfig = useThumbnailConfig({
 		thumbKey: thumb.path,
@@ -31,6 +35,11 @@ export default function FeaturedItem({
 			data-featured-slide
 			{...otherProps}
 		>
+			<span
+				className="load-indicator"
+				aria-hidden="true"
+			></span>
+
 			<div className={styles["featured__slide-inner"]}>
 				{isNew && <NewBadge />}
 
@@ -54,6 +63,9 @@ export default function FeaturedItem({
 						alt={thumb.alt || ""}
 						width="332"
 						height="218"
+						loading="lazy"
+						fetchpriority="low"
+						onLoad={() => setImageLoaded(true)}
 					/>
 				</CustomLink>
 			</div>

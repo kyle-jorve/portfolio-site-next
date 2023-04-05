@@ -6,14 +6,6 @@ import styles from "../styles/layout/Hero.module.css";
 export default function Custom404() {
 	const siteContext = useContext(SiteContext);
 
-	useEffect(() => {
-		siteContext.setPageNotFound(true);
-
-		return () => {
-			siteContext.setPageNotFound(false);
-		};
-	});
-
 	return (
 		<section
 			className={`section ${styles.hero} ${styles["hero--content"]}`}

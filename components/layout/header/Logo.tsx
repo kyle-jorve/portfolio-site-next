@@ -22,6 +22,7 @@ export default function Logo({ className = "", ...otherProps }: LogoProps) {
 				src="/images/icons-logos/logo-circle.svg"
 				alt="The Art of Kyle Jorve logo"
 				loading="eager"
+				fetchpriority="high"
 			/>
 		</CustomLink>
 	);

@@ -11,42 +11,31 @@ const SiteContext = React.createContext<SiteContextType>({
 	lightboxStatus: "closed",
 	loadStatus: "idle",
 	mobile: true,
-	pageNotFound: false,
 	toSection: null,
 	visited: false,
 
 	closeLightbox: () => {},
 	openLightbox: () => {},
-	removeLoader: () => {},
 	returnToOriginPage: () => {},
-	setPageNotFound: () => {},
 	setToSection: () => {},
 	setVisited: () => {},
-	toggleLoader: () => {},
 });
 
 export function SiteContextProvider(props: React.PropsWithChildren) {
 	//----- global site context -----//
 	const [visited, setVisited] = useState(false);
 	const [mobile, setMobile] = useState(true);
-	const [loadStatus, setLoadStatus] = useState("idle");
+	const [loadStatus, setLoadStatus] = useState<
+		"idle" | "page-out" | "page-in"
+	>("idle");
 	const [lightboxStatus, setLightboxStatus] = useState<
 		"closed" | "open" | "out"
 	>("closed");
 	const [lightboxContent, setLightboxContent] = useState<JSX.Element | null>(
 		null,
 	);
-	const [pageNotFound, setPageNotFound] = useState(false);
 
 	//----- global utilities -----//
-	const removeLoader = useCallback(() => {
-		setLoadStatus("out");
-
-		setTimeout(() => {
-			setLoadStatus("done");
-		}, transitions.long);
-	}, []);
-
 	const resizeHandler = useCallback(() => {
 		if (window.innerWidth >= breakpoint) {
 			setMobile(false);
@@ -68,14 +57,6 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
 			);
 		};
 	}, [resizeHandler]);
-
-	function toggleLoader(on: boolean = true) {
-		if (on) {
-			setLoadStatus("in");
-		} else {
-			removeLoader();
-		}
-	}
 
 	function openLightbox(content: JSX.Element) {
 		if (!content) return;
@@ -102,15 +83,12 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
 				lightboxStatus,
 				loadStatus,
 				mobile,
-				pageNotFound,
 				visited,
 
 				closeLightbox,
 				openLightbox,
-				removeLoader,
-				setPageNotFound,
+				setLoadStatus,
 				setVisited,
-				toggleLoader,
 			}}
 		>
 			{props.children}

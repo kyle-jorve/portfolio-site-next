@@ -56,6 +56,7 @@ export default function VideoGalleryItem({
 					objectPosition: `center ${poster.orientation}`,
 				}}
 				loading="lazy"
+				fetchpriority="low"
 			/>
 		</Button>
 	);

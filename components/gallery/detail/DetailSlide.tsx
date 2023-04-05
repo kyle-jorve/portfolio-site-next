@@ -40,6 +40,8 @@ export default function DetailSlide({
 						alt={image.alt}
 						width={image.width}
 						height={image.height}
+						loading="eager"
+						fetchpriority="high"
 					/>
 				</picture>
 			)}

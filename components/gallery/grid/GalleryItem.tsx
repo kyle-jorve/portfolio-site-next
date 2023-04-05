@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { GalleryItemProps } from "../../../types/gallery-types";
 import useThumbnailConfig from "../../../hooks/useThumbnailConfig";
 import CustomLink from "../../layout/CustomLink";
@@ -13,8 +14,14 @@ export default function GalleryItem({
 	className = "",
 	...otherProps
 }: GalleryItemProps) {
-	const classes = [styles["gallery__item"], ...className.trim().split(" ")]
-		.filter((c) => c?.length)
+	const [imageLoaded, setImageLoaded] = useState(false);
+	const classes = [
+		"has-load-indicator",
+		imageLoaded && "loaded",
+		styles["gallery__item"],
+		...className.trim().split(" "),
+	]
+		.filter((c) => c)
 		.join(" ");
 	const imgConfig = useThumbnailConfig({
 		thumbKey: thumb.path,
@@ -27,6 +34,11 @@ export default function GalleryItem({
 			{...otherProps}
 		>
 			{isNew && <NewBadge />}
+
+			<span
+				className="load-indicator"
+				aria-hidden="true"
+			></span>
 
 			<CustomLink
 				className={styles["gallery__item-link"]}
@@ -60,6 +72,9 @@ export default function GalleryItem({
 								  }
 								: undefined
 						}
+						loading="lazy"
+						fetchpriority="low"
+						onLoad={() => setImageLoaded(true)}
 					/>
 				</picture>
 			</CustomLink>

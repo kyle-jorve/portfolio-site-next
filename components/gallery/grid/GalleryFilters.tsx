@@ -1,105 +1,138 @@
-import { projectCategories, characterCategories, categoryNames } from "../../data/gallery-data";
-import Button from "../layout/Button";
+import {
+	projectCategories,
+	characterCategories,
+	categoryNames,
+} from "../../../data/gallery-data";
+import Button from "../../layout/Button";
 import styles from "../../styles/components/Filters.module.css";
 
 type FilterModalProps = {
-    active: boolean;
-    filters: typeof categoryNames;
-    onFilterClick: React.MouseEventHandler;
-    onClearFilters: React.MouseEventHandler;
-    onToggleFilters: React.MouseEventHandler;
+	active: boolean;
+	filters: typeof categoryNames;
+	onFilterClick: React.MouseEventHandler;
+	onClearFilters: React.MouseEventHandler;
+	onToggleFilters: React.MouseEventHandler;
 };
 
 export default function GalleryFilters(props: FilterModalProps) {
-    const classes = [styles.filters, props.active && styles["filters--active"]].filter((c) => c);
+	const classes = [
+		styles.filters,
+		props.active && styles["filters--active"],
+	].filter((c) => c);
 
-    return (
-        <div className={classes.join(" ")}>
-            <div className={styles["filters__buttons-row"]}>
-                <Button
-                    className={`${styles["filters__button"]} ${styles["filters__button--clear"]}${
-                        props.filters.length === 0 ? " button--hide" : ""
-                    }`}
-                    onClick={props.onClearFilters}
-                    aria-hidden={props.filters.length === 0}
-                    tabIndex={props.filters.length === 0 ? -1 : undefined}
-                >
-                    Clear All Filters
-                </Button>
+	return (
+		<div className={classes.join(" ")}>
+			<div className={styles["filters__buttons-row"]}>
+				<Button
+					className={`${styles["filters__button"]} ${
+						styles["filters__button--clear"]
+					}${props.filters.length === 0 ? " button--hide" : ""}`}
+					onClick={props.onClearFilters}
+					aria-hidden={props.filters.length === 0}
+					tabIndex={props.filters.length === 0 ? -1 : undefined}
+				>
+					Clear All Filters
+				</Button>
 
-                <Button
-                    className={`${styles["filters__button"]}${
-                        props.active ? ` ${styles["filters__button--active"]}` : ""
-                    }`}
-                    aria-label="Filter gallery"
-                    aria-controls="filters"
-                    aria-expanded={props.active}
-                    onClick={props.onToggleFilters}
-                >
-                    Filters
-                </Button>
-            </div>
+				<Button
+					className={`${styles["filters__button"]}${
+						props.active
+							? ` ${styles["filters__button--active"]}`
+							: ""
+					}`}
+					aria-label="Filter gallery"
+					aria-controls="filters"
+					aria-expanded={props.active}
+					onClick={props.onToggleFilters}
+				>
+					Filters
+				</Button>
+			</div>
 
-            <div className={styles["filters__tooltip"]} id="filters" aria-hidden={!props.active}>
-                <div className={styles["filters__block"]}>
-                    <h2 className={styles["filters__title"]}>Projects</h2>
-                    <div className={styles["filters__grid"]}>
-                        {Object.values(projectCategories).map((cat) => {
-                            const classes = [
-                                styles["filters__filter"],
-                                props.filters.some((f) => f === cat.name) && styles["filters__filter--active"],
-                            ].filter((c) => c);
+			<div
+				className={styles["filters__tooltip"]}
+				id="filters"
+				aria-hidden={!props.active}
+			>
+				<div className={styles["filters__block"]}>
+					<h2 className={styles["filters__title"]}>Projects</h2>
+					<div className={styles["filters__grid"]}>
+						{Object.values(projectCategories).map((cat) => {
+							const classes = [
+								styles["filters__filter"],
+								props.filters.some((f) => f === cat.name) &&
+									styles["filters__filter--active"],
+							].filter((c) => c);
 
-                            return (
-                                <Button
-                                    key={cat.name}
-                                    className={classes.join(" ")}
-                                    onClick={props.onFilterClick}
-                                    data-cat={cat.name}
-                                    aria-label={`${props.filters.some((f) => f === cat.name) ? "remove" : "add"} ${
-                                        cat.label
-                                    } project filter`}
-                                    tabIndex={props.active ? undefined : -1}
-                                >
-                                    <span className={styles["filters__filter-icon"]} aria-hidden="true"></span>
+							return (
+								<Button
+									key={cat.name}
+									className={classes.join(" ")}
+									onClick={props.onFilterClick}
+									data-cat={cat.name}
+									aria-label={`${
+										props.filters.some(
+											(f) => f === cat.name,
+										)
+											? "remove"
+											: "add"
+									} ${cat.label} project filter`}
+									tabIndex={props.active ? undefined : -1}
+								>
+									<span
+										className={
+											styles["filters__filter-icon"]
+										}
+										aria-hidden="true"
+									></span>
 
-                                    {cat.label}
-                                </Button>
-                            );
-                        })}
-                    </div>
-                </div>
+									{cat.label}
+								</Button>
+							);
+						})}
+					</div>
+				</div>
 
-                <div className={styles["filters__block"]}>
-                    <h3 className={styles["filters__title"]}>Characters</h3>
+				<div className={styles["filters__block"]}>
+					<h3 className={styles["filters__title"]}>Characters</h3>
 
-                    <div className={styles["filters__grid"]}>
-                        {Object.values(characterCategories).map((cat) => {
-                            const classes = [
-                                styles["filters__filter"],
-                                props.filters.some((f) => f === cat.name) && styles["filters__filter--active"],
-                            ].filter((c) => c);
+					<div className={styles["filters__grid"]}>
+						{Object.values(characterCategories).map((cat) => {
+							const classes = [
+								styles["filters__filter"],
+								props.filters.some((f) => f === cat.name) &&
+									styles["filters__filter--active"],
+							].filter((c) => c);
 
-                            return (
-                                <Button
-                                    key={cat.name}
-                                    className={classes.join(" ")}
-                                    onClick={props.onFilterClick}
-                                    data-cat={cat.name}
-                                    aria-label={`${props.filters.some((f) => f === cat.name) ? "remove" : "add"} ${
-                                        cat.label
-                                    } character filter`}
-                                    tabIndex={props.active ? undefined : -1}
-                                >
-                                    <span className={styles["filters__filter-icon"]} aria-hidden="true"></span>
+							return (
+								<Button
+									key={cat.name}
+									className={classes.join(" ")}
+									onClick={props.onFilterClick}
+									data-cat={cat.name}
+									aria-label={`${
+										props.filters.some(
+											(f) => f === cat.name,
+										)
+											? "remove"
+											: "add"
+									} ${cat.label} character filter`}
+									tabIndex={props.active ? undefined : -1}
+								>
+									<span
+										className={
+											styles["filters__filter-icon"]
+										}
+										aria-hidden="true"
+									></span>
 
-                                    {cat.label}
-                                </Button>
-                            );
-                        })}
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
+									{cat.label}
+								</Button>
+							);
+						})}
+					</div>
+				</div>
+			</div>
+		</div>
+	);
 }

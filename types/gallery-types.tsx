@@ -168,7 +168,7 @@ export type VideoGalleryItemProps = VideoGalleryItemType &
 
 export type GalleryGridProps = React.HTMLAttributes<HTMLDivElement>;
 
-export type GalleryItemProps = { isNew?: boolean } & Exclude<
+export type GalleryItemProps = { isNew?: boolean } & Omit<
 	GalleryItemType,
 	| "content"
 	| "featured"
