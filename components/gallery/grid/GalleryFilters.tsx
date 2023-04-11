@@ -1,49 +1,72 @@
+import { useState, useEffect } from "react";
 import {
 	projectCategories,
 	characterCategories,
-	categoryNames,
-} from "../../../data/gallery-data";
+	GalleryFiltersProps,
+} from "../../../types/gallery-types";
 import Button from "../../layout/Button";
-import styles from "../../styles/components/Filters.module.css";
+import styles from "../../../styles/components/Filters.module.css";
 
-type FilterModalProps = {
-	active: boolean;
-	filters: typeof categoryNames;
-	onFilterClick: React.MouseEventHandler;
-	onClearFilters: React.MouseEventHandler;
-	onToggleFilters: React.MouseEventHandler;
-};
-
-export default function GalleryFilters(props: FilterModalProps) {
+export default function GalleryFilters({
+	activeFilters,
+	onFilterClick,
+	onClearFilters,
+	className = "",
+	...otherProps
+}: GalleryFiltersProps) {
+	const [active, setActive] = useState(false);
 	const classes = [
 		styles.filters,
-		props.active && styles["filters--active"],
-	].filter((c) => c);
+		active && styles["filters--active"],
+		...className.trim().split(" "),
+	]
+		.filter((c) => c)
+		.join(" ");
+
+	useEffect(() => {
+		function closeFilters(event: MouseEvent) {
+			const target = event.target as HTMLElement;
+			const targetIsFilters =
+				target.classList.contains(styles["filters__button"]) ||
+				target.classList.contains(styles["filters__tooltip"]) ||
+				!!target.closest(`.${styles["filters__button"]}`) ||
+				!!target.closest(`.${styles["filters__tooltip"]}`);
+
+			if (active && !targetIsFilters) setActive(false);
+		}
+
+		document.addEventListener("click", closeFilters);
+
+		return () => {
+			document.removeEventListener("click", closeFilters);
+		};
+	}, [active]);
 
 	return (
-		<div className={classes.join(" ")}>
+		<div
+			className={classes}
+			{...otherProps}
+		>
 			<div className={styles["filters__buttons-row"]}>
 				<Button
 					className={`${styles["filters__button"]} ${
 						styles["filters__button--clear"]
-					}${props.filters.length === 0 ? " button--hide" : ""}`}
-					onClick={props.onClearFilters}
-					aria-hidden={props.filters.length === 0}
-					tabIndex={props.filters.length === 0 ? -1 : undefined}
+					}${activeFilters.length === 0 ? " button--hide" : ""}`}
+					onClick={onClearFilters}
+					aria-hidden={activeFilters.length === 0}
+					tabIndex={activeFilters.length === 0 ? -1 : undefined}
 				>
 					Clear All Filters
 				</Button>
 
 				<Button
 					className={`${styles["filters__button"]}${
-						props.active
-							? ` ${styles["filters__button--active"]}`
-							: ""
+						active ? ` ${styles["filters__button--active"]}` : ""
 					}`}
 					aria-label="Filter gallery"
 					aria-controls="filters"
-					aria-expanded={props.active}
-					onClick={props.onToggleFilters}
+					aria-expanded={active}
+					onClick={() => setActive((prev) => !prev)}
 				>
 					Filters
 				</Button>
@@ -52,7 +75,7 @@ export default function GalleryFilters(props: FilterModalProps) {
 			<div
 				className={styles["filters__tooltip"]}
 				id="filters"
-				aria-hidden={!props.active}
+				aria-hidden={!active}
 			>
 				<div className={styles["filters__block"]}>
 					<h2 className={styles["filters__title"]}>Projects</h2>
@@ -60,7 +83,7 @@ export default function GalleryFilters(props: FilterModalProps) {
 						{Object.values(projectCategories).map((cat) => {
 							const classes = [
 								styles["filters__filter"],
-								props.filters.some((f) => f === cat.name) &&
+								activeFilters.some((f) => f === cat.name) &&
 									styles["filters__filter--active"],
 							].filter((c) => c);
 
@@ -68,16 +91,16 @@ export default function GalleryFilters(props: FilterModalProps) {
 								<Button
 									key={cat.name}
 									className={classes.join(" ")}
-									onClick={props.onFilterClick}
+									onClick={onFilterClick}
 									data-cat={cat.name}
 									aria-label={`${
-										props.filters.some(
+										activeFilters.some(
 											(f) => f === cat.name,
 										)
 											? "remove"
 											: "add"
 									} ${cat.label} project filter`}
-									tabIndex={props.active ? undefined : -1}
+									tabIndex={active ? undefined : -1}
 								>
 									<span
 										className={
@@ -100,7 +123,7 @@ export default function GalleryFilters(props: FilterModalProps) {
 						{Object.values(characterCategories).map((cat) => {
 							const classes = [
 								styles["filters__filter"],
-								props.filters.some((f) => f === cat.name) &&
+								activeFilters.some((f) => f === cat.name) &&
 									styles["filters__filter--active"],
 							].filter((c) => c);
 
@@ -108,16 +131,16 @@ export default function GalleryFilters(props: FilterModalProps) {
 								<Button
 									key={cat.name}
 									className={classes.join(" ")}
-									onClick={props.onFilterClick}
+									onClick={onFilterClick}
 									data-cat={cat.name}
 									aria-label={`${
-										props.filters.some(
+										activeFilters.some(
 											(f) => f === cat.name,
 										)
 											? "remove"
 											: "add"
 									} ${cat.label} character filter`}
-									tabIndex={props.active ? undefined : -1}
+									tabIndex={active ? undefined : -1}
 								>
 									<span
 										className={

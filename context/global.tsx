@@ -1,23 +1,17 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { transitions } from "../data/global-data";
+import { SiteContextType } from "../types/global-types";
 
-type SiteContextType = {
-	[prop: string]: any;
-};
-
-const resizeEvents = ["resize", "orientationchange"];
-const breakpoint = 1024;
 const SiteContext = React.createContext<SiteContextType>({
+	lightboxContent: null,
 	lightboxStatus: "closed",
 	loadStatus: "idle",
 	mobile: true,
-	toSection: null,
 	visited: false,
 
 	closeLightbox: () => {},
 	openLightbox: () => {},
-	returnToOriginPage: () => {},
-	setToSection: () => {},
+	setLoadStatus: () => {},
 	setVisited: () => {},
 });
 
@@ -25,19 +19,16 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
 	//----- global site context -----//
 	const [visited, setVisited] = useState(false);
 	const [mobile, setMobile] = useState(true);
-	const [loadStatus, setLoadStatus] = useState<
-		"idle" | "page-out" | "page-in"
-	>("idle");
-	const [lightboxStatus, setLightboxStatus] = useState<
-		"closed" | "open" | "out"
-	>("closed");
-	const [lightboxContent, setLightboxContent] = useState<JSX.Element | null>(
-		null,
-	);
+	const [loadStatus, setLoadStatus] =
+		useState<SiteContextType["loadStatus"]>("idle");
+	const [lightboxStatus, setLightboxStatus] =
+		useState<SiteContextType["lightboxStatus"]>("closed");
+	const [lightboxContent, setLightboxContent] =
+		useState<SiteContextType["lightboxContent"]>(null);
 
 	//----- global utilities -----//
 	const resizeHandler = useCallback(() => {
-		if (window.innerWidth >= breakpoint) {
+		if (window.innerWidth >= 1024) {
 			setMobile(false);
 		} else {
 			setMobile(true);
@@ -45,6 +36,8 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
 	}, []);
 
 	useEffect(() => {
+		const resizeEvents = ["resize", "orientationchange"];
+
 		resizeHandler();
 
 		resizeEvents.forEach((ev) =>

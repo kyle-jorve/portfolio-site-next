@@ -11,10 +11,10 @@ export default function Button({
 
 	return (
 		<button
-			tabIndex={context.lightboxStatus === 'open' ? -1 : undefined}
+			tabIndex={context.lightboxStatus === "open" ? -1 : tabIndex}
 			{...otherProps}
 		>
 			{children}
 		</button>
-	)
+	);
 }

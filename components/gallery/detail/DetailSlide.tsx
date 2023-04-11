@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { DetailSlideProps } from "../../../types/gallery-types";
 import useDetailImageConfig from "../../../hooks/uesDetailImageConfig";
 import styles from "../../../styles/components/Showcase.module.css";
@@ -8,7 +9,10 @@ export default function DetailSlide({
 	className = "",
 	...otherProps
 }: DetailSlideProps) {
+	const [imageLoaded, setImageLoaded] = useState(false);
 	const classes = [
+		"has-load-indicator",
+		imageLoaded && "loaded",
 		styles["showcase__slide"],
 		"glide__slide",
 		...className.trim().split(" "),
@@ -22,6 +26,11 @@ export default function DetailSlide({
 			className={classes}
 			{...otherProps}
 		>
+			<span
+				className="load-indicator"
+				aria-hidden="true"
+			></span>
+
 			{!!image.path && (
 				<picture>
 					{imgSources?.sources.map((src, index) => {
@@ -42,6 +51,7 @@ export default function DetailSlide({
 						height={image.height}
 						loading="eager"
 						fetchpriority="high"
+						onLoad={() => setImageLoaded(true)}
 					/>
 				</picture>
 			)}

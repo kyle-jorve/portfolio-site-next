@@ -9,9 +9,12 @@
 }
 
 .gallery__title-row {
+	position: relative;
+	z-index: 3;
 	display: flex;
 	flex-wrap: wrap;
 	align-items: baseline;
+	justify-content: space-between;
 	gap: 16px;
 	width: 100%;
 	max-width: var(--width-wide);
@@ -24,9 +27,18 @@
 }
 
 .gallery__grid {
+	position: relative;
+	z-index: 2;
 	display: grid;
 	grid-auto-flow: dense;
 	gap: 8px;
+	opacity: 1;
+	transition: opacity var(--transition);
+}
+
+.gallery__grid--hide {
+	opacity: 0;
+	pointer-events: none;
 }
 
 .gallery__grid--level-1 {

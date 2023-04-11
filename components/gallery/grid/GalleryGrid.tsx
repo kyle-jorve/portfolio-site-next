@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { GalleryGridProps } from "../../../types/gallery-types";
-import { items as galleryItems } from "../../../data/gallery-data";
 import GalleryItem from "./GalleryItem";
 import styles from "../../../styles/components/Gallery.module.css";
 
@@ -8,11 +7,12 @@ const breakpoints = [0, 640, 1024];
 let timeout: ReturnType<typeof setTimeout>;
 
 export default function GalleryGrid({
+	items,
 	className = "",
 	...otheProps
 }: GalleryGridProps) {
 	const [breakpoint, setBreakpoint] = useState(
-		breakpoints.map((p, i) => i === 0),
+		breakpoints.map((_, i) => i === 0),
 	);
 	const classes = [
 		...className.trim().split(" "),
@@ -66,9 +66,7 @@ export default function GalleryGrid({
 			className={classes}
 			{...otheProps}
 		>
-			{galleryItems.map((item, index) => {
-				const isNew = item.name === galleryItems[0].name;
-
+			{items.map((item, index) => {
 				return (
 					<GalleryItem
 						key={`${item.name}-${index}`}
@@ -76,7 +74,7 @@ export default function GalleryGrid({
 						title={item.title}
 						year={item.year}
 						thumb={item.thumb}
-						isNew={isNew}
+						isNew={item.isNew}
 					/>
 				);
 			})}

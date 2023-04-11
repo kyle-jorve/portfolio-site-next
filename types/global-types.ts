@@ -38,6 +38,19 @@ export type NavItemParentType = {
 
 export type NavType = (NavItemType | NavItemParentType)[];
 
+export type SiteContextType = {
+	lightboxContent: JSX.Element | null;
+	lightboxStatus: "closed" | "open" | "out";
+	loadStatus: "idle" | "page-out" | "page-in";
+	mobile: boolean;
+	visited: boolean;
+
+	closeLightbox: Function;
+	openLightbox: Function;
+	setLoadStatus: Function;
+	setVisited: Function;
+}
+
 // ----- COMPONENT PROPS ----- //
 
 export type CustomLinkProps = {

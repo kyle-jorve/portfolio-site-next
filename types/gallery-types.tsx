@@ -120,6 +120,16 @@ export type GalleryItemType = {
 	featured?: boolean;
 } & GalleryItemContent;
 
+export type GalleryGridItemType = { isNew?: boolean } & Omit<
+	GalleryItemType,
+	| "content"
+	| "featured"
+	| "categories"
+	| "purchaseLink"
+	| "downloadLink"
+	| "detailKeys"
+>;
+
 export type NeighborType =
 	| {
 			name: string;
@@ -166,17 +176,11 @@ export type VideoGalleryProps = React.HTMLAttributes<HTMLElement>;
 export type VideoGalleryItemProps = VideoGalleryItemType &
 	React.HTMLAttributes<HTMLButtonElement>;
 
-export type GalleryGridProps = React.HTMLAttributes<HTMLDivElement>;
+export type GalleryGridProps = {
+	items: GalleryGridItemType[];
+} & React.HTMLAttributes<HTMLDivElement>;
 
-export type GalleryItemProps = { isNew?: boolean } & Omit<
-	GalleryItemType,
-	| "content"
-	| "featured"
-	| "categories"
-	| "purchaseLink"
-	| "downloadLink"
-	| "detailKeys"
-> &
+export type GalleryItemProps = GalleryGridItemType &
 	React.HTMLAttributes<HTMLElement>;
 
 export type NewBadgeProps = React.HTMLAttributes<HTMLSpanElement>;
@@ -203,3 +207,9 @@ export type NeighborsProps = {
 export type NeighborProps = NeighborType & {
 	direction: "prev" | "next";
 } & React.HTMLAttributes<HTMLElement>;
+
+export type GalleryFiltersProps = {
+	activeFilters: typeof categoryNames;
+	onFilterClick: React.MouseEventHandler;
+	onClearFilters: React.MouseEventHandler;
+} & React.HTMLAttributes<HTMLDivElement>;
