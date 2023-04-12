@@ -25,7 +25,7 @@ export default function FeaturedWork({
 		"section",
 		"hide-until-intersected",
 		"swoops",
-		"swoops--left",
+		"swoops--right",
 		styles.featured,
 	]
 		.filter((c) => c?.length)

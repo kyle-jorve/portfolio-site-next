@@ -9,7 +9,6 @@
 		width: 100%;
 		background: var(--body-bg);
 		overflow-x: hidden;
-		padding-bottom: 120px;
 	}
 
 	body.light {
@@ -163,13 +162,18 @@
 	}
 
 	.swoops--left {
-		background: url("/images/background-images/swoops-left-mobile.svg")
-			no-repeat left top / 100% auto;
+		background: url("/images/background-images/angles-left.svg") no-repeat
+			left top / 100% auto;
+	}
+
+	.swoops--mid {
+		background: url("/images/background-images/angles-mid.svg") no-repeat
+			center top / 100% auto;
 	}
 
 	.swoops--right {
-		background: url("/images/background-images/swoops-right-mobile.svg")
-			no-repeat right top / 100% auto;
+		background: url("/images/background-images/angles-right.svg") no-repeat
+			right top / 100% auto;
 	}
 
 	.swoops::before {
@@ -326,21 +330,7 @@
 
 	/*----- media queries -----*/
 
-	@media (min-width: 50em) {
-		.swoops--left {
-			background-image: url("/images/background-images/swoops-left.svg");
-		}
-
-		.swoops--right {
-			background-image: url("/images/background-images/swoops-right.svg");
-		}
-	}
-
 	@media (min-width: 64em) {
-		body {
-			padding-bottom: 0;
-		}
-
 		.flex-line {
 			gap: 16px;
 		}
@@ -355,6 +345,10 @@
 
 		.fancy-image::before {
 			transform: translate(-10px, -10px);
+		}
+
+		.swoops {
+			padding-top: 120px;
 		}
 	}
 }

@@ -237,6 +237,10 @@
 }
 
 @media (min-width: 64em) {
+	.showcase {
+		margin-top: 20px;
+	}
+
 	.showcase__grid {
 		display: grid;
 		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);

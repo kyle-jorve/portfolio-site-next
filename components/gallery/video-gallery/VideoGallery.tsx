@@ -18,7 +18,7 @@ export default function VideoGallery({
 		"section",
 		"hide-until-intersected",
 		"swoops",
-		"swoops--right",
+		"swoops--mid",
 		styles["video-gallery"],
 	]
 		.filter((c) => c?.length)
