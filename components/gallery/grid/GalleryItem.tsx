@@ -73,7 +73,6 @@ export default function GalleryItem({
 								: undefined
 						}
 						loading="lazy"
-						fetchpriority="low"
 						onLoad={() => setImageLoaded(true)}
 					/>
 				</picture>

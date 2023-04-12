@@ -82,7 +82,6 @@ export default function Neighbor({
 							: undefined
 					}
 					loading="lazy"
-					fetchpriority="low"
 				/>
 			</CustomLink>
 		</article>

@@ -50,7 +50,6 @@ export default function Bio({
 						width={640}
 						height={640}
 						loading="lazy"
-						fetchpriority="low"
 					/>
 				</div>
 
@@ -91,7 +90,6 @@ export default function Bio({
 							width={bio.img.width}
 							height={bio.img.height}
 							loading="lazy"
-							fetchpriority="low"
 						/>
 					</picture>
 				</div>

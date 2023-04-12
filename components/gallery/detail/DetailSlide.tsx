@@ -51,7 +51,6 @@ export default function DetailSlide({
 							width={image.width}
 							height={image.height}
 							loading="eager"
-							fetchpriority="high"
 							onLoad={() => setImageLoaded(true)}
 						/>
 					</picture>

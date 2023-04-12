@@ -151,7 +151,6 @@ export default function HomeHero({
 							width={heroImage.width}
 							height={heroImage.height}
 							loading="eager"
-							fetchpriority="high"
 						/>
 					</picture>
 				</div>

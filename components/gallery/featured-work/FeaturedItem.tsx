@@ -64,7 +64,6 @@ export default function FeaturedItem({
 						width="332"
 						height="218"
 						loading="lazy"
-						fetchpriority="low"
 						onLoad={() => setImageLoaded(true)}
 					/>
 				</CustomLink>
