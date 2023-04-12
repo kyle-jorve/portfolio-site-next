@@ -274,7 +274,8 @@
 	padding: 0 12px 12px;
 	text-align: center;
 	color: var(--white);
-	transition: transform var(--transition);
+	opacity: 1;
+	transition: transform var(--transition), opacity var(--transition);
 }
 
 .mobile-nav--hide {

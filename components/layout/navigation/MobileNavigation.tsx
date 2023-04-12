@@ -9,6 +9,7 @@ export default function MobileNavigation({
 	className = "",
 	...otherProps
 }: MobileNavigationProps) {
+	const [navInvisible, setNavInvisible] = useState(true);
 	const [navHidden, setNavHidden] = useState(false);
 	const navItems = nav.filter((item) => item.showInMobileNav);
 	const classes = [
@@ -18,6 +19,10 @@ export default function MobileNavigation({
 	]
 		.filter((c) => c)
 		.join(" ");
+
+	useEffect(() => {
+		setNavInvisible(false);
+	}, []);
 
 	useEffect(() => {
 		let scrollPos = window.scrollY;
@@ -44,6 +49,13 @@ export default function MobileNavigation({
 	return (
 		<nav
 			className={classes}
+			style={
+				navInvisible
+					? {
+							opacity: 0,
+					  }
+					: undefined
+			}
 			{...otherProps}
 		>
 			<div className={styles["mobile-nav__inner"]}>

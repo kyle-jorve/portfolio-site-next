@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import { transitions } from "../data/global-data";
 import { SiteContextType } from "../types/global-types";
 
@@ -24,16 +24,18 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
 		useState<SiteContextType["lightboxContent"]>(null);
 
 	//----- global utilities -----//
-	const resizeHandler = useCallback(() => {
-		if (window.innerWidth >= 1024) {
-			setMobile(false);
-		} else {
-			setMobile(true);
-		}
-	}, []);
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		const resizeEvents = ["resize", "orientationchange"];
+		const breakpoint = 1024;
+
+		function resizeHandler() {
+			if (window.innerWidth >= breakpoint) {
+				setMobile(false);
+			} else {
+				setMobile(true);
+			}
+		}
 
 		resizeHandler();
 
@@ -46,7 +48,7 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
 				window.removeEventListener(ev, resizeHandler),
 			);
 		};
-	}, [resizeHandler]);
+	}, []);
 
 	function openLightbox(content: JSX.Element) {
 		if (!content) return;

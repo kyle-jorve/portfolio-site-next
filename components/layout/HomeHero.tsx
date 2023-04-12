@@ -15,6 +15,10 @@ export default function HomeHero({
 	const context = useContext(SiteContext);
 	const contentRef = useRef<HTMLDivElement>(null);
 	const imageRef = useRef<HTMLDivElement>(null);
+	const preStyles = {
+		opacity: 0,
+		transform: "translateY(64px)",
+	};
 	const classes = [
 		styles.hero,
 		animationStarted && styles["hero--animate"],
@@ -105,6 +109,7 @@ export default function HomeHero({
 			<div className={styles["hero__inner"]}>
 				<div
 					className={styles["hero__content-col"]}
+					style={!animationStarted ? preStyles : undefined}
 					ref={contentRef}
 				>
 					<h1 className={styles["hero__title"]}>
@@ -131,6 +136,7 @@ export default function HomeHero({
 
 				<div
 					className={styles["hero__img-col"]}
+					style={!animationStarted ? preStyles : undefined}
 					ref={imageRef}
 				>
 					<picture>
