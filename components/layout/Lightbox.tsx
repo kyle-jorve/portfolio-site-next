@@ -3,10 +3,7 @@ import SiteContext from "../../context/global";
 import { LightboxProps } from "../../types/global-types";
 import styles from "../../styles/layout/Lightbox.module.css";
 
-export default function Lightbox({
-	className = "",
-	...props
-}: LightboxProps) {
+export default function Lightbox({ className = "", ...props }: LightboxProps) {
 	const context = useContext(SiteContext);
 	const buttonRef = useRef<HTMLButtonElement>(null);
 	const classes = [
@@ -17,7 +14,7 @@ export default function Lightbox({
 			styles["lightbox--active"],
 		context.lightboxStatus === "out" && styles["lightbox--out"],
 	]
-		.filter((c) => c?.length)
+		.filter((c) => c)
 		.join(" ");
 
 	useEffect(() => {
@@ -39,7 +36,7 @@ export default function Lightbox({
 				<button
 					className={`close-button ${styles["lightbox__close-button"]}`}
 					aria-label="close lightbox"
-					onClick={context.closeLightbox}
+					onClick={() => context.closeLightbox()}
 					ref={buttonRef}
 				></button>
 				<div className={styles["lightbox__box-inner"]}>
@@ -50,7 +47,7 @@ export default function Lightbox({
 			<div
 				className={styles["lightbox__overlay"]}
 				aria-hidden={true}
-				onClick={context.closeLightbox}
+				onClick={() => context.closeLightbox()}
 			></div>
 		</div>
 	);
