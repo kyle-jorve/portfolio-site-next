@@ -9,6 +9,7 @@ export default function ParentNavItem({
 	label,
 	childItems,
 	isMobileNav = false,
+	navHidden = false,
 	className = "",
 }: ParentNavItemProps) {
 	const [expanded, setExpanded] = useState(false);
@@ -16,6 +17,7 @@ export default function ParentNavItem({
 	const rootClasses = [
 		isMobileNav ? styles["mobile-nav__parent"] : styles["nav__parent"],
 		expanded &&
+			!navHidden &&
 			(isMobileNav
 				? styles["mobile-nav__parent--expanded"]
 				: styles["nav__parent--expanded"]),
@@ -26,6 +28,7 @@ export default function ParentNavItem({
 		...className.trim().split(" "),
 		isMobileNav ? styles["mobile-nav__expand"] : styles["nav__expand"],
 		expanded &&
+			!navHidden &&
 			(isMobileNav
 				? styles["mobile-nav__expand--open"]
 				: styles["nav__expand--open"]),
@@ -35,6 +38,7 @@ export default function ParentNavItem({
 	const dropdownClasses = [
 		isMobileNav ? styles["mobile-nav__dropdown"] : styles["nav__dropdown"],
 		expanded &&
+			!navHidden &&
 			(isMobileNav
 				? styles["mobile-nav__dropdown--open"]
 				: styles["nav__dropdown--open"]),
@@ -43,7 +47,7 @@ export default function ParentNavItem({
 		.join(" ");
 
 	useEffect(() => {
-		function dismissDropdown(event: MouseEvent) {
+		function documentClickHandler(event: MouseEvent) {
 			const target = event.target as HTMLElement;
 			const targetIsNavItem =
 				target === rootRef.current ||
@@ -54,12 +58,14 @@ export default function ParentNavItem({
 			setExpanded(false);
 		}
 
-		document.addEventListener("click", dismissDropdown);
+		if (navHidden && expanded) setExpanded(false);
+
+		document.addEventListener("click", documentClickHandler);
 
 		return () => {
-			document.removeEventListener("click", dismissDropdown);
+			document.removeEventListener("click", documentClickHandler);
 		};
-	}, [expanded]);
+	}, [expanded, navHidden]);
 
 	return (
 		<div

@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { detectIntersection } from "../../utils/utils";
 import { bio } from "../../data/cv-data";
 import { BioProps } from "../../types/cv-types";
@@ -12,6 +12,7 @@ export default function Bio({
 	...otherProps
 }: BioProps) {
 	const sectionRef = useRef<HTMLElement>(null);
+	const [imageLoaded, setImageLoaded] = useState(false);
 	const classes = [
 		...className.trim().split(" "),
 		"section",
@@ -22,7 +23,22 @@ export default function Bio({
 	]
 		.filter((c) => c?.length)
 		.join(" ");
+	const desktopImageClasses = [
+		"fancy-image",
+		"has-load-indicator",
+		imageLoaded && "loaded",
+		styles["bio__image"],
+	]
+		.filter((c) => c)
+		.join(" ");
 	const Heading = (useH1 ? "h1" : "h2") as React.ElementType;
+
+	// if for whatever reason the load event fails to trigger
+	useEffect(() => {
+		setTimeout(() => {
+			setImageLoaded(true);
+		}, 1000);
+	}, []);
 
 	useEffect(() => {
 		const section = sectionRef.current as HTMLElement;
@@ -70,7 +86,12 @@ export default function Bio({
 					)}
 				</div>
 
-				<div className={`fancy-image ${styles["bio__image"]}`}>
+				<div className={desktopImageClasses}>
+					<span
+						className="load-indicator"
+						aria-hidden="true"
+					></span>
+
 					<picture>
 						{bio.img.sources.map((src, index) => {
 							return (
@@ -90,6 +111,7 @@ export default function Bio({
 							width={bio.img.width}
 							height={bio.img.height}
 							loading="lazy"
+							onLoad={() => setImageLoaded(true)}
 						/>
 					</picture>
 				</div>

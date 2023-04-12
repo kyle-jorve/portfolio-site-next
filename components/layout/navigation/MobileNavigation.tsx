@@ -30,9 +30,9 @@ export default function MobileNavigation({
 		function scrollHandler() {
 			const curScrollPos = window.scrollY;
 
-			if (curScrollPos < scrollPos && navHidden) {
+			if (curScrollPos < scrollPos - 10 && navHidden) {
 				setNavHidden(false);
-			} else if (curScrollPos > scrollPos && !navHidden) {
+			} else if (curScrollPos > scrollPos + 10 && !navHidden) {
 				setNavHidden(true);
 			}
 
@@ -71,6 +71,7 @@ export default function MobileNavigation({
 								label={item.label}
 								childItems={item.childItems}
 								isMobileNav={true}
+								navHidden={navHidden}
 							/>
 						);
 					}

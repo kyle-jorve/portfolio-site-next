@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FeaturedItemProps } from "../../../types/gallery-types";
 import useThumbnailConfig from "../../../hooks/useThumbnailConfig";
 import CustomLink from "../../layout/CustomLink";
@@ -28,6 +28,13 @@ export default function FeaturedItem({
 		thumbKey: thumb.path,
 		isFeatured: true,
 	});
+
+	// if for whatever reason the load event fails to trigger
+	useEffect(() => {
+		setTimeout(() => {
+			setImageLoaded(true);
+		}, 1000);
+	}, []);
 
 	return (
 		<article

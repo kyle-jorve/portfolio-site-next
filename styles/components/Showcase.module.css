@@ -73,6 +73,8 @@
 	aspect-ratio: 16 / 9;
 	width: 100%;
 	height: auto;
+	border-radius: var(--border-radius);
+	overflow: hidden;
 }
 
 /*=============================*/
@@ -88,8 +90,13 @@
 	margin-top: -48px;
 }
 
+.showcase__title {
+	margin-bottom: 0.8em;
+}
+
 .showcase__title small {
 	display: block;
+	margin: 0.25rem 0 1rem;
 	font-family: var(--font-body);
 	font-size: 0.4em;
 }

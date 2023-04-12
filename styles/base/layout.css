@@ -9,6 +9,7 @@
 		width: 100%;
 		background: var(--body-bg);
 		overflow-x: hidden;
+		padding-bottom: 120px;
 	}
 
 	body.light {
@@ -331,6 +332,10 @@
 	/*----- media queries -----*/
 
 	@media (min-width: 64em) {
+		body {
+			padding-bottom: 0;
+		}
+
 		.flex-line {
 			gap: 16px;
 		}

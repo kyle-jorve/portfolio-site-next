@@ -69,6 +69,7 @@ export type ParentNavItemProps = {
 	label: string;
 	childItems: NavItemType[];
 	isMobileNav?: boolean;
+	navHidden?: boolean;
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export type HeaderProps = React.HTMLAttributes<HTMLElement>;

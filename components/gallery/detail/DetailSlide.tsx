@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { DetailSlideProps } from "../../../types/gallery-types";
 import useDetailImageConfig from "../../../hooks/uesDetailImageConfig";
 import styles from "../../../styles/components/Showcase.module.css";
@@ -20,6 +20,13 @@ export default function DetailSlide({
 		.filter((c) => c)
 		.join(" ");
 	const imgSources = useDetailImageConfig(image.path);
+
+	// if for whatever reason the load event fails to trigger
+	useEffect(() => {
+		setTimeout(() => {
+			setImageLoaded(true);
+		}, 1000);
+	}, []);
 
 	return (
 		<div

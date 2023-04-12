@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
 	projectCategories,
 	characterCategories,
@@ -15,6 +15,8 @@ export default function GalleryFilters({
 	...otherProps
 }: GalleryFiltersProps) {
 	const [active, setActive] = useState(false);
+	const expandFiltersRef = useRef<HTMLButtonElement>(null);
+	const tooltipRef = useRef<HTMLDivElement>(null);
 	const classes = [
 		styles.filters,
 		active && styles["filters--active"],
@@ -27,10 +29,10 @@ export default function GalleryFilters({
 		function closeFilters(event: MouseEvent) {
 			const target = event.target as HTMLElement;
 			const targetIsFilters =
-				target.classList.contains(styles["filters__button"]) ||
-				target.classList.contains(styles["filters__tooltip"]) ||
-				!!target.closest(`.${styles["filters__button"]}`) ||
-				!!target.closest(`.${styles["filters__tooltip"]}`);
+				target === expandFiltersRef.current ||
+				target === tooltipRef.current ||
+				expandFiltersRef.current?.contains(target) ||
+				tooltipRef.current?.contains(target);
 
 			if (active && !targetIsFilters) setActive(false);
 		}
@@ -67,6 +69,7 @@ export default function GalleryFilters({
 					aria-controls="filters"
 					aria-expanded={active}
 					onClick={() => setActive((prev) => !prev)}
+					ref={expandFiltersRef}
 				>
 					Filters
 				</Button>
@@ -76,6 +79,7 @@ export default function GalleryFilters({
 				className={styles["filters__tooltip"]}
 				id="filters"
 				aria-hidden={!active}
+				ref={tooltipRef}
 			>
 				<div className={styles["filters__block"]}>
 					<h2 className={styles["filters__title"]}>Projects</h2>

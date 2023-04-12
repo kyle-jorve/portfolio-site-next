@@ -11,18 +11,18 @@ export const bio: cvTypes.BioType = {
 			</p>
 			<p>
 				Today, he expresses his love for these genres by dreaming up new
-				worlds and illustrating the characters that populate them.
+				worlds and characters and illustrating them into life.
 			</p>
 			<p>
-				As a teenager, Jorve discovered the medium of digital painting
-				online and quickly fell in love. He taught himself to draw and
-				paint digitally, and soon began to create original characters
-				and build stories around them.
+				As a teenager, Jorve discovered the medium of digital art online
+				and quickly fell in love. He taught himself to draw and paint
+				digitally, and used these skills to create original stories and
+				characters.
 			</p>
 			<p>
 				Currently, Jorve works as a front end developer for a
-				Tucson-based digital marketing company. In his free time he
-				writes and illustrates his fictional worlds into life.
+				destination marketing company. In his free time he writes and
+				illustrates his fictional worlds into life.
 			</p>
 		</Fragment>
 	),
