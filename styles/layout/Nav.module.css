@@ -270,9 +270,15 @@
 	position: fixed;
 	inset: auto 8px 8px 8px;
 	z-index: 100;
+	transform: none;
 	padding: 0 12px 12px;
 	text-align: center;
 	color: var(--white);
+	transition: transform var(--transition);
+}
+
+.mobile-nav--hide {
+	transform: translateY(calc(100% + 16px));
 }
 
 .mobile-nav::before {

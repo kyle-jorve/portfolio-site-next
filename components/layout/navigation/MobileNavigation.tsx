@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { nav } from "../../../data/global-data";
 import { MobileNavigationProps } from "../../../types/global-types";
 import NavItem from "./NavItem";
@@ -8,13 +9,37 @@ export default function MobileNavigation({
 	className = "",
 	...otherProps
 }: MobileNavigationProps) {
+	const [navHidden, setNavHidden] = useState(false);
 	const navItems = nav.filter((item) => item.showInMobileNav);
 	const classes = [
-		...className.trim().split(" "),
 		styles["mobile-nav"],
+		navHidden && styles["mobile-nav--hide"],
+		...className.trim().split(" "),
 	]
-		.filter((c) => c?.length)
+		.filter((c) => c)
 		.join(" ");
+
+	useEffect(() => {
+		let scrollPos = window.scrollY;
+
+		function scrollHandler() {
+			const curScrollPos = window.scrollY;
+
+			if (curScrollPos < scrollPos && navHidden) {
+				setNavHidden(false);
+			} else if (curScrollPos > scrollPos && !navHidden) {
+				setNavHidden(true);
+			}
+
+			scrollPos = window.scrollY;
+		}
+
+		window.addEventListener("scroll", scrollHandler);
+
+		return () => {
+			window.removeEventListener("scroll", scrollHandler);
+		};
+	}, [navHidden]);
 
 	return (
 		<nav
@@ -27,9 +52,7 @@ export default function MobileNavigation({
 						return (
 							<ParentNavItem
 								className={
-									styles[
-										`mobile-nav__expand--${item.id}`
-									]
+									styles[`mobile-nav__expand--${item.id}`]
 								}
 								key={item.id}
 								id={item.id}
@@ -45,9 +68,7 @@ export default function MobileNavigation({
 							key={item.pageID}
 							url={item.url}
 							className={
-								styles[
-									`mobile-nav__item--${item.pageID}`
-								]
+								styles[`mobile-nav__item--${item.pageID}`]
 							}
 							isMobileNav={true}
 						>

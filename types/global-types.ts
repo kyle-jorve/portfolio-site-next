@@ -43,12 +43,10 @@ export type SiteContextType = {
 	lightboxStatus: "closed" | "open" | "out";
 	loadStatus: "idle" | "page-out" | "page-in";
 	mobile: boolean;
-	visited: boolean;
 
 	closeLightbox: Function;
 	openLightbox: Function;
 	setLoadStatus: Function;
-	setVisited: Function;
 }
 
 // ----- COMPONENT PROPS ----- //

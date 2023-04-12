@@ -56,6 +56,10 @@
 	border-radius: var(--border-radius);
 }
 
+.resume__content *:last-child {
+	margin-bottom: 0;
+}
+
 @media (min-width: 64em) {
 	.resume__grid {
 		gap: 64px;
@@ -68,10 +72,6 @@
 
 	.resume__subitem {
 		gap: 20px;
-	}
-
-	.resume__content {
-		padding: 32px;
 	}
 
 	.resume__subitem-title {

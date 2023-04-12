@@ -1,4 +1,4 @@
-import { useRef, useEffect, useContext } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import SiteContext from "../../context/global";
 import { HomeHeroProps } from "../../types/global-types";
 import { heroImage } from "../../data/home-data";
@@ -10,14 +10,40 @@ export default function HomeHero({
 	className = "",
 	...otherProps
 }: HomeHeroProps) {
+	const [animationStarted, setAnimationStarted] = useState(false);
+	const [animationComplete, setAnimationComplete] = useState(false);
 	const context = useContext(SiteContext);
 	const contentRef = useRef<HTMLDivElement>(null);
 	const imageRef = useRef<HTMLDivElement>(null);
-	const classes = [...className.trim().split(" "), "section", styles.hero]
-		.filter((c) => c?.length)
+	const classes = [
+		styles.hero,
+		animationStarted && styles["hero--animate"],
+		animationComplete && styles["hero--revealed"],
+		"section",
+		...className.trim().split(" "),
+	]
+		.filter((c) => c)
 		.join(" ");
 
 	useEffect(() => {
+		const imageCol = imageRef.current as HTMLDivElement;
+
+		setAnimationStarted(true);
+
+		function animationEndHandler() {
+			setAnimationComplete(true);
+		}
+
+		imageCol.addEventListener("transitionend", animationEndHandler);
+
+		return () => {
+			imageCol.removeEventListener("transitionend", animationEndHandler);
+		};
+	}, []);
+
+	useEffect(() => {
+		if (!animationComplete) return;
+
 		function scrollHandler() {
 			const content = contentRef.current as HTMLDivElement;
 			const image = imageRef.current as HTMLDivElement;
@@ -54,7 +80,7 @@ export default function HomeHero({
 			);
 			window.removeEventListener("scroll", scrollHandler);
 		};
-	}, [context.mobile]);
+	}, [context.mobile, animationComplete]);
 
 	function scrollIconClickHandler() {
 		const featuredWorkSection = document.querySelector("#featured-work");
@@ -71,6 +97,11 @@ export default function HomeHero({
 			className={classes}
 			{...otherProps}
 		>
+			<span
+				className={styles["hero__curtain"]}
+				aria-hidden="true"
+			></span>
+
 			<div className={styles["hero__inner"]}>
 				<div
 					className={styles["hero__content-col"]}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { DetailSlideProps } from "../../../types/gallery-types";
 import useDetailImageConfig from "../../../hooks/uesDetailImageConfig";
 import styles from "../../../styles/components/Showcase.module.css";
@@ -11,8 +11,8 @@ export default function DetailSlide({
 }: DetailSlideProps) {
 	const [imageLoaded, setImageLoaded] = useState(false);
 	const classes = [
-		"has-load-indicator",
-		imageLoaded && "loaded",
+		!image.source && "has-load-indicator",
+		!image.source && imageLoaded && "loaded",
 		styles["showcase__slide"],
 		"glide__slide",
 		...className.trim().split(" "),
@@ -26,34 +26,36 @@ export default function DetailSlide({
 			className={classes}
 			{...otherProps}
 		>
-			<span
-				className="load-indicator"
-				aria-hidden="true"
-			></span>
-
 			{!!image.path && (
-				<picture>
-					{imgSources?.sources.map((src, index) => {
-						return (
-							<source
-								key={`${name}-source-${index}`}
-								srcSet={src.url}
-								media={`(min-width: ${src.minScreenWidth}px)`}
-							/>
-						);
-					})}
+				<Fragment>
+					<span
+						className="load-indicator"
+						aria-hidden="true"
+					></span>
 
-					<img
-						className={styles["showcase__image"]}
-						src={imgSources?.mobile.url}
-						alt={image.alt}
-						width={image.width}
-						height={image.height}
-						loading="eager"
-						fetchpriority="high"
-						onLoad={() => setImageLoaded(true)}
-					/>
-				</picture>
+					<picture>
+						{imgSources?.sources.map((src, index) => {
+							return (
+								<source
+									key={`${name}-source-${index}`}
+									srcSet={src.url}
+									media={`(min-width: ${src.minScreenWidth}px)`}
+								/>
+							);
+						})}
+
+						<img
+							className={styles["showcase__image"]}
+							src={imgSources?.mobile.url}
+							alt={image.alt}
+							width={image.width}
+							height={image.height}
+							loading="eager"
+							fetchpriority="high"
+							onLoad={() => setImageLoaded(true)}
+						/>
+					</picture>
+				</Fragment>
 			)}
 
 			{!!image.source && image.source}

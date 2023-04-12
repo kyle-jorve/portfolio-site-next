@@ -14,8 +14,6 @@ export default function Resume({
 	const classes = [
 		"section",
 		"hide-until-intersected",
-		"swoops",
-		"swoops--right",
 		styles["resume"],
 		...className.trim().split(" "),
 	]

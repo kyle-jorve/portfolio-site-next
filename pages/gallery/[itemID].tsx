@@ -5,6 +5,7 @@ import { items as galleryItems } from "../../data/gallery-data";
 import { NeighborType } from "../../types/gallery-types";
 import Head from "next/head";
 import Custom404 from "../404";
+import CustomLink from "../../components/layout/CustomLink";
 import Button from "../../components/layout/Button";
 import DetailSlideshow from "../../components/gallery/detail/DetailSlideshow";
 import DetailContent from "../../components/gallery/detail/DetailContent";
@@ -69,12 +70,12 @@ export default function GalleryDetail() {
 				className={`section swoops swoops--left ${styles.showcase}`}
 			>
 				<div className={styles["showcase__inner"]}>
-					<Button
+					<CustomLink
 						className="button button--white-border button--back button--mid"
-						onClick={() => router.back()}
+						to="/gallery"
 					>
-						Back
-					</Button>
+						To Gallery
+					</CustomLink>
 
 					<div className={styles["showcase__grid"]}>
 						<DetailSlideshow galleryItem={galleryItem} />

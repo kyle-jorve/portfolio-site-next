@@ -6,20 +6,23 @@ export const bio: cvTypes.BioType = {
 	content: (
 		<Fragment>
 			<p className="large-text">
-				Illustrator and designer Kyle Jorve has always been drawn to stories of fantasy and science fiction.
+				Illustrator and designer Kyle Jorve has always been drawn to
+				stories of fantasy and science fiction.
 			</p>
 			<p>
-				Today, he expresses his love for these genres by dreaming up new worlds and illustrating the characters
-				that populate them.
+				Today, he expresses his love for these genres by dreaming up new
+				worlds and illustrating the characters that populate them.
 			</p>
 			<p>
-				As a teenager, Jorve discovered the medium of digital painting online and quickly fell in love. He
-				taught himself to draw and paint digitally, and soon began to create original characters and build
-				stories around them.
+				As a teenager, Jorve discovered the medium of digital painting
+				online and quickly fell in love. He taught himself to draw and
+				paint digitally, and soon began to create original characters
+				and build stories around them.
 			</p>
 			<p>
-				Currently, Jorve works as a front end developer for a Tucson-based digital marketing company. In his
-				free time he writes and illustrates his fictional worlds into life.
+				Currently, Jorve works as a front end developer for a
+				Tucson-based digital marketing company. In his free time he
+				writes and illustrates his fictional worlds into life.
 			</p>
 		</Fragment>
 	),
@@ -58,8 +61,12 @@ export const resume: cvTypes.ResumeType = {
 					company: "Simpleview",
 					content: (
 						<Fragment>
-							<p>Build front end components for a variety of websites in the tourism industry.</p>
-							<p>Write performant, sustainable code and undergo regular peer review and scrutiny.</p>
+							<p>
+								Build front end components for a myriad of
+								destination websites. Write performant,
+								sustainable code and undergo regular peer
+								review.
+							</p>
 						</Fragment>
 					),
 				},
@@ -70,26 +77,34 @@ export const resume: cvTypes.ResumeType = {
 					content: (
 						<Fragment>
 							<p>
-								Created print, web, and electronic marketing materials for Simply Bits/Desert Lab
-								Studio, its clients, and its various software products.
+								Created print, web, and electronic marketing
+								materials for Simply Bits/Desert Lab Studio, its
+								clients, and its various software products.
 							</p>
 							<p>
-								Did front end development and implementation of web designs in a variety of code
-								languages, including JavaScript, CSS, SCSS, HTML, CSHTML, and more.
+								Did front end development and implementation of
+								web designs in a variety of code languages,
+								including JavaScript, CSS, SCSS, HTML, CSHTML,
+								and more.
 							</p>
 							<p>
-								Created custom graphic and illustration work for a large variety of purposes including,
-								but not limited to, marketing, web design, advertising, and product development.
+								Created custom graphic and illustration work for
+								a large variety of purposes including, but not
+								limited to, marketing, web design, advertising,
+								and product development.
 							</p>
 							<p>
-								Worked for many clients of differing types, such as charity organizations, family-owned
-								and small businesses, ecommerce businesses, and software companies, to meet a variety of
-								design needs and challenges, including web design, graphic design, packaging design, and
-								illustration.
+								Worked for many clients of differing types, such
+								as charity organizations, family-owned and small
+								businesses, ecommerce businesses, and software
+								companies, to meet a variety of design needs and
+								challenges, including web design, graphic
+								design, packaging design, and illustration.
 							</p>
 							<p>
-								Attended trade shows to promote and sell Simply Bits&apos;/Desert Lab Studio&apos;s
-								software products.
+								Attended trade shows to promote and sell Simply
+								Bits&apos;/Desert Lab Studio&apos;s software
+								products.
 							</p>
 						</Fragment>
 					),
@@ -100,8 +115,9 @@ export const resume: cvTypes.ResumeType = {
 					company: "New Nebula Comic Anthology",
 					content: (
 						<p>
-							Wrote and illustrated an original story titled &quot;Ivory and Sinew&quot; for the comic
-							book anthology New Nebula Volume 1.
+							Wrote and illustrated an original story titled
+							&quot;Ivory and Sinew&quot; for the comic book
+							anthology New Nebula Volume 1.
 						</p>
 					),
 				},
@@ -111,8 +127,9 @@ export const resume: cvTypes.ResumeType = {
 					company: "Zarpara Vineyard",
 					content: (
 						<p>
-							Created print marketing materials for Zarpara Vineyard. Did custom illustration work and
-							graphic design.
+							Created print marketing materials for Zarpara
+							Vineyard. Did custom illustration work and graphic
+							design.
 						</p>
 					),
 				},
@@ -122,9 +139,12 @@ export const resume: cvTypes.ResumeType = {
 					company: "University of Arizona Digital Print Studio",
 					content: (
 						<p>
-							Was responsible for printing in multiple formats and assisting customers in the digital
-							print studio. Worked with a team to manage a steady flow of customers. Edited files to
-							ensure optimum print quality. Helped maintain the functionality of large format printers.
+							Was responsible for printing in multiple formats and
+							assisting customers in the digital print studio.
+							Worked with a team to manage a steady flow of
+							customers. Edited files to ensure optimum print
+							quality. Helped maintain the functionality of large
+							format printers.
 						</p>
 					),
 				},
@@ -142,22 +162,42 @@ export const resume: cvTypes.ResumeType = {
 				{
 					period: "2013",
 					title: "University of Arizona Annual VisCom Show",
-					content: <p>Exhibited in the Lionel Rombach Gallery in Tucson, Arizona.</p>,
+					content: (
+						<p>
+							Exhibited in the Lionel Rombach Gallery in Tucson,
+							Arizona.
+						</p>
+					),
 				},
 				{
 					period: "2012",
 					title: "University of Arizona Annual VisCom Show",
-					content: <p>Exhibited in the Lionel Rombach Gallery in Tucson, Arizona.</p>,
+					content: (
+						<p>
+							Exhibited in the Lionel Rombach Gallery in Tucson,
+							Arizona.
+						</p>
+					),
 				},
 				{
 					period: "2012",
 					title: "Student Art Exhibition in Orvieto, Italy",
-					content: <p>Exhibited book and sequential art in the Fondazione Centro Studi in Orvieto, Italy.</p>,
+					content: (
+						<p>
+							Exhibited book and sequential art in the Fondazione
+							Centro Studi in Orvieto, Italy.
+						</p>
+					),
 				},
 				{
 					period: "2011",
 					title: "Figure Illustration Exhibition",
-					content: <p>Exhibited in the 5th on 6th Gallery in Tucson, Arizona.</p>,
+					content: (
+						<p>
+							Exhibited in the 5th on 6th Gallery in Tucson,
+							Arizona.
+						</p>
+					),
 				},
 				{
 					period: "2009",
@@ -170,7 +210,12 @@ export const resume: cvTypes.ResumeType = {
 				{
 					period: "2008",
 					title: `"Go Figure" Juried Exhibition`,
-					content: <p>Exhibited in the Brio Fine Arts Center in Scottsdale, Arizona.</p>,
+					content: (
+						<p>
+							Exhibited in the Brio Fine Arts Center in
+							Scottsdale, Arizona.
+						</p>
+					),
 				},
 			],
 		},
@@ -213,7 +258,8 @@ export const resume: cvTypes.ResumeType = {
 					content: (
 						<ul>
 							<li>
-								<strong>Languages and Frameworks:</strong> React, NextJS, HTML, CSS, SCSS JavaScript
+								<strong>Languages and Frameworks:</strong>{" "}
+								React, NextJS, HTML, CSS, SCSS, JavaScript
 							</li>
 							<li>
 								<strong>Software:</strong> Adobe CC, ProCreate
@@ -230,7 +276,12 @@ export const resume: cvTypes.ResumeType = {
 				{
 					period: "2013",
 					title: `Bachelors of Fine Arts, Emphasis in Visual Communication`,
-					content: <p>University of Arizona&mdash;graduated Summa Cum Laude.</p>,
+					content: (
+						<p>
+							University of Arizona&mdash;graduated Summa Cum
+							Laude.
+						</p>
+					),
 				},
 				{
 					period: "2012",

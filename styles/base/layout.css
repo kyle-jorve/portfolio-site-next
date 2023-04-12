@@ -341,15 +341,6 @@
 			padding-bottom: 0;
 		}
 
-		.hide-until-intersected {
-			transform: translateY(32px);
-			transition: opacity var(--transition), transform var(--transition);
-		}
-
-		.hide-until-intersected.intersected {
-			transform: none;
-		}
-
 		.flex-line {
 			gap: 16px;
 		}

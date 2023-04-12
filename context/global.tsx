@@ -7,17 +7,14 @@ const SiteContext = React.createContext<SiteContextType>({
 	lightboxStatus: "closed",
 	loadStatus: "idle",
 	mobile: true,
-	visited: false,
 
 	closeLightbox: () => {},
 	openLightbox: () => {},
 	setLoadStatus: () => {},
-	setVisited: () => {},
 });
 
 export function SiteContextProvider(props: React.PropsWithChildren) {
 	//----- global site context -----//
-	const [visited, setVisited] = useState(false);
 	const [mobile, setMobile] = useState(true);
 	const [loadStatus, setLoadStatus] =
 		useState<SiteContextType["loadStatus"]>("idle");
@@ -76,12 +73,10 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
 				lightboxStatus,
 				loadStatus,
 				mobile,
-				visited,
 
 				closeLightbox,
 				openLightbox,
 				setLoadStatus,
-				setVisited,
 			}}
 		>
 			{props.children}
