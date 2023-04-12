@@ -1,67 +1,40 @@
-import React, { useRef, useContext, useEffect, Fragment } from "react";
+import React, { useContext, useEffect, Fragment } from "react";
 import { useRouter } from "next/router";
+import { transitions } from "../../data/global-data";
 import SiteContext from "../../context/global";
-import DetailHeader from "./header/DetailHeader";
 import Header from "./header/Header";
-import MainNavigation from "./navigation/MainNavigation";
 import MobileNavigation from "./navigation/MobileNavigation";
-import Loader from "./loader/Loader";
 import Footer from "./footer/Footer";
-
-let timeout: ReturnType<typeof setTimeout>;
+import Lightbox from "./Lightbox";
 
 export default function Layout(props: React.PropsWithChildren) {
-    const navRef = useRef() as React.MutableRefObject<HTMLElement>;
-    const siteContext = useContext(SiteContext);
-    const router = useRouter();
-    const isDetailPage = router.query.itemID !== undefined;
+	const router = useRouter();
+	const siteContext = useContext(SiteContext);
+	const ariaHide = siteContext.lightboxStatus === "open";
+	const mainClasses =
+		siteContext.loadStatus === "page-out" ? "out" : undefined;
 
-    useEffect(() => {
-        const routerEvents: ["routeChangeComplete", "routeChangeError"] = ["routeChangeComplete", "routeChangeError"];
+	useEffect(() => {
+		siteContext.closeLightbox();
+		siteContext.setLoadStatus("page-in");
 
-        function removeLoader() {
-            if (isDetailPage) return;
+		setTimeout(() => {
+			siteContext.setLoadStatus("idle");
+		}, transitions.short);
+	}, [router.pathname, router.query.itemID]);
 
-            siteContext.toggleLoader(false);
-        }
-
-        routerEvents.forEach((ev) => router.events.on(ev, removeLoader));
-
-        return () => {
-            routerEvents.forEach((ev) => router.events.off(ev, removeLoader));
-        };
-    }, [isDetailPage]);
-
-    useEffect(() => {
-        if (!siteContext.visited) siteContext.toggleLoader(false);
-    }, [siteContext.visited]);
-
-    useEffect(() => {
-        const body = document.querySelector("body") as HTMLBodyElement;
-
-        if (timeout) clearTimeout(timeout);
-
-        if (isDetailPage) {
-            body.style.paddingBottom = "";
-        } else {
-            timeout = setTimeout(() => {
-                if (siteContext.mobile) {
-                    body.style.paddingBottom = `${navRef.current?.offsetHeight}px`;
-                } else {
-                    body.style.paddingBottom = "";
-                }
-            }, 200);
-        }
-    }, [siteContext.mobile, isDetailPage]);
-
-    return (
-        <Fragment>
-            {isDetailPage ? <DetailHeader /> : <Header />}
-            <MainNavigation />
-            <Loader />
-            <main aria-hidden={siteContext.navOpen}>{props.children}</main>
-            <Footer />
-            {!isDetailPage && siteContext.mobile && <MobileNavigation ref={navRef} />}
-        </Fragment>
-    );
+	return (
+		<Fragment>
+			<Header aria-hidden={ariaHide} />
+			<Lightbox />
+			<main
+				className={mainClasses}
+				aria-hidden={ariaHide}
+			>
+				{props.children}
+			</main>
+			<Footer aria-hidden={ariaHide} />
+			{siteContext.mobile && <MobileNavigation aria-hidden={ariaHide} />}
+		</Fragment>
+	);
 }

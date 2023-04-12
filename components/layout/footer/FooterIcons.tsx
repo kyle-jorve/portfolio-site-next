@@ -1,65 +1,55 @@
-import { useContext } from "react";
-import SocialIcon from "../SocialIcon";
-import SiteContext from "../../../context/global";
-import { SocialIconsType } from "../../../data/global-data";
-import styles from "../../../styles/layout/Footer.module.css";
-import socialStyles from "../../../styles/layout/Social.module.css";
+import { FooterIconProps } from "../../../types/global-types";
+import { socialMedia } from "../../../data/global-data";
+import { SocialMediaType } from "../../../types/global-types";
+import CustomLink from "../CustomLink";
+import styles from "../../../styles/layout/Social.module.css";
 
-type FooterIconsProps = {
-    socialIcons: SocialIconsType;
-};
+export default function FooterIcons({
+	className = "",
+	...otherProps
+}: FooterIconProps) {
+	function printIcon([key, value]: [string, SocialMediaType]) {
+		const classes = [
+			styles["social__icon"],
+			styles[`social__icon--${key}`],
+			styles[`social__icon--${value.type}`],
+			...className.trim().split(" "),
+		]
+			.filter((c) => c?.length)
+			.join(" ");
 
-export default function FooterIcons(props: FooterIconsProps) {
-    const siteContext = useContext(SiteContext);
-    const iconsLength = props.socialIcons.standard.length + props.socialIcons.commerce.length;
-    let ratio = [1, 1];
+		return (
+			<CustomLink
+				key={key}
+				className={classes}
+				to={value.url}
+				target="_blank"
+				rel="noreferrer"
+				aria-label={`link to Kyle's ${value.label}`}
+			>
+				{value.icon}
+			</CustomLink>
+		);
+	}
 
-    if (props.socialIcons.standard.length > props.socialIcons.commerce.length) {
-        ratio[0] = 1 + iconsLength / 100;
-    } else if (props.socialIcons.commerce.length > props.socialIcons.standard.length) {
-        ratio[1] = 1 + iconsLength / 100;
-    }
+	return (
+		<div
+			className={styles.social}
+			{...otherProps}
+		>
+			<div className={styles["social__icons"]}>
+				{Object.entries(socialMedia)
+					.filter(([_, value]) => value.type === "standard")
+					.map((entry) => printIcon(entry))}
+			</div>
 
-    return (
-        <section
-            className={styles["footer__icons"]}
-            style={{
-                gridTemplate: `auto / minmax(0, ${ratio[0]}fr) minmax(0, ${ratio[1]}fr)`,
-            }}
-        >
-            <div className={`${socialStyles.social} ${styles["footer__social"]} ${styles["footer__social--standard"]}`}>
-                {props.socialIcons.standard.map((item, index) => {
-                    return (
-                        <SocialIcon
-                            key={index}
-                            name={item.name}
-                            url={item.url}
-                            attributes={{
-                                tabIndex: siteContext.navOpen ? -1 : undefined,
-                            }}
-                        >
-                            {!!item.icon && item.icon}
-                        </SocialIcon>
-                    );
-                })}
-            </div>
-
-            <div className={`${socialStyles.social} ${styles["footer__social"]} ${styles["footer__social--commerce"]}`}>
-                {props.socialIcons.commerce.map((item, index) => {
-                    return (
-                        <SocialIcon
-                            key={index}
-                            name={item.name}
-                            url={item.url}
-                            attributes={{
-                                tabIndex: siteContext.navOpen ? -1 : undefined,
-                            }}
-                        >
-                            {!!item.icon && item.icon}
-                        </SocialIcon>
-                    );
-                })}
-            </div>
-        </section>
-    );
+			<div className={styles["social__icons"]}>
+				{Object.entries(socialMedia)
+					.filter(([_, value]) => value.type === "commerce")
+					.map((entry) => {
+						return printIcon(entry);
+					})}
+			</div>
+		</div>
+	);
 }

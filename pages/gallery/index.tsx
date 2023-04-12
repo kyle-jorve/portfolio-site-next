@@ -1,114 +1,121 @@
-import React, { useState, useContext, useRef, useEffect, Fragment } from "react";
+import { Fragment, useState } from "react";
 import Head from "next/head";
-import { categoryNames, GalleryItemType } from "../../data/gallery-data";
-import getGlobalData from "../../data/global-data";
-import getGalleryData from "../../data/gallery-data";
-import SiteContext from "../../context/global";
-import GalleryFilters from "../../components/gallery/GalleryFilters";
-import GalleryGrid from "../../components/gallery/GalleryGrid";
+import { transitions } from "../../data/global-data";
+import { categoryNames, GalleryItemType } from "../../types/gallery-types";
+import { items as galleryItems } from "../../data/gallery-data";
+import GalleryGrid from "../../components/gallery/grid/GalleryGrid";
+import VideoGallery from "../../components/gallery/video-gallery/VideoGallery";
+import CommerceTiles from "../../components/gallery/CommerceTiles";
+import GalleryFilters from "../../components/gallery/grid/GalleryFilters";
 import styles from "../../styles/components/Gallery.module.css";
-import filterStyles from "../../styles/components/Filters.module.css";
 
 let timeout: ReturnType<typeof setTimeout>;
 
 export default function GalleryPage() {
-    const globalData = getGlobalData();
-    const galleryData = getGalleryData();
-    const siteContext = useContext(SiteContext);
-    const galleryGridRef = useRef() as React.MutableRefObject<HTMLElement>;
-    const [filtersShown, setFiltersShown] = useState(false);
-    const [filters, setFilters] = useState<typeof categoryNames>([]);
-    const [galleryItems, setGalleryItems] = useState(galleryData.items);
-    const commerceLinks = globalData.socialIcons.commerce;
+	const [activeFilters, setActiveFilters] = useState<typeof categoryNames>(
+		[],
+	);
+	const [gridHidden, setGridHidden] = useState(false);
+	const [items, setGalleryItems] = useState<GalleryItemType[]>(
+		galleryItems.map((item, index) => {
+			const isNew = index === 0;
 
-    useEffect(() => {
-        function closeFilters(event: MouseEvent) {
-            const target = event.target as HTMLElement;
-            const targetIsFilters =
-                target.classList.contains(filterStyles["filters__button"]) ||
-                target.classList.contains(filterStyles["filters__tooltip"]) ||
-                !!target.closest(`.${filterStyles["filters__button"]}`) ||
-                !!target.closest(`.${filterStyles["filters__tooltip"]}`);
+			return {
+				...item,
+				isNew,
+			};
+		}),
+	);
 
-            if (filtersShown && !targetIsFilters) setFiltersShown(false);
-        }
+	function toggleFilter(event: React.MouseEvent) {
+		const target = event.currentTarget as HTMLButtonElement;
+		const category = target.dataset.cat as typeof categoryNames[number];
+		let newFilters: typeof categoryNames;
 
-        document.addEventListener("click", closeFilters);
+		setActiveFilters((prev) => {
+			newFilters = prev.slice();
 
-        return () => {
-            document.removeEventListener("click", closeFilters);
-        };
-    }, [filtersShown]);
+			if (prev.some((f) => f === category)) {
+				newFilters.splice(
+					newFilters.findIndex((f) => f === category),
+					1,
+				);
+			} else {
+				newFilters.push(category);
+			}
 
-    function toggleFilter(event: React.MouseEvent) {
-        const target = event.currentTarget as HTMLButtonElement;
-        const category = target.dataset.cat as typeof categoryNames[number];
-        let newFilters: typeof categoryNames;
-        let filteredItems: GalleryItemType[];
+			resetGallery(newFilters);
 
-        setFilters((prev) => {
-            newFilters = prev.slice();
+			return newFilters;
+		});
+	}
 
-            if (prev.some((f) => f === category)) {
-                newFilters.splice(
-                    newFilters.findIndex((f) => f === category),
-                    1,
-                );
-            } else {
-                newFilters.push(category);
-            }
+	function clearFilters() {
+		setActiveFilters([]);
+		resetGallery();
+	}
 
-            filteredItems = newFilters.length
-                ? galleryData.items.filter((item) =>
-                      item.categories?.some((cat) => newFilters.some((f) => f === cat.name)),
-                  )
-                : galleryData.items;
+	function resetGallery(filters: typeof categoryNames = []) {
+		const filteredItems = (
+			filters.length
+				? galleryItems.filter((item) =>
+						item.categories?.some((cat) =>
+							filters.some((f) => f === cat.name),
+						),
+				  )
+				: galleryItems
+		).map((item) => {
+			const isNew = item.name === galleryItems[0].name;
 
-            resetGallery(filteredItems);
+			return {
+				...item,
+				isNew,
+			};
+		});
 
-            return newFilters;
-        });
-    }
+		setGridHidden(true);
 
-    function clearFilters() {
-        setFilters([]);
-        resetGallery(galleryData.items);
-        setFiltersShown(false);
-    }
+		if (timeout) clearTimeout(timeout);
 
-    function resetGallery(filteredItems: GalleryItemType[]) {
-        galleryGridRef.current.classList.add(styles["gallery--hide"]);
+		timeout = setTimeout(() => {
+			setGalleryItems(filteredItems);
 
-        if (timeout) clearTimeout(timeout);
+			setGridHidden(false);
+		}, transitions.short);
+	}
 
-        timeout = setTimeout(() => {
-            setGalleryItems(filteredItems);
+	return (
+		<Fragment>
+			<Head>
+				<title key="title">
+					Gallery | Kyle Jorve | Illustration and Design
+				</title>
+			</Head>
 
-            galleryGridRef.current.classList.remove(styles["gallery--hide"]);
-        }, siteContext.transitionDuration);
-    }
+			<section className={`swoops swoops--left ${styles.gallery}`}>
+				<div className={styles["gallery__title-row"]}>
+					<h1 className={`underline ${styles["gallery__title"]}`}>
+						Gallery
+					</h1>
 
-    return (
-        <Fragment>
-            <Head>
-                <title key="title">Gallery | Kyle Jorve | Illustration and Design</title>
-            </Head>
+					<GalleryFilters
+						activeFilters={activeFilters}
+						onFilterClick={toggleFilter}
+						onClearFilters={clearFilters}
+					/>
+				</div>
 
-            <section className={`section ${styles.gallery}`} ref={galleryGridRef}>
-                <div className="title-row">
-                    <h1 className="underline">{galleryData.title}</h1>
+				<GalleryGrid
+					items={items}
+					className={
+						gridHidden ? styles["gallery__grid--hide"] : undefined
+					}
+				/>
 
-                    <GalleryFilters
-                        active={filtersShown}
-                        filters={filters}
-                        onFilterClick={toggleFilter}
-                        onClearFilters={clearFilters}
-                        onToggleFilters={() => setFiltersShown((prev) => !prev)}
-                    />
-                </div>
+				<CommerceTiles />
+			</section>
 
-                <GalleryGrid items={galleryItems} commerceLinks={commerceLinks} />
-            </section>
-        </Fragment>
-    );
+			<VideoGallery />
+		</Fragment>
+	);
 }

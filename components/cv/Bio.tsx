@@ -1,44 +1,101 @@
-import { BioType, HeroImgType } from "../../data/cv-data";
-import styles from "../../styles/components/CV.module.css";
+import { useRef, useEffect } from "react";
+import { detectIntersection } from "../../utils/utils";
+import { bio } from "../../data/cv-data";
+import { BioProps } from "../../types/cv-types";
+import CustomLink from "../layout/CustomLink";
+import styles from "../../styles/components/Bio.module.css";
 
-type BioProps = {
-    heroImg: HeroImgType;
-    bio: BioType;
-};
+export default function Bio({
+	useH1 = false,
+	showButton = true,
+	className = "",
+	...otherProps
+}: BioProps) {
+	const sectionRef = useRef<HTMLElement>(null);
+	const classes = [
+		...className.trim().split(" "),
+		"section",
+		"hide-until-intersected",
+		"swoops",
+		"swoops--left",
+		styles.bio,
+	]
+		.filter((c) => c?.length)
+		.join(" ");
+	const Heading = (useH1 ? "h1" : "h2") as React.ElementType;
 
-export default function Bio(props: BioProps) {
-    return (
-        <div className={styles.bio}>
-            <div className={styles["bio__hero"]} aria-hidden="true">
-                <img className={styles["bio__bg"]} src={props.heroImg.url} alt="" loading="eager" />
-            </div>
+	useEffect(() => {
+		const section = sectionRef.current as HTMLElement;
+		const io = detectIntersection(section);
 
-            <section className={`section ${styles["bio__content"]}`}>
-                <div className="wrapper wrapper--narrow">
-                    <div className={styles["bio__img-cont"]}>
-                        <img
-                            className={styles["bio__img"]}
-                            src={props.heroImg.url}
-                            alt={props.heroImg.alt}
-                            loading="eager"
-                            width="400"
-                            height="400"
-                        />
-                    </div>
+		return () => {
+			io.disconnect();
+		};
+	}, []);
 
-                    <h1 className={`underline underline--center ${styles["bio__title"]}`}>{props.bio.title}</h1>
+	return (
+		<section
+			className={classes}
+			ref={sectionRef}
+			{...otherProps}
+		>
+			<div className={`wrapper wrapper--wide ${styles["bio__row"]}`}>
+				<div
+					className={`fancy-image ${styles["bio__image"]} ${styles["bio__image--mobile"]}`}
+					aria-hidden="true"
+				>
+					<img
+						src={bio.img.mobileSource}
+						alt=""
+						width={640}
+						height={640}
+						loading="lazy"
+						fetchpriority="low"
+					/>
+				</div>
 
-                    {props.bio.content}
-                </div>
-            </section>
+				<div className={`content-box ${styles["bio__content"]}`}>
+					<Heading className="underline small">{bio.title}</Heading>
 
-            <img
-                className="logo-icon"
-                src="/images/icons-logos/logo-circle-icon.svg"
-                alt=""
-                aria-hidden="true"
-                loading="lazy"
-            />
-        </div>
-    );
+					{bio.content}
+
+					{showButton && (
+						<div className={styles["bio__button-row"]}>
+							<CustomLink
+								className="button button--primary button--arrow"
+								to="/cv#resume"
+							>
+								See R&eacute;sum&eacute;
+							</CustomLink>
+						</div>
+					)}
+				</div>
+
+				<div className={`fancy-image ${styles["bio__image"]}`}>
+					<picture>
+						{bio.img.sources.map((src, index) => {
+							return (
+								<source
+									key={`bio-img-source-${index}`}
+									srcSet={src.url}
+									media={`(min-width: ${src.minScreenWidth}px)`}
+								/>
+							);
+						})}
+
+						<img
+							src={
+								bio.img.sources[bio.img.sources.length - 1].url
+							}
+							alt={bio.img.alt}
+							width={bio.img.width}
+							height={bio.img.height}
+							loading="lazy"
+							fetchpriority="low"
+						/>
+					</picture>
+				</div>
+			</div>
+		</section>
+	);
 }

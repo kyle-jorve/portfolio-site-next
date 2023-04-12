@@ -1,0 +1,76 @@
+.lightbox {
+	position: fixed;
+	inset: 0;
+	z-index: 200;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 16px;
+	background: rgba(0, 0, 0, 0.75);
+	backdrop-filter: blur(40px);
+	opacity: 0;
+	pointer-events: none;
+}
+
+.lightbox__box {
+	position: relative;
+	z-index: 2;
+	transform: translateY(16px);
+	width: 100%;
+	max-width: var(--width-section);
+	box-shadow: var(--soft-shadow);
+	opacity: 0;
+}
+
+.lightbox__box-inner {
+	position: relative;
+	z-index: 1;
+}
+
+.lightbox__close-button {
+	position: absolute;
+	inset: 0 16px auto auto;
+	z-index: 2;
+	transform: translateY(-50%);
+}
+
+.lightbox__overlay {
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+}
+
+.lightbox iframe {
+	width: 100%;
+	height: auto;
+	aspect-ratio: 16 / 9;
+	border: var(--light-border);
+	border-radius: var(--border-radius);
+	overflow: hidden;
+}
+
+/*----- animated lightbox -----*/
+
+.lightbox--active {
+	animation: var(--animation-fade-in);
+	pointer-events: all;
+}
+
+.lightbox--active .lightbox__box {
+	animation: var(--animation-slide-up);
+	animation-delay: var(--transition-dur);
+}
+
+.lightbox--out {
+	animation: var(--animation-fade-out);
+	pointer-events: none;
+}
+
+/*----- media queries -----*/
+
+@media (min-width: 90em) {
+	.lightbox__close-button {
+		inset: 0 0 auto auto;
+		transform: translate(50%, -50%);
+	}
+}

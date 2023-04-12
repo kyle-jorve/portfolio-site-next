@@ -1,21 +1,23 @@
 import { Fragment } from "react";
+import { CVItemProps } from "../../types/cv-types";
 import styles from "../../styles/components/CV.module.css";
 
-type CVItemProps = {
-    title: string;
-    content: JSX.Element;
-    showHR: boolean;
-};
+export default function CVItem({
+	title,
+	content,
+	showHR = true,
+	...otherProps
+}: CVItemProps) {
+	return (
+		<Fragment>
+			<div {...otherProps}>
+				<h3 className={styles["resume__item-title"]}>
+					{title}
+				</h3>
 
-export default function CVItem(props: CVItemProps) {
-    return (
-        <Fragment>
-            <div>
-                <h3 className={styles["resume__item-title"]}>{props.title}</h3>
-
-                {props.content}
-            </div>
-            {props.showHR && <hr className={styles["resume__hr"]} />}
-        </Fragment>
-    );
+				{content}
+			</div>
+			{showHR && <hr className={styles["resume__hr"]} />}
+		</Fragment>
+	);
 }

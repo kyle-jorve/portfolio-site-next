@@ -1,159 +1,328 @@
 @layer buttons {
-    button,
-    .button {
-        box-shadow: none;
-        cursor: pointer;
-    }
+	button,
+	.button {
+		box-shadow: none;
+		cursor: pointer;
+	}
 
-    /* reset */
-    button {
-        appearance: none;
-        padding: 0;
-        margin: 0;
-        border: none;
-        background: none;
-        font: inherit;
-        color: var(--accent-color);
-        font-weight: var(--font-weight-semibold);
-    }
-    /* end reset */
+	.button-row {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 16px;
+	}
 
-    button:focus {
-        outline: var(--accent-color) solid 1px;
-        outline-offset: 3px;
-    }
+	/* reset */
+	button {
+		appearance: none;
+		padding: 0;
+		margin: 0;
+		border: none;
+		background: none;
+		font: inherit;
+		color: var(--accent-color);
+		font-weight: var(--font-weight-semibold);
+	}
 
-    button:disabled {
-        filter: grayscale(100%);
-        opacity: 0.5;
-        cursor: default;
-        pointer-events: none;
-    }
+	/* end reset */
 
-    .button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 1rem;
-        padding: 1.25em 3em;
-        border: none;
-        border-radius: 9999px;
-        font-family: var(--font-family);
-        font-weight: var(--font-weight-extrabold);
-        font-size: 0.675em;
-        line-height: 1;
-        letter-spacing: 0.3em;
-        text-decoration: none;
-        text-align: center;
-        text-transform: uppercase;
-        opacity: 1;
-        transition: background-color var(--transition), color var(--transition), opacity var(--transition);
-    }
+	button:focus {
+		outline: var(--accent-color) solid 1px;
+		outline-offset: 3px;
+	}
 
-    .button--small {
-        padding: 0.25em 0.5em;
-        gap: 0.5rem;
-        font-size: 0.65em;
-        letter-spacing: 0.2em;
-    }
+	button:disabled {
+		filter: grayscale(100%);
+		opacity: 0.5;
+		cursor: default;
+		pointer-events: none;
+	}
 
-    .button--mid {
-        padding: 0.75em 1.25em;
-        gap: 0.5rem;
-        font-size: var(--text-sm);
-        letter-spacing: 0.2em;
-    }
+	.button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 16px;
+		padding: 1.25em 3em;
+		border: none;
+		border-radius: 9999px;
+		font-family: var(--font-body);
+		font-weight: var(--font-weight-extrabold);
+		font-size: 0.675em;
+		line-height: 1;
+		letter-spacing: 0.3em;
+		text-decoration: none;
+		text-align: center;
+		text-transform: uppercase;
+		opacity: 1;
+		transition: background-color var(--transition), color var(--transition),
+			opacity var(--transition);
+	}
 
-    .button--primary {
-        background: linear-gradient(to right, var(--accent-color), var(--yellow));
-        background-size: 200% 100%;
-        background-position: 0 center;
-        color: var(--light-color);
-        transition: background-position var(--transition), color var(--transition);
-    }
+	.button--small {
+		gap: 8px;
+		padding: 0.25em 0.5em;
+		font-size: 0.65em;
+		letter-spacing: 0.2em;
+	}
 
-    .button--secondary {
-        background-color: transparent;
-        border: var(--border-width) solid var(--accent-color);
-        color: var(--accent-color);
-    }
+	.button--mid {
+		gap: 8px;
+		padding: 0.75em 1.25em;
+		font-size: var(--text-sm);
+		letter-spacing: 0.2em;
+	}
 
-    .button--hide {
-        opacity: 0;
-        pointer-events: none;
-    }
+	.button--large {
+		gap: 12px;
+		padding: 16px 32px;
+		font-size: var(--text-base);
+		letter-spacing: 0.2em;
+	}
 
-    :where(.button--download, .button--shop, .button--shuffle)::before {
-        font: var(--fa-font-solid);
-        font-size: inherit;
-    }
+	.button--primary {
+		background: linear-gradient(
+			to right,
+			var(--accent-color),
+			var(--yellow)
+		);
+		background-size: 200% 100%;
+		background-position: 0 center;
+		color: var(--light-color);
+		transition: background-position var(--transition),
+			color var(--transition);
+	}
 
-    .button--download::before {
-        content: "\f019";
-    }
+	.button--secondary {
+		background-color: rgba(0, 0, 0, 0.35);
+		border: var(--border-width) solid var(--accent-color);
+		color: var(--accent-color);
+		transition: background-color var(--transition), color var(--transition),
+			border-color var(--transition), opacity var(--transition);
+	}
 
-    .button--shop::before {
-        content: "\f290";
-    }
+	.button--white-border {
+		background-color: rgba(0, 0, 0, 0.35);
+		border: var(--border-width) solid var(--white);
+		color: var(--white);
+	}
 
-    .button--shuffle::before {
-        content: "\f074";
-    }
+	.button--hide {
+		opacity: 0;
+		pointer-events: none;
+	}
 
-    button svg,
-    .button svg,
-    .close-button svg {
-        height: 1.2em;
-    }
+	:where(
+			.button--download,
+			.button--save,
+			.button--shop,
+			.button--shuffle,
+			.button--add,
+			.button--back,
+			.button--patreon
+		)::before,
+	.button--arrow::after {
+		display: block;
+		flex-shrink: 0;
+		font-size: inherit;
+		letter-spacing: 0;
+	}
 
-    .close-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 50px;
-        aspect-ratio: 1;
-        flex-shrink: 0;
-        border: none;
-        border-radius: 50%;
-        background: var(--accent-color);
-        box-shadow: var(--soft-shadow);
-        color: var(--light-color);
-        font-size: 2rem;
-        cursor: pointer;
-    }
+	:where(
+			.button--download,
+			.button--save,
+			.button--shop,
+			.button--shuffle,
+			.button--add,
+			.button--back
+		)::before,
+	.button--arrow::after {
+		font: var(--fa-font-solid);
+	}
 
-    .close-button::before {
-        font: var(--fa-font-solid);
-        content: "\f00d";
-    }
+	.button--patreon::before {
+		font: var(--fa-font-brands);
+		content: "\f3d9";
+	}
 
-    @media (hover: hover) {
-        .button:hover {
-            text-decoration: none;
-        }
+	.button--download::before {
+		content: "\f019";
+	}
 
-        .button--primary:hover {
-            background-position: 100% center;
-            color: var(--dark-color);
-        }
+	.button--save::before {
+		content: "\f0c7";
+	}
 
-        .button--secondary:hover {
-            background-color: var(--accent-color);
-            color: var(--light-color);
-        }
-    }
+	.button--shop::before {
+		content: "\f290";
+	}
 
-    @media (min-width: 40em) {
-        .button {
-            font-size: var(--text-sm);
-        }
+	.button--shuffle::before {
+		content: "\f074";
+	}
 
-        .button--small {
-            padding: 0.65em 1.5em;
-        }
+	.button--add::before {
+		content: "\f055";
+	}
 
-        .button--mid {
-            padding: 0.85em 1.5em;
-        }
-    }
+	.button--back::before {
+		content: "\f060";
+	}
+
+	.button--arrow::after {
+		content: "\f061";
+	}
+
+	button svg,
+	.button svg,
+	.close-button svg {
+		height: 1.2em;
+	}
+
+	.close-button,
+	.arrow-button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		aspect-ratio: 1;
+		flex-shrink: 0;
+		border: none;
+		border-radius: 50%;
+		background-color: var(--accent-color);
+		box-shadow: var(--soft-shadow);
+		font-size: var(--text-base);
+		color: var(--light-color);
+		cursor: pointer;
+		transition: background-color var(--transition), color var(--transition);
+	}
+
+	.close-button--white-border,
+	.arrow-button--white-border {
+		background-color: transparent;
+		border: var(--border-width) solid var(--white);
+		box-shadow: none;
+	}
+
+	.close-button {
+		font-size: var(--text-lg);
+	}
+
+	.close-button::before,
+	.arrow-button::before {
+		font: var(--fa-font-solid);
+	}
+
+	.close-button::before {
+		content: "\f00d";
+	}
+
+	.arrow-button--left::before,
+	.arrow-button--prev::before {
+		content: "\f060";
+	}
+
+	.arrow-button--right::before,
+	.arrow-button--next::before {
+		content: "\f061";
+	}
+
+	.slider-dots {
+		position: relative;
+		z-index: 3;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		gap: 8px;
+		margin-top: 32px;
+	}
+
+	.slider-dot {
+		transform: scale(0.65);
+		display: block;
+		width: 12px;
+		height: 12px;
+		flex-shrink: 0;
+		background-color: transparent;
+		border: var(--border-width) solid var(--light-color);
+		border-radius: 50%;
+		transition: background-color var(--transition),
+			transform var(--transition);
+	}
+
+	.slider-dot--active {
+		transform: none;
+		background-color: var(--light-color);
+	}
+
+	@media (hover: hover) {
+		.button:hover {
+			text-decoration: none;
+		}
+
+		.button--primary:hover {
+			background-position: 100% center;
+			color: var(--dark-color);
+		}
+
+		.button--secondary:hover {
+			background-color: var(--accent-color);
+			color: var(--light-color);
+		}
+
+		.button--white-border:hover {
+			background-color: var(--white);
+			color: var(--dark-color);
+		}
+
+		.close-button:not(.close-button--white-border):hover,
+		.arrow-button:not(.arrow-button--white-border):hover {
+			background-color: var(--red-light);
+			color: var(--dark-color);
+		}
+	}
+
+	@media (min-width: 64em) {
+		.button-row {
+			gap: 32px;
+		}
+
+		.button {
+			font-size: var(--text-sm);
+		}
+
+		.button--small {
+			padding: 0.65em 1.5em;
+		}
+
+		.button--mid {
+			padding: 0.85em 1.5em;
+		}
+
+		.button--large {
+			gap: 18px;
+			padding: 18px 40px;
+			font-size: 1.125rem;
+		}
+
+		.arrow-button,
+		.close-button {
+			width: 48px;
+			font-size: var(--text-lg);
+		}
+
+		.close-button {
+			font-size: 24px;
+		}
+
+		.slider-dots {
+			gap: 12px;
+		}
+
+		.slider-dot {
+			width: 16px;
+			height: 16px;
+		}
+	}
 }

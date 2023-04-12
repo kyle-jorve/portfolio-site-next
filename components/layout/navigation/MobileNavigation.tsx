@@ -1,58 +1,82 @@
-import { useContext, forwardRef } from "react";
-import SiteContext from "../../../context/global";
-import getGlobalData from "../../../data/global-data";
+import { useEffect, useState } from "react";
+import { nav } from "../../../data/global-data";
+import { MobileNavigationProps } from "../../../types/global-types";
 import NavItem from "./NavItem";
-import MobileNavParentItem from "./MobileNavParentItem";
-import NavButton from "./NavButton";
+import ParentNavItem from "./ParentNavItem";
 import styles from "../../../styles/layout/Nav.module.css";
 
-const MobileNavigation = forwardRef<HTMLElement>((props, ref) => {
-    const globalData = getGlobalData();
-    const navItems = globalData.nav.filter((item) => item.showInMobileNav);
-    const siteContext = useContext(SiteContext);
+export default function MobileNavigation({
+	className = "",
+	...otherProps
+}: MobileNavigationProps) {
+	const [navHidden, setNavHidden] = useState(false);
+	const navItems = nav.filter((item) => item.showInMobileNav);
+	const classes = [
+		styles["mobile-nav"],
+		navHidden && styles["mobile-nav--hide"],
+		...className.trim().split(" "),
+	]
+		.filter((c) => c)
+		.join(" ");
 
-    return (
-        <nav
-            className={`${styles["mobile-nav"]}${siteContext.navOpen ? ` ${styles["mobile-nav--hide"]}` : ""}`}
-            ref={ref}
-        >
-            {navItems.map((item, index) => {
-                if (item.children) {
-                    return (
-                        <MobileNavParentItem
-                            key={item.id}
-                            id={item.id}
-                            label={item.label}
-                            index={index}
-                            navItems={item.children}
-                            attributes={{
-                                tabIndex: siteContext.navOpen ? -1 : undefined,
-                            }}
-                        />
-                    );
-                }
+	useEffect(() => {
+		let scrollPos = window.scrollY;
 
-                return (
-                    <NavItem
-                        key={item.pageID}
-                        index={index}
-                        url={item.url!}
-                        isMobile={true}
-                        className={`${styles[`mobile-nav__item--${item.pageID!}`]} ${styles["mobile-nav__item"]}`}
-                        attributes={{
-                            tabIndex: siteContext.navOpen ? -1 : undefined,
-                        }}
-                    >
-                        <span className={styles["mobile-nav__label"]}>{item.pageName!}</span>
-                    </NavItem>
-                );
-            })}
+		function scrollHandler() {
+			const curScrollPos = window.scrollY;
 
-            <NavButton />
-        </nav>
-    );
-});
+			if (curScrollPos < scrollPos && navHidden) {
+				setNavHidden(false);
+			} else if (curScrollPos > scrollPos && !navHidden) {
+				setNavHidden(true);
+			}
 
-MobileNavigation.displayName = "MobileNavigation";
+			scrollPos = window.scrollY;
+		}
 
-export default MobileNavigation;
+		window.addEventListener("scroll", scrollHandler);
+
+		return () => {
+			window.removeEventListener("scroll", scrollHandler);
+		};
+	}, [navHidden]);
+
+	return (
+		<nav
+			className={classes}
+			{...otherProps}
+		>
+			<div className={styles["mobile-nav__inner"]}>
+				{navItems.map((item) => {
+					if ("childItems" in item) {
+						return (
+							<ParentNavItem
+								className={
+									styles[`mobile-nav__expand--${item.id}`]
+								}
+								key={item.id}
+								id={item.id}
+								label={item.label}
+								childItems={item.childItems}
+								isMobileNav={true}
+							/>
+						);
+					}
+
+					return (
+						<NavItem
+							key={item.pageID}
+							url={item.url}
+							className={
+								styles[`mobile-nav__item--${item.pageID}`]
+							}
+							isMobileNav={true}
+						>
+							{item.pageName}
+						</NavItem>
+					);
+				})}
+			</div>
+		</nav>
+	);
+}

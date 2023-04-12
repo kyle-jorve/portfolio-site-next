@@ -1,280 +1,332 @@
 @layer typography {
-    /*============================*/
-    /*=====----- GLOBAL -----=====*/
-    /*============================*/
+	/*============================*/
+	/*=====----- GLOBAL -----=====*/
+	/*============================*/
 
-    html {
-        font-size: var(--text-base);
-        line-height: 1.5;
-    }
+	html {
+		font-size: var(--text-base);
+		line-height: 1.5;
+	}
 
-    body {
-        font-family: var(--font-family);
-        font-weight: var(--font-weight-normal);
-        letter-spacing: 0.015em;
-        color: var(--light-color);
-    }
+	body {
+		font-family: var(--font-body);
+		font-weight: var(--font-weight-normal);
+		letter-spacing: 0.015em;
+		color: var(--light-color);
+	}
 
-    strong,
-    b {
-        font-weight: var(--font-weight-semibold);
-    }
+	strong,
+	b {
+		font-weight: var(--font-weight-semibold);
+	}
 
-    i,
-    em {
-        font-style: italic;
-    }
+	i,
+	em {
+		font-style: italic;
+	}
 
-    small {
-        font-size: var(--text-sm);
-    }
+	small {
+		font-size: 0.75em;
+	}
 
-    .large-text {
-        font-size: var(--text-lg);
-        font-weight: var(--font-weight-semibold);
-    }
+	.large-text {
+		font-size: 1.25em;
+		font-weight: var(--font-weight-semibold);
+	}
 
-    .underline {
-        text-align: left;
-    }
+	.underline {
+		text-align: left;
+	}
 
-    .underline::after {
-        display: block;
-        max-width: 150px;
-        height: var(--border-width);
-        margin-top: 0.5rem;
-        background: var(--red);
-        content: "";
-    }
+	.underline::after {
+		display: block;
+		width: 100%;
+		max-width: 150px;
+		height: 6px;
+		margin-top: 0.125em;
+		background: linear-gradient(to right, #e48784, #c83774);
+		border-radius: 3px;
+		content: "";
+	}
 
-    .underline--center {
-        text-align: center;
-    }
+	.underline--center {
+		text-align: center;
+	}
 
-    .underline--center::after {
-        margin: 0.5rem auto 0;
-    }
+	.underline--center::after {
+		margin: 0.125em auto 0;
+	}
 
-    .underline--right {
-        text-align: right;
-    }
+	.underline--right {
+		text-align: right;
+	}
 
-    .underline--right::after {
-        margin: 0.5rem 0 0 auto;
-    }
+	.underline--right::after {
+		margin-left: auto;
+	}
 
-    /*===========================*/
-    /*=====----- LINKS -----=====*/
-    /*===========================*/
-
-    a {
-        background-color: transparent;
-        color: var(--accent-color);
-        text-decoration: underline;
-        font-weight: var(--font-weight-semibold);
-        transition: background-color var(--transition), color var(--transition);
-        cursor: pointer;
-    }
-
-	
-    @media (hover: hover) {
-		.has-tooltip {
-			position: relative;
-			display: inline-block;
+	@media (min-width: 64em) {
+		.underline::after {
+			max-width: 200px;
 		}
-		
-        a:hover {
-            background-color: var(--accent-color);
-            color: var(--light-color);
-        }
-    }
+	}
 
-    @media (min-width: 64em) {
-        a {
-            color: inherit;
-            text-decoration: underline var(--accent-color) 2px;
-            text-underline-offset: 2px;
-        }
-    }
+	/*===========================*/
+	/*=====----- LINKS -----=====*/
+	/*===========================*/
 
-    /*==============================*/
-    /*=====----- HEADINGS -----=====*/
-    /*==============================*/
+	a {
+		background-color: transparent;
+		color: var(--accent-color);
+		text-decoration: underline;
+		font-weight: var(--font-weight-semibold);
+		transition: background-color var(--transition), color var(--transition);
+		cursor: pointer;
+	}
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        margin-bottom: 1em;
-        font-family: var(--font-family);
-        font-weight: var(--font-weight-extrabold);
-        text-transform: uppercase;
-        letter-spacing: 0.3em;
-        line-height: 1.35;
-    }
+	@media (hover: hover) {
+		a:hover {
+			background-color: var(--accent-color);
+			color: var(--light-color);
+		}
+	}
 
-    :is(h1, h2, h3, h4, h5, h6) :is(strong, b, a) {
-        font-weight: var(--font-weight-extrabold);
-    }
+	@media (min-width: 64em) {
+		a {
+			color: inherit;
+			text-decoration: underline var(--accent-color) 2px;
+			text-underline-offset: 2px;
+		}
+	}
 
-    h1 {
-        font-size: 1.60181rem;
-    }
+	/*==============================*/
+	/*=====----- HEADINGS -----=====*/
+	/*==============================*/
 
-    h2 {
-        font-size: 1.42383rem;
-    }
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		margin-bottom: 0.65em;
+		font-family: var(--font-heading);
+		font-weight: normal;
+		text-transform: uppercase;
+		letter-spacing: 0.02em;
+		line-height: 0.9;
+	}
 
-    h3 {
-        font-size: 1.26562em;
-    }
+	:is(h1, h2, h3, h4, h5, h6) :is(strong, b, a) {
+		font-weight: inherit;
+	}
 
-    h4 {
-        font-size: 1.125rem;
-    }
+	h1 {
+		font-size: 6.25rem;
+		line-height: 0.84;
+	}
 
-    h5 {
-        font-size: 1.1rem;
-    }
+	h1.small {
+		font-size: 3.75rem;
+		line-height: 0.9;
+	}
 
-    h6 {
-        font-size: var(--text-base);
-    }
+	h2 {
+		font-size: 3.75rem;
+	}
 
-    @media (min-width: 40em) {
-        h1 {
-            font-size: 2.0736rem;
-        }
+	h3 {
+		font-size: 1.875rem;
+	}
 
-        h2 {
-            font-size: 1.728rem;
-        }
+	h4 {
+		font-size: 1.25rem;
+	}
 
-        h3 {
-            font-size: 1.44rem;
-        }
+	h5 {
+		font-size: 1.125rem;
+	}
 
-        h4 {
-            font-size: 1.2rem;
-        }
-    }
+	h6 {
+		font-size: var(--text-base);
+	}
 
-    @media (min-width: 64em) {
-        h1 {
-            font-size: 2.44141rem;
-        }
+	@media (min-width: 40em) {
+		h1 {
+			font-size: 8.25rem;
+		}
 
-        h2 {
-            font-size: 1.95312rem;
-        }
+		h2 {
+			font-size: 5rem;
+		}
 
-        h3 {
-            font-size: 1.5625rem;
-        }
+		h1.small,
+		h2.small {
+			font-size: 4rem;
+		}
 
-        h4 {
-            font-size: 1.25rem;
-        }
-    }
+		h3 {
+			font-size: 2.5rem;
+		}
 
-    @media (min-width: 90em) {
-        h1 {
-            font-size: 3.15733rem;
-        }
+		h4 {
+			font-size: 1.75rem;
+		}
 
-        h2 {
-            font-size: 2.36859rem;
-        }
+		h5 {
+			font-size: 1.25rem;
+		}
 
-        h3 {
-            font-size: 1.77689rem;
-        }
+		h6 {
+			font-size: 1.125rem;
+		}
+	}
 
-        h4 {
-            font-size: 1.333rem;
-        }
+	@media (min-width: 64em) {
+		h1 {
+			font-size: 10.375rem;
+		}
 
-        h5 {
-            font-size: 1.25rem;
-        }
+		h2 {
+			font-size: 6.25rem;
+		}
 
-        h6 {
-            font-size: 1.1rem;
-        }
-    }
+		h1.small,
+		h2.small {
+			font-size: 4.5rem;
+		}
 
-    /*=======================================*/
-    /*=====----- PARAGRAPHS, LISTS -----=====*/
-    /*=======================================*/
+		h3 {
+			font-size: 3.125rem;
+		}
 
-    p,
-    ul,
-    ol {
-        margin-bottom: 1em;
-    }
+		h4 {
+			font-size: 1.8125rem;
+		}
+	}
 
-    /*==================================*/
-    /*=====----- BLOCK QUOTES -----=====*/
-    /*==================================*/
+	@media (min-width: 90em) {
+		h1 {
+			font-size: 12.5rem;
+		}
 
-    .blockquote {
-        position: relative;
-        padding: 2rem 0 1rem 1rem;
-        margin: 2.5rem 0 1rem;
-        border-radius: var(--border-radius) 0 0 0;
-        border: var(--border-width) solid transparent;
-        border-top-color: var(--accent-color);
-        border-left-color: var(--accent-color);
-        font-weight: var(--font-weight-normal);
-        font-style: italic;
-    }
+		h2 {
+			font-size: 7.5rem;
+		}
 
-    .blockquote::before {
-        position: absolute;
-        top: 0;
-        left: 8px;
-        transform: translateY(-50%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 3rem;
-        height: 3rem;
-        border: var(--border-width) solid var(--accent-color);
-        border-radius: 50%;
-        background: var(--gray-cool-light);
-        content: "\f10d";
-        font: var(--fa-font-solid);
-        font-style: normal;
-        font-size: 1.5rem;
-        line-height: 1;
-        color: var(--accent-color);
-    }
+		h1.small,
+		h2.small {
+			font-size: 5rem;
+		}
 
-    .cite {
-        display: block;
-        margin-top: 1rem;
-        font-style: normal;
-    }
+		h3 {
+			font-size: 3.75rem;
+		}
 
-    @media (min-width: 40em) {
-        .blockquote {
-            padding-top: 2.75rem;
-            margin: 3.5rem 0 0;
-        }
+		h4 {
+			font-size: 1.875rem;
+		}
+	}
 
-        .blockquote::before {
-            width: 4rem;
-            height: 4rem;
-            font-size: 1.75rem;
-        }
-    }
+	/*=======================================*/
+	/*=====----- PARAGRAPHS, LISTS -----=====*/
+	/*=======================================*/
 
-    @media (min-width: 64em) {
-        .blockquote {
-            padding: 3rem 0 2rem 2rem;
-            margin: 3rem 0 2rem 0;
-        }
-    }
+	ul,
+	ol {
+		padding-inline-start: 24px;
+		margin: 0;
+	}
+
+	p,
+	ul,
+	ol {
+		margin-bottom: 1em;
+	}
+
+	/*==================================*/
+	/*=====----- BLOCK QUOTES -----=====*/
+	/*==================================*/
+
+	.blockquote {
+		position: relative;
+		padding: 32px 0 16px 16px;
+		margin: 40px 0 16px;
+		border-radius: var(--border-radius) 0 0 0;
+		border: var(--border-width) solid transparent;
+		border-top-color: var(--accent-color);
+		border-left-color: var(--accent-color);
+		font-weight: var(--font-weight-normal);
+		font-style: italic;
+	}
+
+	.blockquote::before {
+		position: absolute;
+		top: 0;
+		left: 8px;
+		transform: translateY(-50%);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 48px;
+		height: 48px;
+		border: var(--border-width) solid var(--accent-color);
+		border-radius: 50%;
+		background: var(--accent-color);
+		content: "\f10d";
+		font: var(--fa-font-solid);
+		font-style: normal;
+		font-size: 24px;
+		line-height: 1;
+		color: var(--light-color);
+	}
+
+	.cite {
+		display: block;
+		margin-top: 16px;
+		font-style: normal;
+	}
+
+	@media (min-width: 40em) {
+		.blockquote {
+			padding-top: 44px;
+			margin: 56px 0 0;
+		}
+
+		.blockquote::before {
+			width: 64px;
+			height: 64px;
+			font-size: 28px;
+		}
+	}
+
+	@media (min-width: 64em) {
+		.blockquote {
+			padding: 48px 0 32px 32px;
+			margin: 48px 0 32px 0;
+		}
+	}
+
+	/*=================================*/
+	/*=====----- "NEW" BADGE -----=====*/
+	/*=================================*/
+
+	.new-badge {
+		position: absolute;
+		inset: 16px auto auto 16px;
+		z-index: 4;
+		display: block;
+		padding: 6px 10px;
+		background: var(--accent-color);
+		border-radius: 999px;
+		box-shadow: var(--med-shadow);
+		font-family: var(--font-body);
+		font-weight: var(--font-weight-extrabold);
+		font-size: var(--text-sm);
+		line-height: 1;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--light-color);
+		pointer-events: none;
+	}
 }

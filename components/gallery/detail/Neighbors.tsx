@@ -1,38 +1,39 @@
+import { NeighborsProps } from "../../../types/gallery-types";
 import Neighbor from "./Neighbor";
-import getGalleryData, { GalleryItemType } from "../../../data/gallery-data";
 import styles from "../../../styles/components/Showcase.module.css";
 
-type NeighborsProps = {
-    item: GalleryItemType;
-};
+export default function Neighbors({
+	prev = undefined,
+	next = undefined,
+	className = "",
+	...otherProps
+}: NeighborsProps) {
+	const classes = [styles.neighbors, ...className.trim().split(" ")]
+		.filter((c) => c)
+		.join(" ");
 
-export default function Neighbors(props: NeighborsProps) {
-    const galleryData = getGalleryData();
-    const itemIndex = galleryData.items.findIndex((item) => item.name === props.item.name);
-    const neighbors: {
-        next: (GalleryItemType & { isDetail?: boolean }) | null;
-        previous: (GalleryItemType & { isDetail?: boolean }) | null;
-    } = {
-        next: galleryData.items[itemIndex + 1],
-        previous: galleryData.items[itemIndex - 1],
-    };
-    let key: keyof typeof neighbors;
+	return (
+		<div
+			className={classes}
+			{...otherProps}
+		>
+			{!!prev && (
+				<Neighbor
+					name={prev.name}
+					title={prev.title}
+					thumb={prev.thumb}
+					direction={"prev"}
+				/>
+			)}
 
-    for (key in neighbors) {
-        if (!neighbors[key]) continue;
-
-        neighbors[key]!.isDetail = true;
-    }
-
-    return (
-        <div className={styles["neighbors"]}>
-            {Object.entries(neighbors).map((n, index) => {
-                const [key, value] = n;
-
-                if (!value) return "";
-
-                return <Neighbor key={index} direction={key} item={value} />;
-            })}
-        </div>
-    );
+			{!!next && (
+				<Neighbor
+					name={next.name}
+					title={next.title}
+					thumb={next.thumb}
+					direction={"next"}
+				/>
+			)}
+		</div>
+	);
 }

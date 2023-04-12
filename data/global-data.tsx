@@ -1,111 +1,119 @@
+import { SocialMediaType, NavType, NavItemType } from "../types/global-types";
 import GumroadIcon from "../components/icons/Gumroad";
 
-export type SocialIconType = {
-    name: string;
-    url: string;
-    icon?: JSX.Element;
-    label?: string;
+export const transitions = {
+	delay: 100,
+	long: 600,
+	short: 300,
 };
 
-export type SocialIconsType = {
-    standard: SocialIconType[];
-    commerce: SocialIconType[];
+export const socialMedia: {
+	[index: string]: SocialMediaType;
+} = {
+	artstation: {
+		label: "Artstation",
+		url: "https://www.artstation.com/kylejorve",
+		type: "standard",
+	},
+	instagram: {
+		label: "Instagram",
+		url: "https://www.instagram.com/kylejorve/",
+		type: "standard",
+	},
+	tumblr: {
+		label: "Tumblr",
+		url: "https://kylejorve.tumblr.com/",
+		type: "standard",
+	},
+	youtube: {
+		label: "YouTube",
+		url: "https://www.youtube.com/@KyleJorve/videos",
+		type: "standard",
+	},
+	email: {
+		label: "Email",
+		url: "mailto:kyle@kylejorve.com",
+		type: "standard",
+	},
+	patreon: {
+		label: "Patreon",
+		url: "https://www.patreon.com/kylejorve",
+		type: "commerce",
+	},
+	shop: {
+		label: "Print Shop",
+		url: "https://www.inprnt.com/gallery/kylejorve/",
+		type: "commerce",
+	},
+	gumroad: {
+		label: "Gumroad Shop",
+		icon: <GumroadIcon />,
+		url: "https://gumroad.com/kylejorve",
+		type: "commerce",
+	},
 };
 
-export default function getGlobalData() {
-    return {
-        get email() {
-            return "kyle@kylejorve.com";
-        },
-        get recentWorkLimit() {
-            return 4;
-        },
-        get nav() {
-            return [
-                {
-                    pageID: "home",
-                    pageName: "Home",
-                    url: "/",
-                },
-                {
-                    pageID: "gallery",
-                    pageName: "Gallery",
-                    url: "/gallery",
-                    showInMobileNav: true,
-                },
-                {
-                    pageID: "cv",
-                    pageName: "CV",
-                    url: "/cv",
-                    showInMobileNav: true,
-                },
-                {
-                    label: "Shop",
-                    id: "shop",
-                    showInMobileNav: true,
-                    children: [
-                        {
-                            pageID: "shop-prints",
-                            pageName: "Shop Prints",
-                            url: "https://www.inprnt.com/gallery/kylejorve/",
-                        },
-                        {
-                            pageID: "shop-digital",
-                            pageName: "Shop Digital",
-                            url: "https://kylejorve.gumroad.com/",
-                        },
-                    ],
-                },
-                {
-                    pageID: "patreon",
-                    pageName: "Support My Work",
-                    url: "https://www.patreon.com/kylejorve",
-                },
-            ];
-        },
-        get socialIcons(): SocialIconsType {
-            return {
-                standard: [
-                    {
-                        name: "artstation",
-                        label: "Artstation",
-                        url: "https://www.artstation.com/kylejorve",
-                    },
-                    {
-                        name: "instagram",
-                        label: "Instagram",
-                        url: "https://www.instagram.com/kylejorve/",
-                    },
-                    {
-                        name: "tumblr",
-                        label: "Tumblr",
-                        url: "https://kylejorve.tumblr.com/",
-                    },
-                    {
-                        name: "email",
-                        label: "Email",
-                        url: "mailto:kyle@kylejorve.com",
-                    },
-                ],
-                commerce: [
-                    {
-                        name: "patreon",
-                        label: "Patreon",
-                        url: "https://www.patreon.com/kylejorve",
-                    },
-                    {
-                        name: "shop",
-                        label: "Print Shop",
-                        url: "https://www.inprnt.com/gallery/kylejorve/",
-                    },
-                    {
-                        name: "gumroad",
-                        label: "Gumroad Shop",
-                        icon: <GumroadIcon />,
-                        url: "https://gumroad.com/kylejorve",
-                    },
-                ],
-            };
-        },
-    };
-}
+export const nav: NavType = [
+	{
+		pageID: "gallery",
+		pageName: "Gallery",
+		url: "/gallery",
+		showInMobileNav: true,
+	},
+	{
+		pageID: "cv",
+		pageName: "CV",
+		url: "/cv",
+		showInMobileNav: true,
+	},
+	{
+		label: "Shop",
+		id: "shop",
+		showInMobileNav: true,
+		childItems: [
+			{
+				pageID: "shop-prints",
+				pageName: "Shop Prints",
+				url: "https://www.inprnt.com/gallery/kylejorve/",
+			},
+			{
+				pageID: "shop-digital",
+				pageName: "Shop Digital",
+				url: "https://kylejorve.gumroad.com/",
+			},
+		],
+	},
+	{
+		label: "Social",
+		id: "social",
+		showInMobileNav: true,
+		childItems: [
+			{
+				pageID: "artstation",
+				pageName: "ArtStation",
+				url: socialMedia.artstation.url,
+			},
+			{
+				pageID: "instagram",
+				pageName: "Instagram",
+				url: socialMedia.instagram.url,
+			},
+			{
+				pageID: "tumblr",
+				pageName: "Tumblr",
+				url: socialMedia.tumblr.url,
+			},
+			{
+				pageID: "youtube",
+				pageName: "YouTube",
+				url: socialMedia.youtube.url,
+			},
+		],
+	},
+];
+
+export const headerCTA: NavItemType = {
+	pageID: "patreon",
+	pageName: "Support My Work",
+	url: "https://www.patreon.com/kylejorve",
+};

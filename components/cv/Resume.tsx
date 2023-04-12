@@ -1,46 +1,143 @@
-import { useContext } from "react";
-import SiteContext from "../../context/global";
-import CVItem from "./CVItem";
-import { ResumeType } from "../../data/cv-data";
-import styles from "../../styles/components/CV.module.css";
+import { useRef, useEffect } from "react";
+import { detectIntersection } from "../../utils/utils";
+import { ResumeProps } from "../../types/cv-types";
+import { resume } from "../../data/cv-data";
+import CustomLink from "../layout/CustomLink";
+import styles from "../../styles/components/Resume.module.css";
 
-type ResumeProps = {
-    resume: ResumeType;
-};
+export default function Resume({
+	className = "",
+	id = "",
+	...otherProps
+}: ResumeProps) {
+	const sectionRef = useRef<HTMLElement>(null);
+	const classes = [
+		"section",
+		"hide-until-intersected",
+		styles["resume"],
+		...className.trim().split(" "),
+	]
+		.filter((c) => c)
+		.join(" ");
 
-export default function Resume(props: ResumeProps) {
-    const siteContext = useContext(SiteContext);
-    const resume = props.resume.docUrl;
+	useEffect(() => {
+		const section = sectionRef.current as HTMLElement;
+		const io = detectIntersection(section);
 
-    return (
-        <section className={`section ${styles.resume}`} id="resume">
-            <div className="wrapper wrapper--content">
-                <div className={styles["resume__title-row"]}>
-                    <h2 className={`underline underline--center ${styles["resume__title"]}`}>R&eacute;sum&eacute;</h2>
+		return () => {
+			io.disconnect();
+		};
+	}, []);
 
-                    <div className={styles["resume__button-cont"]}>
-                        <a
-                            className="button button--primary button--download"
-                            href={resume}
-                            download
-                            tabIndex={siteContext.navOpen ? -1 : undefined}
-                        >
-                            Download
-                        </a>
-                    </div>
-                </div>
+	return (
+		<section
+			className={classes}
+			id="resume"
+			ref={sectionRef}
+			{...otherProps}
+		>
+			<div className="wrapper wrapper--content">
+				<div className="title-row">
+					<h2 className="underline">R&eacute;sum&eacute;</h2>
 
-                {props.resume.items.map((item, index) => {
-                    return (
-                        <CVItem
-                            key={index}
-                            title={item.heading}
-                            content={item.content}
-                            showHR={index + 1 < props.resume.items.length}
-                        />
-                    );
-                })}
-            </div>
-        </section>
-    );
+					<CustomLink
+						className="button button--primary button--download"
+						to={resume.docUrl}
+						download
+					>
+						Download
+					</CustomLink>
+				</div>
+
+				<div className={styles["resume__grid"]}>
+					{resume.items.map((item) => {
+						return (
+							<div
+								key={item.name}
+								className={`content-box ${styles["resume__item"]}`}
+							>
+								<h3>{item.heading}</h3>
+
+								<div className={styles["resume__subgrid"]}>
+									{item.subItems.map((subitem, index) => {
+										const hasTitle =
+											!!subitem.period ||
+											!!subitem.position ||
+											!!subitem.company ||
+											!!subitem.title;
+
+										return (
+											<div
+												key={`${item.name}-subitem-${index}`}
+												className={
+													styles["resume__subitem"]
+												}
+											>
+												{hasTitle && (
+													<h4
+														className={
+															styles[
+																"resume__subitem-title"
+															]
+														}
+													>
+														{!!subitem.period &&
+															subitem.period}
+														{!!subitem.position && (
+															<div>
+																<span
+																	className={
+																		styles[
+																			"resume__highlight"
+																		]
+																	}
+																>
+																	{
+																		subitem.position
+																	}
+																</span>
+															</div>
+														)}
+														{!!subitem.company &&
+															subitem.company}
+														{!!subitem.title && (
+															<div>
+																<span
+																	className={
+																		styles[
+																			"resume__highlight"
+																		]
+																	}
+																>
+																	{
+																		subitem.title
+																	}
+																</span>
+															</div>
+														)}
+													</h4>
+												)}
+
+												{!!subitem.content && (
+													<div
+														className={
+															styles[
+																"resume__content"
+															]
+														}
+													>
+														{subitem.content}
+													</div>
+												)}
+											</div>
+										);
+									})}
+								</div>
+							</div>
+						);
+					})}
+				</div>
+			</div>
+		</section>
+	);
 }
