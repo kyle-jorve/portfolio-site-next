@@ -31,6 +31,7 @@ export default function DetailSlide({
 	return (
 		<div
 			className={classes}
+			data-detail-slide
 			{...otherProps}
 		>
 			{!!image.path && (

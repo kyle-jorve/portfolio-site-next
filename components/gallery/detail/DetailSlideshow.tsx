@@ -24,22 +24,35 @@ export default function DetailSlideshow({
 
 	useEffect(() => {
 		const sliderOptions: Partial<Glide.Options> = {
-			gap: 12,
+			gap: 0,
 			animationTimingFunc: "ease",
 		};
 		const slider = new Glide(glideRef.current!, sliderOptions);
+		const slides = Array.from(
+			document.querySelectorAll("[data-detail-slide]"),
+		);
 		const bullets = Array.from(
 			document.querySelectorAll("[data-showcase-slider-dot]"),
 		);
 
 		slider.on("run.before", () => {
-			if (!bullets.length) return;
-			bullets[slider.index].classList.remove("slider-dot--active");
+			slides[slider.index].classList.remove(
+				styles["showcase__slide--active"],
+			);
+
+			if (bullets.length) {
+				bullets[slider.index].classList.remove("slider-dot--active");
+			}
 		});
 
 		slider.on("run", () => {
-			if (!bullets.length) return;
-			bullets[slider.index].classList.add("slider-dot--active");
+			slides[slider.index].classList.add(
+				styles["showcase__slide--active"],
+			);
+
+			if (bullets.length) {
+				bullets[slider.index].classList.add("slider-dot--active");
+			}
 		});
 
 		slider.mount();
@@ -82,6 +95,11 @@ export default function DetailSlideshow({
 					{galleryItem.detailKeys.map((key, index) => {
 						return (
 							<DetailSlide
+								className={
+									index === 0
+										? styles["showcase__slide--active"]
+										: ""
+								}
 								key={`${galleryItem.name}-slide-${index}`}
 								image={key}
 								name={galleryItem.name}
