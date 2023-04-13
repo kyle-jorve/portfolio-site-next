@@ -1,5 +1,4 @@
-import { useState, useRef, useEffect, useContext } from "react";
-import SiteContext from "../../context/global";
+import { useState, useRef, useEffect } from "react";
 import { HomeHeroProps } from "../../types/global-types";
 import { heroImage } from "../../data/home-data";
 import CustomLink from "./CustomLink";
@@ -12,7 +11,6 @@ export default function HomeHero({
 }: HomeHeroProps) {
 	const [animationStarted, setAnimationStarted] = useState(false);
 	const [animationComplete, setAnimationComplete] = useState(false);
-	const context = useContext(SiteContext);
 	const contentRef = useRef<HTMLDivElement>(null);
 	const imageRef = useRef<HTMLDivElement>(null);
 	const preStyles = {
@@ -52,26 +50,42 @@ export default function HomeHero({
 			const content = contentRef.current as HTMLDivElement;
 			const image = imageRef.current as HTMLDivElement;
 			const contentOffset = {
-				top: content.getBoundingClientRect().top,
-				bottom: content.getBoundingClientRect().bottom,
-				height: content.offsetHeight,
+				top: content?.getBoundingClientRect().top,
+				bottom: content?.getBoundingClientRect().bottom,
+				height: content?.offsetHeight,
 			};
 			const imageOffset = {
-				top: image.getBoundingClientRect().top,
-				bottom: image.getBoundingClientRect().bottom,
-				height: image.offsetHeight,
+				top: image?.getBoundingClientRect().top,
+				bottom: image?.getBoundingClientRect().bottom,
+				height: image?.offsetHeight,
 			};
 			const breakpoint = 1024;
 
-			if (contentOffset.bottom <= 0 && imageOffset.bottom <= 0) return;
+			if (
+				contentOffset.bottom &&
+				contentOffset.bottom <= 0 &&
+				imageOffset.bottom &&
+				imageOffset.bottom <= 0
+			)
+				return;
 
 			if (window.innerWidth < breakpoint) {
-				[content, image].forEach((el) => (el.style.transform = ""));
+				[content, image].forEach((el) => {
+					if (el) {
+						el.style.transform = "";
+					}
+				});
 				return;
 			}
 
-			content.style.transform = `translateY(${window.scrollY * 0.2}px)`;
-			image.style.transform = `translateY(${window.scrollY * 0.125}px)`;
+			if (content)
+				content.style.transform = `translateY(${
+					window.scrollY * 0.2
+				}px)`;
+			if (image)
+				image.style.transform = `translateY(${
+					window.scrollY * 0.125
+				}px)`;
 		}
 
 		["resize", "orientationchange"].forEach((ev) =>
