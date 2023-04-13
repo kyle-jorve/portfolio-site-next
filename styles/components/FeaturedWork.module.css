@@ -42,11 +42,6 @@
 	pointer-events: all;
 }
 
-.featured__track:global(.glide__track),
-.featured__slides:global(.glide__slides) {
-	overflow: visible;
-}
-
 .featured__track {
 	position: relative;
 	z-index: 1;

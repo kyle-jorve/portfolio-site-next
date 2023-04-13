@@ -18,8 +18,6 @@ export default function FeaturedItem({
 	const classes = [
 		"has-load-indicator",
 		imageLoaded && "loaded",
-		styles["featured__slide"],
-		"glide__slide",
 		...className.trim().split(" "),
 	]
 		.filter((c) => c)
@@ -39,7 +37,6 @@ export default function FeaturedItem({
 	return (
 		<article
 			className={classes}
-			data-featured-slide
 			{...otherProps}
 		>
 			<span

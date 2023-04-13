@@ -14,7 +14,6 @@ export default function DetailSlide({
 		!image.source && "has-load-indicator",
 		!image.source && imageLoaded && "loaded",
 		styles["showcase__slide"],
-		"glide__slide",
 		...className.trim().split(" "),
 	]
 		.filter((c) => c)

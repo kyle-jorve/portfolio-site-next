@@ -1,13 +1,15 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FeaturedWorkProps } from "../../../types/gallery-types";
 import { detectIntersection } from "../../../utils/utils";
 import { items as galleryItems } from "../../../data/gallery-data";
 import { slideshowLimit } from "../../../data/home-data";
-import Glide from "@glidejs/glide";
+import { A11y } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import type { Swiper as SwiperType } from "swiper/types";
 import FeaturedItem from "./FeaturedItem";
 import CustomLink from "../../layout/CustomLink";
 import Button from "../../layout/Button";
-import "@glidejs/glide/dist/css/glide.core.min.css";
+import "swiper/css";
 import styles from "../../../styles/components/FeaturedWork.module.css";
 
 export default function FeaturedWork({
@@ -16,7 +18,8 @@ export default function FeaturedWork({
 	...otherProps
 }: FeaturedWorkProps) {
 	const sectionRef = useRef<HTMLElement>(null);
-	const glideRef = useRef<HTMLDivElement>(null);
+	const sliderRef = useRef<SwiperType>();
+	const [activeIndex, setActiveIndex] = useState(0);
 	const featuredItems = galleryItems
 		.filter((item) => item.featured)
 		.slice(0, slideshowLimit);
@@ -32,73 +35,10 @@ export default function FeaturedWork({
 		.join(" ");
 
 	useEffect(() => {
-		const sliderOptions: Partial<Glide.Options> = {
-			perView: 4,
-			gap: 24,
-			peek: {
-				before: 200,
-				after: 310,
-			},
-			animationTimingFunc: "ease",
-			breakpoints: {
-				2175: {
-					perView: 3,
-					gap: 24,
-					peek: {
-						before: 200,
-						after: 310,
-					},
-				},
-				1439: {
-					perView: 3,
-					gap: 24,
-					peek: {
-						before: 40,
-						after: 60,
-					},
-				},
-				1023: {
-					perView: 2,
-					gap: 0,
-					peek: 60,
-				},
-				639: {
-					perView: 1,
-					gap: 0,
-					peek: 44,
-				},
-			},
-		};
-		const slider = new Glide(glideRef.current!, sliderOptions);
-		const slides = Array.from(
-			document.querySelectorAll("[data-featured-slide]"),
-		);
-		const bullets = Array.from(
-			document.querySelectorAll("[data-featured-slider-dot]"),
-		);
 		const section = sectionRef.current as HTMLElement;
 		const io = detectIntersection(section);
 
-		slider.on("run.before", () => {
-			slides[slider.index].classList.remove(
-				styles["featured__slide--active"],
-			);
-
-			bullets[slider.index].classList.remove("slider-dot--active");
-		});
-
-		slider.on("run", () => {
-			slides[slider.index].classList.add(
-				styles["featured__slide--active"],
-			);
-
-			bullets[slider.index].classList.add("slider-dot--active");
-		});
-
-		slider.mount();
-
 		return () => {
-			slider.destroy();
 			io.disconnect();
 		};
 	}, []);
@@ -117,45 +57,62 @@ export default function FeaturedWork({
 					Featured Work
 				</h2>
 
-				<div
-					className={`glide ${styles["featured__slider"]}`}
-					ref={glideRef}
-				>
-					<div
-						className={`glide__arrows ${styles["featured__arrows"]}`}
-						data-glide-el="controls"
-					>
+				<div className={styles["featured__slider"]}>
+					<div className={styles["featured__arrows"]}>
 						<Button
-							className={`${styles["featured__arrow"]} glide__arrow glide__arrow--left arrow-button arrow-button--left`}
+							className={`${styles["featured__arrow"]} arrow-button arrow-button--left`}
 							aria-label="move slideshow left"
-							data-glide-dir="<"
+							onClick={() => sliderRef.current?.slidePrev()}
 						></Button>
 
 						<Button
-							className={`${styles["featured__arrow"]} glide__arrow glide__arrow--right arrow-button arrow-button--right`}
-							data-glide-dir=">"
+							className={`${styles["featured__arrow"]} arrow-button arrow-button--right`}
 							aria-label="move slideshow right"
+							onClick={() => sliderRef.current?.slideNext()}
 						></Button>
 					</div>
 
-					<div
-						className={`${styles["featured__track"]} glide__track`}
-						data-glide-el="track"
+					<Swiper
+						slidesPerView={4.66}
+						centeredSlides={false}
+						spaceBetween={24}
+						rewind={true}
+						slideActiveClass={styles["featured__slide--active"]}
+						wrapperClass={styles["featured__track"]}
+						modules={[A11y]}
+						onBeforeInit={(swiper) => (sliderRef.current = swiper)}
+						onActiveIndexChange={(swiper) =>
+							setActiveIndex(swiper.realIndex)
+						}
+						breakpoints={{
+							640: {
+								slidesPerView: 2.66,
+								centeredSlides: true,
+							},
+							1024: {
+								slidesPerView: 3.66,
+								spaceBetween: 24,
+								centeredSlides: false,
+							},
+							1440: {
+								slidesPerView: 3.66,
+								spaceBetween: 24,
+								centeredSlides: false,
+							},
+							2176: {
+								slidesPerView: 4.66,
+								spaceBetween: 24,
+								centeredSlides: false,
+							},
+						}}
 					>
-						<div
-							className={`${styles["featured__slides"]} glide__slides`}
-						>
-							{featuredItems.map((item, index) => {
-								return (
+						{featuredItems.map((item) => {
+							return (
+								<SwiperSlide
+									key={item.name}
+									className={styles["featured__slide"]}
+								>
 									<FeaturedItem
-										className={
-											index === 0
-												? styles[
-														"featured__slide--active"
-												  ]
-												: undefined
-										}
-										key={item.name}
 										name={item.name}
 										title={item.title}
 										year={item.year}
@@ -166,25 +123,28 @@ export default function FeaturedWork({
 											) === 0
 										}
 									/>
-								);
-							})}
-						</div>
-					</div>
+								</SwiperSlide>
+							);
+						})}
+					</Swiper>
 
 					<div
-						className={`${styles["featured__bullets"]} slider-dots glide__bullets`}
-						data-glide-el="controls[nav]"
+						className={`${styles["featured__bullets"]} slider-dots`}
 					>
 						{featuredItems.map((item, index) => {
 							return (
 								<Button
 									key={item.name}
-									data-featured-slider-dot
 									className={`slider-dot${
-										index === 0 ? ` slider-dot--active` : ""
-									} glide__bullet`}
+										index === activeIndex
+											? ` slider-dot--active`
+											: ""
+									}`}
 									aria-label={`go to slide ${index + 1}`}
-									data-glide-dir={`=${index}`}
+									onClick={() => {
+										sliderRef.current?.slideTo(index);
+										setActiveIndex(index);
+									}}
 								></Button>
 							);
 						})}
