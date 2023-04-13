@@ -34,7 +34,7 @@ export default function Layout(props: React.PropsWithChildren) {
 				{props.children}
 			</main>
 			<Footer aria-hidden={ariaHide} />
-			{siteContext.mobile && <MobileNavigation aria-hidden={ariaHide} />}
+			<MobileNavigation aria-hidden={ariaHide} />
 		</Fragment>
 	);
 }

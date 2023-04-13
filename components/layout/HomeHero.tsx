@@ -61,10 +61,11 @@ export default function HomeHero({
 				bottom: image.getBoundingClientRect().bottom,
 				height: image.offsetHeight,
 			};
+			const breakpoint = 1024;
 
 			if (contentOffset.bottom <= 0 && imageOffset.bottom <= 0) return;
 
-			if (context.mobile) {
+			if (window.innerWidth < breakpoint) {
 				[content, image].forEach((el) => (el.style.transform = ""));
 				return;
 			}
@@ -84,7 +85,7 @@ export default function HomeHero({
 			);
 			window.removeEventListener("scroll", scrollHandler);
 		};
-	}, [context.mobile, animationComplete]);
+	}, [animationComplete]);
 
 	function scrollIconClickHandler() {
 		const featuredWorkSection = document.querySelector("#featured-work");

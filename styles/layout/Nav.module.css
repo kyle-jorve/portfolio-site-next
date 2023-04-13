@@ -132,10 +132,15 @@
 /*=====----- HEADER NAV -----=====*/
 /*================================*/
 
-.nav {
+.nav,
+.nav__items {
 	display: flex;
 	align-items: center;
 	gap: 40px;
+}
+
+.nav__items {
+	display: none;
 }
 
 .nav__item,
@@ -205,6 +210,12 @@
 	.nav__expand:not(.nav__expand--open):hover::after {
 		transform: translateX(-50%);
 		opacity: 1;
+	}
+}
+
+@media (min-width: 64em) {
+	.nav__items {
+		display: flex;
 	}
 }
 
@@ -429,5 +440,11 @@
 	.mobile-nav {
 		inset: auto 16px 16px 16px;
 		padding: 0 24px 20px;
+	}
+}
+
+@media (min-width: 64em) {
+	.mobile-nav {
+		display: none;
 	}
 }

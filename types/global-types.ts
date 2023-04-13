@@ -42,7 +42,6 @@ export type SiteContextType = {
 	lightboxContent: JSX.Element | null;
 	lightboxStatus: "closed" | "open" | "out";
 	loadStatus: "idle" | "page-out" | "page-in";
-	mobile: boolean;
 
 	closeLightbox: Function;
 	openLightbox: Function;

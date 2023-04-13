@@ -24,31 +24,29 @@ export default function HeaderNavigation({
 			className={classes}
 			{...otherProps}
 		>
-			{!siteContext.mobile && (
-				<Fragment>
-					{navItems.map((item) => {
-						if ("childItems" in item) {
-							return (
-								<ParentNavItem
-									key={item.id}
-									id={item.id}
-									label={item.label}
-									childItems={item.childItems}
-								/>
-							);
-						}
-
+			<div className={styles["nav__items"]}>
+				{navItems.map((item) => {
+					if ("childItems" in item) {
 						return (
-							<NavItem
-								key={item.pageID}
-								url={item.url}
-							>
-								{item.pageName}
-							</NavItem>
+							<ParentNavItem
+								key={item.id}
+								id={item.id}
+								label={item.label}
+								childItems={item.childItems}
+							/>
 						);
-					})}
-				</Fragment>
-			)}
+					}
+
+					return (
+						<NavItem
+							key={item.pageID}
+							url={item.url}
+						>
+							{item.pageName}
+						</NavItem>
+					);
+				})}
+			</div>
 
 			<CustomLink
 				className={`${styles["nav__cta"]} button button--secondary button--patreon`}
