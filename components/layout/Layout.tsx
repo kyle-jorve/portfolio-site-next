@@ -15,6 +15,12 @@ export default function Layout(props: React.PropsWithChildren) {
 		siteContext.loadStatus === "page-out" ? "out" : undefined;
 
 	useEffect(() => {
+		setTimeout(() => {
+			siteContext.setVisited(true);
+		}, 300);
+	}, []);
+
+	useEffect(() => {
 		siteContext.closeLightbox();
 		siteContext.setLoadStatus("page-in");
 

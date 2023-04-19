@@ -19,11 +19,11 @@
 	width: 100%;
 	max-width: var(--width-wide);
 	padding: 0 8px;
-	margin: 0 auto;
+	margin: 0 auto 40px;
 }
 
 .gallery__title {
-	margin-bottom: 0.4em;
+	margin: 0;
 }
 
 .gallery__grid {
@@ -60,6 +60,13 @@
 
 	.gallery__title-row {
 		padding: 0 24px;
+		margin-bottom: 64px;
+	}
+}
+
+@media (min-width: 90em) {
+	.gallery__title-row {
+		margin-bottom: 80px;
 	}
 }
 
