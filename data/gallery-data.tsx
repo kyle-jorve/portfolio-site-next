@@ -335,7 +335,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 						<CustomLink to="/gallery/pendrake/">
 							Pendrake Sommer
 						</CustomLink>
-						, Lord of Tersng
+						, Lord of Tersing
 					</small>
 				</cite>
 			</blockquote>
