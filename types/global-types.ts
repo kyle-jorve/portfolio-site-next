@@ -1,4 +1,4 @@
-import React, {AnchorHTMLAttributes} from "react";
+import React, { AnchorHTMLAttributes } from "react";
 
 // ----- DATA TYPES ----- //
 
@@ -15,7 +15,7 @@ export type ImageDataType = {
 
 export type SocialMediaType = {
 	url: string;
-	type: 'standard' | 'commerce';
+	type: "standard" | "commerce";
 	icon?: JSX.Element;
 	label?: string;
 };
@@ -42,26 +42,31 @@ export type SiteContextType = {
 	lightboxContent: JSX.Element | null;
 	lightboxStatus: "closed" | "open" | "out";
 	loadStatus: "idle" | "page-out" | "page-in";
+	visited: boolean;
 
 	closeLightbox: Function;
 	openLightbox: Function;
 	setLoadStatus: Function;
-}
+	setVisited: Function;
+};
 
 // ----- COMPONENT PROPS ----- //
 
 export type CustomLinkProps = {
 	to: string;
 	onClick?: React.MouseEventHandler;
-} & React.PropsWithChildren & Exclude<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'>;
+} & React.PropsWithChildren &
+	Exclude<AnchorHTMLAttributes<HTMLAnchorElement>, "href">;
 
-export type ButtonProps = React.PropsWithChildren & React.HTMLAttributes<HTMLButtonElement>;
+export type ButtonProps = React.PropsWithChildren &
+	React.HTMLAttributes<HTMLButtonElement>;
 
 export type NavItemProps = {
 	url: string;
 	onClick?: React.MouseEventHandler;
 	isMobileNav?: boolean;
-} & React.PropsWithChildren & AnchorHTMLAttributes<HTMLAnchorElement>;
+} & React.PropsWithChildren &
+	AnchorHTMLAttributes<HTMLAnchorElement>;
 
 export type ParentNavItemProps = {
 	id: string;
