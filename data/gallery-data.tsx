@@ -346,6 +346,9 @@ export const items: galleryTypes.GalleryItemType[] = [
 			galleryTypes.characterCategories.samil,
 		],
 		thumb: thumbs.samilPortrait,
+		purchaseLink:
+			"https://www.inprnt.com/gallery/kylejorve/samil-sealee-portrait/",
+		downloadLink: "https://kylejorve.gumroad.com/l/oiciu",
 		detailKeys: [
 			thumbs.samilPortrait,
 			{
