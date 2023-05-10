@@ -700,7 +700,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 					the duke of Torencald. The trade agreements I meant to draft
 					between our duchies would have enriched the Sommers for
 					generations and made both us and the Jorings two of the most
-					powerful families in Dayle. I&apos;ve spent years building
+					powerful families in Daylen. I&apos;ve spent years building
 					to this point, and in a single evening you&apos;ve managed
 					to dash it all away. And for what, Pendrake? For a
 					gods-damned scullion? Your children and your children&apos;s
