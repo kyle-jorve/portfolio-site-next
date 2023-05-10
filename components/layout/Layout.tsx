@@ -31,7 +31,16 @@ export default function Layout(props: React.PropsWithChildren) {
 
 	return (
 		<Fragment>
-			<Header aria-hidden={ariaHide} />
+			<Header
+				style={
+					!siteContext.visited
+						? {
+								opacity: 0,
+						  }
+						: undefined
+				}
+				aria-hidden={ariaHide}
+			/>
 			<Lightbox />
 			<main
 				className={mainClasses}

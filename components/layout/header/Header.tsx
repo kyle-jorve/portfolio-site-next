@@ -7,11 +7,7 @@ import styles from "../../../styles/layout/Header.module.css";
 
 export default function Header({ className = "", ...otherProps }: HeaderProps) {
 	const context = useContext(SiteContext);
-	const classes = [
-		styles.header,
-		context.visited && styles["header--show"],
-		...className.trim().split(" "),
-	]
+	const classes = [styles.header, ...className.trim().split(" ")]
 		.filter((c) => c)
 		.join(" ");
 
