@@ -32,7 +32,7 @@ export const socialMedia: {
 	},
 	email: {
 		label: "Email",
-		url: "mailto:kyle@kylejorve.com",
+		url: "mailto:kyle.jorve.art@gmail.com",
 		type: "standard",
 	},
 	patreon: {
