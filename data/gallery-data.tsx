@@ -408,6 +408,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 		thumb: thumbs.caporPortrait,
 		purchaseLink:
 			"https://www.inprnt.com/gallery/kylejorve/capor-nils-portrait/",
+		downloadLink: "https://kylejorve.gumroad.com/l/wyvoml",
 		detailKeys: [
 			thumbs.caporPortrait,
 			{
@@ -455,6 +456,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 		],
 		thumb: thumbs.capor,
 		purchaseLink: "https://www.inprnt.com/gallery/kylejorve/capor-nils/",
+		downloadLink: "https://kylejorve.gumroad.com/l/tecdn",
 		detailKeys: [
 			thumbs.capor,
 			{
