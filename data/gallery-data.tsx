@@ -3,6 +3,26 @@ import * as galleryTypes from "../types/gallery-types";
 import CustomLink from "../components/layout/CustomLink";
 
 export const videos = {
+	caporPortrait: (
+		<iframe
+			width="1920"
+			height="1080"
+			src="https://www.youtube.com/embed/ydO9VW2aT5s?si=3e1YzgqXLKleBgyf"
+			title="YouTube video player"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+			allowFullScreen
+		></iframe>
+	),
+	capor: (
+		<iframe
+			width="1920"
+			height="1080"
+			src="https://www.youtube.com/embed/-eUG_JvJExo?si=LfgBQ2R3sma3HMyW"
+			title="YouTube video player"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+			allowFullScreen
+		></iframe>
+	),
 	samilPortrait: (
 		<iframe
 			width="1920"
@@ -158,6 +178,20 @@ export const videos = {
 export const thumbs: {
 	[index: string]: galleryTypes.ThumbnailKeyType;
 } = {
+	caporPortrait: {
+		path: "/images/gallery/capor-portrait/final/kyle-jorve_capor-portrait",
+		alt: "a portrait of Capor Nils",
+		width: 1920,
+		height: 2485,
+		orientation: "center",
+	},
+	capor: {
+		path: "/images/gallery/capor/final/kyle-jorve_capor",
+		alt: "a vignette of Capor Nils, striding confidently with sword in hand",
+		width: 1920,
+		height: 2936,
+		orientation: "top",
+	},
 	samilPortrait: {
 		path: "/images/gallery/samil-portrait/final/kyle-jorve_samil-portrait",
 		alt: "a portrait of Samil Sealee",
@@ -315,6 +349,143 @@ export const thumbs: {
 };
 
 export const items: galleryTypes.GalleryItemType[] = [
+	{
+		name: "capor-portrait",
+		title: "Capor Nils Portrait",
+		year: 2023,
+		content: (
+			<blockquote className="blockquote">
+				<p>
+					During a night's visit to the infirmary, I overheard a red
+					priest speaking with my father about the Lieutenant Capor
+					Nils' condition. Despite their greatest efforts, the
+					physickers were convinced that the lieutenant's time would
+					come soon, as death had already come for many of his
+					comrades. They warned my father of this, and told him of the
+					unimaginable pain Nils was enduring. And so my father made a
+					difficult but necessary choice.
+				</p>
+
+				<p>
+					He visited Lieutenant Nils every day after that. Encouraged
+					him to speak, to rest, to eat, and ensured that he was given
+					as much comfort as the physickers could afford him. If the
+					priests lacked for anything—supplies, food, bedding—my
+					father personally ensured that the need was filled.
+				</p>
+
+				<p>
+					When the lieutenant finally rose from his sickbed one
+					morning, it was said that my father's visits had lifted him
+					from the mire of death. The physickers had played their
+					part, but the duke's attention had given Nils the motivation
+					to fight through his ails.
+				</p>
+
+				<p>
+					Following his miraculous recovery, and for his bravery in
+					the battle to reclaim the mines, my father honored Nils with
+					a promotion to captain. From that point onward Nils was ever
+					my father's man, as near an extension of him as was my
+					father's own sword.
+				</p>
+				<cite className="cite">
+					<small>
+						&mdash;
+						<CustomLink to="/gallery/pendrake/">
+							Pendrake Sommer
+						</CustomLink>
+						, Lord of Tersing
+					</small>
+				</cite>
+			</blockquote>
+		),
+		featured: false,
+		categories: [
+			galleryTypes.projectCategories.ignobleBlood,
+			galleryTypes.characterCategories.capor,
+		],
+		thumb: thumbs.caporPortrait,
+		purchaseLink:
+			"https://www.inprnt.com/gallery/kylejorve/capor-nils-portrait/",
+		detailKeys: [
+			thumbs.caporPortrait,
+			{
+				path: "/images/gallery/capor-portrait/wip-1/kyle-jorve_capor-portrait-wip-1",
+				alt: `a progress snapshot of Capor Nils' Portrait in which the line drawing is complete`,
+			},
+			{
+				path: "/images/gallery/capor-portrait/wip-2/kyle-jorve_capor-portrait-wip-2",
+				alt: `a progress snapshot of Capor Nils' Portrait in which the local colors have been applied`,
+			},
+			{
+				path: "/images/gallery/capor-portrait/wip-3/kyle-jorve_capor-portrait-wip-3",
+				alt: `a progress snapshot of Capor Nils' Portrait in which the lights and shadows have been applied and colorized`,
+			},
+			{
+				path: "/images/gallery/capor-portrait/wip-4/kyle-jorve_capor-portrait-wip-4",
+				alt: `a progress snapshot of Capor Nils' Portrait in which the painting is nearly finished`,
+			},
+			{
+				source: videos.caporPortrait,
+			},
+		],
+	},
+	{
+		name: "capor",
+		title: "Capor Nils",
+		year: 2023,
+		content: (
+			<p>
+				Capor Nils is a member of the first battalion to be sent out
+				against the Sylranian incursion into Auerstel. He is gravely
+				wounded in the fighting, and during his stay in the infirmary of
+				Auerstel Castle he is frequently visited by{" "}
+				<CustomLink to="/gallery/andel">Duke Andel Sommer</CustomLink>.
+				This firms his devotion to the duke, and when he finally
+				recovers he is promoted to the position of captain for his
+				bravery. Captain Nils becomes, at that point, a staunch loyalist
+				to Duke Andel Sommer.
+			</p>
+		),
+		featured: true,
+		categories: [
+			galleryTypes.projectCategories.ignobleBlood,
+			galleryTypes.characterCategories.capor,
+		],
+		thumb: thumbs.capor,
+		purchaseLink: "https://www.inprnt.com/gallery/kylejorve/capor-nils/",
+		detailKeys: [
+			thumbs.capor,
+			{
+				path: "/images/gallery/capor/wip-1/kyle-jorve_capor-wip-1",
+				alt: `a progress snapshot of Capor's vignette in which the line drawing is complete`,
+				width: 1920,
+				height: 2936,
+			},
+			{
+				path: "/images/gallery/capor/wip-2/kyle-jorve_capor-wip-2",
+				alt: `a progress snapshot of Capor's vignette in which the local colors have been applied`,
+				width: 1920,
+				height: 2936,
+			},
+			{
+				path: "/images/gallery/capor/wip-3/kyle-jorve_capor-wip-3",
+				alt: `a progress snapshot of Capor's vignette in which the lights and shadows have been applied and colorized`,
+				width: 1920,
+				height: 2936,
+			},
+			{
+				path: "/images/gallery/capor/wip-4/kyle-jorve_capor-wip-4",
+				alt: `a progress snapshot of Capor's vignette in which the painting is nearly finished`,
+				width: 1920,
+				height: 2936,
+			},
+			{
+				source: videos.capor,
+			},
+		],
+	},
 	{
 		name: "samil-portrait",
 		title: "Samil Sealee Portrait",

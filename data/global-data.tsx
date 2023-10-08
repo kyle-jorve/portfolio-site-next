@@ -81,6 +81,11 @@ export const nav: NavType = [
 				pageName: "Shop Digital",
 				url: "https://kylejorve.gumroad.com/",
 			},
+			{
+				pageID: "subscribe",
+				pageName: "Subscribe",
+				url: "https://www.patreon.com/kylejorve",
+			},
 		],
 	},
 	{

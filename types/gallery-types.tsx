@@ -18,6 +18,10 @@ export const projectCategories = {
 } as const;
 
 export const characterCategories = {
+	capor: {
+		name: "capor",
+		label: "Capor Nils",
+	},
 	samil: {
 		name: "samil",
 		label: "Samil Sealee",
@@ -114,8 +118,8 @@ export type GalleryItemType = {
 	thumb: ThumbnailKeyType;
 	detailKeys: DetailKeyType[];
 	categories?: (
-		| typeof projectCategories[keyof typeof projectCategories]
-		| typeof characterCategories[keyof typeof characterCategories]
+		| (typeof projectCategories)[keyof typeof projectCategories]
+		| (typeof characterCategories)[keyof typeof characterCategories]
 	)[];
 	featured?: boolean;
 } & GalleryItemContent;

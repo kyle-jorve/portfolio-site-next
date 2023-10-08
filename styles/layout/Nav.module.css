@@ -72,12 +72,14 @@
 .mobile-nav__child--youtube,
 .mobile-nav__child--shop-prints,
 .mobile-nav__child--shop-digital,
+.mobile-nav__child--subscribe,
 .nav__item--artstation,
 .nav__item--instagram,
 .nav__item--tumblr,
 .nav__item--youtube,
 .nav__item--shop-prints,
-.nav__item--shop-digital {
+.nav__item--shop-digital,
+.nav__item--subscribe {
 	display: grid;
 	grid-template-columns: 22px minmax(0, 1fr);
 	align-items: center;
@@ -126,6 +128,11 @@
 .mobile-nav__child--shop-digital::before,
 .nav__item--shop-digital::before {
 	content: "\f0c7";
+}
+
+.mobile-nav__child--subscribe::before,
+.nav__item--subscribe::before {
+	content: "\f3d9";
 }
 
 /*================================*/
