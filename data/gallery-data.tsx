@@ -1726,11 +1726,11 @@ export const items: galleryTypes.GalleryItemType[] = [
 export const videoGallery: galleryTypes.VideoGalleryType = {
 	items: [
 		{
-			name: "samil-portrait",
-			title: "Samil Sealee Portrait",
-			year: items.find((item) => item.name === "samil-portrait")!.year,
-			poster: thumbs.samilPortrait,
-			video: videos.samilPortrait,
+			name: "capor",
+			title: "Capor Nils",
+			year: items.find((item) => item.name === "capor")!.year,
+			poster: thumbs.capor,
+			video: videos.capor,
 		},
 		{
 			name: "samil",
