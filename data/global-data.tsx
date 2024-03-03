@@ -1,5 +1,6 @@
 import { SocialMediaType, NavType, NavItemType } from "../types/global-types";
 import GumroadIcon from "../components/icons/Gumroad";
+import BlueskyIcon from "../components/icons/Bluesky";
 
 export const transitions = {
 	delay: 100,
@@ -18,6 +19,12 @@ export const socialMedia: {
 	instagram: {
 		label: "Instagram",
 		url: "https://www.instagram.com/kylejorve/",
+		type: "standard",
+	},
+	bluesky: {
+		label: "Bluesky",
+		icon: <BlueskyIcon />,
+		url: "https://bsky.app/profile/kylejorve.bsky.social",
 		type: "standard",
 	},
 	tumblr: {
@@ -102,6 +109,11 @@ export const nav: NavType = [
 				pageID: "instagram",
 				pageName: "Instagram",
 				url: socialMedia.instagram.url,
+			},
+			{
+				pageID: "bluesky",
+				pageName: "Bluesky",
+				url: socialMedia.bluesky.url,
 			},
 			{
 				pageID: "tumblr",

@@ -68,6 +68,7 @@
 
 .mobile-nav__child--artstation,
 .mobile-nav__child--instagram,
+.mobile-nav__child--bluesky,
 .mobile-nav__child--tumblr,
 .mobile-nav__child--youtube,
 .mobile-nav__child--shop-prints,
@@ -75,6 +76,7 @@
 .mobile-nav__child--subscribe,
 .nav__item--artstation,
 .nav__item--instagram,
+.nav__item--bluesky,
 .nav__item--tumblr,
 .nav__item--youtube,
 .nav__item--shop-prints,
@@ -108,6 +110,15 @@
 .mobile-nav__child--instagram::before,
 .nav__item--instagram::before {
 	content: "\f16d";
+}
+
+.mobile-nav__child--bluesky::before,
+.nav__item--bluesky::before {
+	width: 100%;
+	height: 1em;
+	content: "";
+	background: url("/images/icons-logos/bluesky-logo.svg") no-repeat center
+		center / contain;
 }
 
 .mobile-nav__child--tumblr::before,
