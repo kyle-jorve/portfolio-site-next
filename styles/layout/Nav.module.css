@@ -150,7 +150,6 @@
 /*=====----- HEADER NAV -----=====*/
 /*================================*/
 
-.nav,
 .nav__items {
 	display: flex;
 	align-items: center;
@@ -203,6 +202,16 @@
 	display: none;
 }
 
+.nav__parent:last-child .nav__dropdown {
+	inset: auto 0 -16px auto;
+	transform: translateY(calc(100% + 16px));
+}
+
+.nav__parent:last-child .nav__dropdown::before {
+	inset: 0 38px auto auto;
+	transform: translateY(-50%) rotate(45deg);
+}
+
 /*----- open dropdown -----*/
 
 .nav__expand--open::before {
@@ -212,6 +221,10 @@
 
 .nav__dropdown--open {
 	transform: translate(-50%, 100%);
+}
+
+.nav__parent:last-child .nav__dropdown--open {
+	transform: translateY(100%);
 }
 
 /*----- active nav item -----*/

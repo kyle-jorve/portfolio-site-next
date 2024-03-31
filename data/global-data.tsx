@@ -42,18 +42,13 @@ export const socialMedia: {
 		url: "mailto:kyle.jorve.art@gmail.com",
 		type: "standard",
 	},
-	patreon: {
-		label: "Patreon",
-		url: "https://www.patreon.com/kylejorve",
-		type: "commerce",
-	},
 	shop: {
 		label: "Print Shop",
 		url: "https://www.inprnt.com/gallery/kylejorve/",
 		type: "commerce",
 	},
 	gumroad: {
-		label: "Gumroad Shop",
+		label: "Digital Shop",
 		icon: <GumroadIcon />,
 		url: "https://gumroad.com/kylejorve",
 		type: "commerce",
@@ -87,11 +82,6 @@ export const nav: NavType = [
 				pageID: "shop-digital",
 				pageName: "Shop Digital",
 				url: "https://kylejorve.gumroad.com/",
-			},
-			{
-				pageID: "subscribe",
-				pageName: "Subscribe",
-				url: "https://www.patreon.com/kylejorve",
 			},
 		],
 	},
@@ -128,9 +118,3 @@ export const nav: NavType = [
 		],
 	},
 ];
-
-export const headerCTA: NavItemType = {
-	pageID: "patreon",
-	pageName: "Support My Work",
-	url: "https://www.patreon.com/kylejorve",
-};

@@ -62,7 +62,7 @@ export const resume: cvTypes.ResumeType = {
 					content: (
 						<Fragment>
 							<p>
-								Build front end components for a myriad of
+								Build front end components for a wide variety of
 								destination websites. Write performant,
 								sustainable code and undergo regular peer
 								review.

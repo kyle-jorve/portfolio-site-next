@@ -47,15 +47,6 @@ export default function HeaderNavigation({
 					);
 				})}
 			</div>
-
-			<CustomLink
-				className={`${styles["nav__cta"]} button button--secondary button--patreon`}
-				to={headerCTA.url}
-				target="_blank"
-				rel="noreferrer"
-			>
-				{headerCTA.pageName}
-			</CustomLink>
 		</nav>
 	);
 }
