@@ -1,7 +1,7 @@
 import { useContext, Fragment } from "react";
 import { HeaderNavigationProps } from "../../../types/global-types";
 import SiteContext from "../../../context/global";
-import { nav, headerCTA } from "../../../data/global-data";
+import { nav } from "../../../data/global-data";
 import NavItem from "./NavItem";
 import ParentNavItem from "./ParentNavItem";
 import CustomLink from "../CustomLink";
