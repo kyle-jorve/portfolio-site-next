@@ -27,11 +27,6 @@ export const socialMedia: {
 		url: "https://bsky.app/profile/kylejorve.bsky.social",
 		type: "standard",
 	},
-	tumblr: {
-		label: "Tumblr",
-		url: "https://kylejorve.tumblr.com/",
-		type: "standard",
-	},
 	youtube: {
 		label: "YouTube",
 		url: "https://www.youtube.com/@KyleJorve/videos",
@@ -104,11 +99,6 @@ export const nav: NavType = [
 				pageID: "bluesky",
 				pageName: "Bluesky",
 				url: socialMedia.bluesky.url,
-			},
-			{
-				pageID: "tumblr",
-				pageName: "Tumblr",
-				url: socialMedia.tumblr.url,
 			},
 			{
 				pageID: "youtube",
