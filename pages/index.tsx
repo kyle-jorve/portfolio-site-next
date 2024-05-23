@@ -6,11 +6,11 @@ import VideoGallery from "../components/gallery/video-gallery/VideoGallery";
 
 export default function Home() {
 	return (
-		<Fragment>
+		<>
 			<HomeHero />
 			<FeaturedWork />
 			<VideoGallery />
 			<Bio />
-		</Fragment>
+		</>
 	);
 }

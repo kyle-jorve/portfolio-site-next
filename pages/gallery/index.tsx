@@ -29,7 +29,7 @@ export default function GalleryPage() {
 
 	function toggleFilter(event: React.MouseEvent) {
 		const target = event.currentTarget as HTMLButtonElement;
-		const category = target.dataset.cat as typeof categoryNames[number];
+		const category = target.dataset.cat as (typeof categoryNames)[number];
 		let newFilters: typeof categoryNames;
 
 		setActiveFilters((prev) => {
@@ -85,7 +85,7 @@ export default function GalleryPage() {
 	}
 
 	return (
-		<Fragment>
+		<>
 			<Head>
 				<title key="title">
 					Gallery | Kyle Jorve | Illustration and Design
@@ -116,6 +116,6 @@ export default function GalleryPage() {
 			</section>
 
 			<VideoGallery />
-		</Fragment>
+		</>
 	);
 }

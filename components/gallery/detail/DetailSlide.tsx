@@ -35,7 +35,7 @@ export default function DetailSlide({
 			{...otherProps}
 		>
 			{!!image.path && (
-				<Fragment>
+				<>
 					<span
 						className="load-indicator"
 						aria-hidden="true"
@@ -62,7 +62,7 @@ export default function DetailSlide({
 							onLoad={() => setImageLoaded(true)}
 						/>
 					</picture>
-				</Fragment>
+				</>
 			)}
 
 			{!!image.source && image.source}

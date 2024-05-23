@@ -54,7 +54,7 @@ export default function GalleryDetail() {
 	};
 
 	return (
-		<Fragment>
+		<>
 			<Head>
 				<title key="title">
 					{galleryItem.title} by Kyle Jorve | Illustration and Design
@@ -94,6 +94,6 @@ export default function GalleryDetail() {
 					</div>
 				</div>
 			</section>
-		</Fragment>
+		</>
 	);
 }

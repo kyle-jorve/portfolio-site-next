@@ -4,7 +4,7 @@ import * as cvTypes from "../types/cv-types";
 export const bio: cvTypes.BioType = {
 	title: "About the Artist",
 	content: (
-		<Fragment>
+		<>
 			<p className="large-text">
 				Illustrator and designer Kyle Jorve has always been drawn to
 				stories of fantasy and science fiction.
@@ -24,7 +24,7 @@ export const bio: cvTypes.BioType = {
 				destination marketing company. In his free time he writes and
 				illustrates his fictional worlds into life.
 			</p>
-		</Fragment>
+		</>
 	),
 	img: {
 		sources: [
@@ -57,17 +57,17 @@ export const resume: cvTypes.ResumeType = {
 			subItems: [
 				{
 					period: "2021-Present",
-					position: "Front End Developer",
+					position: "Web Developer",
 					company: "Simpleview",
 					content: (
-						<Fragment>
+						<>
 							<p>
 								Build front end components for a wide variety of
 								destination websites. Write performant,
 								sustainable code and undergo regular peer
 								review.
 							</p>
-						</Fragment>
+						</>
 					),
 				},
 				{
@@ -75,7 +75,7 @@ export const resume: cvTypes.ResumeType = {
 					position: "Graphic and Web Designer, Front End Developer",
 					company: "Simply Bits / Desert Lab Studio",
 					content: (
-						<Fragment>
+						<>
 							<p>
 								Created print, web, and electronic marketing
 								materials for Simply Bits/Desert Lab Studio, its
@@ -106,7 +106,7 @@ export const resume: cvTypes.ResumeType = {
 								Bits&apos;/Desert Lab Studio&apos;s software
 								products.
 							</p>
-						</Fragment>
+						</>
 					),
 				},
 				{
