@@ -178,6 +178,13 @@ export const videos = {
 export const thumbs: {
 	[index: string]: galleryTypes.ThumbnailKeyType;
 } = {
+	belryanne: {
+		path: "/images/gallery/belryanne/final/kyle-jorve_belryanne",
+		alt: "a vignette of Belryanne Aesil, who stands in her greenhouse garden inspecting a nerveshy flower",
+		width: 1920,
+		height: 2834,
+		orientation: "center",
+	},
 	caporPortrait: {
 		path: "/images/gallery/capor-portrait/final/kyle-jorve_capor-portrait",
 		alt: "a portrait of Capor Nils",
@@ -349,6 +356,69 @@ export const thumbs: {
 };
 
 export const items: galleryTypes.GalleryItemType[] = [
+	{
+		name: "belryanne",
+		title: "The Herbalist",
+		year: 2024,
+		content: (
+			<blockquote className="blockquote">
+				<p>
+					A generation after Auerstel Castle had been built, my eighth
+					great-grandmother Catalena, the duchess at the time, had
+					reportedly hired a Mordünian architect to construct this
+					garden. The walls and ceiling were made entirely of plate
+					glass, suspended between great bars of iron. There were
+					three levels, each a little smaller than the one below it,
+					each with a slightly different climate. The higher you
+					climbed, the hotter and muggier it got, which allowed my
+					aunt Belryanne to grow a diversity of plants that was
+					uniquely broad.
+				</p>
+				<p>
+					In the time of the garden’s construction, it was a marvel of
+					fifth-century engineering. Thanks to the efforts of the
+					Delvers Guild, spaces like these were less of a rarity now,
+					but this one was still considered a singular wonder of
+					Tersing.
+				</p>
+				<cite className="cite">
+					<small>
+						&mdash;
+						<CustomLink to="/gallery/pendrake/">
+							Pendrake Sommer
+						</CustomLink>
+						, Lord of Tersing
+					</small>
+				</cite>
+			</blockquote>
+		),
+		featured: true,
+		categories: [
+			galleryTypes.projectCategories.ignobleBlood,
+			galleryTypes.characterCategories.belryanne,
+		],
+		thumb: thumbs.belryanne,
+		purchaseLink: "https://www.inprnt.com/gallery/kylejorve/the-herbalist/",
+		detailKeys: [
+			thumbs.belryanne,
+			{
+				path: "/images/gallery/belryanne/wip-1/kyle-jorve_belryanne-wip-1",
+				alt: `a progress snapshot of The Herbalist in which the line drawing is complete`,
+			},
+			{
+				path: "/images/gallery/belryanne/wip-2/kyle-jorve_belryanne-wip-2",
+				alt: `a progress snapshot of The Herbalist in which the backdrop landscape is complete`,
+			},
+			{
+				path: "/images/gallery/belryanne/wip-3/kyle-jorve_belryanne-wip-3",
+				alt: `a progress snapshot of The Herbalist in which the local colors of the character and surrounding environmnt have been applied`,
+			},
+			{
+				path: "/images/gallery/belryanne/wip-4/kyle-jorve_belryanne-wip-4",
+				alt: `a progress snapshot of The Herbalist in which the light and shadow have been applied and the piece is nearly finished`,
+			},
+		],
+	},
 	{
 		name: "capor-portrait",
 		title: "Capor Nils Portrait",

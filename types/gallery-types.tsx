@@ -18,6 +18,10 @@ export const projectCategories = {
 } as const;
 
 export const characterCategories = {
+	belryanne: {
+		name: "belryanne",
+		label: "Belryanne Aesil",
+	},
 	capor: {
 		name: "capor",
 		label: "Capor Nils",
