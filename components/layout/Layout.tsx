@@ -31,25 +31,33 @@ export default function Layout(props: React.PropsWithChildren) {
 
 	return (
 		<>
-			<Header
-				style={
-					!siteContext.visited
-						? {
-								opacity: 0,
-						  }
-						: undefined
-				}
-				aria-hidden={ariaHide}
-			/>
-			<Lightbox />
+			{!siteContext.hideNavigationElements && (
+				<>
+					<Header
+						style={
+							!siteContext.visited
+								? {
+										opacity: 0,
+								  }
+								: undefined
+						}
+						aria-hidden={ariaHide}
+					/>
+					<Lightbox />
+				</>
+			)}
 			<main
 				className={mainClasses}
 				aria-hidden={ariaHide}
 			>
 				{props.children}
 			</main>
-			<Footer aria-hidden={ariaHide} />
-			<MobileNavigation aria-hidden={ariaHide} />
+			{!siteContext.hideNavigationElements && (
+				<>
+					<Footer aria-hidden={ariaHide} />
+					<MobileNavigation aria-hidden={ariaHide} />
+				</>
+			)}
 		</>
 	);
 }

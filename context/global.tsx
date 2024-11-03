@@ -7,11 +7,13 @@ const SiteContext = React.createContext<SiteContextType>({
 	lightboxStatus: "closed",
 	loadStatus: "idle",
 	visited: false,
+	hideNavigationElements: false,
 
 	closeLightbox: () => {},
 	openLightbox: () => {},
 	setLoadStatus: () => {},
 	setVisited: () => {},
+	setHideNavigationElements: () => {},
 });
 
 export function SiteContextProvider(props: React.PropsWithChildren) {
@@ -23,6 +25,8 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
 		useState<SiteContextType["lightboxStatus"]>("closed");
 	const [lightboxContent, setLightboxContent] =
 		useState<SiteContextType["lightboxContent"]>(null);
+	const [hideNavigationElements, setHideNavigationElements] =
+		useState<SiteContextType["hideNavigationElements"]>(false);
 
 	//----- global utilities -----//
 
@@ -51,11 +55,13 @@ export function SiteContextProvider(props: React.PropsWithChildren) {
 				lightboxStatus,
 				loadStatus,
 				visited,
+				hideNavigationElements,
 
 				closeLightbox,
 				openLightbox,
 				setLoadStatus,
 				setVisited,
+				setHideNavigationElements,
 			}}
 		>
 			{props.children}

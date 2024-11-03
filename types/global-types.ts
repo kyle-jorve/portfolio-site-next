@@ -43,11 +43,13 @@ export type SiteContextType = {
 	lightboxStatus: "closed" | "open" | "out";
 	loadStatus: "idle" | "page-out" | "page-in";
 	visited: boolean;
+	hideNavigationElements?: boolean;
 
 	closeLightbox: Function;
 	openLightbox: Function;
 	setLoadStatus: Function;
 	setVisited: Function;
+	setHideNavigationElements: Function;
 };
 
 // ----- COMPONENT PROPS ----- //

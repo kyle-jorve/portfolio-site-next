@@ -1,0 +1,86 @@
+.links {
+	position: relative;
+	padding: 64px 16px;
+}
+
+.links__content {
+	max-width: 300px;
+	margin: 0 auto;
+}
+
+.links__header {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	margin-bottom: 2rem;
+}
+
+.links__logo {
+	width: 60px;
+}
+
+.links__title {
+	margin: 0;
+	font-size: 4rem;
+}
+
+.links__heading {
+	margin-bottom: 1rem;
+	font-size: 2.5rem;
+}
+
+.links__list {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: 1rem;
+	padding: 0;
+	margin: 0 0 4rem;
+	list-style: none;
+}
+
+.links__link {
+	display: flex;
+	width: 100%;
+}
+
+.links__link::before {
+	font: var(--fa-font-brands);
+}
+
+.links__link--shop::before,
+.links__link--website::before {
+	font: var(--fa-font-solid);
+}
+
+.links__link--shop::before {
+	content: "\f290";
+}
+
+.links__link--website::before {
+	content: "\f57d";
+}
+
+.links__link--artstation::before {
+	content: "\f77a";
+}
+
+.links__link--instagram::before {
+	content: "\f16d";
+}
+
+.links__link--tumblr::before {
+	content: "\f173";
+}
+
+.links__link--youtube::before {
+	content: "\f167";
+}
+
+.links__link--email::before {
+	content: "\40";
+}
+
+.links__link svg {
+	fill: currentColor;
+	height: 1em;
+}
