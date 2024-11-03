@@ -6,9 +6,11 @@ import bioStyles from "../styles/components/Bio.module.css";
 
 export default function CV() {
 	return (
-		<Fragment>
+		<>
 			<Head>
-				<title key="title">Curriculum Vitae | Kyle Jorve | Illustration and Design</title>
+				<title key="title">
+					Curriculum Vitae | Kyle Jorve | Illustration and Design
+				</title>
 			</Head>
 
 			<Bio
@@ -18,6 +20,6 @@ export default function CV() {
 			/>
 
 			<Resume />
-		</Fragment>
+		</>
 	);
 }

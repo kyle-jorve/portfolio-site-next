@@ -862,7 +862,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 		title: "Toval Argensente",
 		year: 2022,
 		content: (
-			<Fragment>
+			<>
 				<p>
 					<strong>Toval Argensente</strong> is a descendant of the
 					Norfeld, a tribal people who migrated south from the Ice
@@ -883,7 +883,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 					his lack of commitment as harshly as she would any other
 					soldier under her command.
 				</p>
-			</Fragment>
+			</>
 		),
 
 		featured: true,
@@ -997,7 +997,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 		title: "Andel Sommer",
 		year: 2022,
 		content: (
-			<Fragment>
+			<>
 				<p>
 					<strong>Andel Sommer</strong> is the duke of Tersing and
 					father to{" "}
@@ -1011,7 +1011,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 					Pendrake. Even so, he tries, often in vain, to mold his heir
 					into a worthy successor.
 				</p>
-			</Fragment>
+			</>
 		),
 
 		featured: true,
@@ -1121,7 +1121,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 		title: "Pendrake Sommer",
 		year: 2021,
 		content: (
-			<Fragment>
+			<>
 				<p>
 					<strong>Pendrake Sommer</strong> is the main protagonist of
 					the in-progress fantasy novel, <i>The Ashes of Hope</i>, and
@@ -1134,7 +1134,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 					duchy for the object of his affection, were he given the
 					chance.
 				</p>
-			</Fragment>
+			</>
 		),
 
 		featured: true,
@@ -1245,7 +1245,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 		title: "Talis Sommer",
 		year: 2021,
 		content: (
-			<Fragment>
+			<>
 				<p>
 					<strong>Talis Sommer</strong> is the twin sister of the{" "}
 					<CustomLink to="/gallery/pendrake">
@@ -1268,7 +1268,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 					pursues. Some have even speculated that she should be the
 					heir instead of her brother.
 				</p>
-			</Fragment>
+			</>
 		),
 
 		featured: true,
@@ -1428,7 +1428,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 		title: "Crow",
 		year: 2020,
 		content: (
-			<Fragment>
+			<>
 				<blockquote className="blockquote">
 					<p>
 						Have you met the boy? I&apos;d sooner take my chances
@@ -1459,7 +1459,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 					uninhabitable wastelands between cities, governments must
 					quell their conflicts by more surgical means.
 				</p>
-			</Fragment>
+			</>
 		),
 
 		featured: true,
@@ -1560,7 +1560,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 		title: "Berned",
 		year: 2017,
 		content: (
-			<Fragment>
+			<>
 				<blockquote className="blockquote">
 					<p>
 						I wouldn&apos;t call him a kind man, but he&apos;s
@@ -1590,7 +1590,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 					series protagonist, who at this point in the story has gone
 					strangely missing without a trace.
 				</p>
-			</Fragment>
+			</>
 		),
 
 		featured: true,
@@ -1608,7 +1608,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 		title: "Olfactory",
 		year: 2017,
 		content: (
-			<Fragment>
+			<>
 				<p>
 					<strong>
 						I have no idea why, but I love doing portraits of
@@ -1622,7 +1622,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 					senses. Threads stretching over the holes in its
 					&quot;face&quot; protect against contaminants as it inhales.
 				</p>
-			</Fragment>
+			</>
 		),
 		featured: true,
 		purchaseLink: "https://www.inprnt.com/gallery/kylejorve/olfactory/",
@@ -1635,7 +1635,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 		title: "Becoming Runa",
 		year: 2016,
 		content: (
-			<Fragment>
+			<>
 				<blockquote className="blockquote">
 					<p>
 						Fennory is gone, Bethany. Call him dead, and leave it at
@@ -1664,7 +1664,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 					outside their quiet town a greater threat, once thought
 					defeated, rises from the ashes.
 				</p>
-			</Fragment>
+			</>
 		),
 
 		featured: true,
@@ -1687,7 +1687,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 		title: "Crows",
 		year: 2016,
 		content: (
-			<Fragment>
+			<>
 				<blockquote className="blockquote">
 					<p>
 						The Ravens still exist, if you can believe it. Though
@@ -1715,7 +1715,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 					uninhabitable wastelands between cities, governments must
 					quell their conflicts by more surgical means.
 				</p>
-			</Fragment>
+			</>
 		),
 
 		categories: [
@@ -1732,7 +1732,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 		title: "The Future Doesn't Scare Me",
 		year: 2011,
 		content: (
-			<Fragment>
+			<>
 				<p>
 					<strong>
 						Part of a duology. Its companion,{" "}
@@ -1747,7 +1747,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 					<i>Kingdom Hearts</i> is copyrighted and owned by Disney and
 					Square Enix.
 				</p>
-			</Fragment>
+			</>
 		),
 
 		categories: [
@@ -1764,7 +1764,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 		title: "Where Fears and Lies Melt Away",
 		year: 2011,
 		content: (
-			<Fragment>
+			<>
 				<p>
 					<strong>
 						Part of a duology. Its companion,{" "}
@@ -1779,7 +1779,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 					<i>Kingdom Hearts</i> is copyrighted and owned by Disney and
 					Square Enix.
 				</p>
-			</Fragment>
+			</>
 		),
 
 		categories: [

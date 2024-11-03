@@ -30,7 +30,7 @@ export default function Layout(props: React.PropsWithChildren) {
 	}, [router.pathname, router.query.itemID]);
 
 	return (
-		<Fragment>
+		<>
 			<Header
 				style={
 					!siteContext.visited
@@ -50,6 +50,6 @@ export default function Layout(props: React.PropsWithChildren) {
 			</main>
 			<Footer aria-hidden={ariaHide} />
 			<MobileNavigation aria-hidden={ariaHide} />
-		</Fragment>
+		</>
 	);
 }

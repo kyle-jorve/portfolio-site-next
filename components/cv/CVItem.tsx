@@ -9,15 +9,13 @@ export default function CVItem({
 	...otherProps
 }: CVItemProps) {
 	return (
-		<Fragment>
+		<>
 			<div {...otherProps}>
-				<h3 className={styles["resume__item-title"]}>
-					{title}
-				</h3>
+				<h3 className={styles["resume__item-title"]}>{title}</h3>
 
 				{content}
 			</div>
 			{showHR && <hr className={styles["resume__hr"]} />}
-		</Fragment>
+		</>
 	);
 }
