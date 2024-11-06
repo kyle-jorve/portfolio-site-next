@@ -12,7 +12,6 @@ export default function HomeHero({
 }: HomeHeroProps) {
 	const [animationStarted, setAnimationStarted] = useState(false);
 	const [animationComplete, setAnimationComplete] = useState(false);
-	const context = useContext(SiteContext);
 	const contentRef = useRef<HTMLDivElement>(null);
 	const imageRef = useRef<HTMLDivElement>(null);
 	const preStyles = {
@@ -51,6 +50,9 @@ export default function HomeHero({
 		function scrollHandler() {
 			const content = contentRef.current as HTMLDivElement;
 			const image = imageRef.current as HTMLDivElement;
+
+			if (!content || !image) return;
+
 			const contentOffset = {
 				top: content.getBoundingClientRect().top,
 				bottom: content.getBoundingClientRect().bottom,

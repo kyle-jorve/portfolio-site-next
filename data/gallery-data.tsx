@@ -3,6 +3,16 @@ import * as galleryTypes from "../types/gallery-types";
 import CustomLink from "../components/layout/CustomLink";
 
 export const videos = {
+	belryanne: (
+		<iframe
+			width="1920"
+			height="1080"
+			src="https://www.youtube.com/embed/miG-HmuNgPo?si=J_NvAg3zFxLkC3fQ"
+			title="YouTube video player"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+			allowFullScreen
+		></iframe>
+	),
 	caporPortrait: (
 		<iframe
 			width="1920"
@@ -416,6 +426,9 @@ export const items: galleryTypes.GalleryItemType[] = [
 			{
 				path: "/images/gallery/belryanne/wip-4/kyle-jorve_belryanne-wip-4",
 				alt: `a progress snapshot of The Herbalist in which the light and shadow have been applied and the piece is nearly finished`,
+			},
+			{
+				source: videos.belryanne,
 			},
 		],
 	},
@@ -1795,6 +1808,13 @@ export const items: galleryTypes.GalleryItemType[] = [
 
 export const videoGallery: galleryTypes.VideoGalleryType = {
 	items: [
+		{
+			name: "belryanne",
+			title: "The Herbalist",
+			year: items.find((item) => item.name === "belryanne")!.year,
+			poster: thumbs.belryanne,
+			video: videos.belryanne,
+		},
 		{
 			name: "capor",
 			title: "Capor Nils",
