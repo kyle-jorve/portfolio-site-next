@@ -409,6 +409,7 @@ export const items: galleryTypes.GalleryItemType[] = [
 		],
 		thumb: thumbs.belryanne,
 		purchaseLink: "https://www.inprnt.com/gallery/kylejorve/the-herbalist/",
+		downloadLink: "https://kylejorve.gumroad.com/l/opodb",
 		detailKeys: [
 			thumbs.belryanne,
 			{
